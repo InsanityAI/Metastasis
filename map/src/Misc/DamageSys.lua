@@ -64,10 +64,10 @@ if k == 4.39 or k==6.53 or k==8.53 or k==0.0 then
 return
 endif
 //Force suit attack detection
-if GetUnitTypeId(a)=='h03L'  and (TimerGetElapsed(udg_GameTimer)-udg_ForceSuit_LastAttackTime[GetUnitAN(a)]==0.375 or TimerGetElapsed(udg_GameTimer)-udg_ForceSuit_LastAttackTime[GetUnitAN(a)]==0.5) then
-call ExecuteFunc("Trig_ForceSuitAttack_Actions")
-return
-endif
+//if GetUnitTypeId(a)=='h03L'  and (TimerGetElapsed(udg_GameTimer)-udg_ForceSuit_LastAttackTime[GetUnitAN(a)]==0.375 or TimerGetElapsed(udg_GameTimer)-udg_ForceSuit_LastAttackTime[GetUnitAN(a)]==0.5) then
+//call ExecuteFunc("Trig_ForceSuitAttack_Actions")
+//return
+//endif
 //
 
 if (GetOwningPlayer(a) == udg_Mutant or udg_Player_IsMutantSpawn[GetConvertedPlayerId(GetOwningPlayer(a))]) and r == udg_Playerhero[GetConvertedPlayerId(GetOwningPlayer(r))] and GetOwningPlayer(r) != udg_Mutant and udg_Player_IsMutantSpawn[GetConvertedPlayerId(GetOwningPlayer(r))] == false and RectContainsUnit(gg_rct_Space, r) == false then

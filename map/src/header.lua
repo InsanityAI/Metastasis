@@ -1,3 +1,4 @@
+native UnitAlive takes unit u returns boolean
 //TESH.scrollpos=1642
 //TESH.alwaysfold=0
 //The only time I ever had to use vJass!
@@ -2765,8 +2766,8 @@ endfunction
  
 function CinematicUnstuckConditionsKappa takes nothing returns boolean
     local player p=GetTriggerPlayer()
-    call RunCinematicUnstuck(p, true) // calls for a set of interface toggles onward
     call RunCinematicUnstuck(p, false) // calls for a set of interface toggles offward
+    call RunCinematicUnstuck(p, true) // calls for a set of interface toggles onward
     
     return true
 endfunction
