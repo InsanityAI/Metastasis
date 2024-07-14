@@ -1,1 +1,1 @@
-{"name":"Warpal","contentType":"TRIGGER_SCRIPTED","description":"or unit - starts an ability(events) (conditions)ability being equal to Warp Drain","isEnabled":true,"script":""}
+{"name":"Warpal","contentType":"TRIGGER_SCRIPTED","description":"or unit - starts an ability(events) (conditions)ability being equal to Warp Drain","isEnabled":true,"runOnMapInit":false,"script":""}

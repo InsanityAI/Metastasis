@@ -1,1 +1,1 @@
-{"name":"News","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"script":""}
+{"name":"News","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"runOnMapInit":false,"script":""}

@@ -1,1 +1,1 @@
-{"name":"HumanForm","contentType":"TRIGGER_SCRIPTED","description":"Human form for the alien.","isEnabled":true,"script":""}
+{"name":"HumanForm","contentType":"TRIGGER_SCRIPTED","description":"Human form for the alien.","isEnabled":true,"runOnMapInit":false,"script":""}

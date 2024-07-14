@@ -1,1 +1,1 @@
-{"name":"SentryGun","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":false,"script":""}
+{"name":"SentryGun","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":false,"runOnMapInit":false,"script":""}

@@ -1,1 +1,1 @@
-{"name":"Sound","contentType":"TRIGGER_SCRIPTED","description":"Plays that one sound and locks alliance setting. Additionally sets all players lumber to 0 to prevent score screen mutant/alien divination.","isEnabled":true,"script":""}
+{"name":"Sound","contentType":"TRIGGER_SCRIPTED","description":"Plays that one sound and locks alliance setting. Additionally sets all players lumber to 0 to prevent score screen mutant/alien divination.","isEnabled":true,"runOnMapInit":false,"script":""}

@@ -1,1 +1,1 @@
-{"name":"ST1Attack","contentType":"TRIGGER_SCRIPTED","description":"If the arbitress starts to take damage then add the alarm sound across the arbitress area.","isEnabled":true,"script":""}
+{"name":"ST1Attack","contentType":"TRIGGER_SCRIPTED","description":"If the arbitress starts to take damage then add the alarm sound across the arbitress area.","isEnabled":true,"runOnMapInit":false,"script":""}

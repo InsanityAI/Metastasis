@@ -1,8 +1,1 @@
-{
-    "name": "Init Cinematic Unstuck",
-    "contentType": "TRIGGER_SCRIPTED",
-    "description": "",
-    "isEnabled": true,
-    "runOnMapInit": true,
-    "script": ""
-}
+{"name":"Init Cinematic Unstuck","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"runOnMapInit":true,"script":""}

@@ -1,1 +1,1 @@
-{"name":"ATM","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"script":""}
+{"name":"ATM","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"runOnMapInit":false,"script":""}

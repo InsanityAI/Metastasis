@@ -1,1 +1,1 @@
-{"name":"SelectSpace","contentType":"TRIGGER_SCRIPTED","description":"The select space ability on most consoles that allow you to control a unit in space instantly jumps you from console to space.","isEnabled":true,"script":""}
+{"name":"SelectSpace","contentType":"TRIGGER_SCRIPTED","description":"The select space ability on most consoles that allow you to control a unit in space instantly jumps you from console to space.","isEnabled":true,"runOnMapInit":false,"script":""}

@@ -1,1 +1,1 @@
-{"name":"AmbientPower","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"script":""}
+{"name":"AmbientPower","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"runOnMapInit":false,"script":""}

@@ -1,1 +1,1 @@
-{"name":"AssemblyPlant","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"script":""}
+{"name":"AssemblyPlant","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"runOnMapInit":false,"script":""}

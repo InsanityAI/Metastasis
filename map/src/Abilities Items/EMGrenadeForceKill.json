@@ -1,1 +1,1 @@
-{"name":"EMGrenadeForceKill","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"script":""}
+{"name":"EMGrenadeForceKill","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"runOnMapInit":false,"script":""}

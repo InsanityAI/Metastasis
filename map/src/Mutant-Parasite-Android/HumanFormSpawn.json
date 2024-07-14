@@ -1,1 +1,1 @@
-{"name":"HumanFormSpawn","contentType":"TRIGGER_SCRIPTED","description":"Human form for spawns.","isEnabled":true,"script":""}
+{"name":"HumanFormSpawn","contentType":"TRIGGER_SCRIPTED","description":"Human form for spawns.","isEnabled":true,"runOnMapInit":false,"script":""}

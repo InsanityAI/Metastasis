@@ -1,1 +1,1 @@
-{"name":"DoorSys","contentType":"TRIGGER_SCRIPTED","description":"DoorSys holds the functions for doors- their opening, closing, and death functions are here. When a door dies do NOT try to revive it.","isEnabled":true,"script":""}
+{"name":"DoorSys","contentType":"TRIGGER_SCRIPTED","description":"DoorSys holds the functions for doors- their opening, closing, and death functions are here. When a door dies do NOT try to revive it.","isEnabled":true,"runOnMapInit":false,"script":""}

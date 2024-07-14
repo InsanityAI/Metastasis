@@ -1,1 +1,1 @@
-{"name":"Votekick","contentType":"TRIGGER_SCRIPTED","description":"Votekicks a dead player.","isEnabled":true,"script":""}
+{"name":"Votekick","contentType":"TRIGGER_SCRIPTED","description":"Votekicks a dead player.","isEnabled":true,"runOnMapInit":false,"script":""}

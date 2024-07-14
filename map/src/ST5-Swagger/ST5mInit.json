@@ -1,8 +1,1 @@
-{
-    "name": "ST5mInit",
-    "contentType": "TRIGGER_SCRIPTED",
-    "description": "",
-    "isEnabled": true,
-    "runOnMapInit": true,
-    "script": ""
-}
+{"name":"ST5mInit","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"runOnMapInit":true,"script":""}

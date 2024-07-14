@@ -1,1 +1,1 @@
-{"name":"AchievementsInit","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":false,"script":""}
+{"name":"AchievementsInit","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":false,"runOnMapInit":false,"script":""}

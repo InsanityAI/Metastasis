@@ -1,1 +1,1 @@
-{"name":"ParasiteUpgradeFinish","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"script":""}
+{"name":"ParasiteUpgradeFinish","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"runOnMapInit":false,"script":""}

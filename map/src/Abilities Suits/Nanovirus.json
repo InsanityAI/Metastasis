@@ -1,1 +1,1 @@
-{"name":"Nanovirus","contentType":"TRIGGER_SCRIPTED","description":" chain combo!!!!!(atk speed and eliminate debuffs) to do so give him abilities at start but remove them after a guard suit enters the game\r\n\r\ncheck if string dissapeaers\r\n","isEnabled":true,"script":""}
+{"name":"Nanovirus","contentType":"TRIGGER_SCRIPTED","description":" chain combo!!!!!(atk speed and eliminate debuffs) to do so give him abilities at start but remove them after a guard suit enters the game\r\n\r\ncheck if string dissapeaers\r\n","isEnabled":true,"runOnMapInit":false,"script":""}

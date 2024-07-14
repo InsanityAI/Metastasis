@@ -1,1 +1,1 @@
-{"name":"ElectromagneticDisruption","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"script":""}
+{"name":"ElectromagneticDisruption","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"runOnMapInit":false,"script":""}

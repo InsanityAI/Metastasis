@@ -1,1 +1,1 @@
-{"name":"orders","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":false,"script":""}
+{"name":"orders","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":false,"runOnMapInit":false,"script":""}

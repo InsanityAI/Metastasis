@@ -1,8 +1,1 @@
-{
-    "name": "RandomEventsInit",
-    "contentType": "TRIGGER_SCRIPTED",
-    "description": "Sets up random events.",
-    "isEnabled": true,
-    "runOnMapInit": true,
-    "script": ""
-}
+{"name":"RandomEventsInit","contentType":"TRIGGER_SCRIPTED","description":"Sets up random events.","isEnabled":true,"runOnMapInit":true,"script":""}

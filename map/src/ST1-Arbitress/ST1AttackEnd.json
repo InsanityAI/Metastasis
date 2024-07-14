@@ -1,1 +1,1 @@
-{"name":"ST1AttackEnd","contentType":"TRIGGER_SCRIPTED","description":"When ST1_ResetAlarm expires, assume the attack is over and end the alarm.","isEnabled":true,"script":""}
+{"name":"ST1AttackEnd","contentType":"TRIGGER_SCRIPTED","description":"When ST1_ResetAlarm expires, assume the attack is over and end the alarm.","isEnabled":true,"runOnMapInit":false,"script":""}

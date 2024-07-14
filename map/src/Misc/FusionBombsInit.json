@@ -1,8 +1,1 @@
-{
-    "name": "FusionBombsInit",
-    "contentType": "TRIGGER_SCRIPTED",
-    "description": "",
-    "isEnabled": true,
-    "runOnMapInit": true,
-    "script": ""
-}
+{"name":"FusionBombsInit","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"runOnMapInit":true,"script":""}

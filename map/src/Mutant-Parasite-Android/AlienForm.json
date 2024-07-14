@@ -1,1 +1,1 @@
-{"name":"AlienForm","contentType":"TRIGGER_SCRIPTED","description":"Begins the alien form for the main alien, not the spawns.","isEnabled":true,"script":""}
+{"name":"AlienForm","contentType":"TRIGGER_SCRIPTED","description":"Begins the alien form for the main alien, not the spawns.","isEnabled":true,"runOnMapInit":false,"script":""}

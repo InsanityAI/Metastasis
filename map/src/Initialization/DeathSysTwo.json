@@ -1,1 +1,1 @@
-{"name":"DeathSysTwo","contentType":"TRIGGER_SCRIPTED","description":"Begin the vote for the death system.","isEnabled":true,"script":""}
+{"name":"DeathSysTwo","contentType":"TRIGGER_SCRIPTED","description":"Begin the vote for the death system.","isEnabled":true,"runOnMapInit":false,"script":""}

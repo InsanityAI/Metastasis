@@ -1,1 +1,1 @@
-{"name":"BlackoutEnd","contentType":"TRIGGER_SCRIPTED","description":"Check if pod failz.","isEnabled":true,"script":""}
+{"name":"BlackoutEnd","contentType":"TRIGGER_SCRIPTED","description":"Check if pod failz.","isEnabled":true,"runOnMapInit":false,"script":""}

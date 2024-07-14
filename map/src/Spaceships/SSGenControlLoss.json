@@ -1,1 +1,1 @@
-{"name":"SSGenControlLoss","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"script":""}
+{"name":"SSGenControlLoss","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"runOnMapInit":false,"script":""}

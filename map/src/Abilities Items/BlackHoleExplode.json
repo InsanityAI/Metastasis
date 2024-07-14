@@ -1,1 +1,1 @@
-{"name":"BlackHoleExplode","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"script":""}
+{"name":"BlackHoleExplode","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"runOnMapInit":false,"script":""}

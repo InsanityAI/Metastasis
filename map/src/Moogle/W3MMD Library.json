@@ -1,1 +1,1 @@
-{"name":"W3MMD Library","contentType":"TRIGGER_SCRIPTED","description":"The library for W3MMD. It's hideous!\r\nHIDEOUS. It's also completely disabled when SirBot is not enabled.","isEnabled":false,"script":""}
+{"name":"W3MMD Library","contentType":"TRIGGER_SCRIPTED","description":"The library for W3MMD. It's hideous!\r\nHIDEOUS. It's also completely disabled when SirBot is not enabled.","isEnabled":false,"runOnMapInit":false,"script":""}

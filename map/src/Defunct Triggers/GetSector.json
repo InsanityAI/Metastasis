@@ -1,1 +1,1 @@
-{"name":"GetSector","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":false,"script":""}
+{"name":"GetSector","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":false,"runOnMapInit":false,"script":""}

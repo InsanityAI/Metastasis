@@ -1,1 +1,1 @@
-{"name":"PlayerDeath","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":false,"script":""}
+{"name":"PlayerDeath","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":false,"runOnMapInit":false,"script":""}

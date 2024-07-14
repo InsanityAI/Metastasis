@@ -1,1 +1,1 @@
-{"name":"MoonShieldFailure","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"script":""}
+{"name":"MoonShieldFailure","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"runOnMapInit":false,"script":""}

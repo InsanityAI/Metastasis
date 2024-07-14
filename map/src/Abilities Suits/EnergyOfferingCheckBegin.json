@@ -1,1 +1,1 @@
-{"name":"EnergyOfferingCheckBegin","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"script":""}
+{"name":"EnergyOfferingCheckBegin","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"runOnMapInit":false,"script":""}

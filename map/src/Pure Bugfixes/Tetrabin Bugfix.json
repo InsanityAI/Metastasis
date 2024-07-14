@@ -1,1 +1,1 @@
-{"name":"Tetrabin Bugfix","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"script":""}
+{"name":"Tetrabin Bugfix","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"runOnMapInit":false,"script":""}

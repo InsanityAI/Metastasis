@@ -1,1 +1,1 @@
-{"name":"UnitCustomData","contentType":"TRIGGER_SCRIPTED","description":"Saves some custom data for some units. Specifically unit mass (used to determine force suit knockback) at the moment.","isEnabled":true,"script":""}
+{"name":"UnitCustomData","contentType":"TRIGGER_SCRIPTED","description":"Saves some custom data for some units. Specifically unit mass (used to determine force suit knockback) at the moment.","isEnabled":true,"runOnMapInit":false,"script":""}

@@ -1,1 +1,1 @@
-{"name":"AlienAdjustShop","contentType":"TRIGGER_SCRIPTED","description":"When the alien is in alien form, this adjusts the position of the workaround vendor every fifth of a second and sets the adjustable inventory size to prevent item overflows.","isEnabled":true,"script":""}
+{"name":"AlienAdjustShop","contentType":"TRIGGER_SCRIPTED","description":"When the alien is in alien form, this adjusts the position of the workaround vendor every fifth of a second and sets the adjustable inventory size to prevent item overflows.","isEnabled":true,"runOnMapInit":false,"script":""}

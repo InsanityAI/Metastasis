@@ -1,1 +1,1 @@
-{"name":"SelectorUpdate","contentType":"TRIGGER_SCRIPTED","description":"Periodically updates the selector. The +1% part ensures the selector doesn't die, which is necessary.","isEnabled":true,"script":""}
+{"name":"SelectorUpdate","contentType":"TRIGGER_SCRIPTED","description":"Periodically updates the selector. The +1% part ensures the selector doesn't die, which is necessary.","isEnabled":true,"runOnMapInit":false,"script":""}

@@ -1,1 +1,1 @@
-{"name":"SyllusCageCreate","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"script":""}
+{"name":"SyllusCageCreate","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"runOnMapInit":false,"script":""}

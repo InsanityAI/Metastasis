@@ -1,1 +1,1 @@
-{"name":"Phase Vortex","contentType":"TRIGGER_SCRIPTED","description":"Mad math","isEnabled":true,"script":""}
+{"name":"Phase Vortex","contentType":"TRIGGER_SCRIPTED","description":"Mad math","isEnabled":true,"runOnMapInit":false,"script":""}

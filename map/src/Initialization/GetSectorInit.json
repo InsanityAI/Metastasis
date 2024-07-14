@@ -1,8 +1,1 @@
-{
-    "name": "GetSectorInit",
-    "contentType": "TRIGGER_SCRIPTED",
-    "description": "",
-    "isEnabled": true,
-    "runOnMapInit": true,
-    "script": ""
-}
+{"name":"GetSectorInit","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"runOnMapInit":true,"script":""}

@@ -1,1 +1,1 @@
-{"name":"SwaggerTeleportToSwagger","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"script":""}
+{"name":"SwaggerTeleportToSwagger","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"runOnMapInit":false,"script":""}

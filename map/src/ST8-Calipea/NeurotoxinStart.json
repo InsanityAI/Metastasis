@@ -1,1 +1,1 @@
-{"name":"NeurotoxinStart","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"script":""}
+{"name":"NeurotoxinStart","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"runOnMapInit":false,"script":""}
