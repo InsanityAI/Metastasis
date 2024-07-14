@@ -1,0 +1,6 @@
+At some point, I really should have made a generic station build function like I did for spaceships.
+Oh well.
+In addition to the triggers below, a new station must also have these things:
+-A reference in GetSector(). If this is not done attacks/stuff will not work in your station like they don't in the sheepyship.
+-A reference in IsUnitStation(). If this is not done, the kyo cannon will not be able to hit your station.
+-A docking reference in SSGenDock (trigger in spaceships section)

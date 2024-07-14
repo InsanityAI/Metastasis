@@ -1,0 +1,1 @@
+When i remake the lazy below triggers,make an:if X unit(t3 infected) gets parasite,remove buff:parasite 

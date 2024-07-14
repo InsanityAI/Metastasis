@@ -1,0 +1,5 @@
+[MapExtraInfo]
+EnableJassHelper=true
+SkyModel=4
+TimeOfDay=4
+
