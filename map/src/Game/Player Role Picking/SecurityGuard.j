@@ -41,6 +41,7 @@ function Trig_SecurityGuard_Func006C takes nothing returns boolean
 endfunction
 
 function Trig_SecurityGuard_Actions takes nothing returns nothing
+    local string name
     if ( Trig_SecurityGuard_Func001C() ) then
         call DisplayTimedTextToPlayer( udg_TempPlayer, 0, 0, 30.00, "TRIGSTR_5353" )
     else
@@ -71,7 +72,9 @@ function Trig_SecurityGuard_Actions takes nothing returns nothing
             endif
         endif
     endif
-    call SetPlayerName( udg_TempPlayer, ( udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer) ) )
+    set name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer) 
+    call SetPlayerName( udg_TempPlayer, name)
+    call StateGrid_SetPlayerName(udg_TempPlayer, name)
 endfunction
 
 //===========================================================================

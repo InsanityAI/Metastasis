@@ -9,7 +9,6 @@ function Trig_Chooser_Func004A takes nothing returns nothing
     set udg_Player_OriginalName[GetConvertedPlayerId(GetEnumPlayer())] = GetPlayerName(GetEnumPlayer())
     if ( Trig_Chooser_Func004Func002C() ) then
         call ForceAddPlayerSimple( GetEnumPlayer(), udg_ChooseGroup )
-    else
     endif
 endfunction
 
@@ -175,7 +174,6 @@ function Trig_Chooser_Func015A takes nothing returns nothing
         call GroupRemoveUnitSimple( udg_TempUnit, udg_ChooseRoles_SpawnGroup )
         call RemoveUnit( udg_TempUnit )
         set udg_InitialSpawnPoint[GetConvertedPlayerId(GetEnumPlayer())] = udg_TempPoint
-    else
     endif
     if ( Trig_Chooser_Func015Func002C() ) then
         call UnitAddAbilityBJ( udg_Dr_RoleAbility[udg_Researcher_PhD[GetConvertedPlayerId(GetEnumPlayer())]], udg_Playerhero[GetConvertedPlayerId(GetEnumPlayer())] )
@@ -187,16 +185,13 @@ function Trig_Chooser_Func015A takes nothing returns nothing
     call SelectUnitForPlayerSingle( udg_Playerhero[GetConvertedPlayerId(GetEnumPlayer())], GetEnumPlayer() )
     if ( Trig_Chooser_Func015Func006C() ) then
         call UnitAddAbilityBJ( 'A02O', udg_Playerhero[GetConvertedPlayerId(GetEnumPlayer())] )
-    else
     endif
     if ( Trig_Chooser_Func015Func007C() ) then
         call UnitAddAbilityBJ( 'A05M', udg_Playerhero[GetConvertedPlayerId(GetEnumPlayer())] )
         call CreateNUnitsAtLoc( 1, 'e031', GetEnumPlayer(), udg_HoldZone, bj_UNIT_FACING )
-    else
     endif
     if ( Trig_Chooser_Func015Func008C() ) then
         call UnitAddAbilityBJ( 'A05Z', udg_Playerhero[GetConvertedPlayerId(GetEnumPlayer())] )
-    else
     endif
 endfunction
 
@@ -210,7 +205,6 @@ endfunction
 function Trig_Chooser_Func026A takes nothing returns nothing
     if ( Trig_Chooser_Func026Func001C() ) then
         set udg_TempBool = false
-    else
     endif
 endfunction
 
@@ -225,6 +219,7 @@ function Trig_Chooser_Actions takes nothing returns nothing
     call DestroyTrigger(GetTriggeringTrigger())
     call ForceClear( udg_ChooseGroup )
     call ForForce( GetPlayersAll(), function Trig_Chooser_Func004A )
+    call StateGrid_InitializeWithForce(udg_ChooseGroup)
     if ( Trig_Chooser_Func005C() ) then
         call DisplayTextToForce( GetPlayersAll(), "TRIGSTR_520" )
         return
@@ -247,22 +242,22 @@ function Trig_Chooser_Actions takes nothing returns nothing
     if ( Trig_Chooser_Func006C() ) then
         if ( Trig_Chooser_Func006Func001C() ) then
             set udg_HiddenAndroid = ForcePickRandomPlayer(udg_ChooseGroup)
+            call StateGrid_SetPlayerRole(udg_HiddenAndroid, StateGrid_ROLE_ANDROID)
             call ForceRemovePlayerSimple( udg_HiddenAndroid, udg_ChooseGroup )
         else
             set udg_Allow_Android = false
         endif
-    else
     endif
     if ( Trig_Chooser_Func007C() ) then
         set udg_Parasite = ForcePickRandomPlayer(udg_ChooseGroup)
+        call StateGrid_SetPlayerRole(udg_Parasite, StateGrid_ROLE_ALIEN)
         call SetPlayerAllianceStateBJ( Player(bj_PLAYER_NEUTRAL_EXTRA), udg_Parasite, bj_ALLIANCE_ALLIED_ADVUNITS )
         call ForceRemovePlayerSimple( udg_Parasite, udg_ChooseGroup )
-    else
     endif
     if ( Trig_Chooser_Func008C() ) then
         set udg_Mutant = ForcePickRandomPlayer(udg_ChooseGroup)
+        call StateGrid_SetPlayerRole(udg_Mutant, StateGrid_ROLE_MUTANT)
         call ForceRemovePlayerSimple( udg_Mutant, udg_ChooseGroup )
-    else
     endif
     call ForForce( GetPlayersAll(), function Trig_Chooser_Func009A )
     call TriggerExecute( gg_trg_ChooseRoles )

@@ -20,6 +20,7 @@ function Trig_Captain_Func001C takes nothing returns boolean
 endfunction
 
 function Trig_Captain_Actions takes nothing returns nothing
+    local string name
     if ( Trig_Captain_Func001C() ) then
         call DisplayTimedTextToPlayer( udg_TempPlayer, 0, 0, 10, "TRIGSTR_5349" )
     else
@@ -37,7 +38,9 @@ function Trig_Captain_Actions takes nothing returns nothing
     call UnitAddItemByIdSwapped( 'I00I', udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)] )
     set udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] = "Captain "
     set udg_InitialSpawnPoint[GetConvertedPlayerId(udg_TempPlayer)] = Location(-14714.00, -13302.00)
-    call SetPlayerName( udg_TempPlayer, ( udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer) ) )
+    set name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer) 
+    call SetPlayerName( udg_TempPlayer, name)
+    call StateGrid_SetPlayerName(udg_TempPlayer, name)
 endfunction
 
 //===========================================================================

@@ -20,6 +20,7 @@ function Trig_Medic_Func001C takes nothing returns boolean
 endfunction
 
 function Trig_Medic_Actions takes nothing returns nothing
+    local string name
     if ( Trig_Medic_Func001C() ) then
         call DisplayTimedTextToPlayer( udg_TempPlayer, 0, 0, 30.00, "TRIGSTR_5368" )
     else
@@ -38,7 +39,9 @@ function Trig_Medic_Actions takes nothing returns nothing
     call UnitAddItemByIdSwapped( 'I002', udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)] )
     call UnitAddItemByIdSwapped( 'I00M', udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)] )
     set udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] = "Medic "
-    call SetPlayerName( udg_TempPlayer, ( udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer) ) )
+    set name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer) 
+    call SetPlayerName( udg_TempPlayer, name)
+    call StateGrid_SetPlayerName(udg_TempPlayer, name)
 endfunction
 
 //===========================================================================

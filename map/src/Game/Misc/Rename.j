@@ -9,7 +9,9 @@ function Trig_Rename_Conditions takes nothing returns boolean
 endfunction
 
 function Trig_Rename_Actions takes nothing returns nothing
-    call SetPlayerName( GetTriggerPlayer(), ( udg_NamePrepension[GetConvertedPlayerId(GetTriggerPlayer())] + SubStringBJ(GetEventPlayerChatString(), 9, 99) ) )
+    local string name = udg_NamePrepension[GetConvertedPlayerId(GetTriggerPlayer())] + SubStringBJ(GetEventPlayerChatString(), 9, 99)
+    call SetPlayerName( GetTriggerPlayer(), name)
+    call StateGrid_SetPlayerName(GetTriggerPlayer(), name)
 endfunction
 
 //===========================================================================

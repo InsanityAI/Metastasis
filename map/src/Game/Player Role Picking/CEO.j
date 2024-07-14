@@ -20,6 +20,7 @@ function Trig_CEO_Func001C takes nothing returns boolean
 endfunction
 
 function Trig_CEO_Actions takes nothing returns nothing
+    local string name
     if ( Trig_CEO_Func001C() ) then
         call DisplayTimedTextToPlayer( udg_TempPlayer, 0, 0, 30.00, "TRIGSTR_5339" )
     else
@@ -35,7 +36,9 @@ function Trig_CEO_Actions takes nothing returns nothing
     endif
     call DisplayTimedTextToPlayer(udg_TempPlayer, 0, 0, 30, "|cff800080YOUR OBJECTIVES: |r")
     set udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] = "CEO "
-    call SetPlayerName( udg_TempPlayer, ( udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer) ) )
+    set name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer) 
+    call SetPlayerName( udg_TempPlayer, name)
+    call StateGrid_SetPlayerName(udg_TempPlayer, name)
     call CreateNUnitsAtLoc( 1, 'H046', udg_TempPlayer, udg_HoldZone, bj_UNIT_FACING )
     set udg_TempUnit = GetLastCreatedUnit()
     set udg_TempUnit2 = udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)]

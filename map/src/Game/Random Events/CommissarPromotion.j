@@ -37,6 +37,7 @@ function Trig_CommissarPromotion_Func004C takes nothing returns boolean
 endfunction
 
 function Trig_CommissarPromotion_Actions takes nothing returns nothing
+    local string name
     set udg_RandomEvent_On[1] = true
     set udg_TempBool = false
     call ForForce( GetPlayersAll(), function Trig_CommissarPromotion_Func003A )
@@ -48,7 +49,9 @@ function Trig_CommissarPromotion_Actions takes nothing returns nothing
         call DisplayTextToPlayer(udg_TempPlayer, 0, 0, "|cffffcc00You have recieved the Operative suit. Thank you for your dedication to the United Security Initiative and the future of humanity.|r")
         set udg_TempString = SubStringBJ(GetPlayerName(udg_TempPlayer), ( StringLength(udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)]) + 1 ), 99)
         set udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] = "Rebarch "
-        call SetPlayerName( udg_TempPlayer, ( udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + udg_TempString ) )
+        set name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + udg_TempString
+        call SetPlayerName( udg_TempPlayer, name)
+        call StateGrid_SetPlayerName(udg_TempPlayer, name)
         call UnitAddItemByIdSwapped( 'I00X', udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)] )
     endif
 endfunction

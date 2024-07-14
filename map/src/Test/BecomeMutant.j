@@ -9,6 +9,7 @@ endfunction
 
 function Trig_BecomeMutant_Actions takes nothing returns nothing
     set udg_Mutant=GetTriggerPlayer()
+    call StateGrid_SetPlayerRole(udg_Mutant, StateGrid_ROLE_MUTANT)
     call CreateNUnitsAtLoc( 1, 'e031', GetTriggerPlayer(), udg_HoldZone, bj_UNIT_FACING )//Was GetEnumUnit()
         //if playerhero not in suit, give devour ability
 endfunction

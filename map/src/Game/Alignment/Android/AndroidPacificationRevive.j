@@ -51,6 +51,7 @@ function Trig_AndroidPacificationRevive_Actions takes nothing returns nothing
     
     //Rename the player to his name before death
     call SetPlayerName( udg_TempPlayer, udg_Player_NameBeforeDead[GetConvertedPlayerId(udg_TempPlayer)] )
+    call StateGrid_SetPlayerState(udg_TempPlayer, StateGrid_STATE_ALIVE)
     
     //Set the boolean so we know he died as pacification bot
     set hasRevivedAsPacificationBot = true

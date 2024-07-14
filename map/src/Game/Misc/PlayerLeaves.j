@@ -24,6 +24,7 @@ local boolean b=IsUnitDeadBJ(udg_Playerhero[GetConvertedPlayerId(GetTriggerPlaye
     call DisplayTextToForce( GetPlayersAll(), ( udg_OriginalName[GetConvertedPlayerId(GetTriggerPlayer())] + "|cff408080 has left the game!|r" ) )
     call KillUnit( udg_Playerhero[GetConvertedPlayerId(GetTriggerPlayer())] )//Kill leaver's playerhero unit
     call UnitAddAbility(udg_Playerhero[GetConvertedPlayerId(GetTriggerPlayer())], 'A02T')//And stay dead
+    call StateGrid_SetPlayerState(GetTriggerPlayer(), StateGrid_STATE_LEFT)
     
     //If less than 90 seconds passed AND player who left is alien, mutant, or android
     if TimerGetElapsed(udg_GameTimer)<=90.0 and (IsPlayerMainInfected(GetTriggerPlayer()) or udg_HiddenAndroid==GetTriggerPlayer()) then
@@ -33,6 +34,7 @@ local boolean b=IsUnitDeadBJ(udg_Playerhero[GetConvertedPlayerId(GetTriggerPlaye
             set p=NoninfectedForcePickOne()
             if p != null then
                 set udg_Mutant=p
+                call StateGrid_SetPlayerRole(udg_Mutant, StateGrid_ROLE_MUTANT)
                 call DisplayTextToPlayer(p,0,0,"|cffFF0000You are now the mutant. Seek out all enemies and destroy them.")
                 call CreateNUnitsAtLoc( 1, 'e031', p, udg_HoldZone, bj_UNIT_FACING )//Was GetEnumUnit()
                 //If it doesn't work, also add the ability on the playerhero unit
@@ -46,6 +48,7 @@ local boolean b=IsUnitDeadBJ(udg_Playerhero[GetConvertedPlayerId(GetTriggerPlaye
             set p=NoninfectedForcePickOne()
             if p != null then
                 set udg_Parasite=p
+                call StateGrid_SetPlayerRole(udg_Parasite, StateGrid_ROLE_ALIEN)
                 call DisplayTextToPlayer(p,0,0,"|cffFF0000You are now the alien. Seek out all enemies and destroy them.")
                 call SetPlayerAllianceStateBJ(Player(bj_PLAYER_NEUTRAL_EXTRA),p,bj_ALLIANCE_ALLIED_ADVUNITS)
             else
@@ -58,6 +61,7 @@ local boolean b=IsUnitDeadBJ(udg_Playerhero[GetConvertedPlayerId(GetTriggerPlaye
             set p=NoninfectedForcePickOne()
             if p != null then
                 set udg_HiddenAndroid=p
+                call StateGrid_SetPlayerRole(udg_HiddenAndroid, StateGrid_ROLE_ANDROID)
                 call DisplayTextToPlayer(p,0,0,"|cffFF0000You are now the android. Protect the humans and eliminate the alien threat.")
             else
                 call DisplayTextToForce(GetPlayersAll(),"Not enough players for a new android.")    

@@ -20,6 +20,7 @@ function Trig_Commissar_Func001C takes nothing returns boolean
 endfunction
 
 function Trig_Commissar_Actions takes nothing returns nothing
+    local string name
     if ( Trig_Commissar_Func001C() ) then
         call DisplayTimedTextToPlayer( udg_TempPlayer, 0, 0, 30.00, "TRIGSTR_5357" )
     else
@@ -36,7 +37,9 @@ function Trig_Commissar_Actions takes nothing returns nothing
     call DisplayTimedTextToPlayer(udg_TempPlayer, 0, 0, 30, "|cff800080YOUR OBJECTIVES: |r")
     call UnitAddItemByIdSwapped( 'I00G', udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)] )
     set udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] = "Commissar "
-    call SetPlayerName( udg_TempPlayer, ( udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer) ) )
+    set name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer) 
+    call SetPlayerName( udg_TempPlayer, name)
+    call StateGrid_SetPlayerName(udg_TempPlayer, name)
 endfunction
 
 //===========================================================================

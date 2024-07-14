@@ -151,6 +151,9 @@ function Trig_PlayerMurder_Func010C takes nothing returns boolean
 endfunction
 
 function Trig_PlayerMurder_Actions takes nothing returns nothing
+    local player victimPlayer = GetOwningPlayer(GetDyingUnit())
+    local integer index = 1
+    local integer maxIndex = 12
     if ( Trig_PlayerMurder_Func002C() ) then
         return
     else
@@ -175,6 +178,17 @@ function Trig_PlayerMurder_Actions takes nothing returns nothing
             set udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)] = GetLastCreatedUnit()
             call DisplayTextToPlayer(GetOwningPlayer(GetDyingUnit()), 0, 0, "|cffFF0000You have been turned into the mutant's spawn! Work with the mutant to ensure victory.|r")
             call DisplayTextToPlayer(udg_Mutant, 0, 0, "|cffFF0000You have acquired a spawn!|r")
+            call StateGrid_SetPlayerRole(victimPlayer, StateGrid_ROLE_MUTANT_SPAWN)
+            call StateGrid_RevealPlayerRole(udg_Mutant, victimPlayer)
+            call StateGrid_RevealPlayerRole(victimPlayer, udg_Mutant)
+            loop
+                exitwhen index >= maxIndex
+                if udg_Player_IsMutantSpawn[index] then
+                    call StateGrid_RevealPlayerRole(victimPlayer, ConvertedPlayer(index))
+                    call StateGrid_RevealPlayerRole(ConvertedPlayer(index), victimPlayer)
+                endif
+                set index = index + 1
+            endloop
             call TriggerExecute( gg_trg_WinCheck )
             return
         else
@@ -193,6 +207,17 @@ function Trig_PlayerMurder_Actions takes nothing returns nothing
                 call DisplayTextToPlayer(udg_Parasite, 0, 0, "|cffffcc00+175 evolution points for successful kill!")
                 set udg_UpgradePointsAlien = ( udg_UpgradePointsAlien + 175.00 )
                 set udg_TempPlayer = GetOwningPlayer(GetDyingUnit())
+                call StateGrid_SetPlayerRole(victimPlayer, StateGrid_ROLE_ALIEN_SPAWN)
+                call StateGrid_RevealPlayerRole(udg_Mutant, victimPlayer)
+                call StateGrid_RevealPlayerRole(victimPlayer, udg_Mutant)
+                loop
+                    exitwhen index >= maxIndex
+                    if udg_Player_IsParasiteSpawn[index] then
+                        call StateGrid_RevealPlayerRole(victimPlayer, ConvertedPlayer(index))
+                        call StateGrid_RevealPlayerRole(ConvertedPlayer(index), victimPlayer)
+                    endif
+                    set index = index + 1
+                endloop
                 call TriggerExecute( gg_trg_ParasiteSpawnCreateSpell )
                 call TriggerExecute( gg_trg_WinCheck )
                 return
@@ -214,30 +239,40 @@ function Trig_PlayerMurder_Actions takes nothing returns nothing
         else
         endif
         // New Code above - If alien killed mutant
+        call StateGrid_RevealPlayerRole(victimPlayer, null)
+        call StateGrid_SetPlayerState(victimPlayer, StateGrid_STATE_DEAD)
     else
         if ( Trig_PlayerMurder_Func006Func002C() ) then
             call DisplayTextToForce( GetPlayersAll(), ( GetPlayerName(GetOwningPlayer(GetDyingUnit())) + " |cff800080has been killed!|r" ) )
             call DisplayTextToForce( GetPlayersAll(), "TRIGSTR_3988" )
             call CinematicFadeBJ( bj_CINEFADETYPE_FADEOUTIN, 4.00, "ReplaceableTextures\\CameraMasks\\White_mask.blp", 0.00, 0.00, 100.00, 50.00 )
             call PlaySoundBJ( gg_snd_WarlockDeath1 )
+            call StateGrid_RevealPlayerRole(victimPlayer, null)
+            call StateGrid_SetPlayerState(victimPlayer, StateGrid_STATE_DEAD)
         else
             if ( Trig_PlayerMurder_Func006Func002Func002C() ) then
                 call DisplayTextToForce( GetPlayersAll(), ( GetPlayerName(GetOwningPlayer(GetDyingUnit())) + " |cff800080has been killed!|r" ) )
                 call DisplayTextToForce( GetPlayersAll(), "TRIGSTR_3987" )
                 call CinematicFadeBJ( bj_CINEFADETYPE_FADEOUTIN, 4.00, "ReplaceableTextures\\CameraMasks\\White_mask.blp", 100.00, 100.00, 100.00, 50.00 )
                 call PlaySoundBJ( gg_snd_RockGolemDeath1 )
+                call StateGrid_RevealPlayerRole(victimPlayer, null)
+                call StateGrid_SetPlayerState(victimPlayer, StateGrid_STATE_DEAD)
             else
                 if ( Trig_PlayerMurder_Func006Func002Func002Func001C() ) then
                     call DisplayTextToForce( GetPlayersAll(), ( GetPlayerName(GetOwningPlayer(GetDyingUnit())) + " |cff800080has been killed!|r" ) )
                     call DisplayTextToForce( GetPlayersAll(), "TRIGSTR_3986" )
                     call CinematicFadeBJ( bj_CINEFADETYPE_FADEOUTIN, 4.00, "ReplaceableTextures\\CameraMasks\\DiagonalSlash_mask.blp", 0.00, 0.00, 100.00, 50.00 )
                     call PlaySoundBJ( gg_snd_PitFiendDeath1 )
+                    call StateGrid_RevealPlayerRole(victimPlayer, null)
+                    call StateGrid_SetPlayerState(victimPlayer, StateGrid_STATE_DEAD)
                 else
                     if ( Trig_PlayerMurder_Func006Func002Func002Func001Func001C() ) then
                         call DisplayTextToForce( GetPlayersAll(), ( GetPlayerName(GetOwningPlayer(GetDyingUnit())) + " |cff800080has been killed!|r" ) )
                         call DisplayTextToForce( GetPlayersAll(), "TRIGSTR_3985" )
                         call CinematicFadeBJ( bj_CINEFADETYPE_FADEOUTIN, 4.00, "ReplaceableTextures\\CameraMasks\\White_mask.blp", 0.00, 100.00, 100.00, 50.00 )
                         call PlaySoundBJ( gg_snd_BansheeDeath )
+                        call StateGrid_RevealPlayerRole(victimPlayer, null)
+                        call StateGrid_SetPlayerState(victimPlayer, StateGrid_STATE_DEAD)
                     else
                         call DisplayTextToForce( GetPlayersAll(), ( GetPlayerName(GetOwningPlayer(GetDyingUnit())) + " |cff800080has been killed!|r" ) )
                         call DisplayTextToForce( GetPlayersAll(), "TRIGSTR_3983" )
@@ -248,6 +283,8 @@ function Trig_PlayerMurder_Actions takes nothing returns nothing
                             set udg_UpgradePointsAlien = ( udg_UpgradePointsAlien + 175.00 )
                         else
                         endif
+                        call StateGrid_RevealPlayerRole(victimPlayer, null)
+                        call StateGrid_SetPlayerState(victimPlayer, StateGrid_STATE_DEAD)
                     endif
                 endif
             endif

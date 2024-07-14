@@ -41,6 +41,7 @@ function Trig_Pilot_Func006C takes nothing returns boolean
 endfunction
 
 function Trig_Pilot_Actions takes nothing returns nothing
+    local string name
     if ( Trig_Pilot_Func001C() ) then
         call DisplayTimedTextToPlayer( udg_TempPlayer, 0, 0, 30.00, "TRIGSTR_5343" )
     else
@@ -57,7 +58,9 @@ function Trig_Pilot_Actions takes nothing returns nothing
     call DisplayTimedTextToPlayer(udg_TempPlayer, 0, 0, 30, "|cff800080YOUR OBJECTIVES: |r")
     set udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] = "Ace "
     set udg_InitialSpawnPoint[GetConvertedPlayerId(udg_TempPlayer)] = Location(-2252.00, 14431.00)
-    call SetPlayerName( udg_TempPlayer, ( udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer) ) )
+    set name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer) 
+    call SetPlayerName( udg_TempPlayer, name)
+    call StateGrid_SetPlayerName(udg_TempPlayer, name)
     if ( Trig_Pilot_Func006C() ) then
         call UnitAddItemByIdSwapped( 'I008', udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)] )
     else

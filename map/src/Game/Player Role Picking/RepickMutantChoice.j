@@ -22,8 +22,10 @@ endfunction
 function Trig_RepickMutantChoice_Actions takes nothing returns nothing
     // Make the new mutant
     // Pick a player who is human ((does this include android?!))
+    call StateGrid_SetPlayerRole(udg_Mutant, StateGrid_ROLE_HUMAN)
     set udg_TempPlayer = NoninfectedForcePickOne()
     set udg_Mutant = udg_TempPlayer
+    call StateGrid_SetPlayerRole(udg_Mutant, StateGrid_ROLE_MUTANT)
     call CreateNUnitsAtLoc( 1, 'e031', udg_Mutant, udg_HoldZone, bj_UNIT_FACING )
     if ( Trig_RepickMutantChoice_Func008C() ) then
         call UnitAddAbilityBJ( 'A05M', udg_Playerhero[GetConvertedPlayerId(udg_Mutant)] )

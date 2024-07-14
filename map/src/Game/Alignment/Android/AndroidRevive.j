@@ -63,6 +63,7 @@ if IsUnitDeadBJ(udg_Playerhero[GetConvertedPlayerId(udg_HiddenAndroid)]) then
                             call ShowInterfaceForceOn( GetForceOfPlayer(udg_HiddenAndroid), 0.01 )
         set udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)] = GetLastCreatedUnit()
         call SetPlayerName( udg_TempPlayer, udg_Player_NameBeforeDead[GetConvertedPlayerId(udg_TempPlayer)] )
+        call StateGrid_SetPlayerState(udg_TempPlayer, StateGrid_STATE_ALIVE)
         call PanCameraToTimedLocForPlayer( udg_TempPlayer, udg_TempPoint, 0 )
         call SelectUnitForPlayerSingle( GetLastCreatedUnit(), udg_TempPlayer )
         call ForceRemovePlayerSimple( udg_TempPlayer, udg_DeadGroup )

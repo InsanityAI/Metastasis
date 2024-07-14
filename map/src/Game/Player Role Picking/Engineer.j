@@ -27,6 +27,7 @@ function Trig_Engineer_Func007C takes nothing returns boolean
 endfunction
 
 function Trig_Engineer_Actions takes nothing returns nothing
+    local string name
     if ( Trig_Engineer_Func001C() ) then
         call DisplayTimedTextToPlayer( udg_TempPlayer, 0, 0, 30.00, "TRIGSTR_5360" )
     else
@@ -44,7 +45,9 @@ function Trig_Engineer_Actions takes nothing returns nothing
     call UnitAddItemByIdSwapped( 'I00B', udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)] )
     call UnitAddItemByIdSwapped( 'I00H', udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)] )
     set udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] = "Engineer "
-    call SetPlayerName( udg_TempPlayer, ( udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer) ) )
+    set name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer) 
+    call SetPlayerName( udg_TempPlayer, name)
+    call StateGrid_SetPlayerName(udg_TempPlayer, name)
     if ( Trig_Engineer_Func007C() ) then
         set udg_InitialSpawnPoint[GetConvertedPlayerId(udg_TempPlayer)] = Location(-6016.00, 11980.00)
         set udg_EngineerUsed = true

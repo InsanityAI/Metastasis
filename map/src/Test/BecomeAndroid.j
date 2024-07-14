@@ -9,6 +9,7 @@ endfunction
 
 function Trig_BecomeAndroid_Actions takes nothing returns nothing
     set udg_HiddenAndroid=GetTriggerPlayer()
+    call StateGrid_SetPlayerRole(udg_HiddenAndroid, StateGrid_ROLE_ANDROID)
 endfunction
 
 //===========================================================================
