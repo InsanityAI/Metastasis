@@ -34,6 +34,8 @@
         "-si",
         "-td",
         "./.vscode/triggerdata.txt",
+        "-cse",
+        ".j",
         "json2war",
         "./map",
         "./build.w3x"
