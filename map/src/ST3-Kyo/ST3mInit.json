@@ -1,1 +1,8 @@
-{"name":"ST3mInit","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"script":""}
+{
+    "name": "ST3mInit",
+    "contentType": "TRIGGER_SCRIPTED",
+    "description": "",
+    "isEnabled": true,
+    "runOnMapInit": true,
+    "script": ""
+}

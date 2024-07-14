@@ -1,1 +1,8 @@
-{"name":"SSInit","contentType":"TRIGGER_SCRIPTED","description":"Initializes all spaceships and changes the animation speed for the Swagger and minertha.","isEnabled":true,"script":""}
+{
+    "name": "SSInit",
+    "contentType": "TRIGGER_SCRIPTED",
+    "description": "Initializes all spaceships and changes the animation speed for the Swagger and minertha.",
+    "isEnabled": true,
+    "runOnMapInit": true,
+    "script": ""
+}
