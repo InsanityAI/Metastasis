@@ -1,1 +1,1 @@
-{"name":"Init Cinematic Unstuck","contentType":"TRIGGER","description":"","isEnabled":true,"initiallyOff":false,"runOnMapInit":true,"events":[{"name":"MapInitializationEvent","type":"EVENT","isEnabled":true,"parameters":[]}],"conditions":[],"actions":[{"name":"CustomScriptCode","type":"ACTION","isEnabled":true,"parameters":[{"type":"VALUE","value":"call CinematicUnstuckInit()"}]}]}
+{"name":"Init Cinematic Unstuck","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"script":""}

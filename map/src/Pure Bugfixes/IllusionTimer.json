@@ -1,1 +1,1 @@
-{"name":"IllusionTimer","contentType":"TRIGGER","description":"","isEnabled":true,"initiallyOff":false,"runOnMapInit":true,"events":[{"name":"TriggerRegisterTimerExpireEventBJ","type":"EVENT","isEnabled":true,"parameters":[{"type":"VARIABLE","value":"IllusionSuitTimer"}]}],"conditions":[],"actions":[{"name":"SetVariable","type":"ACTION","isEnabled":true,"parameters":[{"type":"VARIABLE","value":"IllusionSuitBoolean"},{"type":"VALUE","value":"false"}]}]}
+{"name":"IllusionTimer","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"script":""}
