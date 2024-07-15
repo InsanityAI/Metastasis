@@ -18,22 +18,22 @@ library StateGrid initializer Init requires StringWidth, PlayerColor
         private string TITLE_NAME               = "Name:"
         private string TITLE_STATUS             = "Status:"
         private string TITLE_ROLE               = "Role:"
-        private string STATE_DEAD_TEXT          = "|cFFFF3333DEAD|r"
-        private string STATE_ALIVE_TEXT         = "|cFF33FF33ALIVE|r"
-        private string STATE_LEFT_TEXT          = "|cFF999999LEFT|r"
+        private string STATE_DEAD_TEXT          = "|cFFFF3333Dead|r"
+        private string STATE_ALIVE_TEXT         = "|cFF33FF33Alive|r"
+        private string STATE_LEFT_TEXT          = "|cFF999999Left|r"
         private string ROLE_HUMAN_TEXT          = "|cFF00FF00Human|r"
         private string ROLE_ALIEN_TEXT          = "|cFF3399FFAlien|r"
         private string ROLE_ALIEN_SPAWN_TEXT    = "|cFF3399CCAlien Spawn|r"
         private string ROLE_MUTANT_TEXT         = "|cFF33FF99Mutant|r"
         private string ROLE_MUTANT_SPAWN_TEXT   = "|cFF33CC99Mutant Spawn|r"
         private string ROLE_ANDROID_TEXT        = "|cFFFFFFFFAndroid|r"
-        private string ROLE_UNKNOWN_TEXT        = "|cFFFFFFFF?|r"
+        private string ROLE_UNKNOWN_TEXT        = "|cFFFFFFFFUnknown|r"
 
         //config
-        private real width = 0.3
-        private real nameWidth = 0.15
+        private real nameWidth = 0.13
         private real statusWidth = 0.07
         private real roleWidth = 0.08
+        private real width = nameWidth + statusWidth + roleWidth
 
         //internal
         private integer gridRowCount = 0
