@@ -218,7 +218,7 @@ endfunction
 function Trig_Chooser_Actions takes nothing returns nothing
     call DestroyTrigger(GetTriggeringTrigger())
     call ForceClear( udg_ChooseGroup )
-    call ForForce( GetPlayersAll(), function Trig_Chooser_Func004A )
+    call ForForce( Anonymity_ShuffledPlayers, function Trig_Chooser_Func004A )
     call StateGrid_InitializeWithForce(udg_ChooseGroup)
     if ( Trig_Chooser_Func005C() ) then
         call DisplayTextToForce( GetPlayersAll(), "TRIGSTR_520" )

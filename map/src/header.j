@@ -155,38 +155,37 @@ endfunction
 
 
 function ParseEnteredString takes nothing returns nothing
-local string r = GetEventPlayerChatString()
-local integer lasti = 0
-local integer i = 0
-local integer argumenton = 1
-local integer k=StringLength(r)
-local integer n
-//Divides an entered string into spaces. "-liquidate lightblue" becomes udg_arguments[0]=-liquidate and udg_arguments[1]=lightblue
-loop
-exitwhen i > k
-if SubString(r,i-1,i) == " " then
-set n=lasti-1
-if n <0 then
-set n=0
-endif
-set udg_arguments[argumenton] = SubString(r,lasti-1, i-1)
-set argumenton = argumenton + 1
-set lasti = i+1
-endif
-set i = i + 1
-
-endloop
-set udg_arguments[argumenton] = SubString(r, lasti-1, 999)
+    local string r = GetEventPlayerChatString()
+    local integer lasti = 0
+    local integer i = 0
+    local integer argumenton = 1
+    local integer k=StringLength(r)
+    local integer n
+    //Divides an entered string into spaces. "-liquidate lightblue" becomes udg_arguments[0]=-liquidate and udg_arguments[1]=lightblue
+    loop
+        exitwhen i > k
+        if SubString(r,i-1,i) == " " then
+            set n=lasti-1
+            if n <0 then
+                set n=0
+            endif
+            set udg_arguments[argumenton] = SubString(r,lasti-1, i-1)
+            set argumenton = argumenton + 1
+            set lasti = i+1
+        endif
+        set i = i + 1
+    endloop
+    set udg_arguments[argumenton] = SubString(r, lasti-1, 999)
 endfunction
 
 function ClearArguments takes nothing returns nothing
-local integer i=0
-//Preps the arguments bank so that arguments from the last are not considered
-loop
-exitwhen i > 100
-set udg_arguments[i]=""
-set i = i + 1
-endloop
+    local integer i=0
+    //Preps the arguments bank so that arguments from the last are not considered
+    loop
+        exitwhen i > 100
+        set udg_arguments[i]=""
+        set i = i + 1
+    endloop
 endfunction
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 

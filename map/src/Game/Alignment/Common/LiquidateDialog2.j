@@ -1,15 +1,11 @@
-function Trig_LiquidateDialog2_Func002C takes nothing returns boolean
-    if ( not ( GetClickedButtonBJ() == udg_Liquidate_AreYouSureButton2[2] ) ) then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_LiquidateDialog2_Actions takes nothing returns nothing
-    if ( Trig_LiquidateDialog2_Func002C() ) then
-        call KillUnit( udg_Playerhero[udg_Liquidate_ToLiquidate2] )
+    local player targettedPlayer
+    if GetClickedButtonBJ() == udg_Liquidate_AreYouSureButton2[2] then
+        set targettedPlayer = Anonymity_ShuffledPlayersArray[udg_Liquidate_ToLiquidate2 - 1]
+        call KillUnit( udg_Playerhero[GetConvertedPlayerId(targettedPlayer)] )
     else
     endif
+    
 endfunction
 
 //===========================================================================
