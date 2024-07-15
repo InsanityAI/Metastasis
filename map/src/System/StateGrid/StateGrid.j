@@ -14,10 +14,10 @@ library StateGrid initializer Init requires StringWidth, PlayerColor
         public integer ROLE_ANDROID = 5
 
         //TODO: use .wts to provide these strings
-        private string GRID_TITLE               = "|cFFCCCC22State table|r        "
-        private string TITLE_NAME               = "|cFFCCCC22Name:|r"
-        private string TITLE_STATUS             = "|cFFCCCC22Status:|r"
-        private string TITLE_ROLE               = "|cFFCCCC22Role:|r"
+        private string GRID_TITLE               = "State table        "
+        private string TITLE_NAME               = "Name:"
+        private string TITLE_STATUS             = "Status:"
+        private string TITLE_ROLE               = "Role:"
         private string STATE_DEAD_TEXT          = "|cFFFF3333DEAD|r"
         private string STATE_ALIVE_TEXT         = "|cFF33FF33ALIVE|r"
         private string STATE_LEFT_TEXT          = "|cFF999999LEFT|r"
@@ -54,8 +54,6 @@ library StateGrid initializer Init requires StringWidth, PlayerColor
             return this
         endmethod
     endstruct
-
-    //TODO: Remove names and status commands
 
     private function getPlayerData takes player thisPlayer returns PlayerData
         return playerDatas[GetPlayerId(thisPlayer)]

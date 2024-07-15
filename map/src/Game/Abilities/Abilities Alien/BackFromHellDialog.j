@@ -78,8 +78,9 @@ function Trig_BackFromHellDialog_Actions takes nothing returns nothing
         set udg_Player_IsMutantSpawn[GetConvertedPlayerId(udg_TempPlayer)] = false
         if ( Trig_BackFromHellDialog_Func009Func007C() ) then
             set udg_Mutant=null
-        else
         endif
+        call StateGrid_SetPlayerRole(udg_TempPlayer, StateGrid_ROLE_ALIEN_SPAWN)
+        call StateGrid_SetPlayerState(udg_TempPlayer, StateGrid_STATE_ALIVE)
         call DisplayTextToPlayer(GetOwningPlayer(GetDyingUnit()), 0, 0, "|cffFF0000You have been turned into the alien's spawn! Work with the alien to ensure victory.|r")
         call SetUnitLifeBJ( GetLastCreatedUnit(), 1.00 )
         set udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)] = GetLastCreatedUnit()
