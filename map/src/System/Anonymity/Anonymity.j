@@ -1,10 +1,10 @@
 library Anonymity initializer init
     globals
-        public force ShuffledPlayers
         public player array ShuffledPlayersArray
 
         private playercolor array colors
         private string array colorNames
+        private force ShuffledPlayers
     endglobals
 
     private function populateForce takes nothing returns nothing

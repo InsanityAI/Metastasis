@@ -1,14 +1,8 @@
-function Trig_Chooser_Func004Func002C takes nothing returns boolean
-    if ( not ( GetPlayerSlotState(GetEnumPlayer()) == PLAYER_SLOT_STATE_PLAYING ) ) then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Chooser_Func004A takes nothing returns nothing
     set udg_Player_OriginalName[GetConvertedPlayerId(GetEnumPlayer())] = GetPlayerName(GetEnumPlayer())
-    if ( Trig_Chooser_Func004Func002C() ) then
+    if GetPlayerSlotState(GetEnumPlayer()) == PLAYER_SLOT_STATE_PLAYING then
         call ForceAddPlayerSimple( GetEnumPlayer(), udg_ChooseGroup )
+        set udg_TempInt = udg_TempInt + 1
     endif
 endfunction
 
@@ -218,8 +212,9 @@ endfunction
 function Trig_Chooser_Actions takes nothing returns nothing
     call DestroyTrigger(GetTriggeringTrigger())
     call ForceClear( udg_ChooseGroup )
-    call ForForce( Anonymity_ShuffledPlayers, function Trig_Chooser_Func004A )
-    call StateGrid_InitializeWithForce(udg_ChooseGroup)
+    set udg_TempInt = 0
+    call ForForce( GetPlayersAll(), function Trig_Chooser_Func004A )
+    call StateGrid_Initialize(udg_TempInt)
     if ( Trig_Chooser_Func005C() ) then
         call DisplayTextToForce( GetPlayersAll(), "TRIGSTR_520" )
         return

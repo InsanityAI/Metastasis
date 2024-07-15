@@ -208,8 +208,8 @@ function Trig_PlayerMurder_Actions takes nothing returns nothing
                 set udg_UpgradePointsAlien = ( udg_UpgradePointsAlien + 175.00 )
                 set udg_TempPlayer = GetOwningPlayer(GetDyingUnit())
                 call StateGrid_SetPlayerRole(victimPlayer, StateGrid_ROLE_ALIEN_SPAWN)
-                call StateGrid_RevealPlayerRole(udg_Mutant, victimPlayer)
-                call StateGrid_RevealPlayerRole(victimPlayer, udg_Mutant)
+                call StateGrid_RevealPlayerRole(udg_Parasite, victimPlayer)
+                call StateGrid_RevealPlayerRole(victimPlayer, udg_Parasite)
                 loop
                     exitwhen index >= maxIndex
                     if udg_Player_IsParasiteSpawn[index] then

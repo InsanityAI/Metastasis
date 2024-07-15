@@ -120,8 +120,7 @@ library StateGrid initializer Init requires StringWidth, PlayerColor
         endif
     endfunction
 
-    private function initForPlayer takes nothing returns nothing
-        local player enumPlayer = GetEnumPlayer()
+    private function initForPlayer takes player enumPlayer returns nothing
         set playerDatas[GetPlayerId(enumPlayer)] = PlayerData.create(currentIndex)
         call MultiboardSetItemValue(items[3*currentIndex + 0], PlayerColor_GetPlayerTextColor(enumPlayer) + StringWidth_substringTextToMultiboardWidth(GetPlayerName(enumPlayer), 0, nameWidth))
         call MultiboardSetItemWidth(items[3*currentIndex + 0], nameWidth)
@@ -130,7 +129,6 @@ library StateGrid initializer Init requires StringWidth, PlayerColor
         call MultiboardSetItemValue(items[3*currentIndex + 2], ROLE_UNKNOWN_TEXT)
         call MultiboardSetItemWidth(items[3*currentIndex + 2], roleWidth)
         call RevealPlayerRole(enumPlayer, enumPlayer)
-        set currentIndex = currentIndex + 1
     endfunction
 
     private function ClearGrid takes nothing returns nothing
@@ -145,14 +143,14 @@ library StateGrid initializer Init requires StringWidth, PlayerColor
         endloop
     endfunction
 
-    public function InitializeWithForce takes force playerForce returns nothing
+    public function Initialize takes integer playerSize returns nothing
         local integer index = 0
         local integer maxIndex
         local integer column = 0
         local integer row = 0
         local multiboarditem mbItem
         call ClearGrid()
-        set gridRowCount = CountPlayersInForceBJ(playerForce) + 2 // title and space
+        set gridRowCount = playerSize + 2 // title and space
         call MultiboardSetRowCount(stateGrid, gridRowCount)
         call MultiboardSetColumnCount(stateGrid, 3)
         call MultiboardSetItemsStyle(stateGrid, true, false) //no icons
@@ -185,7 +183,13 @@ library StateGrid initializer Init requires StringWidth, PlayerColor
         endloop
 
         set currentIndex = 2
-        call ForForce(playerForce, function initForPlayer)
+        
+        loop
+            exitwhen currentIndex >= playerSize + 2
+            call initForPlayer(Anonymity_ShuffledPlayersArray[currentIndex - 2])
+            set currentIndex = currentIndex + 1
+        endloop
+
         call MultiboardSetTitleText(stateGrid, GRID_TITLE)
         call MultiboardDisplay(stateGrid, true)
         call MultiboardMinimize(stateGrid, true)

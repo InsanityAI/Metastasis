@@ -12,10 +12,7 @@ library HideAllies initializer init
         local integer index = 0
         local framehandle parentFrame = BlzGetFrameByName("AllianceDialog", 0)
         local framehandle frame
-
         call DestroyTimer(GetExpiredTimer())
-
-        call BJDebugMsg("Got parent")
         call HideFrame(BlzGetFrameByName("AllianceTitle", 0))
         call HideFrame(BlzGetFrameByName("ResourceTradingTitle", 0))
         call HideFrame(BlzGetFrameByName("PlayersHeader", 0))
@@ -24,10 +21,7 @@ library HideAllies initializer init
         call HideFrame(BlzGetFrameByName("UnitsHeader", 0))
         call HideFrame(BlzGetFrameByName("GoldHeader", 0))
         call HideFrame(BlzGetFrameByName("LumberHeader", 0))
-        call BJDebugMsg("Got Headers")
-
         loop
-            call BJDebugMsg("Loop " + I2S(index))
             exitwhen index >= playerCount
             call HideFrame(BlzGetFrameByName("AllianceSlot", index))
             call HideFrame(BlzGetFrameByName("ColorBackdrop", index))
@@ -42,13 +36,10 @@ library HideAllies initializer init
             call HideFrame(BlzGetFrameByName("LumberText", index))
             set index = index + 1
         endloop
-
-        call BJDebugMsg("Looped all players")
         call HideFrame(BlzGetFrameByName("AlliedVictoryCheckBox", 0))
         call HideFrame(BlzGetFrameByName("AlliedVictoryLabel", 0))
         call HideFrame(BlzGetFrameByName("AllianceAcceptButton", 0))
-        
-        call BJDebugMsg("Got bottom elements")
+
         set frame = BlzGetFrameByName("AllianceCancelButton", 0)
         call BlzFrameClearAllPoints(frame)
         call BlzFrameSetPoint(frame, FRAMEPOINT_BOTTOM, parentFrame, FRAMEPOINT_BOTTOM, 0.00, 0.03)
