@@ -39,7 +39,7 @@ function Trig_NightOfTheMasksESC_Actions takes nothing returns nothing
         set udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)] = GetLastCreatedUnit()
         set udg_Playerhero[GetConvertedPlayerId(Player(bj_PLAYER_NEUTRAL_EXTRA))] = GetLastCreatedUnit()
         set udg_AlienForm_Alien = GetLastCreatedUnit()
-        call SetPlayerColorBJ( Player(bj_PLAYER_NEUTRAL_EXTRA), ConvertPlayerColor(12), true )
+        call SetPlayerColorBJ( Player(bj_PLAYER_NEUTRAL_EXTRA), ConvertPlayerColor(bj_PLAYER_NEUTRAL_EXTRA), true )
         call SetPlayerColorBJ( udg_TempPlayer, udg_Player_MasqueradeColor[GetConvertedPlayerId(udg_TempPlayer)], true )
     else
         call CreateNUnitsAtLoc( 1, udg_ParasiteChildInfectee, GetTriggerPlayer(), udg_TempPoint, bj_UNIT_FACING )
