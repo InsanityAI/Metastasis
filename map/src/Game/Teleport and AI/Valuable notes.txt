@@ -1,0 +1,37 @@
+mention dem boots at 1.8.2c update
+
+credits for 1.8.2c : frotty,lobi,clanzion,shooter,domo
+
+
+
+mirror relocation doesnt work(works but for some reason the mirrorarena group has probs)
+
+If warp or mirror are dodged:message still appears
+
+Make an pown boolean like albadar for warp + mirror
+
+Fix fkin PROTECTION LINK FFSFSSFSFS1!!!
+
+Fix rapid gestation mutant
+
+
+
+
+
+
+
+
+
+made tp fail 1-15 instead 1-100!!!!
+
+warp relocation spam message and doesnt register dat warp hero group correctly?
+
+guard suit
+
+changelog:
+
+rocket suit -2 dmg 34 mana hand missile
+
+(changed stats - sight range night:999999 to 650)
+
+guard suit -4 dmg
