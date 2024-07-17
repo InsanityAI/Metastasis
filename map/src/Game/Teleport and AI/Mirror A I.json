@@ -1,1 +1,0 @@
-{"name":"Mirror A I","contentType":"TRIGGER_SCRIPTED","description":"--skills left\r\n\r\nalso i might need to replacae: unit - order picked unit to move to position of temp unit,in place of order picked unit to attack temp unit.","isEnabled":true,"runOnMapInit":false,"script":""}

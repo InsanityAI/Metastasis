@@ -1,1 +1,0 @@
-{"name":"Barrels Explosion","contentType":"TRIGGER_SCRIPTED","description":"300 range -> 150 dmg\r\n150 range -> 150 dmg + 150 dmg","isEnabled":true,"runOnMapInit":false,"script":""}

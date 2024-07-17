@@ -1,1 +1,0 @@
-{"name":"FixVis","contentType":"TRIGGER_SCRIPTED","description":"In addition to fixing a minor minimap bug above the Niffy docking bay, this sets some useful variables.","isEnabled":true,"runOnMapInit":false,"script":""}

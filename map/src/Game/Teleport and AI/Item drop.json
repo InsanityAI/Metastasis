@@ -1,1 +1,0 @@
-{"name":"Item drop","contentType":"TRIGGER_SCRIPTED","description":"do the drain mana and release it at abilities.\r\n\r\ntriggger - turn off extraterrestial manacheck","isEnabled":true,"runOnMapInit":false,"script":""}

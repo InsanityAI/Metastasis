@@ -1,1 +1,0 @@
-{"name":"AlienFormDies","contentType":"TRIGGER_SCRIPTED","description":"If AlienForm_Alien dies, create a dummy for parasite and kill that too.","isEnabled":true,"runOnMapInit":false,"script":""}

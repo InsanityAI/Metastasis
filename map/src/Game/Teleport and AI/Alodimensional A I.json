@@ -1,1 +1,0 @@
-{"name":"Alodimensional A I","contentType":"TRIGGER_SCRIPTED","description":"--move attack maybe?\r\n\r\nalso make an fbomb dodge.(polar offset point)\r\n\r\nDONT MAKE CREATE UNIT,PLACE AND TP FROM HOLD ZONE\r\n\r\n\r\nMust Make: Move at random point from unit:Extraterrestial unit","isEnabled":true,"runOnMapInit":false,"script":""}

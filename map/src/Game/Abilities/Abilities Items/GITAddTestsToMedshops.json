@@ -1,1 +1,0 @@
-{"name":"GITAddTestsToMedshops","contentType":"TRIGGER_SCRIPTED","description":"In this way, it is added via trigger (since the medshop now has the \"Sell Items\" ability for this to work), so as these items can be removed via trigger later ;)","isEnabled":true,"runOnMapInit":true,"script":""}

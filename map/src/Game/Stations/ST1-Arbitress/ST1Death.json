@@ -1,1 +1,0 @@
-{"name":"ST1Death","contentType":"TRIGGER_SCRIPTED","description":"If the arbitress dies, destroy all arbitress triggers, permakill every unit in the station (including raptors!), and play a filter/sound.","isEnabled":true,"runOnMapInit":false,"script":""}

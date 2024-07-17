@@ -1,1 +1,0 @@
-{"name":"ConstPing","contentType":"TRIGGER_SCRIPTED","description":"Constantly sets the spacebar-loc for all players to the position of their hero. This is convenient for the players and disables spacebar ping locations, so you truly do not know where someone pings.\r\n","isEnabled":true,"runOnMapInit":false,"script":""}

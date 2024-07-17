@@ -1,1 +1,0 @@
-{"name":"AlienFormTransfer","contentType":"TRIGGER_SCRIPTED","description":"If a shop sells the alien workaround an item, then give the item to the alien form alien.","isEnabled":true,"runOnMapInit":false,"script":""}

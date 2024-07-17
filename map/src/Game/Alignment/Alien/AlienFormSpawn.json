@@ -1,1 +1,0 @@
-{"name":"AlienFormSpawn","contentType":"TRIGGER_SCRIPTED","description":"Alien form for spawns won't disguise as the neutral extra player.","isEnabled":true,"runOnMapInit":false,"script":""}

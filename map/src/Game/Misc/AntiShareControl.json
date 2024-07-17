@@ -1,1 +1,0 @@
-{"name":"AntiShareControl","contentType":"TRIGGER_SCRIPTED","description":"Prevents dead players from having control.","isEnabled":true,"runOnMapInit":false,"script":""}

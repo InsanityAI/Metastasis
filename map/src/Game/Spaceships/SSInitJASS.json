@@ -1,1 +1,0 @@
-{"name":"SSInitJASS","contentType":"TRIGGER_SCRIPTED","description":"Initializes all spaceships and changes the animation speed for the Swagger and minertha.","isEnabled":false,"runOnMapInit":false,"script":""}

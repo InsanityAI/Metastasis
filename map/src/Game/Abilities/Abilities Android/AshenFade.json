@@ -1,1 +1,0 @@
-{"name":"AshenFade","contentType":"TRIGGER_SCRIPTED","description":"Cannot have negative health regen because of healing ward/medical regenerator\r\nSo, I do it via trigger","isEnabled":true,"runOnMapInit":false,"script":""}

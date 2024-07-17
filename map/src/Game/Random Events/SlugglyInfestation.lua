@@ -1,0 +1,143 @@
+-- if Debug then Debug.beginFile "Game/RandomEvents/SlugglyInfestation" end
+-- OnInit.map("SlugglyInfestation", function(require)
+
+
+
+-- ---@return boolean
+-- function Trig_SlugglyInfestation_Func007C()
+--     if ( not ( IsUnitAliveBJ(gg_unit_h009_0029) == true ) ) then
+--         return false
+--     end
+--     return true
+-- end
+
+-- ---@return boolean
+-- function Trig_SlugglyInfestation_Func009C()
+--     if ( not ( IsUnitAliveBJ(gg_unit_h003_0018) == true ) ) then
+--         return false
+--     end
+--     return true
+-- end
+
+-- ---@return boolean
+-- function Trig_SlugglyInfestation_Func011C()
+--     if ( not ( IsUnitAliveBJ(gg_unit_h007_0027) == true ) ) then
+--         return false
+--     end
+--     return true
+-- end
+
+-- ---@return boolean
+-- function Trig_SlugglyInfestation_Func013C()
+--     if ( not ( IsUnitAliveBJ(gg_unit_h00X_0049) == true ) ) then
+--         return false
+--     end
+--     return true
+-- end
+
+-- function Trig_SlugglyInfestation_Actions()
+--     DestroyTrigger(GetTriggeringTrigger())
+--     udg_RandomEvent_On[3] = true
+--     DisplayTextToForce( GetPlayersAll(), "TRIGSTR_4177" )
+--     StartTimerBJ( udg_RandomEvent, false, GetRandomReal(240.00, 300.00) )
+--     -- Niffy
+--     if ( Trig_SlugglyInfestation_Func007C() ) then
+--         bj_forLoopAIndex = 1
+--         bj_forLoopAIndexEnd = 10
+--         while bj_forLoopAIndex <= bj_forLoopAIndexEnd do
+--             udg_TempPoint = GetRandomLocInRect(gg_rct_ST4V11)
+--             CreateNUnitsAtLoc( 1, FourCC('n003'), Player(PLAYER_NEUTRAL_PASSIVE), udg_TempPoint, GetRandomDirectionDeg() )
+--             bj_forLoopAIndex = bj_forLoopAIndex + 1
+--         end
+--         bj_forLoopAIndex = 1
+--         bj_forLoopAIndexEnd = 10
+--         while bj_forLoopAIndex <= bj_forLoopAIndexEnd do
+--             udg_TempPoint = GetRandomLocInRect(gg_rct_ST4V7)
+--             CreateNUnitsAtLoc( 1, FourCC('n003'), Player(PLAYER_NEUTRAL_PASSIVE), udg_TempPoint, GetRandomDirectionDeg() )
+--             bj_forLoopAIndex = bj_forLoopAIndex + 1
+--         end
+--         bj_forLoopAIndex = 1
+--         bj_forLoopAIndexEnd = 10
+--         while bj_forLoopAIndex <= bj_forLoopAIndexEnd do
+--             udg_TempPoint = GetRandomLocInRect(gg_rct_ST4V18)
+--             CreateNUnitsAtLoc( 1, FourCC('n003'), Player(PLAYER_NEUTRAL_PASSIVE), udg_TempPoint, GetRandomDirectionDeg() )
+--             bj_forLoopAIndex = bj_forLoopAIndex + 1
+--         end
+--         bj_forLoopAIndex = 1
+--         bj_forLoopAIndexEnd = 10
+--         while bj_forLoopAIndex <= bj_forLoopAIndexEnd do
+--             udg_TempPoint = GetRandomLocInRect(gg_rct_ST4V30)
+--             CreateNUnitsAtLoc( 1, FourCC('n003'), Player(PLAYER_NEUTRAL_PASSIVE), udg_TempPoint, GetRandomDirectionDeg() )
+--             bj_forLoopAIndex = bj_forLoopAIndex + 1
+--         end
+--         bj_forLoopAIndex = 1
+--         bj_forLoopAIndexEnd = 10
+--         while bj_forLoopAIndex <= bj_forLoopAIndexEnd do
+--             udg_TempPoint = GetRandomLocInRect(gg_rct_ST4V3)
+--             CreateNUnitsAtLoc( 1, FourCC('n003'), Player(PLAYER_NEUTRAL_PASSIVE), udg_TempPoint, GetRandomDirectionDeg() )
+--             bj_forLoopAIndex = bj_forLoopAIndex + 1
+--         end
+--     else
+--     end
+--     -- Arbitress
+--     if ( Trig_SlugglyInfestation_Func009C() ) then
+--         bj_forLoopAIndex = 1
+--         bj_forLoopAIndexEnd = 8
+--         while bj_forLoopAIndex <= bj_forLoopAIndexEnd do
+--             udg_TempPoint = GetRandomLocInRect(gg_rct_STV2)
+--             CreateNUnitsAtLoc( 1, FourCC('n003'), Player(PLAYER_NEUTRAL_PASSIVE), udg_TempPoint, GetRandomDirectionDeg() )
+--             bj_forLoopAIndex = bj_forLoopAIndex + 1
+--         end
+--         bj_forLoopAIndex = 1
+--         bj_forLoopAIndexEnd = 8
+--         while bj_forLoopAIndex <= bj_forLoopAIndexEnd do
+--             udg_TempPoint = GetRandomLocInRect(gg_rct_STV3)
+--             CreateNUnitsAtLoc( 1, FourCC('n003'), Player(PLAYER_NEUTRAL_PASSIVE), udg_TempPoint, GetRandomDirectionDeg() )
+--             bj_forLoopAIndex = bj_forLoopAIndex + 1
+--         end
+--     else
+--     end
+--     -- Kyo
+--     if ( Trig_SlugglyInfestation_Func011C() ) then
+--         bj_forLoopAIndex = 1
+--         bj_forLoopAIndexEnd = 8
+--         while bj_forLoopAIndex <= bj_forLoopAIndexEnd do
+--             udg_TempPoint = GetRandomLocInRect(gg_rct_ST3V3)
+--             CreateNUnitsAtLoc( 1, FourCC('n003'), Player(PLAYER_NEUTRAL_PASSIVE), udg_TempPoint, GetRandomDirectionDeg() )
+--             bj_forLoopAIndex = bj_forLoopAIndex + 1
+--         end
+--         bj_forLoopAIndex = 1
+--         bj_forLoopAIndexEnd = 8
+--         while bj_forLoopAIndex <= bj_forLoopAIndexEnd do
+--             udg_TempPoint = GetRandomLocInRect(gg_rct_ST3V1)
+--             CreateNUnitsAtLoc( 1, FourCC('n003'), Player(PLAYER_NEUTRAL_PASSIVE), udg_TempPoint, GetRandomDirectionDeg() )
+--             bj_forLoopAIndex = bj_forLoopAIndex + 1
+--         end
+--         bj_forLoopAIndex = 1
+--         bj_forLoopAIndexEnd = 8
+--         while bj_forLoopAIndex <= bj_forLoopAIndexEnd do
+--             udg_TempPoint = GetRandomLocInRect(gg_rct_ST3V4)
+--             CreateNUnitsAtLoc( 1, FourCC('n003'), Player(PLAYER_NEUTRAL_PASSIVE), udg_TempPoint, GetRandomDirectionDeg() )
+--             bj_forLoopAIndex = bj_forLoopAIndex + 1
+--         end
+--     else
+--     end
+--     -- Swagger
+--     if ( Trig_SlugglyInfestation_Func013C() ) then
+--         bj_forLoopAIndex = 1
+--         bj_forLoopAIndexEnd = 24
+--         while bj_forLoopAIndex <= bj_forLoopAIndexEnd do
+--             udg_TempPoint = GetRandomLocInRect(gg_rct_ST5V2)
+--             CreateNUnitsAtLoc( 1, FourCC('n003'), Player(PLAYER_NEUTRAL_PASSIVE), udg_TempPoint, GetRandomDirectionDeg() )
+--             bj_forLoopAIndex = bj_forLoopAIndex + 1
+--         end
+--     else
+--     end
+-- end
+
+-- --===========================================================================
+--     gg_trg_SlugglyInfestation = CreateTrigger(  )
+--     DisableTrigger( gg_trg_SlugglyInfestation )
+--     TriggerAddAction( gg_trg_SlugglyInfestation, Trig_SlugglyInfestation_Actions )
+-- end)
+-- if Debug then Debug.endFile() end

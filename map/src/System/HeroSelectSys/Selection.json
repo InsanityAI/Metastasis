@@ -1,1 +1,0 @@
-{"name":"Selection","contentType":"TRIGGER_SCRIPTED","description":"Reselects and pans appropriately when unit selectors are selected. This is your F1 hero.","isEnabled":true,"runOnMapInit":false,"script":""}

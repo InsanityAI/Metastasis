@@ -1,1 +1,0 @@
-{"name":"RandomEventsTimer","contentType":"TRIGGER_SCRIPTED","description":"Uses an ugly but practical loop to find a random event.","isEnabled":true,"runOnMapInit":false,"script":""}

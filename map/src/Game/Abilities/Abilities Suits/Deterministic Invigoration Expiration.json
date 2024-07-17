@@ -1,1 +1,0 @@
-{"name":"Deterministic Invigoration Expiration","contentType":"TRIGGER_SCRIPTED","description":"The previous version was the biggest hack I had made. Literally fel-tier code. I refactored this, so it is readable and doesn't take the space of 12 triggers -_-","isEnabled":true,"runOnMapInit":false,"script":""}
