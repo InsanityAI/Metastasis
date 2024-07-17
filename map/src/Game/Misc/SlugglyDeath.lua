@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/SlugglyDeath" end
-OnInit.triggggg("SlugglyDeath", function(require)
+OnInit.trig("SlugglyDeath", function(require)
     ---@return boolean
     function Trig_SlugglyDeath_Conditions()
         if (not (FourCC('n003') == GetUnitTypeId(GetDyingUnit()))) then

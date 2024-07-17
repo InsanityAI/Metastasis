@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/PlayerRolePicking/Janitor" end
 OnInit.trig("Janitor", function(require)
+    require "StateTable"
     ---@return boolean
     function Trig_Janitor_Func001Func002Func002C()
         if (not (udg_TempPlayer == udg_HiddenAndroid)) then

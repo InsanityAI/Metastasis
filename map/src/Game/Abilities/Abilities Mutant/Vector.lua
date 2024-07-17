@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/Vector" end
 OnInit.trig("Vector", function(require)
+    require "IsTerrainWalkable"
     ---@return boolean
     function Trig_Vector_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A05J'))) then

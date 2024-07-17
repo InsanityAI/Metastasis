@@ -1,5 +1,7 @@
 if Debug then Debug.beginFile "Game/Allignment/Common/BadSpawns" end
 OnInit.trig("BadSpawns", function(require)
+    require "Anonymity"
+    require "PlayerColor"
     ---@return boolean
     function Trig_BadSpawns_Conditions()
         return SubStringBJ(GetEventPlayerChatString(), 1, 10) == "-liquidate" or
@@ -32,7 +34,7 @@ OnInit.trig("BadSpawns", function(require)
             if Trig_BadSpawns_IsAlien(targettedPlayer) then
                 DialogClearBJ(udg_Liquidate_AreYouSure2)
                 DialogSetMessageBJ(udg_Liquidate_AreYouSure2,
-                    ("Are you sure you wish to liquidate " .. (PlayerColours[targettedPlayer] .. (GetPlayerName(targettedPlayer) .. "|r?"))))
+                    ("Are you sure you wish to liquidate " .. (PlayerColor[targettedPlayer] .. (GetPlayerName(targettedPlayer) .. "|r?"))))
                 DialogAddButtonBJ(udg_Liquidate_AreYouSure2, "TRIGSTR_2556")
                 udg_Liquidate_AreYouSureButton2[1] = GetLastCreatedButtonBJ()
                 DialogAddButtonBJ(udg_Liquidate_AreYouSure2, "TRIGSTR_2557")
@@ -43,7 +45,7 @@ OnInit.trig("BadSpawns", function(require)
             if Trig_BadSpawns_IsMutant(targettedPlayer) then
                 DialogClearBJ(udg_Liquidate_AreYouSure)
                 DialogSetMessageBJ(udg_Liquidate_AreYouSure,
-                    ("Are you sure you wish to liquidate " .. (PlayerColours[targettedPlayer] .. (GetPlayerName(targettedPlayer) .. "|r?"))))
+                    ("Are you sure you wish to liquidate " .. (PlayerColor[targettedPlayer] .. (GetPlayerName(targettedPlayer) .. "|r?"))))
                 DialogAddButtonBJ(udg_Liquidate_AreYouSure, "TRIGSTR_2556")
                 udg_Liquidate_AreYouSureButton[1] = GetLastCreatedButtonBJ()
                 DialogAddButtonBJ(udg_Liquidate_AreYouSure, "TRIGSTR_2557")

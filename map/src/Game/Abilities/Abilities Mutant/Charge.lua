@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/Charge" end
 OnInit.trig("Charge", function(require)
+    require "IsTerrainWalkable"
     ---@return boolean
     function Trig_Charge_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A08R'))) then

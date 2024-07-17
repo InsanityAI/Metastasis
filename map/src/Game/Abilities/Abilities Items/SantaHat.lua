@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/SantaHat" end
-OnInit.trigg("SantaHat", function(require)
+OnInit.trig("SantaHat", function(require)
     ---@return boolean
     function Trig_SantaHat_Conditions()
         if (not (GetItemTypeId(GetManipulatedItem()) == FourCC('I01J'))) then

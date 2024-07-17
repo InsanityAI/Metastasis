@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Mutant/MutantDialog" end
-OnInit.trigg("MutantDialog", function(require)
+OnInit.trig("MutantDialog", function(require)
     ---@return boolean
     function Trig_MutantDialog_Conditions()
         if (not (GetUnitAbilityLevelSwapped(FourCC('A078'), GetTriggerUnit()) == 1)) then

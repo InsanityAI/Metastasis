@@ -43,13 +43,11 @@ OnInit.trig("ArrayDat", function(require)
     end
 
     --Fun fun fun, make sure to call this somewhere.
-    OnInit.main(function()
-        local x = GetUnitsInRectAll(GetPlayableMapRect()) ---@type group
-        local v = CreateTrigger() ---@type trigger
-        TriggerRegisterEnterRectSimple(v, GetPlayableMapRect())
-        TriggerAddAction(v, Redirect_RegisterUnit)
-        ForGroup(x, PrePlacedUnits)
-        DestroyGroup(x)
-    end)
+    local x = GetUnitsInRectAll(GetPlayableMapRect()) ---@type group
+    local v = CreateTrigger() ---@type trigger
+    TriggerRegisterEnterRectSimple(v, GetPlayableMapRect())
+    TriggerAddAction(v, Redirect_RegisterUnit)
+    ForGroup(x, PrePlacedUnits)
+    DestroyGroup(x)
 end)
 if Debug then Debug.endFile() end

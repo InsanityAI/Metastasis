@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/KineticRush" end
-OnInit.trigg("KineticRush", function(require)
+OnInit.trig("KineticRush", function(require)
     ---@return boolean
     function KineticRush_Condition()
         if (not (GetSpellAbilityId() == FourCC('A05T') or GetSpellAbilityId() == FourCC('A08X'))) then

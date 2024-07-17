@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/FusionBombPurchase" end
-OnInit.trigg("FusionBombPurchase", function(require)
+OnInit.trig("FusionBombPurchase", function(require)
     ---@return boolean
     function Trig_FusionBombPurchase_Conditions()
         if (not (GetItemTypeId(GetSoldItem()) == FourCC('I00N'))) then

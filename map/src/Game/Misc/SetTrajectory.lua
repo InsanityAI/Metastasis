@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/SetTrajectory" end
-OnInit.triggg("SetTrajectory", function(require)
+OnInit.trig("SetTrajectory", function(require)
     ---@return boolean
     function Trig_SetTrajectory_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A004'))) then

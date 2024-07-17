@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Commands/Votekick" end
 OnInit.trig("Votekick", function(require)
+    require "Anonymity"
     ---@return boolean
     function Trig_Votekick_Conditions()
         return SubStringBJ(GetEventPlayerChatString(), 1, 10) == "-votekick "

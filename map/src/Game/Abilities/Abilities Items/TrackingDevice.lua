@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/TrackingDevice" end
-OnInit.trigg("TrackingDevice", function(require)
+OnInit.trig("TrackingDevice", function(require)
     ---@return boolean
     function Trig_TrackingDevice_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A01G'))) then

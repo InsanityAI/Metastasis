@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/EnergyTransmission" end
-OnInit.trigg("EnergyTransmission", function(require)
+OnInit.trig("EnergyTransmission", function(require)
     ---@return boolean
     function Trig_EnergyTransmission_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A02H'))) then

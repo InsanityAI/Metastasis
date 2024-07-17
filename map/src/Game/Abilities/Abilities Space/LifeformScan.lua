@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Space/LifeformScan" end
-OnInit.trigg("LifeformScan", function(require)
+OnInit.trig("LifeformScan", function(require)
     ---@return boolean
     function Trig_LifeformScan_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A04X'))) then

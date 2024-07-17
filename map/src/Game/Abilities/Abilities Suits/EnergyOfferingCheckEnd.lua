@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/EnergyOfferingCheckEnd" end
-OnInit.trigg("EnergyOfferingCheckEnd", function(require)
+OnInit.trig("EnergyOfferingCheckEnd", function(require)
     ---@return boolean
     function Trig_EnergyOfferingCheckEnd_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A0A3'))) then

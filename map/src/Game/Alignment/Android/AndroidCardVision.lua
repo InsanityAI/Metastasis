@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Android/AndroidCardVision" end
-OnInit.triggg("AndroidCardVision", function(require)
+OnInit.trig("AndroidCardVision", function(require)
     ---@return boolean
     function Trig_AndroidCardVision_Func003Func002Func003Func001C()
         if (not (UnitHasItem(GetEnumUnit(), udg_Android_MemoryCard) == true)) then

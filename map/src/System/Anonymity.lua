@@ -1,7 +1,5 @@
 if Debug then Debug.beginFile "System/Anonymity" end
-OnInit.map("System/Anonymity", function(require)
-    require "SetUtils"
-
+OnInit.map("Anonymity", function(require)
     ---@class Anonymity
     Anonymity = {}
     Anonymity.shuffledPlayers = Set.create()

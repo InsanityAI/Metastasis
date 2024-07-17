@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/Abilities/Android/PrismRockets" end
 OnInit.trig("PrismRockets", function(require)
+    require "IsTerrainWalkable"
     ---@return boolean
     function Trig_PrismRockets_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A05U'))) then

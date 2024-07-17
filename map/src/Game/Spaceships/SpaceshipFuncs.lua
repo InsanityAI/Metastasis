@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/Spaceships/SpaceshipFuncs" end
 OnInit.map("SpaceshipFuncs", function(require)
+    require "ArrayDat"
     function SSEnter()
         --set udg_TempUnit=GetHandleUnit(GetTriggeringTrigger(), "q")
         udg_TempUnit = LoadUnitHandle(LS(), GetHandleId(GetTriggeringTrigger()), StringHash("q"))

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/TeleportBomb" end
-OnInit.trigg("TeleportBomb", function(require)
+OnInit.trig("TeleportBomb", function(require)
     ---@return boolean
     function Trig_TeleportBomb_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A01A'))) then

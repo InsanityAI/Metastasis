@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/SwarmTraining" end
-OnInit.trigg("SwarmTraining", function(require)
+OnInit.trig("SwarmTraining", function(require)
     ---@return boolean
     function Trig_SwarmTraining_Conditions()
         if (not (GetUnitTypeId(GetTrainedUnit()) == FourCC('h01S'))) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/RDGLimit" end
-OnInit.trigggg("RDGLimit", function(require)
+OnInit.trig("RDGLimit", function(require)
     ---@return boolean
     function Trig_RDGLimit_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A056'))) then

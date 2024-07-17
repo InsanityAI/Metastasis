@@ -1,5 +1,7 @@
 if Debug then Debug.beginFile "System/ChatSys/ChatGroupAdd" end
 OnInit.trig("ChatGroupAdd", function(require)
+    require "Anonymity"
+    require "PlayerColor"
     ---@return boolean
     function Trig_ChatGroupAdd_Conditions()
         return IsPlayerInForce(GetTriggerPlayer(), udg_DeadGroup) ~= true and
@@ -34,7 +36,7 @@ OnInit.trig("ChatGroupAdd", function(require)
                 targettedPlayer = Anonymity.shuffledPlayers.orderedKeys[udg_TempInt]
                 ForceAddPlayer(udg_TempPlayerGroup, targettedPlayer)
                 DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 30,
-                    (PlayerColours[targettedPlayer] .. GetPlayerName(targettedPlayer) .. ("|r |cff008000has been added to group |r|cff0080C0" .. (udg_TempString .. "|r."))))
+                    (PlayerColor[targettedPlayer] .. GetPlayerName(targettedPlayer) .. ("|r |cff008000has been added to group |r|cff0080C0" .. (udg_TempString .. "|r."))))
                 DisplayTimedTextToPlayer(targettedPlayer, 0, 0, 30,
                     ("You" .. (" |cff008000have been added to group |r|cff0080C0" .. (udg_TempString .. "|r."))))
             end

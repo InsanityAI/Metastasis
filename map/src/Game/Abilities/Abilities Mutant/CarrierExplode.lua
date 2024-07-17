@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/CarrierExplode" end
-OnInit.trigg("CarrierExplode", function(require)
+OnInit.trig("CarrierExplode", function(require)
     ---@return boolean
     function Trig_CarrierExplode_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A020'))) then

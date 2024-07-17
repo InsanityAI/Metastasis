@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/Setup" end
-OnInit.trigg("Setup", function(require)
+OnInit.trig("Setup", function(require)
     ---@return boolean
     function Trig_Setup_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A08Q'))) then

@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/Allignment/Common/LiquidateDialog" end
 OnInit.trig("LiquidateDialog", function(require)
+    require "Anonymity"
     function Trig_LiquidateDialog_Actions()
         local targettedPlayer ---@type player
         if GetClickedButtonBJ() == udg_Liquidate_AreYouSureButton[2] then

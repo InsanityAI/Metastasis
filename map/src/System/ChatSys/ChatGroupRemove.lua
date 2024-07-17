@@ -1,5 +1,7 @@
 if Debug then Debug.beginFile "System/ChatSys/ChatGroupRemove" end
 OnInit.trig("ChatGroupRemove", function(require)
+    require "Anonymity"
+    require "PlayerColor"
     ---@return boolean
     function Trig_ChatGroupRemove_Conditions()
         return IsPlayerInForce(GetTriggerPlayer(), udg_DeadGroup) ~= true and
@@ -34,7 +36,7 @@ OnInit.trig("ChatGroupRemove", function(require)
                 targettedPlayer = Anonymity.shuffledPlayers.orderedKeys[udg_TempInt]
                 ForceRemovePlayerSimple(targettedPlayer, udg_TempPlayerGroup)
                 DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 30,
-                    (PlayerColours[targettedPlayer] .. GetPlayerName(targettedPlayer) .. ("|r |cff008000has been removed from group |r|cff0080C0" .. (udg_TempString .. "|r."))))
+                    (PlayerColor[targettedPlayer] .. GetPlayerName(targettedPlayer) .. ("|r |cff008000has been removed from group |r|cff0080C0" .. (udg_TempString .. "|r."))))
                 DisplayTimedTextToPlayer(targettedPlayer, 0, 0, 30,
                     ("You" .. (" |cff008000have been removed from group |r|cff0080C0" .. (udg_TempString .. "|r."))))
             end

@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "System/ChatSys/ChatGroupBroadcast" end
 OnInit.trig("ChatGroupBroadcast", function(require)
+    require "PlayerColor"
     ---@return boolean
     function Trig_ChatGroupBroadcast_Conditions()
         if (not (SubStringBJ(GetEventPlayerChatString(), 1, 1) == ";")) then
@@ -46,9 +47,9 @@ OnInit.trig("ChatGroupBroadcast", function(require)
         if (IsPlayerInForce(GetTriggerPlayer(), udg_TempPlayerGroup) == true) then
             ForForce(udg_TempPlayerGroup, Trig_ChatGroupBroadcast_Func007Func001A)
             DisplayTextToForce(udg_TempPlayerGroup,
-                ("|cff808040" .. (("[" .. (udg_arguments[1] .. ("]|r" .. PlayerColours[GetTriggerPlayer()] .. GetPlayerName(GetTriggerPlayer())))) .. ("|r: " .. udg_arguments[2]))))
+                ("|cff808040" .. (("[" .. (udg_arguments[1] .. ("]|r" .. PlayerColor[GetTriggerPlayer()] .. GetPlayerName(GetTriggerPlayer())))) .. ("|r: " .. udg_arguments[2]))))
             DisplayTextToForce(udg_DeadGroup,
-                ("|cff808040" .. (("[" .. (udg_arguments[1] .. ("]|r" .. PlayerColours[GetTriggerPlayer()] .. GetPlayerName(GetTriggerPlayer())))) .. ("|r: " .. udg_arguments[2]))))
+                ("|cff808040" .. (("[" .. (udg_arguments[1] .. ("]|r" .. PlayerColor[GetTriggerPlayer()] .. GetPlayerName(GetTriggerPlayer())))) .. ("|r: " .. udg_arguments[2]))))
         end
 
         --Gosh, no secrets here.

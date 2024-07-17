@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/DeterministicInvigorationConvert" end
-OnInit.triggg("DeterministicInvigorationConvert", function(require)
+OnInit.trig("DeterministicInvigorationConvert", function(require)
     ---@return boolean
     function Trig_Deterministic_Invigoration_Convert_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A09V'))) then

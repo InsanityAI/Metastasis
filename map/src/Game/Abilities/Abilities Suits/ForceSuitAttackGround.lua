@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/ForceSuitAttackGround" end
-OnInit.trigggggg("ForceSuitAttackGround", function(require)
+OnInit.trig("ForceSuitAttackGround", function(require)
     ---@return boolean
     function Trig_ForceSuitAttackGround_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A08A'))) then

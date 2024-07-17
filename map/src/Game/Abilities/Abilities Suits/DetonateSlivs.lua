@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/DetonateSlivs" end
-OnInit.trigggg("DetonateSlivs", function(require)
+OnInit.trig("DetonateSlivs", function(require)
     ---@return boolean
     function Trig_DetonateSlivs_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A07S'))) then

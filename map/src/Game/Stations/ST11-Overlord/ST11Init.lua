@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/Stations/ST11/ST11Init" end
-OnInit.map("ST11Init", function(require)
+OnInit.trig("ST11Init", function(require)
+    require "ArrayDat"
     function Trig_ST11Init_Func016A()
         CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_ST11V1)
         DestroyFogModifier(GetLastCreatedFogModifier())

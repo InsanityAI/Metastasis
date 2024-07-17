@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Alien/ParasiteUpgradeFinish" end
-OnInit.trigggggg("ParasiteUpgradeFinish", function(require)
+OnInit.trig("ParasiteUpgradeFinish", function(require)
     ---@return boolean
     function Trig_ParasiteUpgradeFinish_Func002C()
         if (not (IsUnitAliveBJ(udg_Playerhero[GetConvertedPlayerId(udg_Parasite)]) == true)) then

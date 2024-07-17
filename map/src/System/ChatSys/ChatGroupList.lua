@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "System/ChatSys/ChatGroupList" end
 OnInit.trig("ChatGroupList", function(require)
+    require "PlayerColor"
     ---@return boolean
     function Trig_ChatGroupList_Conditions()
         if (not (IsPlayerInForce(GetTriggerPlayer(), udg_DeadGroup) ~= true)) then
@@ -13,7 +14,7 @@ OnInit.trig("ChatGroupList", function(require)
 
     function Trig_ChatGroupList_Func007Func002A()
         DisplayTextToPlayer(GetTriggerPlayer(), 0, 0,
-            PlayerColours[GetEnumPlayer()] .. GetPlayerName(GetEnumPlayer()) .. "|r")
+            PlayerColor[GetEnumPlayer()] .. GetPlayerName(GetEnumPlayer()) .. "|r")
     end
 
     ---@return boolean

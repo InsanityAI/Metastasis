@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Mutant/MutantDevour" end
-OnInit.triggggggggg("MutantDevour", function(require)
+OnInit.trig("MutantDevour", function(require)
     ---@return boolean
     function Trig_MutantDevour_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A05M'))) then

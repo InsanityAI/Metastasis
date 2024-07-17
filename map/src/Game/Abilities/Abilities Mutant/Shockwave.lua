@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/Shockwave" end
 OnInit.trig("Shockwave", function(require)
+    require "IsTerrainWalkable"
     ---@return boolean
     function Trig_Shockwave_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A08U'))) then

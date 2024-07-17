@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/RemindTKBad" end
-OnInit.trigg("RemindTKBad", function(require)
+OnInit.trig("RemindTKBad", function(require)
     function Trig_RemindTKBad_Actions()
         DisplayTextToForce(GetPlayersAll(), ("|cff008040Never forget, TeamKilling favours the Mutant and Alien!"))
         DestroyTrigger(GetTriggeringTrigger())

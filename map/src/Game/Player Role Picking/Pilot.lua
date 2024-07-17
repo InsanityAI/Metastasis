@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/PlayerRolePicking/Pilot" end
 OnInit.trig("Pilot", function(require)
+    require "StateTable"
     ---@return boolean
     function Trig_Pilot_Func001Func002Func001C()
         if (not (udg_TempPlayer == udg_HiddenAndroid)) then

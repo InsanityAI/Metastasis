@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Alien/AlienFormDies" end
-OnInit.triggggggggg("AlienFormDies", function(require)
+OnInit.trig("AlienFormDies", function(require)
     ---@return boolean
     function Trig_AlienFormDies_Conditions()
         if (not (GetDyingUnit() == udg_AlienForm_Alien)) then

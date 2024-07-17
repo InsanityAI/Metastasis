@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/Stations/ST10/ST10Abilities" end
 OnInit.trig("ST10Abilities", function(require)
+    require "IsTerrainWalkable"
     ---@return boolean
     function Trig_ST10Abilities_Conditions()
         if (not (GetUnitTypeId(GetTriggerUnit()) == FourCC('h04U'))) then

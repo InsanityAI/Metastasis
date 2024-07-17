@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/Misc/EscapePod" end
 OnInit.trig("EscapePod", function(require)
+    require "ArrayDat"
     ---@return boolean
     function Trig_EscapePod_Conditions()
         if (not (GetItemTypeId(GetSoldItem()) == FourCC('I010'))) then

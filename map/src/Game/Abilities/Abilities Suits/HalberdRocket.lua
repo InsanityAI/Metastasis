@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/HalberdRocket" end
 OnInit.trig("HalberdRocket", function(require)
+    require "IsTerrainWalkable"
     ---@return boolean
     function Trig_HalberdRocket_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A03S'))) then

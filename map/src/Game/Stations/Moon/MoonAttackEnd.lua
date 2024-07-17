@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/Moon/MoonAttackEnd" end
-OnInit.trigg("MoonAttackEnd", function(require)
+OnInit.trig("MoonAttackEnd", function(require)
     function Trig_MoonAttackEnd_Actions()
         udg_Moon_TakingDamage = false
         SetStackedSoundBJ(false, gg_snd_WWII_submarine_dive_klaxon, gg_rct_MoonRect)

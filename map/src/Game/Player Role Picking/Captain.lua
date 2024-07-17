@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/PlayerRolePicking/Captain" end
 OnInit.trig("Captain", function(require)
+    require "StateTable"
     ---@return boolean
     function Trig_Captain_Func001Func001Func001C()
         if (not (udg_TempPlayer == udg_HiddenAndroid)) then
@@ -51,6 +52,5 @@ OnInit.trig("Captain", function(require)
     --===========================================================================
     gg_trg_Captain = CreateTrigger()
     TriggerAddAction(gg_trg_Captain, Trig_Captain_Actions)
-    print(gg_trg_Captain == nil)
 end)
 if Debug then Debug.endFile() end

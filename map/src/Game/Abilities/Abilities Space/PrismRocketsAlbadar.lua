@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/Abilities/Space/PrismRocketsAlbadar" end
-OnInit.trigggggg("PrismRocketsAlbadar", function(require)
+OnInit.trig("PrismRocketsAlbadar", function(require)
+    require "IsTerrainWalkable"
     ---@return boolean
     function Trig_PrismRocketsAlbadar_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A07L'))) then

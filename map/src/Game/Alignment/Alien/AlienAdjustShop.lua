@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Alien/AlienAdjustShop" end
-OnInit.trigg("AlienAdjustShop", function(require)
+OnInit.trig("AlienAdjustShop", function(require)
     ---@return boolean
     function Trig_AlienAdjustShop_Conditions()
         if (not (IsUnitAliveBJ(udg_AlienForm_Alien) == true)) then

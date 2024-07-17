@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Android/Shutdown" end
-OnInit.trigg("Shutdown", function(require)
+OnInit.trig("Shutdown", function(require)
     ---@return boolean
     function Trig_Shutdown_Conditions()
         if (not (GetTriggerPlayer() == udg_HiddenAndroid)) then

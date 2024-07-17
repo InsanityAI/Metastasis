@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Initialization/GetSectorInit" end
-OnInit.trig("GetSectorInit", function(require)
+OnInit.map("GetSectorInit", function(require)
     udg_SectorId[1] = gg_rct_ST1
     udg_SectorId[2] = gg_rct_ST2
     udg_SectorId[3] = gg_rct_ST3

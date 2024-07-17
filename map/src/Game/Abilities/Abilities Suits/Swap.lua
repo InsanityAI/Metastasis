@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/Swap" end
-OnInit.trigggg("Swap", function(require)
+OnInit.trig("Swap", function(require)
     ---@return boolean
     function Trig_Swap_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A04E'))) then

@@ -1,12 +1,12 @@
 if Debug then Debug.beginFile("Players Colours") end
-OnInit.module("PlayerColours", function(require)
+OnInit.module("PlayerColor", function(require)
     require "ReadOnly"
     require "typeof"
 
     local neutralColor = ReadOnly({ colour = "ff2e2d2e", red = 46, green = 45, blue = 46 }) -- Black/Neutral
     local keyType
-    ---@class PlayerColours: {[playercolor|player|number]: {colour: string, red: number, green: number, blue: number}}
-    PlayerColours = ReadOnly(setmetatable({
+    ---@class PlayerColor: {[playercolor|player|number]: {colour: string, red: number, green: number, blue: number}}
+    PlayerColor = ReadOnly(setmetatable({
         [PLAYER_COLOR_RED]        = ReadOnly({ colour = "ffff0303", red = 255, green = 3, blue = 3 }),     -- Red
         [PLAYER_COLOR_BLUE]       = ReadOnly({ colour = "ff0042ff", red = 0, green = 66, blue = 255 }),    -- Blue
         [PLAYER_COLOR_TURQUOISE]  = ReadOnly({ colour = "ff1ce6b9", red = 28, green = 230, blue = 185 }),  -- Teal

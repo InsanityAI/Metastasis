@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/RockFallEveryoneDies" end
-OnInit.trigg("RockFallEveryoneDies", function(require)
+OnInit.trig("RockFallEveryoneDies", function(require)
     ---@return boolean
     function Trig_RocksFallEveryoneDies_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A01Q'))) then

@@ -1,6 +1,6 @@
 if Debug then Debug.beginFile "System/StateTable" end
-OnInit.trig("System/StateTable", function(require)
-    require "PlayerColours"
+OnInit.trig("StateTable", function(require)
+    require "PlayerColor"
     require "SetUtils"
     require "TimerQueue"
 
@@ -42,7 +42,7 @@ OnInit.trig("System/StateTable", function(require)
     ---@param player player
     ---@return string
     local function formatPlayerName(player)
-        return "|c" .. PlayerColours[player].colour .. GetPlayerName(player)
+        return "|c" .. PlayerColor[player].colour .. GetPlayerName(player)
     end
 
     ---@param player player

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Blaclists" end
-OnInit.trig("Blacklists", function(require)
+OnInit.global("Blacklists", function(require)
     LIBRARY_Blacklists = true
     local SCOPE_PREFIX = "Blacklists_" ---@type string  --TODO:
 
@@ -77,12 +77,10 @@ OnInit.trig("Blacklists", function(require)
         return true
     end
     --==================================================================================================
-    local function init()
-        DESTRUCT_FILTER           = Filter(Destructable_Filter)
-        UNIT_FILTER               = Filter(UnitTarget_Filter)
-        DESTRUCT_COLLISION_FILTER = And(DESTRUCT_FILTER, Filter(Destructable_Collision_Filter))
-        UNIT_CASTER_FILTER        = And(UNIT_FILTER, Filter(UnitTarget_CasterFilter))
-    end
-    OnGlobalInit(init)
+
+    DESTRUCT_FILTER           = Filter(Destructable_Filter)
+    UNIT_FILTER               = Filter(UnitTarget_Filter)
+    DESTRUCT_COLLISION_FILTER = And(DESTRUCT_FILTER, Filter(Destructable_Collision_Filter))
+    UNIT_CASTER_FILTER        = And(UNIT_FILTER, Filter(UnitTarget_CasterFilter))
 end)
 if Debug then Debug.endFile() end

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/CoreOverloadStop" end
-OnInit.triggg("CoreOverloadStop", function(require)
+OnInit.trig("CoreOverloadStop", function(require)
     ---@return boolean
     function Trig_CoreoverloadStop_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A06C'))) then

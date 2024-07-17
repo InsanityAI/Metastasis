@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Libraries/Genstation/GenStation" end
-OnInit.main("Libraries/Genstation/GenStation", function(require)
+OnInit.trig("Libraries/Genstation/GenStation", function(require)
     ---@param console unit
     function ConsoleDisable(console)
         if HaveSavedHandle(LS(), GetHandleId(console), StringHash("EnterTrigger")) then

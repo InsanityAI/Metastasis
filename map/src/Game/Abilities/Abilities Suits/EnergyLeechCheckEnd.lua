@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/EnergyLeechCheckEnd" end
-OnInit.trigg("EnergyLeechCheckEnd", function(require)
+OnInit.trig("EnergyLeechCheckEnd", function(require)
     ---@return boolean
     function Trig_EnergyLeechCheckEnd_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A07X'))) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/PlayerMurderPart2" end
-OnInit.triggggg("PlayerMurderPart2", function(require)
+OnInit.trig("PlayerMurderPart2", function(require)
     ---@return boolean
     function Trig_PlayerMurderPart2_Func001C()
         if (not (IsUnitAliveBJ(udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)]) == true)) then

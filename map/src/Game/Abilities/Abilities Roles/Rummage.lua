@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Roles/Rummage" end
-OnInit.triggg("Rummage", function(require)
+OnInit.trig("Rummage", function(require)
     ---@return boolean
     function Trig_Rummage_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A04B'))) then

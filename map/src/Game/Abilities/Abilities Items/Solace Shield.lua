@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/SolaceShield" end
-OnInit.triggggg("SolaceShield", function(require)
+OnInit.trig("SolaceShield", function(require)
     ---@return boolean
     function Trig_Solace_Shield_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A054'))) then

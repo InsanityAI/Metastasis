@@ -1,6 +1,5 @@
 if Debug then Debug.beginFile "Game/RandomEvents/RandomEventsInit" end
-OnInit.trig("RandomEventsInit", function(require)
-    DestroyTrigger(GetTriggeringTrigger())
+OnInit.map("RandomEventsInit", function(require)
     udg_RandomEvent_Trigger[1] = gg_trg_CommissarPromotion
     udg_RandomEvent_Trigger[2] = gg_trg_LostStation
     --udg_RandomEvent_Trigger[3] = gg_trg_SlugglyInfestation
@@ -20,7 +19,7 @@ OnInit.trig("RandomEventsInit", function(require)
     udg_Apocalypse_Trigger[1] = gg_trg_USIBattleFleet
     udg_Apocalypse_Trigger[2] = gg_trg_BlackHole
     StartTimerBJ(udg_RandomEvent, false, GetRandomReal(180.00, 720.00))
-    PolledWait(5.00)
+
     DialogSetMessageBJ(udg_PersonnelUpgradeDialog, "TRIGSTR_1395")
     DialogAddButtonBJ(udg_PersonnelUpgradeDialog, "TRIGSTR_1397")
     DialogAddButtonBJ(udg_PersonnelUpgradeDialog, "TRIGSTR_1398")

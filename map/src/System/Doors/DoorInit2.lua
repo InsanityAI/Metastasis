@@ -44,5 +44,8 @@ OnInit.trig("DoorInit2", function(require)
 
     gg_trg_DoorInit2 = CreateTrigger()
     TriggerAddAction(gg_trg_DoorInit2, Trig_DoorInit2_Actions)
+    OnInit.map(function()
+        TriggerExecute(gg_trg_DoorInit2)
+    end)
 end)
 if Debug then Debug.endFile() end

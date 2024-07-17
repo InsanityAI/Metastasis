@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST9/ST9Init" end
-OnInit.map("ST9Init", function(require)
+OnInit.trig("ST9Init", function(require)
     function Trig_ST9Init_Func002A()
         CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_ST9V1)
         DestroyFogModifier(GetLastCreatedFogModifier())
@@ -36,17 +36,6 @@ OnInit.map("ST9Init", function(require)
         BasicAI(GetEnumUnit(), 300, 1000.0)
     end
 
-    function Trig_ST9Init_Func013A()
-        udg_TempTrigger = LoadTriggerHandle(LS(), GetHandleId(GetEnumDestructable()), StringHash("t1"))
-        DisableTrigger(udg_TempTrigger)
-        udg_TempTrigger = LoadTriggerHandle(LS(), GetHandleId(GetEnumDestructable()), StringHash("t2"))
-        udg_TempDoorHack = true
-        TriggerExecute(udg_TempTrigger)
-        udg_TempDoorHack = false
-        DestructableRestoreLife(LoadDestructableHandle(LS(), GetHandleId(udg_TempTrigger), StringHash("doorpath")),
-            999999, true)
-    end
-
     function Trig_ST9Init_Actions()
         DestroyTrigger(GetTriggeringTrigger())
         ForForce(GetPlayersAll(), Trig_ST9Init_Func002A)
@@ -65,7 +54,6 @@ OnInit.map("ST9Init", function(require)
             ChangeElevatorWalls(true, bj_ELEVATOR_WALL_TYPE_ALL, udg_All_Dock[GetForLoopIndexA()])
             bj_forLoopAIndex = bj_forLoopAIndex + 1
         end
-        EnumDestructablesInRectAll(gg_rct_ST9, Trig_ST9Init_Func013A)
         udg_TempUnit = gg_unit_h04I_0012
         GenConsole(udg_TempUnit, udg_TempUnit, gg_rct_ST9Control)
         udg_TempUnit = gg_unit_h04R_0258

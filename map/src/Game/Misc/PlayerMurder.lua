@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/PlayerMurder" end
-OnInit.trigg("PlayerMurder", function(require)
+OnInit.trig("PlayerMurder", function(require)
     require "StateTable"
     ---@return boolean
     function Trig_PlayerMurder_Func002Func001C()

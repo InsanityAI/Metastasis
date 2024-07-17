@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/MutantFakeAntibody" end
-OnInit.triggg("MutantFakeAntibody", function(require)
+OnInit.trig("MutantFakeAntibody", function(require)
     ---@return boolean
     function Trig_Mutant_fake_antibody_Conditions()
         if (not (GetItemTypeId(GetManipulatedItem()) == FourCC('I004'))) then

@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/KidotProjection" end
 OnInit.trig("KidotProjection", function(require)
+    require "IsTerrainWalkable"
     ---@return boolean
     function Trig_Kidot_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A07J'))) then

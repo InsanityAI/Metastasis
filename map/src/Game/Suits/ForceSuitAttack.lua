@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/Suits/ForceSuitAttack" end
 OnInit.trig("ForceSuitAttack", function(require)
+    require "IsTerrainWalkable"
     ---@return boolean
     function Trig_ForceSuitAttack_Conditions()
         return GetUnitTypeId(GetAttacker()) == FourCC('h03L') and

@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/BurstGrenade" end
 OnInit.trig("BurstGrenade", function(require)
+    require "IsTerrainWalkable"
     ---@return boolean
     function Trig_BGrenade_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A06O'))) then
