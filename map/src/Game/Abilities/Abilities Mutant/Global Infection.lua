@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/GlobalInfection" end
-OnInit.map("GlobalInfection", function(require)
+OnInit.trig("GlobalInfection", function(require)
     ---@return boolean
     function Trig_Global_Infection_Func002C()
         if ((udg_Mutant == GetOwningPlayer(GetTriggerUnit()))) then

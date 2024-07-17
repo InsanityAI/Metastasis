@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST8/CalipeaAttack" end
-OnInit.map("CalipeaAttack", function(require)
+OnInit.trig("CalipeaAttack", function(require)
     ---@return boolean
     function Trig_CalipoaAttack_Conditions()
         if (not (gg_unit_h04E_0259 == GetAttacker())) then

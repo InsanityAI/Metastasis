@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Spaceships/SpaceshipsOutOfRectBugfix/Obda10" end
-OnInit.map("Obda10", function(require)
+OnInit.trig("Obda10", function(require)
     function Actions10()
         SetUnitPositionLoc(GetTriggerUnit(), GetRectCenter(gg_rct_SS10))
     end

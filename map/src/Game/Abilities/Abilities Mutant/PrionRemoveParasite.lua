@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/PrionRemoveParasite" end
-OnInit.map("PrionRemoveParasite", function(require)
+OnInit.trig("PrionRemoveParasite", function(require)
     ---@return boolean
     function Trig_PrionRemoveParasite_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A013'))) then

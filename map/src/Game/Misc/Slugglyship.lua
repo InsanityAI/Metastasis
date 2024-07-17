@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/SlugglyShip" end
-OnInit.map("SlugglyShip", function(require)
+OnInit.trig("SlugglyShip", function(require)
     ---@return boolean
     function Trig_Slugglyship_Func002Func001Func001C()
         if (not (GetItemTypeId(GetManipulatedItem()) == FourCC('I018'))) then

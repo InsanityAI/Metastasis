@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/TeleportAndAI/WaterShieldEffect" end
-OnInit.map("WaterShieldEffect", function(require)
+OnInit.trig("WaterShieldEffect", function(require)
     ---@return boolean
     function Trig_Water_shield_Effect_Func003Func007Func001C()
         if (not (GetUnitTypeId(GetEnumUnit()) ~= FourCC('n00I'))) then

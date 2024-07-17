@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST4/NiffyLockdown" end
-OnInit.map("NiffyLockdown", function(require)
+OnInit.trig("NiffyLockdown", function(require)
     ---@return boolean
     function Trig_Niffy_Lockdown_Func002C()
         if (not (udg_TESTING == true)) then

@@ -19,9 +19,9 @@ OnInit.map("AntiTKSys", function(require)
     ---@param TKee player
     ---@param points real
     function LogTKPoints(TKer, TKee, points)
-        local s  = StringHash("TKPointsOf_" + I2S(GetConvertedPlayerId(TKer)) + "_Towards_" +
+        local s  = StringHash("TKPointsOf_" .. I2S(GetConvertedPlayerId(TKer)) .. "_Towards_" ..
             I2S(GetConvertedPlayerId(TKee))) ---@type integer
-        local sd = StringHash("LastDamageTimeOf_" + I2S(GetConvertedPlayerId(TKer)) + "_Towards_" +
+        local sd = StringHash("LastDamageTimeOf_" .. I2S(GetConvertedPlayerId(TKer)) .. "_Towards_" ..
             I2S(GetConvertedPlayerId(TKee))) ---@type integer
         local r ---@type real
 
@@ -40,7 +40,7 @@ OnInit.map("AntiTKSys", function(require)
     ---@param TKee player
     ---@return real
     function GetPlayerLastDamageTime(TKer, TKee)
-        local s = StringHash("LastDamageTimeOf_" + I2S(GetConvertedPlayerId(TKer)) + "_Towards_" +
+        local s = StringHash("LastDamageTimeOf_" .. I2S(GetConvertedPlayerId(TKer)) .. "_Towards_" ..
             I2S(GetConvertedPlayerId(TKee))) ---@type integer
         local r = LoadReal2(LS(), 9449, s) ---@type real
         return r
@@ -50,10 +50,10 @@ OnInit.map("AntiTKSys", function(require)
     ---@param TKee player
     ---@return real
     function GetPlayerWeightedTKToPlayer(TKer, TKee)
-        local s  = StringHash("TKPointsOf_" + I2S(GetConvertedPlayerId(TKer)) + "_Towards_" +
+        local s  = StringHash("TKPointsOf_" .. I2S(GetConvertedPlayerId(TKer)) .. "_Towards_" ..
             I2S(GetConvertedPlayerId(TKee))) ---@type integer
         local r  = LoadReal2(LS(), 9449, s) ---@type real
-        local s2 = StringHash("TKPointsOf_" + I2S(GetConvertedPlayerId(TKee)) + "_Towards_" +
+        local s2 = StringHash("TKPointsOf_" .. I2S(GetConvertedPlayerId(TKee)) .. "_Towards_" ..
             I2S(GetConvertedPlayerId(TKer))) ---@type integer
         local r2 = LoadReal2(LS(), 9449, s2) ---@type real
 

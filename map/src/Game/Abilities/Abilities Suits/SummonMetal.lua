@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/SummonMetal" end
-OnInit.map("SummonMetal", function(require)
+OnInit.trig("SummonMetal", function(require)
     ---@return boolean
     function Trig_SummonMetal_Conditions()
         if (not (GetUnitTypeId(GetSummonedUnit()) == FourCC('h04L'))) then

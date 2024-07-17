@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "System/ChatSys/ChatGroupList" end
-OnInit.map("ChatGroupList", function(require)
+OnInit.trig("ChatGroupList", function(require)
     ---@return boolean
     function Trig_ChatGroupList_Conditions()
         if (not (IsPlayerInForce(GetTriggerPlayer(), udg_DeadGroup) ~= true)) then
@@ -13,7 +13,7 @@ OnInit.map("ChatGroupList", function(require)
 
     function Trig_ChatGroupList_Func007Func002A()
         DisplayTextToPlayer(GetTriggerPlayer(), 0, 0,
-            PlayerColor_GetPlayerTextColor(GetEnumPlayer()) + GetPlayerName(GetEnumPlayer()) + "|r")
+            PlayerColours[GetEnumPlayer()] .. GetPlayerName(GetEnumPlayer()) .. "|r")
     end
 
     ---@return boolean
@@ -31,7 +31,7 @@ OnInit.map("ChatGroupList", function(require)
         udg_TempString = udg_arguments[2]
         if (Trig_ChatGroupList_Func007C()) then
             DisplayTextToPlayer(GetTriggerPlayer(), 0, 0,
-                ("|cff808000Players in group |cff0080C0" + (udg_TempString + "|r:")))
+                ("|cff808000Players in group |cff0080C0" .. (udg_TempString .. "|r:")))
             ForForce(udg_TempPlayerGroup, Trig_ChatGroupList_Func007Func002A)
         else
         end

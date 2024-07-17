@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST10/ST10ExplorerAid" end
-OnInit.map("ST10ExplorerAid", function(require)
+OnInit.trig("ST10ExplorerAid", function(require)
     ---@return boolean
     function Trig_ST10ExplorerAid_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A083'))) then

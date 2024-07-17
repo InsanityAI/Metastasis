@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Alien/ParasiteDialog" end
-OnInit.map("ParasiteDialog", function(require)
+OnInit.trig("ParasiteDialog", function(require)
     ---@return boolean
     function Trig_ParasiteDialog_Conditions()
         if (not (GetUnitAbilityLevelSwapped(FourCC('A078'), GetTriggerUnit()) == 1)) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/RandomEvents/CommissarPromotion" end
-OnInit.map("CommissarPromotion", function(require)
+OnInit.trig("CommissarPromotion", function(require)
     require "StateTable"
     ---@return boolean
     function Trig_CommissarPromotion_Func003Func001C()
@@ -52,13 +52,13 @@ OnInit.map("CommissarPromotion", function(require)
         else
             StartTimerBJ(udg_RandomEvent, false, GetRandomReal(180.00, 900.00))
             DisplayTextToForce(GetPlayersAll(),
-                (GetPlayerName(udg_TempPlayer) + " |cff00FF40has received a promotion!|r"))
+                (GetPlayerName(udg_TempPlayer) .. " |cff00FF40has received a promotion!|r"))
             DisplayTextToPlayer(udg_TempPlayer, 0, 0,
                 "|cffffcc00You have recieved the Operative suit. Thank you for your dedication to the United Security Initiative and the future of humanity.|r")
             udg_TempString = SubStringBJ(GetPlayerName(udg_TempPlayer),
                 (StringLength(udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)]) + 1), 99)
             udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] = "Rebarch "
-            name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + udg_TempString
+            name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] .. udg_TempString
             SetPlayerName(udg_TempPlayer, name)
             StateTable.UpdatePlayerName(udg_TempPlayer)
             UnitAddItemByIdSwapped(FourCC('I00X'), udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)])

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/Carrier" end
-OnInit.map("Carrier", function(require)
+OnInit.trig("Carrier", function(require)
     ---@return boolean
     function Trig_Carrier_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A05I'))) then

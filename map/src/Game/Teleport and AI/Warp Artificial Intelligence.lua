@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/TeleportAndAI/WarpArtificialIntelligence" end
-OnInit.map("WarpArtificialIntelligence", function(require)
+OnInit.trig("WarpArtificialIntelligence", function(require)
     function Trig_Warp_Artificial_Intelligence_Func005A()
         IssueTargetOrderBJ(GetEnumUnit(), "attack", GroupPickRandomUnit(udg_TempUnitGroup))
     end

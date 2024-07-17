@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/RandomEvents/DroneSwarm" end
-OnInit.map("DroneSwarm", function(require)
+OnInit.trigg("DroneSwarm", function(require)
     dronesSpawned = 1 ---@type integer
 
 

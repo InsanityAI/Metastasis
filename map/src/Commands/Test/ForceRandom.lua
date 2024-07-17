@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Commands/Test/ForceRandom" end
-OnInit.map("ForceRandom", function(require)
+OnInit.trig("ForceRandom", function(require)
     ---@return boolean
     function Trig_ForceRandom_Conditions()
         if (not (udg_TESTING == true)) then

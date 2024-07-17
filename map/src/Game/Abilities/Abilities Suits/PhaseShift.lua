@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/PhaseShift" end
-OnInit.map("PhaseShift", function(require)
+OnInit.triggggggg("PhaseShift", function(require)
     ---@return boolean
     function Trig_PhaseShift_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A00R'))) then

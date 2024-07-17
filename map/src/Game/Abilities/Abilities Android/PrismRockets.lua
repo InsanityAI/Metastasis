@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Android/PrismRockets" end
-OnInit.map("PrismRockets", function(require)
+OnInit.trig("PrismRockets", function(require)
     ---@return boolean
     function Trig_PrismRockets_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A05U'))) then
@@ -21,7 +21,7 @@ OnInit.map("PrismRockets", function(require)
         if GetLocationZ(b) > GetLocationZ(a) + GetUnitFlyHeight(l) then
             KillUnit(l)
         end
-        --if IsPointPathable(GetLocationX(b), GetLocationY(b), false) == false then
+        --if IsTerrainWalkable(GetLocationX(b), GetLocationY(b)) == false then
         --call KillUnit(l)
         --endif
         SetUnitPositionLoc(l, b)

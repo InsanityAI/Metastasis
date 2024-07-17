@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/EMGrenadeForceKill" end
-OnInit.map("EMGrenadeForceKill", function(require)
+OnInit.trig("EMGrenadeForceKill", function(require)
     ---@return boolean
     function Trig_EMGrenadeForceKill_Conditions()
         if (not (GetUnitTypeId(GetEnteringUnit()) == FourCC('e00W'))) then

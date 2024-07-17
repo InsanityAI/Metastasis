@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Commands/Test/SetPlayerhero" end
-OnInit.map("SetPlayerhero", function(require)
+OnInit.trig("SetPlayerhero", function(require)
     ---@return boolean
     function Trig_SetPlayerhero_Conditions()
         if (not (udg_TESTING == true)) then

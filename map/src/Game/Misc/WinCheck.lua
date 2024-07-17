@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/WinCheck" end
-OnInit.map("WinCheck", function(require)
+OnInit.trig("WinCheck", function(require)
     ---@return boolean
     function Trig_WinCheck_Func001C()
         if (not (udg_WC_Disable == true)) then

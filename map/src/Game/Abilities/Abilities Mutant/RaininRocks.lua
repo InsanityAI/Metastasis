@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/RaininRocks" end
-OnInit.map("RaininRocks", function(require)
+OnInit.trig("RaininRocks", function(require)
     ---@return boolean
     function Trig_RaininRocks_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A05F'))) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Commands/Votekick" end
-OnInit.map("Votekick", function(require)
+OnInit.trig("Votekick", function(require)
     ---@return boolean
     function Trig_Votekick_Conditions()
         return SubStringBJ(GetEventPlayerChatString(), 1, 10) == "-votekick "
@@ -41,7 +41,7 @@ OnInit.map("Votekick", function(require)
         ExecuteFunc("ParseEnteredString")
         -- Nasty crashes can occur if you don't check if you have an integer before you use it.
         if udg_arguments[2] ~= nil and udg_arguments[2] ~= "" then
-            udg_TempInt = GetConvertedPlayerId(Anonymity_ShuffledPlayersArray[S2I(udg_arguments[2]) - 1])
+            udg_TempInt = GetConvertedPlayerId(Anonymity.shuffledPlayers[S2I(udg_arguments[2]) - 1])
             if (Trig_Votekick_Func019Func002C()) then
                 udg_Player_DeadKickVotes[udg_TempInt] = (udg_Player_DeadKickVotes[udg_TempInt] + 1)
                 udg_TempInt2 = 0
@@ -58,16 +58,16 @@ OnInit.map("Votekick", function(require)
                 if (Trig_Votekick_ReachedThreshold()) then
                     if (Trig_Votekick_IsAndroid()) then
                         DisplayTextToForce(GetPlayersAll(),
-                            ("Dialoguing offensive android..." + (" " + (udg_Player_OriginalName[udg_TempInt] + "!"))))
+                            ("Dialoguing offensive android..." .. (" " .. (udg_Player_OriginalName[udg_TempInt] .. "!"))))
                         ShowInterfaceForceOff(GetForceOfPlayer(udg_HiddenAndroid), 2.00)
                     else
                         DisplayTextToForce(GetPlayersAll(),
-                            ("Dialoguing offensive player..." + (" " + (udg_Player_OriginalName[udg_TempInt] + "!"))))
+                            ("Dialoguing offensive player..." .. (" " .. (udg_Player_OriginalName[udg_TempInt] .. "!"))))
                         ShowInterfaceForceOff(GetForceOfPlayer(ConvertedPlayer(udg_TempInt)), 2.00)
                     end
                 else
                     DisplayTextToForce(GetPlayersAll(),
-                        (I2S(((udg_TempInt2 / 2) - udg_Player_DeadKickVotes[udg_TempInt])) + (" votes left to kick " + (udg_Player_OriginalName[udg_TempInt] + "!"))))
+                        (I2S(((udg_TempInt2 / 2) - udg_Player_DeadKickVotes[udg_TempInt])) .. (" votes left to kick " .. (udg_Player_OriginalName[udg_TempInt] .. "!"))))
                 end
             else
             end

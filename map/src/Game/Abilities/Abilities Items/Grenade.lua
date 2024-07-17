@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/Grenade" end
-OnInit.map("Grenade", function(require)
+OnInit.trig("Grenade", function(require)
     ---@return boolean
     function Trig_Grenade_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A01D'))) then
@@ -57,7 +57,7 @@ OnInit.map("Grenade", function(require)
             end
         end
 
-        --if IsPointPathable(GetLocationX(b), GetLocationY(b), false) == false then
+        --if IsTerrainWalkable(GetLocationX(b), GetLocationY(b)) == false then
         --call KillUnit(l)
         --endif
 

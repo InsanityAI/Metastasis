@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Spaceships/SSGenControlLoss" end
-OnInit.map("SSGenControlLoss", function(require)
+OnInit.trig("SSGenControlLoss", function(require)
     ---@return boolean
     function Trig_SSGenControlLoss_Conditions()
         if (not (GetOwningPlayer(GetTriggerUnit()) == GetOwningPlayer(udg_Spaceship_Console[GetUnitUserData(udg_TempUnit)]))) then

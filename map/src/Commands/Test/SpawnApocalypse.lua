@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Commands/Test/SpawnApocalpyse" end
-OnInit.map("SpawnApocalpyse", function(require)
+OnInit.trig("SpawnApocalpyse", function(require)
     ---@return boolean
     function Trig_SpawnApocalypse_Conditions()
         if (not (udg_TESTING == true)) then

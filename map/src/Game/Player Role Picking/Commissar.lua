@@ -1,6 +1,5 @@
 if Debug then Debug.beginFile "Game/PlayerRolePicking/Commissar" end
-OnInit.map("Commissar", function(require)
-    require "StateTable"
+OnInit.trig("Commissar", function(require)
     ---@return boolean
     function Trig_Commissar_Func001Func002Func002C()
         if (not (udg_TempPlayer == udg_HiddenAndroid)) then
@@ -43,7 +42,7 @@ OnInit.map("Commissar", function(require)
         DisplayTimedTextToPlayer(udg_TempPlayer, 0, 0, 30, "|cff800080YOUR OBJECTIVES: |r")
         UnitAddItemByIdSwapped(FourCC('I00G'), udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)])
         udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] = "Commissar "
-        name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer)
+        name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] .. GetPlayerName(udg_TempPlayer)
         SetPlayerName(udg_TempPlayer, name)
         StateTable.UpdatePlayerName(udg_TempPlayer)
     end

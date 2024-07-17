@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/ApocalypseSys/BlackHole" end
-OnInit.map("BlackHole", function(require)
+OnInit.trig("BlackHole", function(require)
     function Trig_BlackHole_Actions()
         PlaySoundBJ(gg_snd_PursuitTheme)
         DisplayTextToForce(GetPlayersAll(), "TRIGSTR_5311")

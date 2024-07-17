@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST3/ST3Cannon" end
-OnInit.map("ST3Cannon", function(require)
+OnInit.trig("ST3Cannon", function(require)
     ---@return boolean
     function Trig_ST3Cannon_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A005'))) then
@@ -59,7 +59,7 @@ OnInit.map("ST3Cannon", function(require)
         else
         end
         DisplayTextToForce(GetPlayersAll(),
-            ("|cffFF0000The Kyo Cannon has been fired at " + (GetUnitName(GetSpellTargetUnit()) + "!|r")))
+            ("|cffFF0000The Kyo Cannon has been fired at " .. (GetUnitName(GetSpellTargetUnit()) .. "!|r")))
         PlaySoundBJ(gg_snd_HumanDissipate1)
         PolledWait(1.00)
         PlaySoundBJ(gg_snd_ThunderClapCaster)

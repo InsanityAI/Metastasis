@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Android/AndroidUpgradeDialogClick" end
-OnInit.map("AndroidUpgradeDialogClick", function(require)
+OnInit.triggggg("AndroidUpgradeDialogClick", function(require)
     function Trig_AndroidUpgradeDialogClick_Actions()
         local c = udg_Playerhero[GetConvertedPlayerId(udg_HiddenAndroid)] ---@type unit
         local b = GetRectCenter(gg_rct_AndroidUpgrade) ---@type location

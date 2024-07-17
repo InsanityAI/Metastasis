@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/TeleportAndAI/TheWarpOngoing" end
-OnInit.map("TheWarpOngoing", function(require)
+OnInit.trig("TheWarpOngoing", function(require)
     function Trig_The_Warp_ongoing_Actions()
         udg_Warp7 = 1
         while udg_Warp7 <= 7 do

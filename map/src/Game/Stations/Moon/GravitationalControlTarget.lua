@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/Moon/GravitationalControlTarget" end
-OnInit.map("GravitationalControlTarget", function(require)
+OnInit.trig("GravitationalControlTarget", function(require)
     ---@return boolean
     function Trig_GravitationalControlTarget_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A02V'))) then

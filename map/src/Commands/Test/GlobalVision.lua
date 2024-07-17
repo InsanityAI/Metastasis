@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Commands/Test/GlobalVision" end
-OnInit.map("GlobalVision", function(require)
+OnInit.trigg("GlobalVision", function(require)
     ---@return boolean
     function Trig_GlobalVision_Conditions()
         if (not (udg_TESTING == true)) then

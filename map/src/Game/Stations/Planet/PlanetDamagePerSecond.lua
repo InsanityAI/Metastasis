@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/Planet/PlanetDamagePerSecond" end
-OnInit.map("PlanetDamagePerSecond", function(require)
+OnInit.trig("PlanetDamagePerSecond", function(require)
     ---@return boolean
     function Trig_PlanetDamagePerSecond_Conditions()
         if (not (udg_MinerthaDamagePerSecond > 0.00)) then

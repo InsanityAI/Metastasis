@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Blaclists" end
-OnInit.map("Blacklists", function(require)
+OnInit.trig("Blacklists", function(require)
     LIBRARY_Blacklists = true
     local SCOPE_PREFIX = "Blacklists_" ---@type string  --TODO:
 

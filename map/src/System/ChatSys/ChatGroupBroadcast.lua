@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "System/ChatSys/ChatGroupBroadcast" end
-OnInit.map("ChatGroupBroadcast", function(require)
+OnInit.trig("ChatGroupBroadcast", function(require)
     ---@return boolean
     function Trig_ChatGroupBroadcast_Conditions()
         if (not (SubStringBJ(GetEventPlayerChatString(), 1, 1) == ";")) then
@@ -40,22 +40,22 @@ OnInit.map("ChatGroupBroadcast", function(require)
         bj_forLoopAIndex = 3
         bj_forLoopAIndexEnd = 100
         while bj_forLoopAIndex <= bj_forLoopAIndexEnd do
-            udg_arguments[2] = (udg_arguments[2] + (" " + udg_arguments[GetForLoopIndexA()]))
+            udg_arguments[2] = (udg_arguments[2] .. (" " .. udg_arguments[GetForLoopIndexA()]))
             bj_forLoopAIndex = bj_forLoopAIndex + 1
         end
         if (IsPlayerInForce(GetTriggerPlayer(), udg_TempPlayerGroup) == true) then
             ForForce(udg_TempPlayerGroup, Trig_ChatGroupBroadcast_Func007Func001A)
             DisplayTextToForce(udg_TempPlayerGroup,
-                ("|cff808040" + (("[" + (udg_arguments[1] + ("]|r" + PlayerColor_GetPlayerTextColor(GetTriggerPlayer()) + GetPlayerName(GetTriggerPlayer())))) + ("|r: " + udg_arguments[2]))))
+                ("|cff808040" .. (("[" .. (udg_arguments[1] .. ("]|r" .. PlayerColours[GetTriggerPlayer()] .. GetPlayerName(GetTriggerPlayer())))) .. ("|r: " .. udg_arguments[2]))))
             DisplayTextToForce(udg_DeadGroup,
-                ("|cff808040" + (("[" + (udg_arguments[1] + ("]|r" + PlayerColor_GetPlayerTextColor(GetTriggerPlayer()) + GetPlayerName(GetTriggerPlayer())))) + ("|r: " + udg_arguments[2]))))
+                ("|cff808040" .. (("[" .. (udg_arguments[1] .. ("]|r" .. PlayerColours[GetTriggerPlayer()] .. GetPlayerName(GetTriggerPlayer())))) .. ("|r: " .. udg_arguments[2]))))
         end
 
         --Gosh, no secrets here.
         --5.83095189 OSK_REACTIVATE()
-        if StringHash(";" + udg_arguments[1] + " " + SubStringBJ(udg_arguments[2], 1, 15) + ")") == -1272370587 then
+        if StringHash(";" .. udg_arguments[1] .. " " .. SubStringBJ(udg_arguments[2], 1, 15) .. ")") == -1272370587 then
             --This line seems to be the one which shows the UFO code
-            --call DisplayTextToPlayer(GetLocalPlayer(),0,0, SubStringBJ(udg_arguments[2],16,19) + "-" + I2S(udg_Secret_ControlCode))
+            --call DisplayTextToPlayer(GetLocalPlayer(),0,0, SubStringBJ(udg_arguments[2],16,19) .. "-" .. I2S(udg_Secret_ControlCode))
 
             --RandomEvent[2] is the UFO event.
             if udg_RandomEvent_On[2] == true and I2S(udg_Secret_ControlCode) == SubStringBJ(udg_arguments[2], 16, 19) then

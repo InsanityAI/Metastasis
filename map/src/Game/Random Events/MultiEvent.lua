@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/RandomEvents/MultiEvent" end
-OnInit.map("MultiEvent", function(require)
+OnInit.trig("MultiEvent", function(require)
     function Trig_MultiEvent_Actions()
         DestroyTrigger(GetTriggeringTrigger())
         udg_RandomEvent_On[14] = true

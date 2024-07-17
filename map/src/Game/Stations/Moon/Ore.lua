@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/Moon/Ore" end
-OnInit.map("Ore", function(require)
+OnInit.trig("Ore", function(require)
     ---@return boolean
     function Trig_Ore_Conditions()
         if (not (GetUnitTypeId(GetTrainedUnit()) == FourCC('e025'))) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST1/RadarSweepSector" end
-OnInit.map("RadarSweepSector", function(require)
+OnInit.trig("RadarSweepSector", function(require)
     ---@return boolean
     function Trig_RadarSweepSector_Conditions()
         if (not (GetItemTypeId(GetSoldItem()) == FourCC('I00T'))) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Spaceships/SSGenDeath" end
-OnInit.map("SSGenDeath", function(require)
+OnInit.trig("SSGenDeath", function(require)
     ---@return boolean
     function Trig_SSGenDeath_Conditions()
         if (not (GetDyingUnit() ~= gg_unit_h04E_0259)) then

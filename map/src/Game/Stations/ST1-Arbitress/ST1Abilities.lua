@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST1/ST1Abilities" end
-OnInit.map("ST1Abilities", function(require)
+OnInit.trig("ST1Abilities", function(require)
     ---@return boolean
     function Trig_ST1Abilities_Func002Func004Func001Func002Func001001001()
         return (GetFilterPlayer() == udg_Parasite)

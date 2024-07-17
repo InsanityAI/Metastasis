@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Spaceships/SSGenBoard" end
-OnInit.map("SSGenBoard", function(require)
+OnInit.trig("SSGenBoard", function(require)
     ---@return boolean
     function Trig_SSGenBoard_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A02J'))) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/RandomEvents/PersonnelUpgradeEnter" end
-OnInit.map("PersonnelUpgradeEnter", function(require)
+OnInit.trig("PersonnelUpgradeEnter", function(require)
     ---@return boolean
     function Trig_PersonnelUpgradeEnter_Conditions()
         if (not (udg_Personnel_HasUpgrade[GetConvertedPlayerId(GetOwningPlayer(GetTriggerUnit()))] == false)) then

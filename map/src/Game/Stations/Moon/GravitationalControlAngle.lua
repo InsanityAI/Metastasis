@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/Moon/GravitationalControlAngle" end
-OnInit.map("GravitationalControlAngle", function(require)
+OnInit.trig("GravitationalControlAngle", function(require)
     ---@return boolean
     function Trig_GravitationalControlTarget_Copy_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A052'))) then
@@ -55,8 +55,8 @@ OnInit.map("GravitationalControlAngle", function(require)
             RemoveLocation(udg_TempPoint2)
             RemoveUnit(GetSpellAbilityUnit())
             DisplayTextToForce(GetPlayersAll(),
-                "|cffFF8000GRAVITATIONAL CORRECTIONS ACTIVATED FOR " +
-                StringCase(GetUnitName(udg_GravitationalControl_Target), true) + ".|r")
+                "|cffFF8000GRAVITATIONAL CORRECTIONS ACTIVATED FOR " ..
+                StringCase(GetUnitName(udg_GravitationalControl_Target), true) .. ".|r")
             PlaySoundBJ(gg_snd_CharmTarget1)
             -- call PolledWait(2.0)
 

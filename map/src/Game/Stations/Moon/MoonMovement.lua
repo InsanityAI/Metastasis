@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/Moon/MoonMovement" end
-OnInit.map("MoonMovement", function(require)
+OnInit.trig("MoonMovement", function(require)
     ---@return boolean
     function Trig_MoonMovement_Conditions()
         if (not (UnitHasBuffBJ(gg_unit_h03T_0209, FourCC('B000')) == false)) then

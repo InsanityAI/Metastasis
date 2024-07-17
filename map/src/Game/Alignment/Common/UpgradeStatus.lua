@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Common/UpgradeStatus" end
-OnInit.map("UpgradeStatus", function(require)
+OnInit.trig("UpgradeStatus", function(require)
     ---@return boolean
     function Trig_UpgradeStatus_Func004Func001C()
         if (not (udg_Player_IsParasiteSpawn[GetConvertedPlayerId(GetEnumPlayer())] == true)) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST4/LaboratorySpawnExperiments" end
-OnInit.map("LaboratorySpawnExperiments", function(require)
+OnInit.trig("LaboratorySpawnExperiments", function(require)
     ---@return boolean
     function Trig_LaboratorySpawnExperiments_Func003C()
         if (not (GetRandomInt(0, 1) == 0)) then

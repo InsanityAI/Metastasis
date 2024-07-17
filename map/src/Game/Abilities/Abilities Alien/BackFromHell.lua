@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Alien/BackFromHell" end
-OnInit.map("BackFromHell", function(require)
+OnInit.trig("BackFromHell", function(require)
     ---@return boolean
     function Trig_BackFromHell_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A032'))) then

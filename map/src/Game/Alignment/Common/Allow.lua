@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Common/Allow" end
-OnInit.map("Allow", function(require)
+OnInit.trig("Allow", function(require)
     ---@return boolean
     function Trig_Allow_Func013C()
         if (not (GetTriggerPlayer() == udg_Mutant)) then

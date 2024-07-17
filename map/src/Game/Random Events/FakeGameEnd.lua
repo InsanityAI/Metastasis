@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/RandomEvents/FakeGameEnd" end
-OnInit.map("FakeGameEnd", function(require)
+OnInit.trigg("FakeGameEnd", function(require)
     function Trig_FakeGameEnd_Func001Func007A()
         SetUnitAnimation(GetEnumUnit(), "victory")
     end

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Mutant/MutantUpgradeFinish" end
-OnInit.map("MutantUpgradeFinish", function(require)
+OnInit.trigg("MutantUpgradeFinish", function(require)
     ---@return boolean
     function Trig_MutantUpgradeFinish_Func001C()
         if (not (IsUnitDeadBJ(udg_Playerhero[GetConvertedPlayerId(udg_Mutant)]) == true)) then

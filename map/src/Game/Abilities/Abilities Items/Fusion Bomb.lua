@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/FusionBomb" end
-OnInit.map("FusionBomb", function(require)
+OnInit.trig("FusionBomb", function(require)
     ---@return boolean
     function Trig_Fusion_Bomb_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A019'))) then

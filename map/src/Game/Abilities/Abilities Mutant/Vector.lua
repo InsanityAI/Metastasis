@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/Vector" end
-OnInit.map("Vector", function(require)
+OnInit.trig("Vector", function(require)
     ---@return boolean
     function Trig_Vector_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A05J'))) then
@@ -18,7 +18,7 @@ OnInit.map("Vector", function(require)
         if GetLocationZ(b) > GetLocationZ(a) + 60.0 then
             KillUnit(l)
         end
-        if IsPointPathable(GetLocationX(b), GetLocationY(b), false) == false then
+        if IsTerrainWalkable(GetLocationX(b), GetLocationY(b)) == false then
             KillUnit(l)
         end
         SetUnitPositionLoc(l, b)

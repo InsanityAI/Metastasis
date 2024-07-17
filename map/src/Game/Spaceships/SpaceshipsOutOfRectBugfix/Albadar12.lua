@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Spaceships/SpaceshipsOutOfRectBugfix/Albadar12" end
-OnInit.map("Albadar12", function(require)
+OnInit.trig("Albadar12", function(require)
     function Actions12()
         SetUnitPositionLoc(GetTriggerUnit(), GetRectCenter(gg_rct_SS12))
     end

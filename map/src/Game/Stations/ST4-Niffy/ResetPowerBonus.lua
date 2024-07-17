@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST4/ResetPowerBonus" end
-OnInit.map("ResetPowerBonus", function(require)
+OnInit.trig("ResetPowerBonus", function(require)
     function Trig_ResetPowerBonus_Func001Func002A()
         RemoveUnit(GetEnumUnit())
     end

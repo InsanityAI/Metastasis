@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST1/ExplorerLocator" end
-OnInit.map("ExplorerLocator", function(require)
+OnInit.trig("ExplorerLocator", function(require)
     ---@return boolean
     function Trig_Explorer_Locator_Conditions()
         if (not (GetItemTypeId(GetSoldItem()) == FourCC('I02B'))) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Alien/EntropyTimer" end
-OnInit.map("EntropyTimer", function(require)
+OnInit.trig("EntropyTimer", function(require)
     ---@return boolean
     function Trig_Entropytimer_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A03M'))) then

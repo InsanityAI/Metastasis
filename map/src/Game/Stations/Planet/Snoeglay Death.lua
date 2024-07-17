@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/Planet/SnoeglayDeath" end
-OnInit.map("SnoeglayDeath", function(require)
+OnInit.trig("SnoeglayDeath", function(require)
     ---@return boolean
     function Trig_Snoeglay_Death_Func001C()
         if ((GetUnitTypeId(GetDyingUnit()) == FourCC('n003'))) then

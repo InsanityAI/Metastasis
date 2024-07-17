@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/GITResolver" end
-OnInit.map("GITResolver", function(require)
+OnInit.trigg("GITResolver", function(require)
     ---@return boolean
     function Trig_GITResolver_Conditions()
         if (not (GetItemTypeId(GetManipulatedItem()) == FourCC('I019'))) then

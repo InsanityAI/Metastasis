@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/BlackHoleDevice" end
-OnInit.map("BlackHoleDevice", function(require)
+OnInit.trig("BlackHoleDevice", function(require)
     ---@return boolean
     function Trig_BlackHoleDevice_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A05N'))) then

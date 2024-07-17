@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Alien/ParasiteSpawnCreateSpell" end
-OnInit.map("ParasiteSpawnCreateSpell", function(require)
+OnInit.triggggg("ParasiteSpawnCreateSpell", function(require)
     function Trig_ParasiteSpawnCreateSpell_Actions()
         CreateNUnitsAtLoc(1, FourCC('e00M'), udg_TempPlayer, udg_HoldZone, bj_UNIT_FACING)
         CreateNUnitsAtLoc(1, FourCC('e00P'), udg_TempPlayer, udg_HoldZone, bj_UNIT_FACING)

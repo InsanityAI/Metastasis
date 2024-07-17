@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Space/CordoningBeacon" end
-OnInit.map("CordoningBeacon", function(require)
+OnInit.trig("CordoningBeacon", function(require)
      --Spell by: FelFox
      -- Tripwire
      --Functions below are used for configuration of this spell.

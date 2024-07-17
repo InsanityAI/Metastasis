@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST11/ST11DieNeutral" end
-OnInit.map("ST11DieNeutral", function(require)
+OnInit.trig("ST11DieNeutral", function(require)
     ---@return boolean
     function Trig_ST11DieNatural_Conditions()
         if (not (GetUnitTypeId(GetDyingUnit()) == FourCC('h04G'))) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/TeleportAndAI/SpaceAllLogicTick" end
-OnInit.map("SpaceAllLogicTick", function(require)
+OnInit.trig("SpaceAllLogicTick", function(require)
     function RunSpaceFleetLogic()
         IssuePointOrder(GetEnumUnit(), "attack", udg_TempReal, udg_TempReal2)
     end

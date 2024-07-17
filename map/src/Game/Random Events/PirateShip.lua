@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/RandomEvents/PirateShip" end
-OnInit.map("PirateShip", function(require)
+OnInit.trig("PirateShip", function(require)
     function Trig_PirateShip_Func008A()
         CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_PirateShip)
         DestroyFogModifier(GetLastCreatedFogModifier())

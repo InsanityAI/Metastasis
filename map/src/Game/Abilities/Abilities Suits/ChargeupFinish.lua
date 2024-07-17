@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/ChargeupFinish" end
-OnInit.map("ChargeupFinish", function(require)
+OnInit.trig("ChargeupFinish", function(require)
     ---@return boolean
     function Trig_ChargeupFinish_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A04K'))) then

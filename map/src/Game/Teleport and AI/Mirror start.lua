@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/TeleportAndAI/MirrorStart" end
-OnInit.map("MirrorStart", function(require)
+OnInit.trig("MirrorStart", function(require)
     ---@return boolean
     function Trig_Mirror_start_Conditions()
         if (not (udg_Mirror_Enabled == false)) then

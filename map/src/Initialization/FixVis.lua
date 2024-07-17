@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Initialization/FixVis" end
-OnInit.map("FixVis", function(require)
+OnInit.trig("FixVis", function(require)
     function Trig_FixVis_Func004A()
         CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_MASKED, gg_rct_UnvisionNiffy)
         DestroyFogModifier(GetLastCreatedFogModifier())

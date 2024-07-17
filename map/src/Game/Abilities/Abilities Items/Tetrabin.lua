@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/Tetrabin" end
-OnInit.map("Tetrabin", function(require)
+OnInit.triggg("Tetrabin", function(require)
     ---@return boolean
     function Trig_Tetrabin_Conditions()
         if (not (GetItemTypeId(GetManipulatedItem()) == FourCC('I01K'))) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/Planet/PlanetDamage" end
-OnInit.map("PlanetDamage", function(require)
+OnInit.trig("PlanetDamage", function(require)
     function Trig_PlanetDamage_DestructDamage()
         KillDestructable(GetEnumDestructable())
         if GetDestructableTypeId(GetEnumDestructable()) == FourCC('B006') then
@@ -52,8 +52,8 @@ OnInit.map("PlanetDamage", function(require)
                     WEAPON_TYPE_WHOKNOWS)
                 swaggerHealth = GetUnitState(gg_unit_h00X_0049, UNIT_STATE_LIFE) / 20000.0
                 DisplayTextToForce(GetPlayersAll(),
-                    "|cffFF0000WARNING: Atmospheric disturbance is damaging U.S.I. Swagger hull integrity. An immediate launch is recommended. Estimated " +
-                    I2S(R2I(swaggerHealth)) + " impacts remaining before hull integrity failure.")
+                    "|cffFF0000WARNING: Atmospheric disturbance is damaging U.S.I. Swagger hull integrity. An immediate launch is recommended. Estimated " ..
+                    I2S(R2I(swaggerHealth)) .. " impacts remaining before hull integrity failure.")
             end
         end
 
@@ -92,7 +92,7 @@ OnInit.map("PlanetDamage", function(require)
                     e         = AddSpecialEffect("Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl", targetX, targetY)
                     iteration = iteration + 1
 
-                    Timed_EffectRemove(e, 10.0 + damageIteration * 0.1)
+                    EffectRemove(e, 10.0 + damageIteration * 0.1)
                 end
                 udg_MinerthaDamagePerSecond = udg_MinerthaDamagePerSecond + 3.0
                 iteration                   = 1
@@ -104,7 +104,7 @@ OnInit.map("PlanetDamage", function(require)
                     e         = AddSpecialEffect("Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl", targetX, targetY)
                     iteration = iteration + 1
 
-                    Timed_EffectRemove(e, 10.0 + damageIteration * 0.1)
+                    EffectRemove(e, 10.0 + damageIteration * 0.1)
                 end
 
                 t  = CreateTimer()

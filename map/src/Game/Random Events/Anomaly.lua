@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/RandomEvents/Anomaly" end
-OnInit.map("Anomaly", function(require)
+OnInit.trig("Anomaly", function(require)
     function Trig_Anomaly_Actions()
         DestroyTrigger(GetTriggeringTrigger())
         udg_RandomEvent_On[6] = true

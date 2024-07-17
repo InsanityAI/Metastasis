@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "System/DeadChatSys" end
-OnInit.map("DeadChatSys", function(require)
+OnInit.final("DeadChatSys", function(require)
     ChatBoard = nil ---@type multiboard
     ChatLog   = __jarray("") ---@type string[]
     RowOn     = 1 ---@type integer
@@ -18,7 +18,7 @@ OnInit.map("DeadChatSys", function(require)
                     i = i + 1
                 end
             end
-            ChatLog[RowOn] = "|cffFF8000" + udg_OriginalName[GetConvertedPlayerId(p)] + "|r: " + s
+            ChatLog[RowOn] = "|cffFF8000" .. udg_OriginalName[GetConvertedPlayerId(p)] .. "|r: " .. s
             i = 1
             while i <= RowOn do
                 MultiboardSetItemValueBJ(ChatBoard, 1, i, ChatLog[i])
@@ -28,20 +28,14 @@ OnInit.map("DeadChatSys", function(require)
         end
     end
 
-    function InitChatSystem()
-        DestroyTrigger(GetTriggeringTrigger())
-        ChatBoard = CreateMultiboardBJ(1, 40, "Dead Player Chat")
-        MultiboardSetItemWidthBJ(ChatBoard, 1, 0, 100.00)
-        MultiboardSetItemStyleBJ(ChatBoard, 1, 0, true, false)
-        MultiboardDisplay(ChatBoard, false)
-    end
+    ChatBoard = CreateMultiboardBJ(1, 40, "Dead Player Chat")
+    MultiboardSetItemWidthBJ(ChatBoard, 1, 0, 100.00)
+    MultiboardSetItemStyleBJ(ChatBoard, 1, 0, true, false)
+    MultiboardDisplay(ChatBoard, false)
 
     --===========================================================================
 
     local i = 0 ---@type integer
-    local t = CreateTrigger() ---@type trigger
-    TriggerAddAction(t, InitChatSystem)
-    TriggerRegisterTimerEvent(t, 0.0, false)
     gg_trg_ChatConverter = CreateTrigger()
     while i <= 11 do
         if GetPlayerController(Player(i)) == MAP_CONTROL_USER then

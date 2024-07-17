@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Alien/ClosedTimeLikeLoop" end
-OnInit.map("ClosedTimeLikeLoop", function(require)
+OnInit.trig("ClosedTimeLikeLoop", function(require)
     ---@return boolean
     function Trig_ClosedTimeLikeLoop_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A033'))) then

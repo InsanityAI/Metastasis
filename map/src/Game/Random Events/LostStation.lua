@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/RandomEvents/LostStation" end
-OnInit.map("LostStation", function(require)
+OnInit.trig("LostStation", function(require)
     function Trig_LostStation_Actions()
         DestroyTrigger(GetTriggeringTrigger())
         udg_RandomEvent_On[2] = true

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/DefunctDeadConfirmed" end
-OnInit.map("DefunctDeadConfirmed", function(require)
+OnInit.trig("DefunctDeadConfirmed", function(require)
     function Trig_Defunct_dead_confirm_Actions()
         udg_Defunct_Dead = true
     end

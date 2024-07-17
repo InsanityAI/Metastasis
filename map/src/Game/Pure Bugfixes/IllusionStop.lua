@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/PureBugfixes/IllusionStop" end
-OnInit.map("IllusionStop", function(require)
+OnInit.trig("IllusionStop", function(require)
     ---@return boolean
     function Trig_IllusionStop_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A00T'))) then

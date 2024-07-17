@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST11/ViewIntestines" end
-OnInit.map("ViewIntestines", function(require)
+OnInit.trig("ViewIntestines", function(require)
     ---@return boolean
     function Trig_ViewIntestines_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A08M'))) then

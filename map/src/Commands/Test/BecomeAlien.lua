@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Commands/Test/BecomeAlien" end
-OnInit.map("BecomeAlien", function(require)
+OnInit.trig("BecomeAlien", function(require)
     require "StateTable"
     ---@return boolean
     function Trig_BecomeAlien_Conditions()

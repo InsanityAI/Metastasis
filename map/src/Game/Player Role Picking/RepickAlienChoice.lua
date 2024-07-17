@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/PlayerRolePicking/RepickAlienChoice" end
-OnInit.map("RepickAlienChoice", function(require)
+OnInit.trig("RepickAlienChoice", function(require)
     require "StateTable"
     ---@return boolean
     function Trig_RepickAlienChoice_Conditions()

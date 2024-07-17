@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/ForceVortex" end
-OnInit.map("ForceVortex", function(require)
+OnInit.trigg("ForceVortex", function(require)
     ---@return boolean
     function Trig_ForceVortex_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A06A'))) then

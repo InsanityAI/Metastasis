@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Commands/CamAuto" end
-OnInit.map("CamAuto", function(require)
+OnInit.trig("CamAuto", function(require)
     function CamAuto_Actions()
         local i = 0 ---@type integer
 

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Initialization/DeathSysClick" end
-OnInit.map("DeathSysClick", function(require)
+OnInit.trig("DeathSysClick", function(require)
     function Trig_DeathSysClick_Func003Func002Func003A()
         DialogDisplayBJ(false, udg_DeathVoteDialog, GetEnumPlayer())
     end
@@ -44,7 +44,7 @@ OnInit.map("DeathSysClick", function(require)
         -- Voting. Since Spectator mode is default, the voting really only ends if enough votes accumulate for Instant Boot mode.
         if (Trig_DeathSysClick_Func003C()) then
             DisplayTextToForce(GetPlayersAll(),
-                (GetPlayerName(GetTriggerPlayer()) + " |cffFF8000has voted for spectator mode!|r"))
+                (GetPlayerName(GetTriggerPlayer()) .. " |cffFF8000has voted for spectator mode!|r"))
             if (Trig_DeathSysClick_Func003Func002C()) then
                 DisplayTextToForce(GetPlayersAll(), "TRIGSTR_2358")
                 udg_DeathType = 1
@@ -55,7 +55,7 @@ OnInit.map("DeathSysClick", function(require)
             if (Trig_DeathSysClick_Func003Func003C()) then
                 udg_InstantBootMode_Votes = (udg_InstantBootMode_Votes + 1)
                 DisplayTextToForce(GetPlayersAll(),
-                    (GetPlayerName(GetTriggerPlayer()) + " |cffFF8000has voted for instant-boot mode!|r"))
+                    (GetPlayerName(GetTriggerPlayer()) .. " |cffFF8000has voted for instant-boot mode!|r"))
                 if (Trig_DeathSysClick_Func003Func003Func004C()) then
                     DisplayTextToForce(GetPlayersAll(), "TRIGSTR_2355")
                     udg_DeathType = 2

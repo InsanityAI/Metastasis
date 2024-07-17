@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/PolarityPush" end
-OnInit.map("PolarityPush", function(require)
+OnInit.trig("PolarityPush", function(require)
     ---@return boolean
     function Trig_PolarityPush_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A0A4'))) then

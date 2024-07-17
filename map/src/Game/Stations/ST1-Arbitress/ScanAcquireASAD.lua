@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST1/ScanAcquireASAD" end
-OnInit.map("ScanAcquireASAD", function(require)
+OnInit.trig("ScanAcquireASAD", function(require)
     ---@return boolean
     function USAD_AbilCode()
         if (not (GetSpellAbilityId() == FourCC('A06S'))) then

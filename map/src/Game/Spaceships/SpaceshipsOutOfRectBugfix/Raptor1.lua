@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Spaceships/SpaceshipsOutOfRectBugfix/Raptor1" end
-OnInit.map("Raptor1", function(require)
+OnInit.trig("Raptor1", function(require)
     function Actions1()
         SetUnitPositionLoc(GetTriggerUnit(), GetRectCenter(gg_rct_SS1))
     end

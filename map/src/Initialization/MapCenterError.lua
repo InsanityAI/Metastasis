@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Initialization/MapCenterError" end
-OnInit.map("MapCenterError", function(require)
+OnInit.trig("MapCenterError", function(require)
     ---@return boolean
     function Trig_MapCenterError_Func004C()
         if not (GetPlayerheroU(GetTriggerUnit()) == GetTriggerUnit()) then
@@ -17,7 +17,7 @@ OnInit.map("MapCenterError", function(require)
     end
 
     function Trig_MapCenterError_Actions()
-        DisplayTextToForce(GetPlayersAll(), ("MAP ERROR: " + GetUnitName(GetTriggerUnit())))
+        DisplayTextToForce(GetPlayersAll(), ("MAP ERROR: " .. GetUnitName(GetTriggerUnit())))
         SetUnitPositionLoc(GetEnteringUnit(), GetRectCenter(gg_rct_Planet))
         if (Trig_MapCenterError_Func004C()) then
             UnitAddItemByIdSwapped(FourCC('I00O'), GetEnteringUnit())

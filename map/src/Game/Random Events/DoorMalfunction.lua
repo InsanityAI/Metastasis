@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/RandomEvents/DoorMalfunction" end
-OnInit.map("DoorMalfunction", function(require)
+OnInit.trig("DoorMalfunction", function(require)
     ---@return boolean
     function Trig_DoorMalfunction_Func002Func001Func001C()
         if ((GetDestructableTypeId(GetEnumDestructable()) == FourCC('B000'))) then

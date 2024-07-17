@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Alien/Petrify" end
-OnInit.map("Petrify", function(require)
+OnInit.trig("Petrify", function(require)
     ---@return boolean
     function Trig_Petrify_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A045'))) then

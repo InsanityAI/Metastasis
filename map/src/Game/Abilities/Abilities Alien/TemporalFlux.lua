@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Alien/TemporalFlux" end
-OnInit.map("TemporalFlux", function(require)
+OnInit.trig("TemporalFlux", function(require)
     ---@return boolean
     function Trig_TemporalFlux_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A02Z'))) then

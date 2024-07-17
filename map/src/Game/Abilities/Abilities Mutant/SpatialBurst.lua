@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/SpatialBurst" end
-OnInit.map("SpatialBurst", function(require)
+OnInit.trig("SpatialBurst", function(require)
     ---@return boolean
     function Trig_SpatialBurst_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A02M'))) then

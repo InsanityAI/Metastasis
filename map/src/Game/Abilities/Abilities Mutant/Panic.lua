@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/Panic" end
-OnInit.map("Panic", function(require)
+OnInit.trigggg("Panic", function(require)
     ---@return boolean
     function Trig_Panic_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A07G'))) then

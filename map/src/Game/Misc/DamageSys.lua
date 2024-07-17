@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/DamageSys" end
-OnInit.map("DamageSys", function(require)
+OnInit.trig("DamageSys", function(require)
     ---@return boolean
     function Trig_DamageSys_Func001C()
         if (not (udg_TempInt ~= 37)) then

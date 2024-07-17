@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/Charge" end
-OnInit.map("Charge", function(require)
+OnInit.trig("Charge", function(require)
     ---@return boolean
     function Trig_Charge_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A08R'))) then
@@ -11,14 +11,14 @@ OnInit.map("Charge", function(require)
     function Charge_DragAlong()
         local x ---@type real
         local y ---@type real
-        if LoadBoolean(LS(), GetHandleId(GetEnumUnit()), StringHash("DragGroupDraggable_" + I2S(GetUnitAN(udg_TempUnit2)))) then
+        if LoadBoolean(LS(), GetHandleId(GetEnumUnit()), StringHash("DragGroupDraggable_" .. I2S(GetUnitAN(udg_TempUnit2)))) then
             x = GetUnitX(udg_TempUnit2) +
                 LoadReal(LS(), GetHandleId(GetEnumUnit()),
-                    StringHash("DragGroupXOffset_" + I2S(GetUnitAN(udg_TempUnit2))))
+                    StringHash("DragGroupXOffset_" .. I2S(GetUnitAN(udg_TempUnit2))))
             y = GetUnitY(udg_TempUnit2) +
                 LoadReal(LS(), GetHandleId(GetEnumUnit()),
-                    StringHash("DragGroupYOffset_" + I2S(GetUnitAN(udg_TempUnit2))))
-            if IsPointPathable(x, y, false) then
+                    StringHash("DragGroupYOffset_" .. I2S(GetUnitAN(udg_TempUnit2))))
+            if IsTerrainWalkable(x, y) then
                 SetUnitX(GetEnumUnit(), x)
                 SetUnitY(GetEnumUnit(), y)
             else
@@ -28,7 +28,7 @@ OnInit.map("Charge", function(require)
                     "Abilities\\Spells\\Other\\Stampede\\StampedeMissileDeath.mdl", GetEnumUnit(), "origin")
                 SFXThreadClean()
                 SaveBoolean(LS(), GetHandleId(GetEnumUnit()),
-                    StringHash("DragGroupDraggable_" + I2S(GetUnitAN(udg_TempUnit2))), false)
+                    StringHash("DragGroupDraggable_" .. I2S(GetUnitAN(udg_TempUnit2))), false)
             end
         end
     end
@@ -54,7 +54,7 @@ OnInit.map("Charge", function(require)
         --call SaveInteger(LS(),GetHandleId(k),StringHash("r"),r-1)
         EnumDestructablesInCircleBJ(150.0, b, RubbleDestroy)
 
-        if IsPointPathable(GetLocationX(b), GetLocationY(b), false) == false or LoadBoolean(LS(), GetHandleId(k), StringHash("over")) then
+        if IsTerrainWalkable(GetLocationX(b), GetLocationY(b)) == false or LoadBoolean(LS(), GetHandleId(k), StringHash("over")) then
             DestroyTrigger(LoadTriggerHandle(LS(), GetHandleId(k), StringHash("trig")))
             FlushChildHashtable(LS(), GetHandleId(k))
             PauseTimer(k)
@@ -82,9 +82,11 @@ OnInit.map("Charge", function(require)
             UnitDamageTarget(a, GetTriggerUnit(), 155, false, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL,
                 WEAPON_TYPE_WHOKNOWS)
             GroupAddUnit(g, b)
-            SaveReal(LS(), GetHandleId(b), StringHash("DragGroupXOffset_" + I2S(GetUnitAN(a))), GetUnitX(b) - GetUnitX(a))
-            SaveReal(LS(), GetHandleId(b), StringHash("DragGroupYOffset_" + I2S(GetUnitAN(a))), GetUnitY(b) - GetUnitY(a))
-            SaveBoolean(LS(), GetHandleId(b), StringHash("DragGroupDraggable_" + I2S(GetUnitAN(a))), true)
+            SaveReal(LS(), GetHandleId(b), StringHash("DragGroupXOffset_" .. I2S(GetUnitAN(a))),
+                GetUnitX(b) - GetUnitX(a))
+            SaveReal(LS(), GetHandleId(b), StringHash("DragGroupYOffset_" .. I2S(GetUnitAN(a))),
+                GetUnitY(b) - GetUnitY(a))
+            SaveBoolean(LS(), GetHandleId(b), StringHash("DragGroupDraggable_" .. I2S(GetUnitAN(a))), true)
             bj_lastCreatedEffect = AddSpecialEffectTarget("Abilities\\Spells\\Other\\Stampede\\StampedeMissileDeath.mdl",
                 b, "origin")
             SFXThreadClean()

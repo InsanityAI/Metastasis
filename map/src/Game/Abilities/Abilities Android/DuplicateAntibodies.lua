@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Android/DuplicateAntibodies" end
-OnInit.map("DuplicateAntibodies", function(require)
+OnInit.trig("DuplicateAntibodies", function(require)
     ---@return boolean
     function Trig_DuplicateAntibodies_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A0AB'))) then

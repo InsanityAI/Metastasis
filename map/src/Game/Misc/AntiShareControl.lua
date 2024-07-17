@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/AntiShareControl" end
-OnInit.map("AntiShareControl", function(require)
+OnInit.triggg("AntiShareControl", function(require)
     ---@return boolean
     function Trig_AntiShareControl_Func002Func001Func001Func003C()
         if ((GetPlayerAlliance(ConvertedPlayer(GetForLoopIndexA()), GetEnumPlayer(), ALLIANCE_SHARED_CONTROL) == true)) then

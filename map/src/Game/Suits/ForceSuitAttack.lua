@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Suits/ForceSuitAttack" end
-OnInit.map("ForceSuitAttack", function(require)
+OnInit.trig("ForceSuitAttack", function(require)
     ---@return boolean
     function Trig_ForceSuitAttack_Conditions()
         return GetUnitTypeId(GetAttacker()) == FourCC('h03L') and
@@ -17,7 +17,7 @@ OnInit.map("ForceSuitAttack", function(require)
         if GetLocationZ(b) > GetLocationZ(a) + 60.0 then
             KillUnit(l)
         end
-        --if IsPointPathable(GetLocationX(b), GetLocationY(b), false) == false then
+        --if IsTerrainWalkable(GetLocationX(b), GetLocationY(b)) == false then
         --call KillUnit(l)
         --endif
         if not (LocInSector(b, s)) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Android/AndroidPaacificationRevive" end
-OnInit.map("AndroidPaacificationRevive", function(require)
+OnInit.trig("AndroidPaacificationRevive", function(require)
     require "StateTable"
     hasRevivedAsPacificationBot = false ---@type boolean
 

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/CryoShock" end
-OnInit.map("CryoShock", function(require)
+OnInit.trig("CryoShock", function(require)
     ---@return boolean
     function Trig_CryoShock_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A00I'))) then

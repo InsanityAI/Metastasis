@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST9/GravitationalPull" end
-OnInit.map("GravitationalPull", function(require)
+OnInit.trig("GravitationalPull", function(require)
     ---@return boolean
     function Trig_GravitationalPull_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A07Z'))) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/SolaceShield" end
-OnInit.map("SolaceShield", function(require)
+OnInit.triggggg("SolaceShield", function(require)
     ---@return boolean
     function Trig_Solace_Shield_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A054'))) then
@@ -17,13 +17,13 @@ OnInit.map("SolaceShield", function(require)
         local i    = 0 ---@type integer
         while i <= howmanybars do
             i = i + 1
-            text = text + "I"
+            text = text .. "I"
         end
-        text = text + "|r"
+        text = text .. "|r"
         i = 0
         while not (i > (maximumbars - howmanybars)) do
             i = i + 1
-            text = text + "I"
+            text = text .. "I"
         end
         CreateTextTagUnitBJ(text, r, GetUnitFlyHeight(r), 8, 255, 255, 255, 0)
         SetTextTagPermanent(bj_lastCreatedTextTag, false)

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/ApocalypseSys/USIBattleFleet" end
-OnInit.map("USIBattleFleet", function(require)
+OnInit.trig("USIBattleFleet", function(require)
     function Trig_USIBattleFleet_Actions()
         local k       = CreateTimer() ---@type timer
         local f ---@type timerdialog

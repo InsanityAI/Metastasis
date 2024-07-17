@@ -97,7 +97,7 @@
 --     endif
 --     set udg_DeadPlayer_Cash[GetConvertedPlayerId(GetOwningPlayer(GetDyingUnit()))] = GetPlayerState(GetOwningPlayer(GetDyingUnit()), PLAYER_STATE_RESOURCE_GOLD)
 --     if ( Trig_PlayerDeath_Func002C() ) then
---         call DisplayTextToForce( GetPlayersAll(), ( GetPlayerName(GetOwningPlayer(GetDyingUnit())) + " |cff800080has been killed!|r" ) )
+--         call DisplayTextToForce( GetPlayersAll(), ( GetPlayerName(GetOwningPlayer(GetDyingUnit())) .. " |cff800080has been killed!|r" ) )
 --         call DisplayTextToForce( GetPlayersAll(), "TRIGSTR_1046" )
 --         call CinematicFadeBJ( bj_CINEFADETYPE_FADEOUTIN, 4.00, "ReplaceableTextures\\CameraMasks\\White_mask.blp", 0.00, 100.00, 0, 50.00 )
 --         call PlaySoundBJ( gg_snd_AbominationAlternateDeath1 )
@@ -105,26 +105,26 @@
 --         call DestroyTrigger( gg_trg_MutantUpgrade )
 --     else
 --         if ( Trig_PlayerDeath_Func002Func002C() ) then
---             call DisplayTextToForce( GetPlayersAll(), ( GetPlayerName(GetOwningPlayer(GetDyingUnit())) + " |cff800080has been killed!|r" ) )
+--             call DisplayTextToForce( GetPlayersAll(), ( GetPlayerName(GetOwningPlayer(GetDyingUnit())) .. " |cff800080has been killed!|r" ) )
 --             call DisplayTextToForce( GetPlayersAll(), "TRIGSTR_1045" )
 --             call CinematicFadeBJ( bj_CINEFADETYPE_FADEOUTIN, 4.00, "ReplaceableTextures\\CameraMasks\\White_mask.blp", 0.00, 0.00, 100.00, 50.00 )
 --             call PlaySoundBJ( gg_snd_WarlockDeath1 )
 
 --         else
 --             if ( Trig_PlayerDeath_Func002Func002Func002C() ) then
---                 call DisplayTextToForce( GetPlayersAll(), ( GetPlayerName(GetOwningPlayer(GetDyingUnit())) + " |cff800080has been killed!|r" ) )
+--                 call DisplayTextToForce( GetPlayersAll(), ( GetPlayerName(GetOwningPlayer(GetDyingUnit())) .. " |cff800080has been killed!|r" ) )
 --                 call DisplayTextToForce( GetPlayersAll(), "TRIGSTR_1044" )
 --                 call CinematicFadeBJ( bj_CINEFADETYPE_FADEOUTIN, 4.00, "ReplaceableTextures\\CameraMasks\\White_mask.blp", 100.00, 100.00, 100.00, 50.00 )
 --                 call PlaySoundBJ( gg_snd_RockGolemDeath1 )
 --             else
 --                 if ( Trig_PlayerDeath_Func002Func002Func002Func001C() ) then
---                     call DisplayTextToForce( GetPlayersAll(), ( GetPlayerName(GetOwningPlayer(GetDyingUnit())) + " |cff800080has been killed!|r" ) )
+--                     call DisplayTextToForce( GetPlayersAll(), ( GetPlayerName(GetOwningPlayer(GetDyingUnit())) .. " |cff800080has been killed!|r" ) )
 --                     call DisplayTextToForce( GetPlayersAll(), "TRIGSTR_1043" )
 --                     call CinematicFadeBJ( bj_CINEFADETYPE_FADEOUTIN, 4.00, "ReplaceableTextures\\CameraMasks\\DiagonalSlash_mask.blp", 0.00, 0.00, 100.00, 50.00 )
 --                     call PlaySoundBJ( gg_snd_PitFiendDeath1 )
 --                 else
 --                     if ( Trig_PlayerDeath_Func002Func002Func002Func001Func001C() ) then
---                         call DisplayTextToForce( GetPlayersAll(), ( GetPlayerName(GetOwningPlayer(GetDyingUnit())) + " |cff800080has been killed!|r" ) )
+--                         call DisplayTextToForce( GetPlayersAll(), ( GetPlayerName(GetOwningPlayer(GetDyingUnit())) .. " |cff800080has been killed!|r" ) )
 --                         call DisplayTextToForce( GetPlayersAll(), "TRIGSTR_1042" )
 --                         call CinematicFadeBJ( bj_CINEFADETYPE_FADEOUTIN, 4.00, "ReplaceableTextures\\CameraMasks\\White_mask.blp", 0.00, 100.00, 100.00, 50.00 )
 --                         call PlaySoundBJ( gg_snd_BansheeDeath )
@@ -156,7 +156,7 @@
 --                                 return
 --                             endif
 --                         else
---                             call DisplayTextToForce( GetPlayersAll(), ( GetPlayerName(GetOwningPlayer(GetDyingUnit())) + " |cff800080has been killed!|r" ) )
+--                             call DisplayTextToForce( GetPlayersAll(), ( GetPlayerName(GetOwningPlayer(GetDyingUnit())) .. " |cff800080has been killed!|r" ) )
 --                             call DisplayTextToForce( GetPlayersAll(), "TRIGSTR_1041" )
 --                             call CinematicFadeBJ( bj_CINEFADETYPE_FADEOUTIN, 4.00, "ReplaceableTextures\\CameraMasks\\White_mask.blp", 100.00, 0.00, 0.00, 50.00 )
 --                             call PlaySoundBJ( gg_snd_PeasantDeath )
@@ -202,7 +202,7 @@
 
 --         call ForceAddPlayerSimple( k, udg_DeadGroup )
 --         set udg_Player_NameBeforeDead[GetConvertedPlayerId(k)]=GetPlayerName(k)
---         call SetPlayerName( k, GetPlayerName(k) + (( ( ( ( "                                                                                                                                                                                                                                                " + "                                                                                                                                                                                                                                                " ) + "                                                                                                                                                                                                                                                " ) + "                                                                                                                                                                                                                                                " ) + "                                                                                                                                                                                                                                                " ) ) )
+--         call SetPlayerName( k, GetPlayerName(k) + (( ( ( ( "                                                                                                                                                                                                                                                " .. "                                                                                                                                                                                                                                                " ) .. "                                                                                                                                                                                                                                                " ) .. "                                                                                                                                                                                                                                                " ) .. "                                                                                                                                                                                                                                                " ) ) )
 --         call ForGroupBJ( GetUnitsOfPlayerAll(k), function Trig_PlayerDeath_Func007Func010A )
 --     endif
 --     call TriggerExecute( gg_trg_WinCheck )

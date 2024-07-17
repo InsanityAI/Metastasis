@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST9/SyllusCageDeath" end
-OnInit.map("SyllusCageDeath", function(require)
+OnInit.trig("SyllusCageDeath", function(require)
     ---@return boolean
     function Trig_SyllusCageDeath_Conditions()
         if (not (GetUnitTypeId(GetDyingUnit()) == FourCC('h04Q'))) then

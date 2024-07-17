@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Android/AndroidRemote" end
-OnInit.map("AndroidRemote", function(require)
+OnInit.trig("AndroidRemote", function(require)
     ---@return boolean
     function Trig_AndroidRemote_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A05W'))) then

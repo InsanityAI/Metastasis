@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/Shockwave" end
-OnInit.map("Shockwave", function(require)
+OnInit.trig("Shockwave", function(require)
     ---@return boolean
     function Trig_Shockwave_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A08U'))) then
@@ -14,7 +14,7 @@ OnInit.map("Shockwave", function(require)
         local a = GetUnitLoc(l) ---@type location
         local b = PolarProjectionBJ(a, 35.0, GetUnitFacing(l)) ---@type location
         RemoveLocation(a)
-        if IsPointPathable(GetLocationX(b), GetLocationY(b), false) then
+        if IsTerrainWalkable(GetLocationX(b), GetLocationY(b)) then
             SetUnitPositionLoc(l, b)
         else
             KillUnit(l)

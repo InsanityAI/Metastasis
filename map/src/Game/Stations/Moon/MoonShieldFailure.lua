@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/Moon/MoonShieldFailure" end
-OnInit.map("MoonShieldFailure", function(require)
+OnInit.trig("MoonShieldFailure", function(require)
     function Trig_MoonShieldFailure_Actions()
         DestroyTrigger(GetTriggeringTrigger())
         PlaySoundBJ(gg_snd_Warning01)

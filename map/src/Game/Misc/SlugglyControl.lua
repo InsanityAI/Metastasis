@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/SlugglyControl" end
-OnInit.map("SlugglyControl", function(require)
+OnInit.trig("SlugglyControl", function(require)
     ---@return boolean
     function Trig_SlugglyControl_Conditions()
         if (not (udg_Player_Slugglied[GetConvertedPlayerId(GetTriggerPlayer())] ~= true)) then

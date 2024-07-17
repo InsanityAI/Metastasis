@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/TeleportAndAI/MirrorUnAbuse" end
-OnInit.map("MirrorUnAbuse", function(require)
+OnInit.trig("MirrorUnAbuse", function(require)
     ---@return boolean
     function Trig_Mirror_un_abuse_Func006Func001C()
         if (not (GetUnitTypeId(GetEnumUnit()) == FourCC('H03I'))) then

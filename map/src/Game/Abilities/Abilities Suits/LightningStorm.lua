@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/LightningStorm" end
-OnInit.map("LightningStorm", function(require)
+OnInit.trig("LightningStorm", function(require)
     ---@return boolean
     function Trig_LightningStorm_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A092'))) then

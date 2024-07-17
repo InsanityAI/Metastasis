@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/Sludge" end
-OnInit.map("Sludge", function(require)
+OnInit.trig("Sludge", function(require)
     ---@return boolean
     function Trig_Sludge_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A012'))) then

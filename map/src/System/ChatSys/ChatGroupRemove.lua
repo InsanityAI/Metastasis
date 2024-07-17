@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "System/ChatSys/ChatGroupRemove" end
-OnInit.map("ChatGroupRemove", function(require)
+OnInit.trig("ChatGroupRemove", function(require)
     ---@return boolean
     function Trig_ChatGroupRemove_Conditions()
         return IsPlayerInForce(GetTriggerPlayer(), udg_DeadGroup) ~= true and
@@ -23,20 +23,20 @@ OnInit.map("ChatGroupRemove", function(require)
         if Trig_ChatGroupRemove_IsOwner() then
             if udg_TempInt == 1337 then
                 DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 30,
-                    " |cff008000All players have been removed from group |r|cff0080C0" + (udg_TempString + "|r."))
+                    " |cff008000All players have been removed from group |r|cff0080C0" .. (udg_TempString .. "|r."))
                 while i <= 11 do
                     ForceRemovePlayerSimple(Player(i), udg_TempPlayerGroup)
                     DisplayTimedTextToPlayer(Player(i), 0, 0, 30,
-                        ("You" + (" |cff008000have been removed from group |r|cff0080C0" + (udg_TempString + "|r."))))
+                        ("You" .. (" |cff008000have been removed from group |r|cff0080C0" .. (udg_TempString .. "|r."))))
                     i = i + 1
                 end
             else
-                targettedPlayer = Anonymity_ShuffledPlayersArray[udg_TempInt]
+                targettedPlayer = Anonymity.shuffledPlayers.orderedKeys[udg_TempInt]
                 ForceRemovePlayerSimple(targettedPlayer, udg_TempPlayerGroup)
                 DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 30,
-                    (PlayerColor_GetPlayerTextColor(targettedPlayer) + GetPlayerName(targettedPlayer) + ("|r |cff008000has been removed from group |r|cff0080C0" + (udg_TempString + "|r."))))
+                    (PlayerColours[targettedPlayer] .. GetPlayerName(targettedPlayer) .. ("|r |cff008000has been removed from group |r|cff0080C0" .. (udg_TempString .. "|r."))))
                 DisplayTimedTextToPlayer(targettedPlayer, 0, 0, 30,
-                    ("You" + (" |cff008000have been removed from group |r|cff0080C0" + (udg_TempString + "|r."))))
+                    ("You" .. (" |cff008000have been removed from group |r|cff0080C0" .. (udg_TempString .. "|r."))))
             end
         end
     end

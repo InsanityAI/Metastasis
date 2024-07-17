@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Alien/ProjectedExplosion" end
-OnInit.map("ProjectedExplosion", function(require)
+OnInit.trig("ProjectedExplosion", function(require)
     ---@return boolean
     function Trig_ProjectedExplosion_Func001C()
         if ((GetSpellAbilityId() == FourCC('A03V'))) then

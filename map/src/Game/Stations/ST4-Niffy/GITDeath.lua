@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST4/GITDeath" end
-OnInit.map("GITDeath", function(require)
+OnInit.trig("GITDeath", function(require)
     function Trig_GITDeath_Actions()
         DestroyTrigger(gg_trg_GITDeath)
         DestroyTrigger(gg_trg_GIT)

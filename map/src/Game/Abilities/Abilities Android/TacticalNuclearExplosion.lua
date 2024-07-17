@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Android/TacticalNuclearExplosion" end
-OnInit.map("TacticalNuclearExplosion", function(require)
+OnInit.trig("TacticalNuclearExplosion", function(require)
     ---@return boolean
     function Trig_TacticalNuclearExplosion_Func006Func002C()
         if (not (udg_TempBool == true)) then

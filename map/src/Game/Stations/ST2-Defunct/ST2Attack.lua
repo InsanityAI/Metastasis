@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST2/ST2Attack" end
-OnInit.map("ST2Attack", function(require)
+OnInit.trig("ST2Attack", function(require)
     ---@return boolean
     function Trig_ST2Attack_Conditions()
         if (not (GetEventDamage() >= 1.00)) then

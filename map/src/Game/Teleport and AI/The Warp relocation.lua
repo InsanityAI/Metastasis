@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/TeleportAndAI/TheWarpRelocation" end
-OnInit.map("TheWarpRelocation", function(require)
+OnInit.trig("TheWarpRelocation", function(require)
     function Trig_The_Warp_relocation_Func005A()
         RemoveUnit(GetEnumUnit())
     end

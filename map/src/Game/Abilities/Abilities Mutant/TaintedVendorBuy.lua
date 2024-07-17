@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/TaintedVendorBuy" end
-OnInit.map("TaintedVendorBuy", function(require)
+OnInit.trigg("TaintedVendorBuy", function(require)
     ---@return boolean
     function Trig_TaintedVendorBuy_Conditions()
         if (not (GetUnitAbilityLevelSwapped(FourCC('A01U'), GetTriggerUnit()) ~= 0)) then

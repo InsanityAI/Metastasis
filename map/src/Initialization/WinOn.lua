@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Initialization/WinOn" end
-OnInit.map("WinOn", function(require)
+OnInit.trig("WinOn", function(require)
     function Trig_WinOn_Actions()
         -- If a person leaves before game really start, buggy things can cause instant victory. Tis terrible.
         EnableTrigger(gg_trg_WinCheck)

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/ApocalypseSys/DragIntoSun" end
-OnInit.map("DragIntoSun", function(require)
+OnInit.trig("DragIntoSun", function(require)
     ---@return boolean
     function Trig_DragIntoSun_Func003Func001Func003Func001C()
         if ((udg_TempBool == true)) then

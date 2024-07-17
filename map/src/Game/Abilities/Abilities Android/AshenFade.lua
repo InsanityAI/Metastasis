@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Android/AshenFade" end
-OnInit.map("AshenFade", function(require)
+OnInit.trig("AshenFade", function(require)
     ---@return boolean
     function Trig_AshenFade_Func002Func001C()
         if (not (IsUnitAliveBJ(GetEnumUnit()) == true)) then

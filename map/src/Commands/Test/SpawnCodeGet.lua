@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Commands/Test/SpawnCodeGet" end
-OnInit.map("SpawnCodeGet", function(require)
+OnInit.trig("SpawnCodeGet", function(require)
     ---@return boolean
     function Trig_SpawnCodeGet_Conditions()
         if (not (udg_TESTING == true)) then
@@ -9,7 +9,7 @@ OnInit.map("SpawnCodeGet", function(require)
     end
 
     function DisplaySpawnCode()
-        DisplayTextToPlayer(GetTriggerPlayer(), 0, 0, "Spawn code " + UnitId2String(GetUnitTypeId(GetEnumUnit())))
+        DisplayTextToPlayer(GetTriggerPlayer(), 0, 0, "Spawn code " .. UnitId2String(GetUnitTypeId(GetEnumUnit())))
     end
 
     function Trig_SpawnCodeGet_Actions()

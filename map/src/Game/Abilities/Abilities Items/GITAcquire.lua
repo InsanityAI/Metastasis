@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/GITAcquire" end
-OnInit.map("GITAcquire", function(require)
+OnInit.trig("GITAcquire", function(require)
     ---@return boolean
     function Trig_GITAcquire_Conditions()
         if (not (GetItemTypeId(GetManipulatedItem()) == FourCC('I00M'))) then

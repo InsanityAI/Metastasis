@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/PureBugfixes/IllusionTimer" end
-OnInit.map("IllusionTimer", function(require)
+OnInit.trig("IllusionTimer", function(require)
     function Trig_IllusionTimer_Actions()
         udg_IllusionSuitBoolean = false
     end

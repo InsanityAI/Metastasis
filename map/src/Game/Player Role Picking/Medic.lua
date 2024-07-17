@@ -1,6 +1,5 @@
 if Debug then Debug.beginFile "Game/PlayerRolePicking/Medic" end
-OnInit.map("Medic", function(require)
-    require "StateTable"
+OnInit.trig("Medic", function(require)
     ---@return boolean
     function Trig_Medic_Func001Func002Func002C()
         if (not (udg_TempPlayer == udg_HiddenAndroid)) then
@@ -45,7 +44,7 @@ OnInit.map("Medic", function(require)
         UnitAddItemByIdSwapped(FourCC('I002'), udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)])
         UnitAddItemByIdSwapped(FourCC('I00M'), udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)])
         udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] = "Medic "
-        name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer)
+        name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] .. GetPlayerName(udg_TempPlayer)
         SetPlayerName(udg_TempPlayer, name)
         StateTable.UpdatePlayerName(udg_TempPlayer)
     end

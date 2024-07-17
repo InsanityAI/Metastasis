@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/DefunctAntiTeleport" end
-OnInit.map("DefunctAntiTeleport", function(require)
+OnInit.trig("DefunctAntiTeleport", function(require)
     ---@return boolean
     function Trig_Defunct_Anti_Teleportation_Conditions()
         if (not (udg_Defunct_Dead == true)) then

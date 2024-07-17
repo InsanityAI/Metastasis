@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/RandomEvents/News" end
-OnInit.map("News", function(require)
+OnInit.trig("News", function(require)
     ---@return boolean
     function Trig_News_Func002C()
         if (not (udg_NewsString[udg_TempInt3] == "")) then
@@ -15,7 +15,7 @@ OnInit.map("News", function(require)
             return
         else
         end
-        DisplayTextToForce(GetPlayersAll(), ("|cff00FF00KIRZ95 News: |r" + udg_NewsString[udg_TempInt3]))
+        DisplayTextToForce(GetPlayersAll(), ("|cff00FF00KIRZ95 News: |r" .. udg_NewsString[udg_TempInt3]))
         udg_NewsString[udg_TempInt3] = ""
         StartTimerBJ(udg_RandomEvent, false, GetRandomReal(10.00, 300.00))
     end

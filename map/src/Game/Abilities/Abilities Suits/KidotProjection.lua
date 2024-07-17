@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/KidotProjection" end
-OnInit.map("KidotProjection", function(require)
+OnInit.trig("KidotProjection", function(require)
     ---@return boolean
     function Trig_Kidot_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A07J'))) then
@@ -19,7 +19,7 @@ OnInit.map("KidotProjection", function(require)
         if GetLocationZ(b) > GetLocationZ(a) + 60.0 then
             KillUnit(l)
         end
-        if IsPointPathable(GetLocationX(b), GetLocationY(b), false) == false then
+        if IsTerrainWalkable(GetLocationX(b), GetLocationY(b)) == false then
             KillUnit(l)
         end
         SetUnitPositionLoc(l, b)

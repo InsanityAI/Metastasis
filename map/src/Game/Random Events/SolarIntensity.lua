@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/RandomEvents/SolarIntensify" end
-OnInit.map("SolarIntensify", function(require)
+OnInit.trig("SolarIntensify", function(require)
     function Trig_SolarIntensity_Actions()
         DestroyTrigger(GetTriggeringTrigger())
         udg_RandomEvent_On[10] = true

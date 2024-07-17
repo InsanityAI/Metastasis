@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST10/ST10Abilities" end
-OnInit.map("ST10Abilities", function(require)
+OnInit.trig("ST10Abilities", function(require)
     ---@return boolean
     function Trig_ST10Abilities_Conditions()
         if (not (GetUnitTypeId(GetTriggerUnit()) == FourCC('h04U'))) then
@@ -76,7 +76,7 @@ OnInit.map("ST10Abilities", function(require)
         if (not (GetTerrainCliffLevelBJ(udg_TempPoint4) <= GetTerrainCliffLevelBJ(udg_TempPoint3))) then
             return false
         end
-        if (not (IsPointPathable(GetLocationX(udg_TempPoint4), GetLocationY(udg_TempPoint4), true))) then
+        if (not (IsTerrainWalkable(GetLocationX(udg_TempPoint4), GetLocationY(udg_TempPoint4), CHECKER_UNIT_PEASANT))) then
             return false
         end
         return true
@@ -107,10 +107,10 @@ OnInit.map("ST10Abilities", function(require)
             udg_TempPoint3 = a3
             if (Trig_ST10Abilities_Func001Func004C()) then
                 SaveLocationHandle(LS(), GetHandleId(s), StringHash("PortPlace"), a4)
-                DisplayTimedTextToPlayer(o, 0, 0, 15.00, ("|cff00FFFF" + "Teleportation location set."))
+                DisplayTimedTextToPlayer(o, 0, 0, 15.00, ("|cff00FFFF" .. "Teleportation location set."))
             else
                 RemoveLocation(a3)
-                DisplayTimedTextToPlayer(o, 0, 0, 15.00, "TRIGSTR_3872" + " Or the target location may not be pathable.")
+                DisplayTimedTextToPlayer(o, 0, 0, 15.00, "TRIGSTR_3872" .. " Or the target location may not be pathable.")
             end
             RemoveLocation(a3)
         else

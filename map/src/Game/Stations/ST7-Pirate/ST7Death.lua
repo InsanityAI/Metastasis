@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST7/ST7Death" end
-OnInit.map("ST7Death", function(require)
+OnInit.trig("ST7Death", function(require)
     function Trig_ST7Death_Func008A()
         CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_MASKED, gg_rct_PirateShip)
     end

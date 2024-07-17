@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/AlbadarAntiAbuse" end
-OnInit.map("AlbadarAntiAbuse", function(require)
+OnInit.trig("AlbadarAntiAbuse", function(require)
     ---@return boolean
     function Trig_Albadar_Anti_Abuse_Conditions()
         if (not (udg_ace_Existence == true)) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "HoldZone" end
-OnInit.map("HoldZone", function(require)
+OnInit.trig("HoldZone", function(require)
     function Trig_HoldZoneMask_Func002A()
         CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_MASKED, gg_rct_Timeout)
         DestroyFogModifier(GetLastCreatedFogModifier())

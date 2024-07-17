@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/PureBugfixes/IllusionPodstart" end
-OnInit.map("IllusionPodstart", function(require)
+OnInit.trig("IllusionPodstart", function(require)
     ---@return boolean
     function Trig_IllusionPodstart_Func001C()
         if ((GetUnitTypeId(GetTriggerUnit()) == FourCC('h02O'))) then

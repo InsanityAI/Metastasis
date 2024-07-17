@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Android/AndroidChat" end
-OnInit.map("AndroidChat", function(require)
+OnInit.trig("AndroidChat", function(require)
     ---@return boolean
     function Trig_AndroidChat_Conditions()
         if (not (GetTriggerPlayer() == udg_HiddenAndroid)) then

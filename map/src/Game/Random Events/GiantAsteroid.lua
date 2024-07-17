@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/RandomEvents/GiantAsteroid" end
-OnInit.map("GiantAsteroid", function(require)
+OnInit.trig("GiantAsteroid", function(require)
     function Trig_GiantAsteroid_Actions()
         local i = 7 ---@type integer
         local b = 0 ---@type integer

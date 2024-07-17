@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/TaintedVendor" end
-OnInit.map("TaintedVendor", function(require)
+OnInit.trig("TaintedVendor", function(require)
     ---@return boolean
     function Trig_TaintedVendor_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A01T'))) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Libraries/Genstation/SelectSpace" end
-OnInit.map("Libraries/Genstation/SelectSpace", function()
+OnInit.triggggg("Libraries/Genstation/SelectSpace", function()
     ---@return boolean
     function Trig_SelectSpace_Func001C()
         if ((GetSpellAbilityId() == FourCC('A073'))) then

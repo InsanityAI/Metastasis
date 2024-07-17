@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Initialization/DeathSysTwo" end
-OnInit.map("DeathSysTwo", function(require)
+OnInit.trig("DeathSysTwo", function(require)
     function Trig_DeathSysTwo_Func022A()
         DialogDisplayBJ(true, udg_DeathVoteDialog, GetEnumPlayer())
     end

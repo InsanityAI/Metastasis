@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Alien/Muteilate" end
-OnInit.map("Muteilate", function(require)
+OnInit.trig("Muteilate", function(require)
     ---@return boolean
     function Trig_Muteilate_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A02Y'))) then
@@ -16,8 +16,8 @@ OnInit.map("Muteilate", function(require)
         if udg_Playerhero[GetConvertedPlayerId(GetOwningPlayer(k))] == k then
             DisplayTextToPlayer(GetOwningPlayer(k), 0, 0, "|cff00FFFFYou can no longer seem to form words...|r")
             SetPlayerName(GetOwningPlayer(k),
-                "                                                                                                                                                                                                                                                " +
-                "                                                                                                                                                                                                                                                " +
+                "                                                                                                                                                                                                                                                " ..
+                "                                                                                                                                                                                                                                                " ..
                 "                                                                                                                                                                                                                                                ")
             j = GetPlayerName(GetOwningPlayer(k))
             PolledWait(60.00)

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Common/Disallow" end
-OnInit.map("Disallow", function(require)
+OnInit.trig("Disallow", function(require)
     ---@return boolean
     function Trig_Disallow_Func013C()
         if (not (GetTriggerPlayer() == udg_Mutant)) then

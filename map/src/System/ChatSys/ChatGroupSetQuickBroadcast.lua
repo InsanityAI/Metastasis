@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Systems/ChatSys/ChatGroupSetQuickBroadcast" end
-OnInit.map("ChatGroupSetQuickBroadcast", function(require)
+OnInit.trig("ChatGroupSetQuickBroadcast", function(require)
     ---@return boolean
     function Trig_ChatGroupSetQuickBroadcast_Conditions()
         if (not (SubStringBJ(GetEventPlayerChatString(), 1, 8) == "-default")) then

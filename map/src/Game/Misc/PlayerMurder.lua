@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/PlayerMurder" end
-OnInit.map("PlayerMurder", function(require)
+OnInit.trigg("PlayerMurder", function(require)
     require "StateTable"
     ---@return boolean
     function Trig_PlayerMurder_Func002Func001C()
@@ -252,7 +252,7 @@ OnInit.map("PlayerMurder", function(require)
         end
         if (Trig_PlayerMurder_Func006C()) then
             DisplayTextToForce(GetPlayersAll(),
-                (GetPlayerName(GetOwningPlayer(GetDyingUnit())) + " |cff800080has been killed!|r"))
+                (GetPlayerName(GetOwningPlayer(GetDyingUnit())) .. " |cff800080has been killed!|r"))
             DisplayTextToForce(GetPlayersAll(), "TRIGSTR_3989")
             CinematicFadeBJ(bj_CINEFADETYPE_FADEOUTIN, 4.00, "ReplaceableTextures\\CameraMasks\\White_mask.blp", 0.00,
                 100.00, 0, 50.00)
@@ -268,7 +268,7 @@ OnInit.map("PlayerMurder", function(require)
         else
             if (Trig_PlayerMurder_Func006Func002C()) then
                 DisplayTextToForce(GetPlayersAll(),
-                    (GetPlayerName(GetOwningPlayer(GetDyingUnit())) + " |cff800080has been killed!|r"))
+                    (GetPlayerName(GetOwningPlayer(GetDyingUnit())) .. " |cff800080has been killed!|r"))
                 DisplayTextToForce(GetPlayersAll(), "TRIGSTR_3988")
                 CinematicFadeBJ(bj_CINEFADETYPE_FADEOUTIN, 4.00, "ReplaceableTextures\\CameraMasks\\White_mask.blp", 0.00,
                     0.00, 100.00, 50.00)
@@ -278,7 +278,7 @@ OnInit.map("PlayerMurder", function(require)
             else
                 if (Trig_PlayerMurder_Func006Func002Func002C()) then
                     DisplayTextToForce(GetPlayersAll(),
-                        (GetPlayerName(GetOwningPlayer(GetDyingUnit())) + " |cff800080has been killed!|r"))
+                        (GetPlayerName(GetOwningPlayer(GetDyingUnit())) .. " |cff800080has been killed!|r"))
                     DisplayTextToForce(GetPlayersAll(), "TRIGSTR_3987")
                     CinematicFadeBJ(bj_CINEFADETYPE_FADEOUTIN, 4.00, "ReplaceableTextures\\CameraMasks\\White_mask.blp",
                         100.00, 100.00, 100.00, 50.00)
@@ -288,7 +288,7 @@ OnInit.map("PlayerMurder", function(require)
                 else
                     if (Trig_PlayerMurder_Func006Func002Func002Func001C()) then
                         DisplayTextToForce(GetPlayersAll(),
-                            (GetPlayerName(GetOwningPlayer(GetDyingUnit())) + " |cff800080has been killed!|r"))
+                            (GetPlayerName(GetOwningPlayer(GetDyingUnit())) .. " |cff800080has been killed!|r"))
                         DisplayTextToForce(GetPlayersAll(), "TRIGSTR_3986")
                         CinematicFadeBJ(bj_CINEFADETYPE_FADEOUTIN, 4.00,
                             "ReplaceableTextures\\CameraMasks\\DiagonalSlash_mask.blp", 0.00, 0.00, 100.00, 50.00)
@@ -298,7 +298,7 @@ OnInit.map("PlayerMurder", function(require)
                     else
                         if (Trig_PlayerMurder_Func006Func002Func002Func001Func001C()) then
                             DisplayTextToForce(GetPlayersAll(),
-                                (GetPlayerName(GetOwningPlayer(GetDyingUnit())) + " |cff800080has been killed!|r"))
+                                (GetPlayerName(GetOwningPlayer(GetDyingUnit())) .. " |cff800080has been killed!|r"))
                             DisplayTextToForce(GetPlayersAll(), "TRIGSTR_3985")
                             CinematicFadeBJ(bj_CINEFADETYPE_FADEOUTIN, 4.00,
                                 "ReplaceableTextures\\CameraMasks\\White_mask.blp", 0.00, 100.00, 100.00, 50.00)
@@ -307,7 +307,7 @@ OnInit.map("PlayerMurder", function(require)
                             StateTable.SetPlayerState(victimPlayer, State.Dead)
                         else
                             DisplayTextToForce(GetPlayersAll(),
-                                (GetPlayerName(GetOwningPlayer(GetDyingUnit())) + " |cff800080has been killed!|r"))
+                                (GetPlayerName(GetOwningPlayer(GetDyingUnit())) .. " |cff800080has been killed!|r"))
                             DisplayTextToForce(GetPlayersAll(), "TRIGSTR_3983")
                             CinematicFadeBJ(bj_CINEFADETYPE_FADEOUTIN, 4.00,
                                 "ReplaceableTextures\\CameraMasks\\White_mask.blp", 100.00, 0.00, 0.00, 50.00)

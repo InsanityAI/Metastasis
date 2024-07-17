@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/PlayerLeaves" end
-OnInit.map("PlayerLeaves", function(require)
+OnInit.trig("PlayerLeaves", function(require)
     require "StateTable"
     function NIFPO_Sort()
         if IsPlayerHuman(GetEnumPlayer()) then
@@ -25,7 +25,7 @@ OnInit.map("PlayerLeaves", function(require)
 
         udg_Player_Left[GetConvertedPlayerId(GetTriggerPlayer())] = true
         DisplayTextToForce(GetPlayersAll(),
-            (udg_OriginalName[GetConvertedPlayerId(GetTriggerPlayer())] + "|cff408080 has left the game!|r"))
+            (udg_OriginalName[GetConvertedPlayerId(GetTriggerPlayer())] .. "|cff408080 has left the game!|r"))
         KillUnit(udg_Playerhero[GetConvertedPlayerId(GetTriggerPlayer())])                       --Kill leaver's playerhero unit
         UnitAddAbility(udg_Playerhero[GetConvertedPlayerId(GetTriggerPlayer())], FourCC('A02T')) --And stay dead
         StateTable.SetPlayerState(GetTriggerPlayer(), State.Left)

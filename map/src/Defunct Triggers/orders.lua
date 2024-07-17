@@ -2,7 +2,7 @@
 -- //TESH.alwaysfold=0
 -- function Trig_orders_Actions takes nothing returns nothing
 --     local integer order = GetIssuedOrderId()
---     call BJDebugMsg(GetUnitName(GetOrderedUnit()) + " has been ordered " + OrderId2String(order)+ " ("+I2S(order)+")")
+--     call BJDebugMsg(GetUnitName(GetOrderedUnit()) .. " has been ordered " .. OrderId2String(order).. " ("+I2S(order)+")")
 -- endfunction
 
 -- function InitTrig_orders takes nothing returns nothing

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/PureBugfixes/RapidInfectionBugfix" end
-OnInit.map("RapidInfectionBugfix", function(require)
+OnInit.trig("RapidInfectionBugfix", function(require)
     ---@return boolean
     function Trig_Rapid_Infection_Bugfix_Func002C()
         if ((GetUnitTypeId(GetTriggerUnit()) == FourCC('h01M'))) then

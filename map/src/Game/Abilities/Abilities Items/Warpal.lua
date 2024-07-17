@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/Warpal" end
-OnInit.map("Warpal", function(require)
+OnInit.trig("Warpal", function(require)
     ---@return boolean
     function Trig_Warpal_Conditions()
         if (not (GetItemTypeId(GetManipulatedItem()) == FourCC('I02X'))) then

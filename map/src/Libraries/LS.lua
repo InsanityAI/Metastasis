@@ -1309,7 +1309,7 @@ OnInit.main("LS", function(require)
             DestroyTimer(k)
             return
         end
-        if IsPointPathable(x, y, false) and height <= hay + 20.0 and GetTerrainCliffLevel(GetUnitX(a), GetUnitY(a)) == GetTerrainCliffLevel(x, y) then
+        if IsTerrainWalkable(x, y) and height <= hay + 20.0 and GetTerrainCliffLevel(GetUnitX(a), GetUnitY(a)) == GetTerrainCliffLevel(x, y) then
             if GetUnitMoveSpeed(a) == 0.0 then
                 SetUnitPosition(a, x, y)
             else
@@ -2970,7 +2970,7 @@ OnInit.main("LS", function(require)
                 itemslot = itemslot + 1
             until itemslot == 7
             i = i + 1
-            --call DisplayTextToForce( GetPlayersAll(), "i is:" + I2S(i))// Debug msg
+            --call DisplayTextToForce( GetPlayersAll(), "i is:" .. I2S(i))// Debug msg
         until i == 13
 
         --call DisplayTextToForce( GetPlayersAll(), "Got out!")// Debug msg

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/JanitorsKeycard" end
-OnInit.map("JanitorsKeycard", function(require)
+OnInit.trig("JanitorsKeycard", function(require)
     ---@return boolean
     function Trig_JanitorsKeycard_Conditions()
         if (not (GetItemTypeId(GetManipulatedItem()) == FourCC('I00J'))) then

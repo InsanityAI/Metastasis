@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/FusionBombExplode" end
-OnInit.map("FusionBombExplode", function(require)
+OnInit.trig("FusionBombExplode", function(require)
     ---@return boolean
     function Trig_FusionBombExplode_Func006Func001Func001C()
         if (not (GetDestructableTypeId(GetEnumDestructable()) ~= FourCC('DTrx'))) then

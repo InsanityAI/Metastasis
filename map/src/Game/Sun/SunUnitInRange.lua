@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Sun/SunUnitInRange" end
-OnInit.map("SunUnitInRange", function(require)
+OnInit.trig("SunUnitInRange", function(require)
     ---@return boolean
     function Trig_SunUnitInRange_Conditions()
         if (not (GetUnitPointValue(GetTriggerUnit()) ~= 37)) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST8/NeurotoxinEnd" end
-OnInit.map("NeurotoxinEnd", function(require)
+OnInit.trig("NeurotoxinEnd", function(require)
     ---@return boolean
     function Trig_NeurotoxinEnd_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A07D'))) then

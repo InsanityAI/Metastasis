@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Alien/NoAlienTK" end
-OnInit.map("NoAlienTK", function(require)
+OnInit.trig("NoAlienTK", function(require)
     ---@return boolean
     function Trig_NoAlienTK_Func002Func002C()
         if ((GetOwningPlayer(GetAttackedUnitBJ()) == udg_Parasite)) then

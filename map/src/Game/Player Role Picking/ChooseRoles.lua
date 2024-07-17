@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/PlayerRolePicking/ChooseRoles" end
-OnInit.map("ChooseRoles", function(require)
+OnInit.trig("ChooseRoles", function(require)
     ---@return boolean
     function Trig_ChooseRoles_Func003Func001C()
         if (not (GetPlayerSlotState(GetEnumPlayer()) == PLAYER_SLOT_STATE_PLAYING)) then

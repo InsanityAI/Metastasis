@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Spaceships/SSGenDock" end
-OnInit.map("SSGenDock", function(require)
+OnInit.trig("SSGenDock", function(require)
     ---@return boolean
     function Trig_SSGenDock_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A001'))) then

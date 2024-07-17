@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/PlayerDeathText" end
-OnInit.map("PlayerDeathText", function(require)
+OnInit.trig("PlayerDeathText", function(require)
     ---@return boolean
     function Trig_PlayerDeathText_Conditions()
         if (not (IsPlayerInForce(GetTriggerPlayer(), udg_DeadGroup) == true)) then
@@ -21,7 +21,7 @@ OnInit.map("PlayerDeathText", function(require)
 
     function Trig_PlayerDeathText_Func015A()
         if (Trig_PlayerDeathText_Func015Func001C()) then
-            udg_TempString = "|cffffcc00" + udg_OriginalName[GetConvertedPlayerId(GetTriggerPlayer())] + "|r: " +
+            udg_TempString = "|cffffcc00" .. udg_OriginalName[GetConvertedPlayerId(GetTriggerPlayer())] .. "|r: " ..
                 GetEventPlayerChatString()
             DisplayTextToPlayer(GetEnumPlayer(), 0, 0, udg_TempString)
         else

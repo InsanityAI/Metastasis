@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/RandomEvents/AnomalyDeath" end
-OnInit.map("AnomalyDeath", function(require)
+OnInit.trig("AnomalyDeath", function(require)
     ---@return boolean
     function Trig_AnomalyDeath_Conditions()
         if (not (GetUnitTypeId(GetTriggerUnit()) == FourCC('n00K'))) then

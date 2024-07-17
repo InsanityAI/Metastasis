@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST11/ST11BloodEffect" end
-OnInit.map("ST11BloodEffect", function(require)
+OnInit.trig("ST11BloodEffect", function(require)
     function Trig_ST11BloodEffect_Actions()
         udg_TempPoint = GetRandomLocInRect(gg_rct_OverlordRect)
         AddSpecialEffectLocBJ(udg_TempPoint,

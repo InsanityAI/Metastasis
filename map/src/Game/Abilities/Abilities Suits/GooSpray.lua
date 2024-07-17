@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/GooSpray" end
-OnInit.map("GooSpray", function(require)
+OnInit.triggg("GooSpray", function(require)
     ---@return boolean
     function Trig_GooSpray_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A07Y'))) then

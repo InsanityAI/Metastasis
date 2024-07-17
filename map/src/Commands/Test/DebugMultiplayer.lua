@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Commands/Test/DebugMultiplayer" end
-OnInit.map("DebugMultiplayer", function(require)
+OnInit.trig("DebugMultiplayer", function(require)
     playersToggled = 0 ---@type integer
     playersActive  = 0 ---@type integer
 
@@ -29,7 +29,7 @@ OnInit.map("DebugMultiplayer", function(require)
             ForForce(GetPlayersAll(), SetActivePlayers)
 
             DisplayTextToForce(GetPlayersAll(),
-                I2S(playersToggled) + "/" + I2S(playersActive) + " have voted for Debugging mode.")
+                I2S(playersToggled) .. "/" .. I2S(playersActive) .. " have voted for Debugging mode.")
 
             --If all players wrote -debug, activate it.
             if (playersToggled == playersActive) then

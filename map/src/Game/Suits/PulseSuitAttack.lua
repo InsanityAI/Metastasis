@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Suits/PulseSuitAttack" end
-OnInit.map("PulseSuitAttack", function(require)
+OnInit.trig("PulseSuitAttack", function(require)
     ---@return boolean
     function Trig_PulseSuitAttack_Conditions()
         if GetUnitTypeId(GetAttacker()) == FourCC('h04M') then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Commands/Test/AlienEvoPoints" end
-OnInit.map("AlienEvoPoints", function(require)
+OnInit.trig("AlienEvoPoints", function(require)
     ---@return boolean
     function Trig_AlienEvoPoints_Conditions()
         if (not (udg_TESTING == true)) then

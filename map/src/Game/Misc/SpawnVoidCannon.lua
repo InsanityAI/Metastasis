@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/SpawnVoidCannon" end
-OnInit.map("SpawnVoidCannon", function(require)
+OnInit.trig("SpawnVoidCannon", function(require)
     ---@return boolean
     function Trig_SpawnVoidCannon_Conditions()
         if (not (GetUnitTypeId(GetTriggerUnit()) == FourCC('n005'))) then --FourCC('n005') is snoeglay warden

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/SnoeglayLifeGain" end
-OnInit.map("SnoeglayLifeGain", function(require)
+OnInit.trig("SnoeglayLifeGain", function(require)
     ---@return boolean
     function Trig_Snoeglay_Life_Gain_Conditions()
         if (not (GetItemTypeId(GetManipulatedItem()) == FourCC('I024'))) then

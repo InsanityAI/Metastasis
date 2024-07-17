@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Suits/SuitsDrop" end
-OnInit.map("SuitsDrop", function(require)
+OnInit.trig("SuitsDrop", function(require)
     ---@return boolean
     function Trig_SuitsDrop_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A0AF'))) then

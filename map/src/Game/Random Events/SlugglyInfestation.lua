@@ -1,5 +1,5 @@
 -- if Debug then Debug.beginFile "Game/RandomEvents/SlugglyInfestation" end
--- OnInit.map("SlugglyInfestation", function(require)
+-- OnInit.trig("SlugglyInfestation", function(require)
 
 
 

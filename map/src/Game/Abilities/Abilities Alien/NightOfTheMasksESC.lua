@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Alien/NightOfTheMasksESC" end
-OnInit.map("NightOfTheMasksESC", function(require)
+OnInit.trig("NightOfTheMasksESC", function(require)
     ---@return boolean
     function Trig_NightOfTheMasksESC_Conditions()
         if (not (udg_Player_IsMasquerading[GetConvertedPlayerId(GetTriggerPlayer())] == true)) then
@@ -52,9 +52,9 @@ OnInit.map("NightOfTheMasksESC", function(require)
 
         --Move items
         while i <= 6 do
-            v = LoadItemHandle(LS(), GetHandleId(GetTriggerPlayer()), StringHash("mitem_" + I2S(i)))
+            v = LoadItemHandle(LS(), GetHandleId(GetTriggerPlayer()), StringHash("mitem_" .. I2S(i)))
             UnitAddItem(GetLastCreatedUnit(), v)
-            v = LoadItemHandle(LS(), GetHandleId(GetTriggerPlayer()), StringHash("kitem_" + I2S(i)))
+            v = LoadItemHandle(LS(), GetHandleId(GetTriggerPlayer()), StringHash("kitem_" .. I2S(i)))
             RemoveItem(v)
             SetItemPositionLoc(v, udg_HoldZone)
             i = i + 1

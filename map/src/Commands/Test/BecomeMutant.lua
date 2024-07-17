@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Commands/Test/BecomeMutant" end
-OnInit.map("BecomeMutant", function(require)
+OnInit.trig("BecomeMutant", function(require)
     require "StateTable"
     ---@return boolean
     function Trig_BecomeMutant_Conditions()

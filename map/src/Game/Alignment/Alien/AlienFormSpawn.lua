@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Alien/AlienFormSpawn" end
-OnInit.map("AlienFormSpawn", function(require)
+OnInit.trig("AlienFormSpawn", function(require)
     ---@return boolean
     function Trig_AlienFormSpawn_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A02W'))) then

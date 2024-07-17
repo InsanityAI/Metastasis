@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/MagneticSaw" end
-OnInit.map("MagneticSaw", function(require)
+OnInit.trig("MagneticSaw", function(require)
     ---@return boolean
     function Trig_MagneticSaw_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A061'))) then

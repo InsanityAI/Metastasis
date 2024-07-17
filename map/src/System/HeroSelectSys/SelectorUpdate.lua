@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "System/HeroSelectSys/SelectorUpdate" end
-OnInit.map("SelectorUpdate", function(require)
+OnInit.trig("SelectorUpdate", function(require)
     ---@return boolean
     function Trig_SelectorUpdate_Func002Func003C()
         if (not (IsUnitAliveBJ(udg_Playerhero[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))]) == true)) then

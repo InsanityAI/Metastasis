@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Space/FocusedWave" end
-OnInit.map("FocusedWave", function(require)
+OnInit.trig("FocusedWave", function(require)
     ---@return boolean
     function Trig_FocusedWave_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A05D'))) then

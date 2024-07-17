@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/BurstGrenade" end
-OnInit.map("BurstGrenade", function(require)
+OnInit.trig("BurstGrenade", function(require)
     ---@return boolean
     function Trig_BGrenade_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A06O'))) then
@@ -33,7 +33,7 @@ OnInit.map("BurstGrenade", function(require)
                 --set c= 360+2*DetermineNormal(GetUnitX(l),GetUnitY(l),zforce*Cos(GetUnitFacing(l)*bj_DEGTORAD),zforce*Sin(GetUnitFacing(l)*bj_DEGTORAD),height)-c
             end
         end
-        --if IsPointPathable(GetLocationX(b), GetLocationY(b), false) == false then
+        --if IsTerrainWalkable(GetLocationX(b), GetLocationY(b)) == false then
         --call KillUnit(l)
         --endif
         SetUnitPositionLoc(l, b)

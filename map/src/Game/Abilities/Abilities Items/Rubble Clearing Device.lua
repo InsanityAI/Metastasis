@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/RubbleClearingDevice" end
-OnInit.map("RubbleClearingDevice", function(require)
+OnInit.trig("RubbleClearingDevice", function(require)
     ---@return boolean
     function Rubble_Clearing_Device_Conditions()
         return GetSpellAbilityId() == FourCC('A08E')

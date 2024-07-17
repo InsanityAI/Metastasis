@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/TeleportAndAI/TheWarpStart" end
-OnInit.map("TheWarpStart", function(require)
+OnInit.trig("TheWarpStart", function(require)
     ---@return boolean
     function Trig_The_Warp_Start_Conditions()
         if (not (udg_Warp_enabled == false)) then

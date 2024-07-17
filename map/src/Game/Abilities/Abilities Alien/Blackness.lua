@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Alien/Blackness" end
-OnInit.map("Blackness", function(require)
+OnInit.trig("Blackness", function(require)
     ---@return boolean
     function Trig_Blackness_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A041'))) then

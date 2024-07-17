@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST3/ST3CannonProjectile" end
-OnInit.map("ST3CannonProjectile", function(require)
+OnInit.trig("ST3CannonProjectile", function(require)
     ---@return boolean
     function Trig_Cannon_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A005'))) then

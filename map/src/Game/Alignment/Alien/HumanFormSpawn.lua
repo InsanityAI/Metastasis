@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Alien/HumanFormSpawn" end
-OnInit.map("HumanFormSpawn", function(require)
+OnInit.trig("HumanFormSpawn", function(require)
     ---@return boolean
     function Trig_HumanFormSpawn_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A02X'))) then

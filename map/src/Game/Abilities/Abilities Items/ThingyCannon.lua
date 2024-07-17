@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/ThingyCannon" end
-OnInit.map("ThingyCannon", function(require)
+OnInit.trig("ThingyCannon", function(require)
     ---@return boolean
     function Trig_ThingyCannon_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A07R'))) then

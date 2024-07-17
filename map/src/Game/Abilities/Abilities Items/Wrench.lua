@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/Wrench" end
-OnInit.map("Wrench", function(require)
+OnInit.trig("Wrench", function(require)
     ---@return boolean
     function Trig_Wrench_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A00Z'))) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Libraries/Genstation/GenStation" end
-OnInit.map("Libraries/Genstation/GenStation", function(require)
+OnInit.main("Libraries/Genstation/GenStation", function(require)
     ---@param console unit
     function ConsoleDisable(console)
         if HaveSavedHandle(LS(), GetHandleId(console), StringHash("EnterTrigger")) then
@@ -99,7 +99,7 @@ OnInit.map("Libraries/Genstation/GenStation", function(require)
                 om = udg_Parasite
             end
             DisplayTextToPlayer(om, 0, 0, (GetUnitName(space)))
-            DisplayTextToPlayer(om, 0, 0, (" |cff00FF00Access Granted|r" + ""))
+            DisplayTextToPlayer(om, 0, 0, (" |cff00FF00Access Granted|r" .. ""))
             SelectUnitForPlayerSingle(console, om)
             ConsoleLoopCheck(console, r, consolerect, space)
         end

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/Moon/AssemblyPlant" end
-OnInit.map("AssemblyPlant", function(require)
+OnInit.trig("AssemblyPlant", function(require)
     ---@param l texttag
     ---@param production string
     ---@param startx real
@@ -24,7 +24,7 @@ OnInit.map("AssemblyPlant", function(require)
                 end
                 i = i + 1
             end
-            SetTextTagTextBJ(l, production + " (" + I2S(R2I(TimerGetRemaining(m))) + ")", 10.0)
+            SetTextTagTextBJ(l, production .. " (" .. I2S(R2I(TimerGetRemaining(m))) .. ")", 10.0)
             if TimerGetRemaining(m) == 0 then
                 k = true
             else

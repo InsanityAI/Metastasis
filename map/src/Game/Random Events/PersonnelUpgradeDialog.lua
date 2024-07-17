@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/RandomEvents/PersonnelUpgradeDialog" end
-OnInit.map("PersonnelUpgradeDialog", function(require)
+OnInit.trig("PersonnelUpgradeDialog", function(require)
     ---@return boolean
     function Trig_PersonnelUpgradeDialog_Func002Func001C()
         if (not (GetClickedButtonBJ() == udg_PersonnelUpgradeDialog_Button[GetForLoopIndexA()])) then

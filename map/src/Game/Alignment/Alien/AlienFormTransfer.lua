@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Alien/AlienFormTransfer" end
-OnInit.map("AlienFormTransfer", function(require)
+OnInit.triggggggggg("AlienFormTransfer", function(require)
     ---@return boolean
     function Trig_AlienFormTransfer_Conditions()
         if (not (udg_Alien_ShopWorkaround == GetBuyingUnit())) then

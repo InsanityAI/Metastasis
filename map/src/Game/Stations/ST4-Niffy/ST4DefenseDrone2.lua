@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST4/ST4DefenseDrone2" end
-OnInit.map("ST4DefenseDrone2", function(require)
+OnInit.trig("ST4DefenseDrone2", function(require)
     ---@return boolean
     function Trig_ST4DefenseDrone2_Conditions()
         if (not (IsUnitIllusionBJ(GetTriggerUnit()) == false)) then

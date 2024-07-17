@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/MagneticThrust" end
-OnInit.map("MagneticThrust", function(require)
+OnInit.trig("MagneticThrust", function(require)
     ---@return boolean
     function Trig_MagneticThrust_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A07U'))) then
@@ -18,7 +18,7 @@ OnInit.map("MagneticThrust", function(require)
         local t = GetTriggeringTrigger() ---@type trigger
         local a = LoadUnitHandle(LS(), GetHandleId(t), StringHash("t")) ---@type unit
 
-        if not (HaveSavedBoolean(LS(), GetHandleId(a), StringHash("AlreadyHit_" + I2S(GetUnitAN(GetTriggerUnit()))))) and GetUnitAbilityLevel(GetTriggerUnit(), FourCC('Avul')) == 0 and IsUnitAliveBJ(GetTriggerUnit()) and GetUnitPointValue(GetTriggerUnit()) ~= 37 then
+        if not (HaveSavedBoolean(LS(), GetHandleId(a), StringHash("AlreadyHit_" .. I2S(GetUnitAN(GetTriggerUnit()))))) and GetUnitAbilityLevel(GetTriggerUnit(), FourCC('Avul')) == 0 and IsUnitAliveBJ(GetTriggerUnit()) and GetUnitPointValue(GetTriggerUnit()) ~= 37 then
             --If the one who cast it, do not damage, otherwise PUSHHHH
             if (LoadUnitHandle(LS(), GetHandleId(t), StringHash("caster")) ~= GetTriggerUnit()) then
                 UnitDamageTarget(a, GetTriggerUnit(), 100.0, true, true, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL,
@@ -28,7 +28,7 @@ OnInit.map("MagneticThrust", function(require)
             Push2(GetTriggerUnit(), 400.0, 230.0, AngleBetweenUnits(a, GetTriggerUnit()))
 
             --Cache already hit by an object, so the same won't do it again?
-            SaveBoolean(LS(), GetHandleId(a), StringHash("AlreadyHit_" + I2S(GetUnitAN(GetTriggerUnit()))), true)
+            SaveBoolean(LS(), GetHandleId(a), StringHash("AlreadyHit_" .. I2S(GetUnitAN(GetTriggerUnit()))), true)
         end
     end
 

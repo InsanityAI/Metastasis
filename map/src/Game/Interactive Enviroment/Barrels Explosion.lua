@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/InteractiveEnvironment/BarrelsExplosion" end
-OnInit.map("BarrelsExplosion", function(require)
+OnInit.trig("BarrelsExplosion", function(require)
     ---@return boolean
     function Trig_Barrels_Explosion_Conditions()
         if (not (GetUnitTypeId(GetTriggerUnit()) == FourCC('n00J'))) then

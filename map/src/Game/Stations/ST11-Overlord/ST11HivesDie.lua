@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST11/ST11HivesDie" end
-OnInit.map("ST11HivesDie", function(require)
+OnInit.trig("ST11HivesDie", function(require)
     function Trig_ST11HivesDie_Func004Func003A()
         DisplayTextToPlayer(GetEnumPlayer(), 0, 0,
             "The Overlord has been slain! Flee his body or BE DOOMED TO A HORRIBLE DEATH.")

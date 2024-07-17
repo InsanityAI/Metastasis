@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/RDGLimitHard" end
-OnInit.map("RDGLimitHard", function(require)
+OnInit.trig("RDGLimitHard", function(require)
     ---@return boolean
     function Trig_RDGLimitHard_Conditions()
         if (not (GetUnitTypeId(GetEnteringUnit()) == FourCC('e018'))) then

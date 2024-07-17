@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST5/Autopilot" end
-OnInit.map("Autopilot", function(require)
+OnInit.trig("Autopilot", function(require)
     ---@return boolean
     function Trig_Autopilot_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A02P'))) then

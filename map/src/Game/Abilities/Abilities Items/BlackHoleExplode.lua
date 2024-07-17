@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/BlackHoleExplode" end
-OnInit.map("BlackHoleExplode", function(require)
+OnInit.trig("BlackHoleExplode", function(require)
     function BlackHole_Suck_Enum()
         local a = GetUnitLoc(GetEnumUnit()) ---@type location
         local r = DistanceBetweenPoints(a, udg_TempPoint) ---@type real
@@ -61,7 +61,7 @@ OnInit.map("BlackHoleExplode", function(require)
         local spaceunitY ---@type real
 
         if IsUnitDeadBJ(spaceunit) then
-            --call DisplayTextToForce(GetPlayersAll(), "DEAD: " + GetUnitName(spaceunit) + " " + R2S(GetUnitX(spaceunit)))
+            --call DisplayTextToForce(GetPlayersAll(), "DEAD: " .. GetUnitName(spaceunit) .. " " .. R2S(GetUnitX(spaceunit)))
 
             --Instead of bloat per 0.02s
             --Should do an event register of death on spaceunit...
@@ -94,7 +94,7 @@ OnInit.map("BlackHoleExplode", function(require)
 
         --call PingMinimapForForce(GetPlayersAll(), GetUnitX(blackHoleUnit), GetUnitY(blackHoleUnit), 0.01)
 
-        --call DisplayTextToForce(GetPlayersAll(), "SpaceUnit is: " + GetUnitName(spaceunit))
+        --call DisplayTextToForce(GetPlayersAll(), "SpaceUnit is: " .. GetUnitName(spaceunit))
 
         --If bugged in 0,0 or Pown
         if RectContainsLoc(gg_rct_MapCenter, blackHoleLocalLocation) or (RectContainsLoc(gg_rct_ST10, blackHoleLocalLocation) and spaceunit ~= gg_unit_h04V_0253) then
@@ -225,13 +225,13 @@ OnInit.map("BlackHoleExplode", function(require)
                     udg_Sector_Space[GetUnitSector(blackholeLandContainer)])
 
 
-                --/call DisplayTextToForce(GetPlayersAll(), "LandContainerSector is: " + I2S(GetUnitSector(blackholeLandContainer)))
+                --/call DisplayTextToForce(GetPlayersAll(), "LandContainerSector is: " .. I2S(GetUnitSector(blackholeLandContainer)))
 
-                --/call DisplayTextToForce(GetPlayersAll(), "LandContainerName is: " + GetUnitName(blackholeLandContainer))
+                --/call DisplayTextToForce(GetPlayersAll(), "LandContainerName is: " .. GetUnitName(blackholeLandContainer))
 
-                --/call DisplayTextToForce(GetPlayersAll(), "Land Container X, Y: " + R2S(GetUnitX(blackholeLandContainer)) + ", " + R2S(GetUnitY(blackholeLandContainer)))
+                --/call DisplayTextToForce(GetPlayersAll(), "Land Container X, Y: " .. R2S(GetUnitX(blackholeLandContainer)) .. ", " .. R2S(GetUnitY(blackholeLandContainer)))
 
-                --/call DisplayTextToForce(GetPlayersAll(), "SpaceUnit is: " + GetUnitName(udg_Sector_Space[GetUnitSector(blackholeLandContainer)]))
+                --/call DisplayTextToForce(GetPlayersAll(), "SpaceUnit is: " .. GetUnitName(udg_Sector_Space[GetUnitSector(blackholeLandContainer)]))
 
 
                 --Move the spaceship away, because if you don't do this
@@ -243,7 +243,7 @@ OnInit.map("BlackHoleExplode", function(require)
                 SetUnitX(blackHoleUnit, spaceshipX)
                 SetUnitY(blackHoleUnit, spaceshipY)
 
-                --/call DisplayTextToForce(GetPlayersAll(), R2S(GetUnitX(blackHoleUnit)) + ", " + R2S(GetUnitY(blackHoleUnit)))
+                --/call DisplayTextToForce(GetPlayersAll(), R2S(GetUnitX(blackHoleUnit)) .. ", " .. R2S(GetUnitY(blackHoleUnit)))
             else
                 --/call DisplayTextToForce(GetPlayersAll(), "Spaced!")
 

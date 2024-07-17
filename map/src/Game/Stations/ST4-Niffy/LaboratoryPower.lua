@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST4/LaboratoryPower" end
-OnInit.map("LaboratoryPower", function(require)
+OnInit.trig("LaboratoryPower", function(require)
     ---@return boolean
     function Trig_LaboratoryPower_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A06F'))) then

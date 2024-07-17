@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST4/ExplorerPower" end
-OnInit.map("ExplorerPower", function(require)
+OnInit.trig("ExplorerPower", function(require)
     ---@return boolean
     function Trig_ExplorerPower_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A06D'))) then

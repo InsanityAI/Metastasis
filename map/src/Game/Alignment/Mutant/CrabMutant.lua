@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Mutant/CrabMutant" end
-OnInit.map("CrabMutant", function(require)
+OnInit.trig("CrabMutant", function(require)
     ---@return boolean
     function Trig_CrabMutant_Conditions()
         if (not (GetUnitTypeId(GetAttacker()) == FourCC('h01C'))) then

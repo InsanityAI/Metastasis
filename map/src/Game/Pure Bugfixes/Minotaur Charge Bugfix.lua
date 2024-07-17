@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/PureBugfixes/MinotaurChargeBugfix" end
-OnInit.map("MinotaurChargeBugfix", function(require)
+OnInit.trig("MinotaurChargeBugfix", function(require)
     function Trig_Minotaur_Charge_Bugfix_Actions()
         SetUnitPositionLoc(GetTriggerUnit(), OffsetLocation(GetUnitLoc(GetTriggerUnit()), 400.00, 0))
     end

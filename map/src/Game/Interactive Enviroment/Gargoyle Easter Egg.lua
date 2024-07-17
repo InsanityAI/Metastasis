@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/InteractiveEnvironment/GargoyleEasterEgg" end
-OnInit.map("GargoyleEasterEgg", function(require)
+OnInit.trig("GargoyleEasterEgg", function(require)
     ---@return boolean
     function Trig_Gargoyle_Easter_Egg_Conditions()
         if (not (GetTriggerUnit() == gg_unit_u000_0150)) then

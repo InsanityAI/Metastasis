@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/TeleportAndAI/ItemDrop" end
-OnInit.map("ItemDrop", function(require)
+OnInit.trig("ItemDrop", function(require)
     ---@return boolean
     function Trig_Item_drop_Conditions()
         if (not (GetUnitTypeId(GetTriggerUnit()) == FourCC('n00I'))) then

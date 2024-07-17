@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Android/PulseWave" end
-OnInit.map("PulseWave", function(require)
+OnInit.trig("PulseWave", function(require)
     ---@return boolean
     function Trig_PulseWave_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A068'))) then

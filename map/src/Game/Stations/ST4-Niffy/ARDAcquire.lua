@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST4/ARDAcquire" end
-OnInit.map("ARDAcquire", function(require)
+OnInit.trig("ARDAcquire", function(require)
     ---@return boolean
     function Trig_ARDAcquire_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A075'))) then

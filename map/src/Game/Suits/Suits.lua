@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Suits/Suits" end
-OnInit.map("Suits", function(require)
+OnInit.trig("Suits", function(require)
     ---@return boolean
     function Trig_Suits_Conditions()
         if (not (udg_Playerhero[GetConvertedPlayerId(GetOwningPlayer(GetTriggerUnit()))] == GetTriggerUnit())) then

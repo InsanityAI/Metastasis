@@ -1,6 +1,5 @@
 if Debug then Debug.beginFile "Game/PlayerRolePicking/Researcher" end
-OnInit.map("Researcher", function(require)
-    require "StateTable"
+OnInit.trig("Researcher", function(require)
     ---@return boolean
     function Trig_Researcher_Func001Func001Func001C()
         if (not (udg_TempPlayer == udg_HiddenAndroid)) then
@@ -166,7 +165,7 @@ OnInit.map("Researcher", function(require)
         UnitAddItemByIdSwapped(FourCC('I025'), udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)])
         UnitAddItemByIdSwapped(FourCC('I002'), udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)])
         udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] = "Dr. "
-        name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer)
+        name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] .. GetPlayerName(udg_TempPlayer)
         SetPlayerName(udg_TempPlayer, name)
         StateTable.UpdatePlayerName(udg_TempPlayer)
     end

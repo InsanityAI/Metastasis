@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/Planet/RadarSweepPlanet" end
-OnInit.map("RadarSweepPlanet", function(require)
+OnInit.trig("RadarSweepPlanet", function(require)
     ---@return boolean
     function Trig_RadarSweepPlanet_Func004Func001Func002Func001001001()
         return (GetFilterPlayer() == udg_Parasite)

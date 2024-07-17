@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Initialization/ArrayDat" end
-OnInit.main("ArrayDat", function(require)
+OnInit.trig("ArrayDat", function(require)
     ---@param h unit
     function NewUnitRegister(h)
         if GetUnitUserData(h) == 0 then

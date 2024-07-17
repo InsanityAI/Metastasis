@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST5/ST5Death" end
-OnInit.map("ST5Death", function(require)
+OnInit.trig("ST5Death", function(require)
     function Trig_ST5Death_Func018A()
         UnitAddAbilityBJ(FourCC('A02T'), GetEnumUnit())
         UnitRemoveBuffsBJ(bj_REMOVEBUFFS_ALL, GetEnumUnit())

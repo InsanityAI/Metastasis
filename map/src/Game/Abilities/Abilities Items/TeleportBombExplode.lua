@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/TeleportBombExplode" end
-OnInit.map("TeleportBombExplode", function(require)
+OnInit.trig("TeleportBombExplode", function(require)
     ---@return boolean
     function Trig_TeleportBombExplode_Func003Func003Func001C()
         if (not (IsUnitType(GetEnumUnit(), UNIT_TYPE_STRUCTURE) == false)) then

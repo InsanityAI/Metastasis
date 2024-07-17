@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Android/TacticalNuclearWarhead" end
-OnInit.map("TacticalNuclearWarhead", function(require)
+OnInit.trig("TacticalNuclearWarhead", function(require)
     ---@return boolean
     function Trig_TacticalNuclearWarhead_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A02D'))) then

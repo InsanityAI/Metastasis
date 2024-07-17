@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/VoidCannon" end
-OnInit.map("VoidCannon", function(require)
+OnInit.trig("VoidCannon", function(require)
     ---@return boolean
     function Trig_VoidCannon_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A0A6'))) then --TODO

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/Overheat" end
-OnInit.map("Overheat", function(require)
+OnInit.trig("Overheat", function(require)
     ---@return boolean
     function Trig_Overheat_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A04G'))) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/Moon/MoonDeath" end
-OnInit.map("MoonDeath", function(require)
+OnInit.trig("MoonDeath", function(require)
     function Trig_MoonDeath_Func017A()
         UnitAddAbilityBJ(FourCC('A02T'), GetEnumUnit())
         UnitRemoveBuffsBJ(bj_REMOVEBUFFS_ALL, GetEnumUnit())

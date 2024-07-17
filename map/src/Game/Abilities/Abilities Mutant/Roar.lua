@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/Roar" end
-OnInit.map("Roar", function(require)
+OnInit.trig("Roar", function(require)
     ---@return boolean
     function Trig_Roar_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A01J'))) then

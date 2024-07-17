@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/RandomEvents/RandomEventsTimer" end
-OnInit.map("RandomEventsTimer", function(require)
+OnInit.trig("RandomEventsTimer", function(require)
     ---@return boolean
     function Trig_RandomEventsTimer_Func002Func002C()
         if (not (udg_RandomEvent_On[udg_TempInt] ~= true)) then

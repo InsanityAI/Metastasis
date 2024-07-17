@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Mutant/MutnatCannibalize" end
-OnInit.map("MutnatCannibalize", function(require)
+OnInit.trig("MutnatCannibalize", function(require)
     ---@return boolean
     function Trig_MutantCannibalize_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A076'))) then

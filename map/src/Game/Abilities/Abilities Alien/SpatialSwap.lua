@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Alien/SpatialSwap" end
-OnInit.map("SpatialSwap", function(require)
+OnInit.trig("SpatialSwap", function(require)
     ---@return boolean
     function Trig_SpatialSwap_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A03I'))) then

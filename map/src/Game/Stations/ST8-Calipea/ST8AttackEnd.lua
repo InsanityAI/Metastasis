@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST8/ST8AttackEnd" end
-OnInit.map("ST8AttackEnd", function(require)
+OnInit.trig("ST8AttackEnd", function(require)
     function Trig_ST8AttackEnd_Actions()
         udg_ST8_TakingDamage = false
         SetStackedSoundBJ(false, gg_snd_WWII_submarine_dive_klaxon, gg_rct_ST8)

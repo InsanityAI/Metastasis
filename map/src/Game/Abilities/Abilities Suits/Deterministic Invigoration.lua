@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/DeterministricInvigoration" end
-OnInit.map("DeterministricInvigoration", function(require)
+OnInit.trig("DeterministricInvigoration", function(require)
     ---@return boolean
     function Trig_Deterministic_Invigoration_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A09Q'))) then

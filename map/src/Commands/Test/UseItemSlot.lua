@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Commands/Test/UseItemSlot" end
-OnInit.map("UseItemSlot", function(require)
+OnInit.trig("UseItemSlot", function(require)
     ---@return boolean
     function Trig_UseItemSlot_Conditions()
         if (not (udg_TESTING == true)) then

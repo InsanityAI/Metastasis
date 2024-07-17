@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/InventoryScanner" end
-OnInit.map("InventoryScanner", function(require)
+OnInit.trig("InventoryScanner", function(require)
     ---@return boolean
     function Trig_InventoryScanner_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A08Y'))) then

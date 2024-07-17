@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/PureBugfixes/StalkerRangeRestrictionActivation" end
-OnInit.map("StalkerRangeRestrictionActivation", function(require)
+OnInit.trig("StalkerRangeRestrictionActivation", function(require)
     function Trig_Stalker_Range_Restriction_Activation_Actions()
         --If less than 400 range, stop attacking.
         if (DistanceBetweenPoints(udg_StalkerAttackLocation, udg_StalkerUnitLocation) <= 400.00) then
@@ -7,11 +7,11 @@ OnInit.map("StalkerRangeRestrictionActivation", function(require)
 
             --Explain to mutant the range mechanic, and color-code it plz.
             DisplayTimedTextToPlayer(udg_Mutant, 0, 0, 1.00,
-                "|cffF4A460Distance from Prey: |r|cffFF0000" +
+                "|cffF4A460Distance from Prey: |r|cffFF0000" ..
                 R2S(DistanceBetweenPoints(udg_StalkerAttackLocation, udg_StalkerUnitLocation)))
         else
             DisplayTimedTextToPlayer(udg_Mutant, 0, 0, 1.00,
-                "|cffF4A460Distance from Prey: |r|cff8AB600" +
+                "|cffF4A460Distance from Prey: |r|cff8AB600" ..
                 R2S(DistanceBetweenPoints(udg_StalkerAttackLocation, udg_StalkerUnitLocation)))
         end
 

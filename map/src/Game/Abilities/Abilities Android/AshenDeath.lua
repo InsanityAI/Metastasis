@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Android/AshenDeath" end
-OnInit.map("AshenDeath", function(require)
+OnInit.trig("AshenDeath", function(require)
     ---@return boolean
     function Trig_AshenDeath_Conditions()
         if (not (GetUnitAbilityLevelSwapped(FourCC('A0A9'), GetTriggerUnit()) == 1)) then

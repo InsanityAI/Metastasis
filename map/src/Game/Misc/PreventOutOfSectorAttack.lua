@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/PreventOutOfSectorAttack" end
-OnInit.map("PreventOutOfSectorAttack", function(require)
+OnInit.trig("PreventOutOfSectorAttack", function(require)
     ---@return boolean
     function Trig_PreventOutOfSectorAttack_Conditions()
         if (not (GetIssuedOrderIdBJ() == String2OrderIdBJ("attack"))) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/GITAddTestsToMedshops" end
-OnInit.map("GITAddTestsToMedshops", function(require)
+OnInit.trig("GITAddTestsToMedshops", function(require)
     function Trig_GITAddTestsToMedshops_Func003A()
         AddItemToStockBJ(FourCC('I00M'), GetEnumUnit(), 0, 1)
     end

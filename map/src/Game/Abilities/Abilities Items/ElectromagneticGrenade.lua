@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/ElectromagneticGrenade" end
-OnInit.map("ElectromagneticGrenade", function(require)
+OnInit.trig("ElectromagneticGrenade", function(require)
   ---@return boolean
   function Trig_ElectromagneticGrenade_Conditions()
     if (not (GetUnitTypeId(GetSummonedUnit()) == FourCC('e00X'))) then

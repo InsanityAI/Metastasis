@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/EscapePod" end
-OnInit.map("EscapePod", function(require)
+OnInit.trig("EscapePod", function(require)
     ---@return boolean
     function Trig_EscapePod_Conditions()
         if (not (GetItemTypeId(GetSoldItem()) == FourCC('I010'))) then
@@ -106,9 +106,9 @@ OnInit.map("EscapePod", function(require)
         RemoveItem(GetSoldItem())
         if TimerGetElapsed(udg_GameTimer) - udg_Player_LastPodTime[GetConvertedPlayerId(GetOwningPlayer(d))] < 100.0 then
             DisplayTextToPlayer(GetOwningPlayer(d), 0, 0,
-                "|cffFF0000We're sorry, but you may not use a pod at this time. Please wait " +
+                "|cffFF0000We're sorry, but you may not use a pod at this time. Please wait " ..
                 R2S(100 -
-                    (TimerGetElapsed(udg_GameTimer) - udg_Player_LastPodTime[GetConvertedPlayerId(GetOwningPlayer(d))])) +
+                    (TimerGetElapsed(udg_GameTimer) - udg_Player_LastPodTime[GetConvertedPlayerId(GetOwningPlayer(d))])) ..
                 " seconds.")
             return
         end

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/PlayerRolePicking/RepickAlien" end
-OnInit.map("RepickAlien", function(require)
+OnInit.trig("RepickAlien", function(require)
     ---@return boolean
     function Trig_RepickAlien_Conditions()
         if (not (udg_TESTING == false)) then

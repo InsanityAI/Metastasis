@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/MatterDrainingDevice" end
-OnInit.map("MatterDrainingDevice", function(require)
+OnInit.trigg("MatterDrainingDevice", function(require)
     ---@return boolean
     function Trig_MatterDrainingDevice_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A02Q'))) then

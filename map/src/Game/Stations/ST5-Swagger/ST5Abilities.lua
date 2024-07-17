@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST5/ST5Abilities" end
-OnInit.map("ST5Abilities", function(require)
+OnInit.trig("ST5Abilities", function(require)
     ---@return boolean
     function Trig_ST5Abilities_Func003Func001Func001C()
         if (not (GetSpellAbilityId() == FourCC('A04Q'))) then

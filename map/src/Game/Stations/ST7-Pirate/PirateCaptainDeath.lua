@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST7/PirateCaptainDeath" end
-OnInit.map("PirateCaptainDeath", function(require)
+OnInit.trig("PirateCaptainDeath", function(require)
     function Trig_PirateCaptainDeath_Actions()
         udg_SpaceAI_PirateCaptainAlive = false
         -- With this boolean, the AI won't touch the pirate ship

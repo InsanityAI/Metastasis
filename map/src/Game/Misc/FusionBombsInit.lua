@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/FusionBombInit" end
-OnInit.map("FusionBombInit", function(require)
+OnInit.trig("FusionBombInit", function(require)
     function Trig_FusionBombsInit_Func003A()
         SetUnitAnimation(GetEnumUnit(), "stand work")
     end

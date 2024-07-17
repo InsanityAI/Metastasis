@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Commands/Test/NoWin" end
-OnInit.map("NoWin", function(require)
+OnInit.trig("NoWin", function(require)
     ---@return boolean
     function Trig_NoWin_Conditions()
         if (not (udg_TESTING == true)) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/Moon/ARD" end
-OnInit.map("ARD", function(require)
+OnInit.trig("ARD", function(require)
     ---@return boolean
     function Trig_ARD_Conditions()
         if (not (GetUnitTypeId(GetTrainedUnit()) == FourCC('e022'))) then

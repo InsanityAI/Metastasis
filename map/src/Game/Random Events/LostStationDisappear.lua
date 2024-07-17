@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/RandomEvents/LostStationDisappear" end
-OnInit.map("LostStationDisappear", function(require)
+OnInit.trig("LostStationDisappear", function(require)
     function Trig_LostStationDisappear_Actions()
         DestroyTrigger(GetTriggeringTrigger())
         ShowUnitHide(gg_unit_h029_0114)

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/RandomEvents/PersonnelUpgrade" end
-OnInit.map("PersonnelUpgrade", function(require)
+OnInit.trig("PersonnelUpgrade", function(require)
     ---@return boolean
     function Trig_PersonnelUpgrade_Func003C()
         if (not (IsUnitAliveBJ(gg_unit_h009_0029) == true)) then

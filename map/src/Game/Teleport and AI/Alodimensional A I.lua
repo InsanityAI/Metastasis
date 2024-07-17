@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/TeleportAndAI/AlodimensionalAI" end
-OnInit.map("AlodimensionalAI", function(require)
+OnInit.trig("AlodimensionalAI", function(require)
     function Trig_Alodimensional_A_I_Func002A()
     end
 

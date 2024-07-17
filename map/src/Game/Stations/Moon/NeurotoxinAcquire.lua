@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/Moon/NeurotoxinAcquire" end
-OnInit.map("NeurotoxinAcquire", function(require)
+OnInit.trig("NeurotoxinAcquire", function(require)
     ---@return boolean
     function Trig_NeurotoxinAcquire_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A07C'))) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "IsTerrainWalkable" end -- Replaces IsPointPathable
-OnInit.module("IsTerrainWalkable", function()
+OnInit.map("IsTerrainWalkable", function()
     --[[**
     * IsTerrainWalkable snippet for estimating the walkability status of a co-ordinate pair, credits
     * to Anitarf and Vexorian.
@@ -60,14 +60,10 @@ OnInit.module("IsTerrainWalkable", function()
         return (x - X) * (x - X) + (y - Y) * (y - Y) < MAX_RANGE * MAX_RANGE
     end
 
-    local function initialize()
-        check = CreateItem(FourCC('ciri'), 0., 0.)
-        SetItemVisible(check, false)
-        r = Rect(0.0, 0.0, 128.0, 128.0)
-        CHECKER_UNIT_PEASANT = CreateUnit(Player(bj_PLAYER_NEUTRAL_EXTRA), FourCC('hpea'), 0.00, 0.00, bj_UNIT_FACING)
-        ShowUnit(CHECKER_UNIT_PEASANT, false)
-    end
-
-    if OnInit then OnInit.main("IsTerrainWalkable", initialize) end
+    check = CreateItem(FourCC('ciri'), 0., 0.)
+    SetItemVisible(check, false)
+    r = Rect(0.0, 0.0, 128.0, 128.0)
+    CHECKER_UNIT_PEASANT = CreateUnit(Player(bj_PLAYER_NEUTRAL_EXTRA), FourCC('hpea'), 0.00, 0.00, bj_UNIT_FACING)
+    ShowUnit(CHECKER_UNIT_PEASANT, false)
 end)
 if Debug then Debug.endFile() end

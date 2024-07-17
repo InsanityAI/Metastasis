@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/PureBugfixes/HarbringerDeathShipControl" end
-OnInit.map("HarbringerDeathShipControl", function(require)
+OnInit.trigg("HarbringerDeathShipControl", function(require)
     ---@return boolean
     function Trig_HarbringerDeathShipControl_Conditions()
         if (not (GetUnitTypeId(GetTriggerUnit()) == FourCC('h01T'))) then

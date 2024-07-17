@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Space/PrismRocketsEndAlbadar" end
-OnInit.map("PrismRocketsEndAlbadar", function(require)
+OnInit.trig("PrismRocketsEndAlbadar", function(require)
     ---@return boolean
     function Trig_PrismRocketsEndAlbadar_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A07L'))) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/Moon/Neurotoxin" end
-OnInit.map("Neurotoxin", function(require)
+OnInit.trig("Neurotoxin", function(require)
     ---@return boolean
     function Trig_Neurotoxin_Conditions()
         if (not (GetUnitTypeId(GetTrainedUnit()) == FourCC('e026'))) then

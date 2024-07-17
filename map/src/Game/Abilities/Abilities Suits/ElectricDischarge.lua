@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/ElectricDischarge" end
-OnInit.map("ElectricDischarge", function(require)
+OnInit.trigg("ElectricDischarge", function(require)
     ---@return boolean
     function Trig_ElectricDischarge_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A02F'))) then

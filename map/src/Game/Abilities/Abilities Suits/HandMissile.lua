@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/HandMissile" end
-OnInit.map("HandMissile", function(require)
+OnInit.trig("HandMissile", function(require)
     ---@return boolean
     function Trig_HandMissile_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A00A'))) then

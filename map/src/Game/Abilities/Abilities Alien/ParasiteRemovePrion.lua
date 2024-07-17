@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Alien/ParasiteRemovePrion" end
-OnInit.map("ParasiteRemovePrion", function(require)
+OnInit.trig("ParasiteRemovePrion", function(require)
     ---@return boolean
     function Trig_ParasiteRemovePrion_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A02N'))) then

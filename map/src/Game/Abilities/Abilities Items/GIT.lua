@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/GIT" end
-OnInit.map("GIT", function(require)
+OnInit.trig("GIT", function(require)
     ---@return boolean
     function Trig_GIT_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A018'))) then

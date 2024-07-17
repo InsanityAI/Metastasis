@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "System/ChatSys/ChatGroupMutantBroadcast" end
-OnInit.map("ChatGroupMutantBroadcast", function(require)
+OnInit.trig("ChatGroupMutantBroadcast", function(require)
     ---@return boolean
     function Trig_ChatGroupMutantBroadcast_Conditions()
         if (not (SubStringBJ(GetEventPlayerChatString(), 1, 1) == "[")) then
@@ -23,8 +23,8 @@ OnInit.map("ChatGroupMutantBroadcast", function(require)
         while i <= 11 do
             if (udg_Player_IsMutantSpawn[i + 1] or Player(i) == udg_Mutant) then
                 DisplayTextToPlayer(Player(i), 0, 0,
-                    "|cff800080" + "[" + "Mutant" + "]|r" + PlayerColor_GetPlayerTextColor(GetTriggerPlayer()) +
-                    GetPlayerName(GetTriggerPlayer()) + "|r: " + udg_arguments[2])
+                    "|cff800080" .. "[" .. "Mutant" .. "]|r" .. PlayerColours[GetTriggerPlayer()] ..
+                    GetPlayerName(GetTriggerPlayer()) .. "|r: " .. udg_arguments[2])
             end
             i = i + 1
         end

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/RandomEvents/Snoeglays" end
-OnInit.map("Snoeglays", function(require)
+OnInit.trig("Snoeglays", function(require)
     ---@return boolean
     function Trig_Snoeglays_Func004Func003C()
         if (not (GetOwningPlayer(GetLastReplacedUnitBJ()) == Player(PLAYER_NEUTRAL_PASSIVE))) then

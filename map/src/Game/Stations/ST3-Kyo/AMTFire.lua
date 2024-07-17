@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST3/AMTFire" end
-OnInit.map("AMTFire", function(require)
+OnInit.trig("AMTFire", function(require)
     ---@return boolean
     function Trig_AMTFire_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A06U'))) then
@@ -60,13 +60,13 @@ OnInit.map("AMTFire", function(require)
         else
         end
         DisplayTextToForce(GetPlayersAll(),
-            ("|cffFF0000Antimatter Teleportation Matrix now has a targetting lock on " + (GetUnitName(GetSpellTargetUnit()) + "!|r")))
+            ("|cffFF0000Antimatter Teleportation Matrix now has a targetting lock on " .. (GetUnitName(GetSpellTargetUnit()) .. "!|r")))
         UnitRemoveAbilityBJ(FourCC('A06U'), gg_unit_h007_0027)
         PlaySoundBJ(gg_snd_Warning)
         udg_TempUnit = gg_unit_h007_0027
         TintUnitOverTime(udg_TempUnit, 45.0, 120, 255, 120)
         StartTimerBJ(udg_Kyo_ATM_WarningTimer, false, 60.00)
-        CreateTimerDialogBJ(GetLastCreatedTimerBJ(), ("|cffFF0000ATM- " + GetUnitName(GetSpellTargetUnit())))
+        CreateTimerDialogBJ(GetLastCreatedTimerBJ(), ("|cffFF0000ATM- " .. GetUnitName(GetSpellTargetUnit())))
         udg_Kyo_ATM_CountdownWindow = GetLastCreatedTimerDialogBJ()
         PolledWait(59.50)
         PlaySoundBJ(gg_snd_FlashBack1Second)

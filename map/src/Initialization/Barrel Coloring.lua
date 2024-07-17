@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Initialization/BarrelColoring" end
-OnInit.map("BarrelColoring", function(require)
+OnInit.trig("BarrelColoring", function(require)
     function Trig_Barrel_Coloring_Func003A()
         SetUnitVertexColorBJ(GetEnumUnit(), GetRandomReal(1.00, 255.00), GetRandomReal(1.00, 255.00),
             GetRandomReal(1.00, 255.00), 1.00)

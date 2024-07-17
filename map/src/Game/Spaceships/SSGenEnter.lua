@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Spaceships/SSGenEnter" end
-OnInit.map("SSGenEnter", function(require)
+OnInit.trig("SSGenEnter", function(require)
     ---@return boolean
     function Trig_SSGenEnter_Conditions()
         if (not (GetOwningPlayer(GetTriggerUnit()) ~= Player(PLAYER_NEUTRAL_PASSIVE) or GetUnitTypeId(GetTriggerUnit()) == FourCC('h04Q'))) then
@@ -30,7 +30,7 @@ OnInit.map("SSGenEnter", function(require)
 
         if t < udg_Unit_ShipEnterCooldown[GetUnitAN(b)] + 8.0 then
             DisplayTextToPlayer(GetOwningPlayer(b), 0, 0,
-                "|cFFFF0000Please wait " + R2S(udg_Unit_ShipEnterCooldown[GetUnitAN(b)] + 8.0 - t) +
+                "|cFFFF0000Please wait " .. R2S(udg_Unit_ShipEnterCooldown[GetUnitAN(b)] + 8.0 - t) +
                 " seconds before entering this ship.")
             return
         end

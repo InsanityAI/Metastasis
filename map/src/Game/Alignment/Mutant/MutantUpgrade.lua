@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Mutant/MutantUpgrade" end
-OnInit.map("MutantUpgrade", function(require)
+OnInit.trig("MutantUpgrade", function(require)
     ---@return boolean
     function Trig_MutantUpgrade_Conditions()
         if (not (GetTriggerPlayer() == udg_Mutant)) then

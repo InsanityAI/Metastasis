@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST6/ST6DeathNotification" end
-OnInit.map("ST6DeathNotification", function(require)
+OnInit.trig("ST6DeathNotification", function(require)
     function Trig_ST6DeathNotification_Actions()
         CinematicFadeBJ(bj_CINEFADETYPE_FADEOUTIN, 7.00, "ReplaceableTextures\\CameraMasks\\DreamFilter_Mask.blp", 100.00,
             0, 0, 0)

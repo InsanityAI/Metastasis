@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/Cryogenesis" end
-OnInit.map("Cryogenesis", function(require)
+OnInit.trigg("Cryogenesis", function(require)
     ---@return boolean
     function Trig_Cryogenesis_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A07M'))) then

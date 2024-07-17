@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Space/PrismRocketsAlbadar" end
-OnInit.map("PrismRocketsAlbadar", function(require)
+OnInit.trigggggg("PrismRocketsAlbadar", function(require)
     ---@return boolean
     function Trig_PrismRocketsAlbadar_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A07L'))) then
@@ -17,7 +17,7 @@ OnInit.map("PrismRocketsAlbadar", function(require)
         if GetLocationZ(b) > GetLocationZ(a) + GetUnitFlyHeight(l) then
             KillUnit(l)
         end
-        --if IsPointPathable(GetLocationX(b), GetLocationY(b), false) == false then
+        --if IsTerrainWalkable(GetLocationX(b), GetLocationY(b)) == false then
         --call KillUnit(l)
         --endif
         SetUnitPositionLoc(l, b)

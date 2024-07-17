@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/SlyTentacles" end
-OnInit.map("SlyTentacles", function(require)
+OnInit.trig("SlyTentacles", function(require)
     ---@return boolean
     function Trig_SlyTentacles_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A044'))) then

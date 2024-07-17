@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "System/Doors/DoorSys" end
-OnInit.map("DoorSys", function(require)
+OnInit.trig("DoorSys", function(require)
     require "LS"
     ---@param d destructable
     function DoorOpen_Malfunction(d)

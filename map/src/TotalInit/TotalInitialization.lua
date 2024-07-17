@@ -56,7 +56,7 @@ do
     ---@param OnInit any
     local function assignLegacyAPI(_ENV, OnInit)
         OnGlobalInit = OnInit; OnTrigInit = OnInit.trig; OnMapInit = OnInit.map; OnGameStart = OnInit
-        .final                                                                                              --Global Initialization Lite API
+            .final --Global Initialization Lite API
         --OnMainInit = OnInit.main; OnLibraryInit = OnInit.library; OnGameInit = OnInit.final                            --short-lived experimental API
         --onGlobalInit = OnInit; onTriggerInit = OnInit.trig; onInitialization = OnInit.map; onGameStart = OnInit.final  --original Global Initialization API
         --OnTriggerInit = OnInit.trig; OnInitialization = OnInit.map                                                     --Forsakn's Ordered Indices API
@@ -273,7 +273,7 @@ do
                         fnOrDiscard()
                     elseif gmt.__newindex == hookMainAndConfig then
                         gmt.__newindex =
-                        rawIndex                  --restore the original __newindex if no further hooks on __newindex exist.
+                            rawIndex --restore the original __newindex if no further hooks on __newindex exist.
                     end
                     runInitializers(key)
                     if key == 'main' then

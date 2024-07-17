@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Commands/Test/BecomeAndroid" end
-OnInit.map("BecomeAndroid", function(require)
+OnInit.trig("BecomeAndroid", function(require)
     require "StateTable"
     ---@return boolean
     function Trig_BecomeAndroid_Conditions()

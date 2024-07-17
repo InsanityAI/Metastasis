@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Commands/Test/TestAbilities" end
-OnInit.map("TestAbilities", function(require)
+OnInit.trig("TestAbilities", function(require)
     ---@return boolean
     function Trig_TestAbilities_Conditions()
         if (not (udg_TESTING == true)) then

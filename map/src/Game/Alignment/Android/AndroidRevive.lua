@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Android/AndroidRevive" end
-OnInit.map("AndroidRevive", function(require)
+OnInit.trig("AndroidRevive", function(require)
     require "StateTable"
     function Trig_AndroidRevive_Func001Func014A()
         SetPlayerAllianceStateBJ(GetEnumPlayer(), udg_TempPlayer, bj_ALLIANCE_ALLIED)

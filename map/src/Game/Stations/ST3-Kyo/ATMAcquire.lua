@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST3/ATMAcquire" end
-OnInit.map("ATMAcquire", function(require)
+OnInit.trig("ATMAcquire", function(require)
     ---@return boolean
     function Trig_ATMAcquire_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A06T'))) then

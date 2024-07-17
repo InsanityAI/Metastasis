@@ -1,6 +1,5 @@
 if Debug then Debug.beginFile "Game/PlayerRolePicking/Captain" end
-OnInit.map("Captain", function(require)
-    require "StateTable"
+OnInit.trig("Captain", function(require)
     ---@return boolean
     function Trig_Captain_Func001Func001Func001C()
         if (not (udg_TempPlayer == udg_HiddenAndroid)) then
@@ -44,7 +43,7 @@ OnInit.map("Captain", function(require)
         UnitAddItemByIdSwapped(FourCC('I00I'), udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)])
         udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] = "Captain "
         udg_InitialSpawnPoint[GetConvertedPlayerId(udg_TempPlayer)] = Location(-14714.00, -13302.00)
-        name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer)
+        name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] .. GetPlayerName(udg_TempPlayer)
         SetPlayerName(udg_TempPlayer, name)
         StateTable.UpdatePlayerName(udg_TempPlayer)
     end
@@ -52,5 +51,6 @@ OnInit.map("Captain", function(require)
     --===========================================================================
     gg_trg_Captain = CreateTrigger()
     TriggerAddAction(gg_trg_Captain, Trig_Captain_Actions)
+    print(gg_trg_Captain == nil)
 end)
 if Debug then Debug.endFile() end

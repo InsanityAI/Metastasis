@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/EnergyShift" end
-OnInit.map("EnergyShift", function(require)
+OnInit.trig("EnergyShift", function(require)
     ---@return boolean
     function Trig_EnergyShift_Conditions()
         if (not (GetUnitTypeId(GetTriggerUnit()) == FourCC('h04M'))) then

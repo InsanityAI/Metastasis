@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Android/PrismRocketsEnd" end
-OnInit.map("PrismRocketsEnd", function(require)
+OnInit.trig("PrismRocketsEnd", function(require)
     ---@return boolean
     function Trig_PrismRocketsEnd_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A05U'))) then

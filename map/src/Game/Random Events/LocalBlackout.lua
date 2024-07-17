@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/RandomEvents/LocalBlackout" end
-OnInit.map("LocalBlackout", function(require)
+OnInit.trig("LocalBlackout", function(require)
     function Trig_LocalBlackout_Func014A()
         FogModifierStop(udg_SpaceVisibility[GetConvertedPlayerId(GetEnumPlayer())])
     end

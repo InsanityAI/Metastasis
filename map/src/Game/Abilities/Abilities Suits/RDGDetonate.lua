@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/RDGDetonate" end
-OnInit.map("RDGDetonate", function(require)
+OnInit.trigg("RDGDetonate", function(require)
     ---@return boolean
     function Trig_RDGDetonate_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A057'))) then

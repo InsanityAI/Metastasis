@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Alien/ParasiteUpgrade" end
-OnInit.map("ParasiteUpgrade", function(require)
+OnInit.trig("ParasiteUpgrade", function(require)
     ---@return boolean
     function Trig_ParasiteUpgrade_Conditions()
         if (not (GetTriggerPlayer() == udg_Parasite)) then

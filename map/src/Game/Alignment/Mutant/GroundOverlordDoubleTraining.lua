@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Mutant/GroundOverlordDoubleTraining" end
-OnInit.map("GroundOverlordDoubleTraining", function(require)
+OnInit.trig("GroundOverlordDoubleTraining", function(require)
     ---@return boolean
     function Trig_GroundOverlordDoubleTraining_Conditions()
         if (not (GetUnitTypeId(GetTriggerUnit()) == FourCC('h04W'))) then

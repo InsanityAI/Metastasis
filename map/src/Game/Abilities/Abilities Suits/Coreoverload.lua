@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/CoreOverload" end
-OnInit.map("CoreOverload", function(require)
+OnInit.trig("CoreOverload", function(require)
     ---@return boolean
     function Trig_Coreoverload_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A06C'))) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Alien/Tripwire" end
-OnInit.map("Tripwire", function(require)
+OnInit.trig("Tripwire", function(require)
      --Spell by: FelFox
      -- Tripwire
      --Functions below are used for configuration of this spell.

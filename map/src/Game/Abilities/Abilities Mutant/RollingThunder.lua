@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/RollingThunder" end
-OnInit.map("RollingThunder", function(require)
+OnInit.triggg("RollingThunder", function(require)
     ---@return boolean
     function Trig_RollingThunder_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A08T'))) then

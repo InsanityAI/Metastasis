@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/AnyDeath" end
-OnInit.map("AnyDeath", function(require)
+OnInit.trig("AnyDeath", function(require)
     function Trig_AnyDeath_Actions()
         local a = GetDyingUnit() ---@type unit
         local b ---@type unit

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Alien/BackFromHellDialog" end
-OnInit.map("BackFromHellDialog", function(require)
+OnInit.trigg("BackFromHellDialog", function(require)
     require "StateTable"
     ---@return boolean
     function Trig_BackFromHellDialog_Func002C()

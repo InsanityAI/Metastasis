@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Roles/DoorHack" end
-OnInit.map("DoorHack", function(require)
+OnInit.trig("DoorHack", function(require)
     ---@return boolean
     function Trig_DoorHack_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A053'))) then

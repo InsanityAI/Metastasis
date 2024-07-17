@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/Nanovirus" end
-OnInit.map("Nanovirus", function(require)
+OnInit.trig("Nanovirus", function(require)
     ---@return boolean
     function Trig_Nanovirus_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A09R'))) then

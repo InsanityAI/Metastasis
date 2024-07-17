@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/PureBugfixes/StalkerRangeRestrictionGroundAttack" end
-OnInit.map("StalkerRangeRestrictionGroundAttack", function(require)
+OnInit.trig("StalkerRangeRestrictionGroundAttack", function(require)
     ---@return boolean
     function Trig_Stalker_Range_Restriction_GroundAttack_Conditions()
         if (not (GetUnitTypeId(GetTriggerUnit()) == FourCC('h01D'))) then

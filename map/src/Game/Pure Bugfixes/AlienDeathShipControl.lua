@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/PureBugfixes/AlienDeathShipControl" end
-OnInit.map("AlienDeathShipControl", function(require)
+OnInit.trig("AlienDeathShipControl", function(require)
     ---@return boolean
     function Trig_AlienDeathShipControl_Conditions()
         if (not (GetOwningPlayer(GetTriggerUnit()) == udg_Parasite)) then

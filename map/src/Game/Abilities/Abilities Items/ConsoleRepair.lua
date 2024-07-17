@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/ConsoleRepair" end
-OnInit.map("ConsoleRepair", function(require)
+OnInit.trig("ConsoleRepair", function(require)
     ---@return boolean
     function Trig_ConsoleRepair_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A06Q'))) then

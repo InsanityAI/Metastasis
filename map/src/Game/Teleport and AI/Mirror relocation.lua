@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/TeleportAndAI/MirrorRelocation" end
-OnInit.map("MirrorRelocation", function(require)
+OnInit.trig("MirrorRelocation", function(require)
     ---@return boolean
     function Trig_Mirror_relocation_Conditions()
         if (not (RectContainsUnit(gg_rct_Mirror_Arena, GetTriggerUnit()) == true)) then

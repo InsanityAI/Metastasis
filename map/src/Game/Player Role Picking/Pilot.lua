@@ -1,6 +1,5 @@
 if Debug then Debug.beginFile "Game/PlayerRolePicking/Pilot" end
-OnInit.map("Pilot", function(require)
-    require "StateTable"
+OnInit.trig("Pilot", function(require)
     ---@return boolean
     function Trig_Pilot_Func001Func002Func001C()
         if (not (udg_TempPlayer == udg_HiddenAndroid)) then
@@ -67,7 +66,7 @@ OnInit.map("Pilot", function(require)
         DisplayTimedTextToPlayer(udg_TempPlayer, 0, 0, 30, "|cff800080YOUR OBJECTIVES: |r")
         udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] = "Ace "
         udg_InitialSpawnPoint[GetConvertedPlayerId(udg_TempPlayer)] = Location(-2252.00, 14431.00)
-        name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer)
+        name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] .. GetPlayerName(udg_TempPlayer)
         SetPlayerName(udg_TempPlayer, name)
         StateTable.UpdatePlayerName(udg_TempPlayer)
         if (Trig_Pilot_Func006C()) then

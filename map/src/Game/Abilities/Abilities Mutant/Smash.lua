@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/Smash" end
-OnInit.map("Smash", function(require)
+OnInit.trig("Smash", function(require)
     ---@return boolean
     function Trig_Smash_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A098'))) then

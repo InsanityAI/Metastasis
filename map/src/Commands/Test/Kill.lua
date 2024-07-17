@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Commands/Test/Kill" end
-OnInit.map("Kill", function(require)
+OnInit.trig("Kill", function(require)
     ---@return boolean
     function Trig_Kill_Conditions()
         if (not (udg_TESTING == true)) then

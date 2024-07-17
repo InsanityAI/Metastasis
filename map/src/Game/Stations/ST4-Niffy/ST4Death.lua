@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST4/ST4Death" end
-OnInit.map("ST4Death", function(require)
+OnInit.trig("ST4Death", function(require)
     function Trig_ST4Death_Func018A()
         UnitAddAbilityBJ(FourCC('A02T'), GetEnumUnit())
         bj_forLoopAIndex = 1

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Alien/NightOfTheMasks" end
-OnInit.map("NightOfTheMasks", function(require)
+OnInit.trig("NightOfTheMasks", function(require)
     ---@return boolean
     function Trig_NightOfTheMasks_Func002C()
         if ((true == true)) then
@@ -162,7 +162,7 @@ OnInit.map("NightOfTheMasks", function(require)
         bj_forLoopAIndexEnd = 6
         while bj_forLoopAIndex <= bj_forLoopAIndexEnd do
             udg_TempItemArray[GetForLoopIndexA()] = UnitItemInSlotBJ(GetSpellAbilityUnit(), GetForLoopIndexA())
-            SaveItemHandle(LS(), GetHandleId(udg_TempPlayer), StringHash("mitem_" + I2S(bj_forLoopAIndex)),
+            SaveItemHandle(LS(), GetHandleId(udg_TempPlayer), StringHash("mitem_" .. I2S(bj_forLoopAIndex)),
                 udg_TempItemArray[bj_forLoopAIndex])
             SetItemPositionLoc(UnitItemInSlotBJ(GetSpellAbilityUnit(), GetForLoopIndexA()), udg_HoldZone)
             UnitRemoveItemFromSlotSwapped(GetForLoopIndexA(), GetSpellAbilityUnit())
@@ -188,7 +188,7 @@ OnInit.map("NightOfTheMasks", function(require)
                 RemoveItem(udg_TempItemArray[GetForLoopIndexA()])
             else
                 SaveItemHandle(LS(), GetHandleId(GetOwningPlayer(udg_TempUnit)),
-                    StringHash("kitem_" + I2S(bj_forLoopAIndex)), udg_TempItemArray[bj_forLoopAIndex])
+                    StringHash("kitem_" .. I2S(bj_forLoopAIndex)), udg_TempItemArray[bj_forLoopAIndex])
             end
             bj_forLoopAIndex = bj_forLoopAIndex + 1
         end

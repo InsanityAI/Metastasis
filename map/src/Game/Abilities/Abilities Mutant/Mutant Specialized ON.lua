@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/MutantSpecializedON" end
-OnInit.map("MutantSpecializedON", function(require)
+OnInit.trig("MutantSpecializedON", function(require)
     ---@return boolean
     function Trig_Mutant_Specialized_ON_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A01X'))) then

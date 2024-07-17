@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Initialization/Gargoyle" end
-OnInit.map("Gargoyle", function(require)
+OnInit.trig("Gargoyle", function(require)
     function Trig_Gargoyle_Actions()
         PauseUnitBJ(true, gg_unit_u000_0150)
     end

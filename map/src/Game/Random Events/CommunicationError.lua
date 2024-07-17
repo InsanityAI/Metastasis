@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/RandomEvents/CommunicationError" end
-OnInit.map("CommunicationError", function(require)
+OnInit.trig("CommunicationError", function(require)
     ---@return boolean
     function Trig_CommunicationError_Func005Func001Func003001002001()
         return (GetPlayerController(GetFilterPlayer()) == MAP_CONTROL_USER)
@@ -15,7 +15,7 @@ OnInit.map("CommunicationError", function(require)
 
     function Trig_CommunicationError_Func006A()
         SetPlayerName(GetEnumPlayer(),
-            ("  " + (((("                                                                                                                                                                                                                                                " + "                                                                                                                                                                                                                                                ") + "                                                                                                                                                                                                                                                ") + "                                                                                                                                                                                                                                                ") + "                                                                                                                                                                                                                                                ")))
+            ("  " .. (((("                                                                                                                                                                                                                                                " .. "                                                                                                                                                                                                                                                ") .. "                                                                                                                                                                                                                                                ") .. "                                                                                                                                                                                                                                                ") .. "                                                                                                                                                                                                                                                ")))
     end
 
     ---@return boolean

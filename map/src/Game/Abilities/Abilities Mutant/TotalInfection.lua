@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/TotalInfection" end
-OnInit.map("TotalInfection", function(require)
+OnInit.trig("TotalInfection", function(require)
     ---@return boolean
     function Trig_TotalInfection_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A01V'))) then

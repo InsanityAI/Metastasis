@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Spaceships/SSGenExit" end
-OnInit.map("SSGenExit", function(require)
+OnInit.trig("SSGenExit", function(require)
     ---@return boolean
     function Trig_SSGenExit_Conditions()
         if (not (RectContainsUnit(gg_rct_Space, udg_SS_Space[GetUnitUserData(udg_TempUnit)]) == false)) then

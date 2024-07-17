@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "System/ChatSys/ChatSysCreate" end
-OnInit.map("ChatSysCreate", function(require)
+OnInit.trig("ChatSysCreate", function(require)
     ---@return boolean
     function Trig_ChatSysCreate_Conditions()
         if (not (SubStringBJ(GetEventPlayerChatString(), 1, 12) == "-creategroup")) then

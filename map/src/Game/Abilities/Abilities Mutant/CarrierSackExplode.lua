@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/CarrierSackExplode" end
-OnInit.map("CarrierSackExplode", function(require)
+OnInit.trig("CarrierSackExplode", function(require)
     function Trig_CarrierSackExplode_Func004A()
         UnitDamageTargetBJ(udg_TempUnit4, GetEnumUnit(), 1000.00, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
     end

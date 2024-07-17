@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Spaceships/SSGenControl" end
-OnInit.map("SSGenControl", function(require)
+OnInit.trig("SSGenControl", function(require)
     ---@return boolean
     function Trig_SSGenControl_Conditions()
         if (not (GetOwningPlayer(udg_Spaceship_Console[GetUnitUserData(udg_TempUnit)]) == Player(PLAYER_NEUTRAL_PASSIVE))) then
@@ -62,11 +62,11 @@ OnInit.map("SSGenControl", function(require)
         if (RectContainsUnit(gg_rct_Space, udg_SS_Space[GetUnitUserData(udg_TempUnit)]) == true) then
             if GetOwningPlayer(GetTriggerUnit()) ~= Player(14) then
                 CheckConsoleControl(udg_Spaceship_Console[GetUnitAN(udg_TempUnit)], udg_SS_Space
-                [GetUnitAN(udg_TempUnit)], udg_Spaceship_Rect[GetUnitAN(udg_TempUnit)])
+                    [GetUnitAN(udg_TempUnit)], udg_Spaceship_Rect[GetUnitAN(udg_TempUnit)])
                 SetUnitOwner(udg_Spaceship_Console[GetUnitUserData(udg_TempUnit)], GetOwningPlayer(GetTriggerUnit()),
                     false)
-                DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, ("|cff8000FFU.S.I. Explorer Class|r" + ""))
-                DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, (" |cff00FF00Access Granted|r" + ""))
+                DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, ("|cff8000FFU.S.I. Explorer Class|r" .. ""))
+                DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, (" |cff00FF00Access Granted|r" .. ""))
                 SelectUnitForPlayerSingle(udg_SS_Space[GetUnitUserData(udg_TempUnit)], GetOwningPlayer(GetTriggerUnit()))
                 SetUnitOwner(udg_SS_Space[GetUnitUserData(udg_TempUnit)], GetOwningPlayer(GetTriggerUnit()), false)
                 udg_TempPoint = GetUnitLoc(udg_SS_Space[GetUnitUserData(udg_TempUnit)])
@@ -82,8 +82,8 @@ OnInit.map("SSGenControl", function(require)
             else
                 SetUnitOwner(udg_Spaceship_Console[GetUnitUserData(udg_TempUnit)], GetOwningPlayer(GetTriggerUnit()),
                     false)
-                DisplayTextToPlayer(udg_Parasite, 0, 0, ("|cff8000FFU.S.I. Explorer Class|r" + ""))
-                DisplayTextToPlayer(udg_Parasite, 0, 0, (" |cff00FF00Access Granted|r" + ""))
+                DisplayTextToPlayer(udg_Parasite, 0, 0, ("|cff8000FFU.S.I. Explorer Class|r" .. ""))
+                DisplayTextToPlayer(udg_Parasite, 0, 0, (" |cff00FF00Access Granted|r" .. ""))
                 SelectUnitForPlayerSingle(udg_SS_Space[GetUnitUserData(udg_TempUnit)], udg_Parasite)
                 SetUnitOwner(udg_SS_Space[GetUnitUserData(udg_TempUnit)], GetOwningPlayer(GetTriggerUnit()), false)
                 udg_TempPoint = GetUnitLoc(udg_SS_Space[GetUnitUserData(udg_TempUnit)])
@@ -130,7 +130,7 @@ OnInit.map("SSGenControl", function(require)
             PolledWait(1.00)
             DisplayTextToForce(GetPlayersAll(), "TRIGSTR_1377")
             ChangeElevatorWalls(false, bj_ELEVATOR_WALL_TYPE_ALL, udg_All_Dock
-            [udg_SS_DockGroundedAt[GetUnitUserData(a)]])
+                [udg_SS_DockGroundedAt[GetUnitUserData(a)]])
             PolledWait(0.20)
             ChangeElevatorHeight(udg_All_Dock[udg_SS_DockGroundedAt[GetUnitUserData(a)]], 3)
             PolledWait(1.20)

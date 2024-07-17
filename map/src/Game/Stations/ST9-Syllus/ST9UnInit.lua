@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST9/ST9UnInit" end
-OnInit.map("ST9UnInit", function(require)
+OnInit.trig("ST9UnInit", function(require)
     function Trig_ST9UnInit_Func001A()
         RemoveUnit(GetEnumUnit())
     end

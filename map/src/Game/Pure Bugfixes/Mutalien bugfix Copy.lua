@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/PureBugfixes/MutalienBugfixCopy" end
-OnInit.map("MutalienBugfixCopy", function(require)
+OnInit.trig("MutalienBugfixCopy", function(require)
     ---@return boolean
     function Trig_Mutalien_bugfix_Copy_Func002C()
         if ((GetOwningPlayer(GetTriggerUnit()) == udg_Mutant)) then

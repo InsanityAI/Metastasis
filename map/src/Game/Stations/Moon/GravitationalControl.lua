@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/Moon/GravitationalControl" end
-OnInit.map("GravitationalControl", function(require)
+OnInit.trig("GravitationalControl", function(require)
     ---@return boolean
     function Trig_GravitationalControl_Func001C()
         if (not (GetOwningPlayer(GetBuyingUnit()) == Player(bj_PLAYER_NEUTRAL_EXTRA))) then

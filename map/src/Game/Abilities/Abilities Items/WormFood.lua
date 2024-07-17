@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/WormFood" end
-OnInit.map("WormFood", function(require)
+OnInit.trig("WormFood", function(require)
     ---@return boolean
     function Trig_WormFood_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A03W'))) then

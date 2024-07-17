@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Alien/SpatialRelocation" end
-OnInit.map("SpatialRelocation", function(require)
+OnInit.trig("SpatialRelocation", function(require)
     ---@return boolean
     function Trig_SpatialRelocation_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A03C'))) then
@@ -34,7 +34,7 @@ OnInit.map("SpatialRelocation", function(require)
             udg_TempItem = UnitItemInSlotBJ(GetSpellAbilityUnit(), GetForLoopIndexA())
             SetItemVisibleBJ(false, udg_TempItem)
             SetItemPositionLoc(udg_TempItem, udg_HoldZone)
-            SaveItemHandle(LS(), GetHandleId(GetSpellAbilityUnit()), StringHash("ihold" + I2S(bj_forLoopAIndex)),
+            SaveItemHandle(LS(), GetHandleId(GetSpellAbilityUnit()), StringHash("ihold" .. I2S(bj_forLoopAIndex)),
                 udg_TempItem)
             bj_forLoopAIndex = bj_forLoopAIndex + 1
         end

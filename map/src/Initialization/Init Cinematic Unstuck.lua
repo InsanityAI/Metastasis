@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Initialization/InitCinematicUnstuck" end
-OnInit.map("InitCinematicUnstuck", function(require)
+OnInit.trig("InitCinematicUnstuck", function(require)
     function Trig_Init_Cinematic_Unstuck_Actions()
         CinematicUnstuckInit()
     end

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Initialization/FixHP" end
-OnInit.map("FixHP", function(require)
+OnInit.trig("FixHP", function(require)
     function Trig_FixHP_Actions()
         EnableUserUI(true)
     end

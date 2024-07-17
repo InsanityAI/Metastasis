@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/EscapePodDies" end
-OnInit.map("EscapePodDies", function(require)
+OnInit.trig("EscapePodDies", function(require)
     ---@return boolean
     function Trig_EscapePodDies_Conditions()
         if (not (GetUnitTypeId(GetDyingUnit()) == FourCC('h02P'))) then

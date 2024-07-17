@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST9/ST9Cell2AnomalyFix" end
-OnInit.map("ST9Cell2AnomalyFix", function(require)
+OnInit.trig("ST9Cell2AnomalyFix", function(require)
     ---@return boolean
     function Trig_ST9Cell2AnomalyFix_Func003Func001C()
         if ((RectContainsUnit(gg_rct_FreeAnomalyRect, GetTriggerUnit()) == false)) then

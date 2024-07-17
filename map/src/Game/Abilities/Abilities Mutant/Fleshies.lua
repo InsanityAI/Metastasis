@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Mutant/Fleshies" end
-OnInit.map("Fleshies", function(require)
+OnInit.trig("Fleshies", function(require)
     ---@return boolean
     function Trig_Fleshies_Conditions()
         if (not (GetUnitTypeId(GetTriggerUnit()) == FourCC('h01F'))) then

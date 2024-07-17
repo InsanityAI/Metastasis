@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/Moon/OreAcquire" end
-OnInit.map("OreAcquire", function(require)
+OnInit.trig("OreAcquire", function(require)
     ---@return boolean
     function Trig_OreAcquire_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A07B'))) then

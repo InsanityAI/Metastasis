@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST4/RepositioningDrive" end
-OnInit.map("RepositioningDrive", function(require)
+OnInit.trig("RepositioningDrive", function(require)
     ---@return boolean
     function Trig_RepositioningDrive_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A074'))) then

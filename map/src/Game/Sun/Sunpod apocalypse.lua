@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Sun/SunpodApocalypse" end
-OnInit.map("SunpodApocalypse", function(require)
+OnInit.trig("SunpodApocalypse", function(require)
     ---@return boolean
     function Trig_Sunpod_apocalypse_Conditions()
         if (not (GetUnitPointValue(GetTriggerUnit()) ~= 37)) then

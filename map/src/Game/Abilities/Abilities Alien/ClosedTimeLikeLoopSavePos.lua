@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Alien/ClosedTimeLikeLoopSavePos" end
-OnInit.map("ClosedTimeLikeLoopSavePos", function(require)
+OnInit.trig("ClosedTimeLikeLoopSavePos", function(require)
     ---@return boolean
     function Trig_ClosedTimeLikeLoopSavePos_Func002C()
         if (not (udg_CTL_On >= 40)) then

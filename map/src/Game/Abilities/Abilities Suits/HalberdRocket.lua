@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/HalberdRocket" end
-OnInit.map("HalberdRocket", function(require)
+OnInit.trig("HalberdRocket", function(require)
     ---@return boolean
     function Trig_HalberdRocket_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A03S'))) then
@@ -18,7 +18,7 @@ OnInit.map("HalberdRocket", function(require)
         if GetLocationZ(b) > GetLocationZ(a) + 60.0 then
             KillUnit(l)
         end
-        if IsPointPathable(GetLocationX(b), GetLocationY(b), false) == false then
+        if IsTerrainWalkable(GetLocationX(b), GetLocationY(b)) == false then
             KillUnit(l)
         end
         SetUnitPositionLoc(l, b)

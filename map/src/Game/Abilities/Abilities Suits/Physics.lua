@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/Physics" end
-OnInit.map("Physics", function(require)
+OnInit.trig("Physics", function(require)
     ---@return boolean
     function Trig_Physics_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A029'))) then

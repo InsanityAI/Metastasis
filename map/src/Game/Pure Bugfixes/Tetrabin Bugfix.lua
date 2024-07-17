@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/PureBugfixes/TetrabinBugfix" end
-OnInit.map("TetrabinBugfix", function(require)
+OnInit.trig("TetrabinBugfix", function(require)
     ---@return boolean
     function Trig_Tetrabin_Bugfix_Conditions()
         if (not (GetItemTypeId(GetManipulatedItem()) == FourCC('I01K'))) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/ApocalypseSys/ApocalypseSpawn" end
-OnInit.map("ApocalypseSpawn", function(require)
+OnInit.triggg("ApocalypseSpawn", function(require)
     function Trig_ApocalypseSpawn_Actions()
         -- 50% for each endgame
         udg_TempInt = GetRandomInt(1, 2)

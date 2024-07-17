@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Alien/AlienEgg" end
-OnInit.map("AlienEgg", function(require)
+OnInit.triggggg("AlienEgg", function(require)
     ---@return boolean
     function Trig_AlienEgg_Conditions()
         if (not (GetUnitTypeId(GetTriggerUnit()) == FourCC('e01H'))) then

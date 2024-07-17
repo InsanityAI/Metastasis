@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST7/ST7Control" end
-OnInit.map("ST7Control", function(require)
+OnInit.trig("ST7Control", function(require)
     ---@return boolean
     function Trig_ST7Control_Conditions()
         if (not (GetOwningPlayer(GetTriggerUnit()) ~= Player(PLAYER_NEUTRAL_AGGRESSIVE))) then

@@ -4,31 +4,31 @@
 
 -- function LogPlayerAchievements takes player achiever, boolean display, boolean displaytoall returns nothing
 -- local integer i=1
--- local integer q=LoadInteger(LS(), GetHandleId(gg_trg_AchievementsInit), StringHash("got_" + I2S(GetConvertedPlayerId(achiever))))
+-- local integer q=LoadInteger(LS(), GetHandleId(gg_trg_AchievementsInit), StringHash("got_" .. I2S(GetConvertedPlayerId(achiever))))
 -- if display == true and q >= 1 then
 -- if displaytoall == true then
--- call DisplayTextToForce(GetPlayersAll(), "|cff008080" + udg_OriginalName[GetConvertedPlayerId(achiever)] + "|r has earned the following achievements:")
+-- call DisplayTextToForce(GetPlayersAll(), "|cff008080" .. udg_OriginalName[GetConvertedPlayerId(achiever)] .. "|r has earned the following achievements:")
 -- else
 -- call DisplayTextToPlayer(achiever,0,0, "|cff008080You have earned the following achievements:|r")
 -- endif
 -- endif
 -- loop
 -- exitwhen i > 13
--- if HaveSavedBoolean(LS(), GetHandleId(gg_trg_AchievementsInit), StringHash("Player_" + I2S(GetConvertedPlayerId(achiever)) + "_won_" + I2S(i))) then
+-- if HaveSavedBoolean(LS(), GetHandleId(gg_trg_AchievementsInit), StringHash("Player_" .. I2S(GetConvertedPlayerId(achiever)) .. "_won_" .. I2S(i))) then
 -- if q>0 then
--- call MMD_UpdateValueString("Achievement" + I2S(q), achiever, LoadStr(LS(),GetHandleId(gg_trg_AchievementsInit),StringHash(I2S(i)+"_file")))
+-- call MMD_UpdateValueString("Achievement" .. I2S(q), achiever, LoadStr(LS(),GetHandleId(gg_trg_AchievementsInit),StringHash(I2S(i)+"_file")))
 -- else
 -- call MMD_UpdateValueString("Achievement", achiever, LoadStr(LS(),GetHandleId(gg_trg_AchievementsInit),StringHash(I2S(i)+"_file")))
 -- set q=q+1
--- endif        
+-- endif
 -- if display == true then
 -- if displaytoall == true then
--- call DisplayTextToForce(GetPlayersAll(), "|cff00FFFF" + LoadStr(LS(), GetHandleId(gg_trg_AchievementsInit), StringHash(I2S(i))))
+-- call DisplayTextToForce(GetPlayersAll(), "|cff00FFFF" .. LoadStr(LS(), GetHandleId(gg_trg_AchievementsInit), StringHash(I2S(i))))
 -- else
--- call DisplayTextToPlayer(achiever,0,0, "|cff00FFFF" + LoadStr(LS(), GetHandleId(gg_trg_AchievementsInit), StringHash(I2S(i))))
+-- call DisplayTextToPlayer(achiever,0,0, "|cff00FFFF" .. LoadStr(LS(), GetHandleId(gg_trg_AchievementsInit), StringHash(I2S(i))))
 -- endif
 -- endif
--- call SaveInteger(LS(), GetHandleId(gg_trg_AchievementsInit), StringHash("got_" + I2S(GetConvertedPlayerId(achiever))), q)
+-- call SaveInteger(LS(), GetHandleId(gg_trg_AchievementsInit), StringHash("got_" .. I2S(GetConvertedPlayerId(achiever))), q)
 -- endif
 -- set i=i+1
 -- endloop
@@ -36,7 +36,7 @@
 
 -- function AwardAchievement2 takes integer achievement, player achiever returns nothing
 
--- call SaveBoolean(LS(), GetHandleId(gg_trg_AchievementsInit), StringHash("Player_" + I2S(GetConvertedPlayerId(achiever)) + "_won_" + I2S(achievement)),true)
+-- call SaveBoolean(LS(), GetHandleId(gg_trg_AchievementsInit), StringHash("Player_" .. I2S(GetConvertedPlayerId(achiever)) .. "_won_" .. I2S(achievement)),true)
 
 -- endfunction
 
@@ -193,7 +193,7 @@
 -- set gg_trg_AchievementsInit=CreateTrigger()
 -- loop
 -- exitwhen i > 11
--- call SaveInteger(LS(), GetHandleId(gg_trg_AchievementsInit), StringHash("got_" + I2S(i+1)), 0)
+-- call SaveInteger(LS(), GetHandleId(gg_trg_AchievementsInit), StringHash("got_" .. I2S(i+1)), 0)
 -- set i=i+1
 -- endloop
 
@@ -236,4 +236,3 @@
 -- call SaveStr(LS(), GetHandleId(gg_trg_AchievementsInit), StringHash("13"), "Suit Strike")
 -- call SaveStr(LS(), GetHandleId(gg_trg_AchievementsInit), StringHash("13_file"), "suitstrike")
 -- endfunction
-

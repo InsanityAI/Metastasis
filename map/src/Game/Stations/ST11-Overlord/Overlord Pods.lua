@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST11/OvelordPods" end
-OnInit.map("OvelordPods", function(require)
+OnInit.trig("OvelordPods", function(require)
     ---@return boolean
     function Trig_Overlord_Pods_Conditions()
         if (GetSpellAbilityId() ~= FourCC('A08H')) then
@@ -98,7 +98,7 @@ OnInit.map("OvelordPods", function(require)
             UnitAddAbility(a, FourCC('Aloc'))
 
             --call DisplayTextToPlayer(Player(0), 0, 0, GetUnitName(c))
-            --call DisplayTextToPlayer(Player(0), 0, 0, GetLocationX(loc2) + "," + GetLocationY(loc2) + " " + GetUnitX(c) + " " + GetUnitY(c))
+            --call DisplayTextToPlayer(Player(0), 0, 0, GetLocationX(loc2) .. "," .. GetLocationY(loc2) .. " " .. GetUnitX(c) .. " " .. GetUnitY(c))
 
 
             while not (flag) do

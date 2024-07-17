@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/BlindingCloud" end
-OnInit.map("BlindingCloud", function(require)
+OnInit.trig("BlindingCloud", function(require)
     ---@return boolean
     function Trig_BlindingCloud_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A04P'))) then

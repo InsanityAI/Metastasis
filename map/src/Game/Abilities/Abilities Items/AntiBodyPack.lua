@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/AntiBodyPack" end
-OnInit.map("AntiBodyPack", function(require)
+OnInit.trig("AntiBodyPack", function(require)
     ---@return boolean
     function Trig_AntiBodyPack_Conditions()
         if (not (GetItemTypeId(GetManipulatedItem()) == FourCC('I004'))) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Alien/NeurotoxicPoison" end
-OnInit.map("NeurotoxicPoison", function(require)
+OnInit.trig("NeurotoxicPoison", function(require)
     ---@return boolean
     function Trig_NeurotoxicPoison_Conditions()
         if GetUnitAbilityLevel(GetAttacker(), FourCC('A043')) == 0 then

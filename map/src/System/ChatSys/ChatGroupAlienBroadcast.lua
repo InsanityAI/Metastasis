@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "System/ChatSys/ChatGroupAlienBroadcast" end
-OnInit.map("ChatGroupAlienBroadcast", function(require)
+OnInit.trig("ChatGroupAlienBroadcast", function(require)
     ---@return boolean
     function Trig_ChatGroupAlienBroadcast_Conditions()
         if (not (SubStringBJ(GetEventPlayerChatString(), 1, 1) == "[")) then
@@ -23,8 +23,8 @@ OnInit.map("ChatGroupAlienBroadcast", function(require)
         while i <= 11 do
             if (udg_Player_IsParasiteSpawn[i + 1] or Player(i) == udg_Parasite) then
                 DisplayTextToPlayer(Player(i), 0, 0,
-                    "|cff800080" + "[" + "Alien" + "]|r" + PlayerColor_GetPlayerTextColor(GetTriggerPlayer()) +
-                    GetPlayerName(GetTriggerPlayer()) + "|r: " + udg_arguments[2])
+                    "|cff800080" .. "[" .. "Alien" .. "]|r" .. PlayerColours[GetTriggerPlayer()] ..
+                    GetPlayerName(GetTriggerPlayer()) .. "|r: " .. udg_arguments[2])
             end
             i = i + 1
         end

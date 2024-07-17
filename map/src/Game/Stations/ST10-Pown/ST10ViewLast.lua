@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST10/ST10ViewLast" end
-OnInit.map("ST10ViewLast", function(require)
+OnInit.trig("ST10ViewLast", function(require)
     ---@return boolean
     function Trig_ST10ViewLast_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A084'))) then

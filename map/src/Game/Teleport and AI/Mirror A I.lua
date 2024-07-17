@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/TeleportAndAI/MirrorAI" end
-OnInit.map("MirrorAI", function(require)
+OnInit.trig("MirrorAI", function(require)
     ---@return boolean
     function Trig_Mirror_A_I_Func005Func002Func001Func003C()
         if (not (GetItemTypeId(udg_TempItem) == FourCC('I01D'))) then

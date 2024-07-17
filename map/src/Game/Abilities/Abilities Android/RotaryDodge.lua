@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Android/RotaryDodge" end
-OnInit.map("RotaryDodge", function(require)
+OnInit.trig("RotaryDodge", function(require)
     ---@return boolean
     function Trig_RotaryDodge_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A065'))) then

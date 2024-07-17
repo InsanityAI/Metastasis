@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Commands/Test/SpawnHelp" end
-OnInit.map("SpawnHelp", function(require)
+OnInit.trig("SpawnHelp", function(require)
     ---@return boolean
     function Trig_SpawnHelp_Conditions()
         if (not (udg_TESTING == true)) then

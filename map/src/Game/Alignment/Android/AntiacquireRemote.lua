@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Android/AntiAcquireRemote" end
-OnInit.map("AntiAcquireRemote", function(require)
+OnInit.trig("AntiAcquireRemote", function(require)
     ---@return boolean
     function Trig_AntiacquireRemote_Conditions()
         if (not (GetOwningPlayer(GetTriggerUnit()) == udg_HiddenAndroid)) then

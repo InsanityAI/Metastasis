@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Timed" end
-OnInit.map("Timed", function(require)
+OnInit.trig("Timed", function(require)
     LIBRARY_Timed = true
     local SCOPE_PREFIX = "Timed_" ---@type string
 
@@ -12,7 +12,7 @@ OnInit.map("Timed", function(require)
         UnitRemoveAbility(u, theability)
         --cleanup
         FlushChildHashtable(udg_hash, ht)
-        SaveTimerHandle(udg_hash, GetHandleId(u), StringHash("Timed_AbilityTimer_" + I2S(theability)), nil)
+        SaveTimerHandle(udg_hash, GetHandleId(u), StringHash("Timed_AbilityTimer_" .. I2S(theability)), nil)
         DestroyTimer(t)
         u = nil
         t = nil
@@ -32,8 +32,8 @@ OnInit.map("Timed", function(require)
         local hu = GetHandleId(u) ---@type integer
         local ta = I2S(theability) ---@type string
 
-        if HaveSavedHandle(udg_hash, hu, StringHash("Timed_AbilityTimer_" + ta)) then
-            t = LoadTimerHandle(udg_hash, hu, StringHash("Timed_AbilityTimer_" + ta))
+        if HaveSavedHandle(udg_hash, hu, StringHash("Timed_AbilityTimer_" .. ta)) then
+            t = LoadTimerHandle(udg_hash, hu, StringHash("Timed_AbilityTimer_" .. ta))
         end
 
         if t ~= nil then
@@ -51,7 +51,7 @@ OnInit.map("Timed", function(require)
 
                 SaveInteger(udg_hash, ht, StringHash("Timed_Ability"), theability)
                 SaveUnitHandle(udg_hash, ht, StringHash("Timed_Caster"), u)
-                SaveTimerHandle(udg_hash, hu, StringHash("Timed_AbilityTimer_" + ta), t)
+                SaveTimerHandle(udg_hash, hu, StringHash("Timed_AbilityTimer_" .. ta), t)
                 TimerStart(t, duration, false, Ability_Remove)
                 UnitAddAbility(u, theability)
             end
@@ -172,7 +172,7 @@ OnInit.map("Timed", function(require)
 
     ---@param e effect
     ---@param duration real
-    local function EffectRemove(e, duration)
+    function EffectRemove(e, duration)
         local t  = CreateTimer() ---@type timer
         local ht = GetHandleId(t) ---@type integer
 
@@ -182,6 +182,7 @@ OnInit.map("Timed", function(require)
         t = nil
         e = nil
     end
+
     _G[SCOPE_PREFIX .. 'EffectRemove'] = EffectRemove
 
     local function Lightning_Remove()

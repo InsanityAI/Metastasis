@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/MotionSensor" end
-OnInit.map("MotionSensor", function(require)
+OnInit.trig("MotionSensor", function(require)
     ---@return boolean
     function Trig_MotionSensor_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A062'))) then

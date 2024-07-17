@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/DetonateSlivs" end
-OnInit.map("DetonateSlivs", function(require)
+OnInit.trigggg("DetonateSlivs", function(require)
     ---@return boolean
     function Trig_DetonateSlivs_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A07S'))) then
@@ -45,7 +45,7 @@ OnInit.map("DetonateSlivs", function(require)
 
                 --Get how many slivAttacks picked unit has taken
                 slivAttacks = LoadInteger(LS(), GetHandleId(magneticSlivedGroup), GetHandleId(pickedUnit))
-                --call SaveInteger(LS(),GetHandleId(a),StringHash(I2S(GetHandleId(d))+"_SlivsOn"),0)
+                --call SaveInteger(LS(),GetHandleId(a),StringHash(I2S(GetHandleId(d)) .. "_SlivsOn"),0)
 
                 --/DEBUG//TODO REMOVE!
                 --/call DisplayTextToForce(GetPlayersAll(), "The sliv attacks right before detonation are: ")

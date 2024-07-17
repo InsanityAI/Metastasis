@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "System/HeroSelectSys/Selection" end
-OnInit.map("Selection", function(require)
+OnInit.trig("Selection", function(require)
     function Trig_Selection_Actions()
         udg_TempInt = GetConvertedPlayerId(GetOwningPlayer(GetTriggerUnit()))
         udg_TempPoint = GetUnitLoc(udg_Playerhero[udg_TempInt])

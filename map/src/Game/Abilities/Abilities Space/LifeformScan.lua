@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Space/LifeformScan" end
-OnInit.map("LifeformScan", function(require)
+OnInit.trigg("LifeformScan", function(require)
     ---@return boolean
     function Trig_LifeformScan_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A04X'))) then
@@ -39,7 +39,7 @@ OnInit.map("LifeformScan", function(require)
 
         if stationRect ~= nil then
             --Players inside
-            DisplayTextToPlayer(b, 0, 0, "|cff00FFFFScanning...Estimated time " + R2S(scanDelay) + " seconds.")
+            DisplayTextToPlayer(b, 0, 0, "|cff00FFFFScanning...Estimated time " .. R2S(scanDelay) .. " seconds.")
             udg_TempInt = 0
             unitsWithinRect = GetUnitsInRectAndShips(stationRect)
             ForGroupBJ(unitsWithinRect, DeterminePlayerheroIncrease)
@@ -55,8 +55,9 @@ OnInit.map("LifeformScan", function(require)
 
             PolledWait(scanDelay)
             DisplayTextToPlayer(b, 0, 0,
-                "|cff00FFFFSensors have detected |r|cffFF0000" + I2S(lifeformCount) +
-                " |r|cff00FFFFlifeforms, and |r|cffF4A460" + I2S(explorerCount) + " |r|cff00FFFFexplorers within target.")
+                "|cff00FFFFSensors have detected |r|cffFF0000" .. I2S(lifeformCount) ..
+                " |r|cff00FFFFlifeforms, and |r|cffF4A460" .. I2S(explorerCount) ..
+                " |r|cff00FFFFexplorers within target.")
         else
             DisplayTextToPlayer(b, 0, 0, "An error has occurred.")
         end

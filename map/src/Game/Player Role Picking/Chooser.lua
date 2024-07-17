@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/PlayerRolePicking/Chooser" end
-OnInit.map("Chooser", function(require)
+OnInit.final("Chooser", function(require)
     require "StateTable"
     function Trig_Chooser_Func004A()
         udg_Player_OriginalName[GetConvertedPlayerId(GetEnumPlayer())] = GetPlayerName(GetEnumPlayer())
@@ -235,82 +235,74 @@ OnInit.map("Chooser", function(require)
         return true
     end
 
-    function Trig_Chooser_Actions()
-        DestroyTrigger(GetTriggeringTrigger())
-        ForceClear(udg_ChooseGroup)
-        udg_TempInt = 0
-        ForForce(GetPlayersAll(), Trig_Chooser_Func004A)
-        StateTable.InitializeForPlayers(udg_ChooseGroup)
-        if (Trig_Chooser_Func005C()) then
-            DisplayTextToForce(GetPlayersAll(), "TRIGSTR_520")
-            return
-        else
-            if (Trig_Chooser_Func005Func001C()) then
-                udg_Allow_Android = false
-                if (Trig_Chooser_Func005Func001Func003C()) then
-                    udg_Allow_Mutant = false
-                else
-                    udg_Allow_Parasite = false
-                end
+    ForceClear(udg_ChooseGroup)
+    udg_TempInt = 0
+    ForForce(GetPlayersAll(), Trig_Chooser_Func004A)
+    StateTable.InitializeForPlayers(udg_ChooseGroup)
+    if (Trig_Chooser_Func005C()) then
+        DisplayTextToForce(GetPlayersAll(), "TRIGSTR_520")
+        return
+    else
+        if (Trig_Chooser_Func005Func001C()) then
+            udg_Allow_Android = false
+            if (Trig_Chooser_Func005Func001Func003C()) then
+                udg_Allow_Mutant = false
             else
-                if (Trig_Chooser_Func005Func001Func001C()) then
-                    udg_Allow_Android = false
-                else
-                    udg_ExtraStation = GetRandomInt(1, 3)
-                end
+                udg_Allow_Parasite = false
+            end
+        else
+            if (Trig_Chooser_Func005Func001Func001C()) then
+                udg_Allow_Android = false
+            else
+                udg_ExtraStation = GetRandomInt(1, 3)
             end
         end
-        if (Trig_Chooser_Func006C()) then
-            if (Trig_Chooser_Func006Func001C()) then
-                udg_HiddenAndroid = ForcePickRandomPlayer(udg_ChooseGroup)
-                StateTable.SetPlayerRole(udg_HiddenAndroid, Role.Android)
-                ForceRemovePlayerSimple(udg_HiddenAndroid, udg_ChooseGroup)
-            else
-                udg_Allow_Android = false
-            end
-        end
-        if (Trig_Chooser_Func007C()) then
-            udg_Parasite = ForcePickRandomPlayer(udg_ChooseGroup)
-            StateTable.SetPlayerRole(udg_Parasite, Role.Alien)
-            SetPlayerAllianceStateBJ(Player(bj_PLAYER_NEUTRAL_EXTRA), udg_Parasite, bj_ALLIANCE_ALLIED_ADVUNITS)
-            ForceRemovePlayerSimple(udg_Parasite, udg_ChooseGroup)
-        end
-        if (Trig_Chooser_Func008C()) then
-            udg_Mutant = ForcePickRandomPlayer(udg_ChooseGroup)
-            StateTable.SetPlayerRole(udg_Mutant, Role.Mutant)
-            ForceRemovePlayerSimple(udg_Mutant, udg_ChooseGroup)
-        end
-        ForForce(GetPlayersAll(), Trig_Chooser_Func009A)
-        TriggerExecute(gg_trg_ChooseRoles)
-        ForceClear(udg_ChooseGroup)
-        ForForce(GetPlayersAll(), Trig_Chooser_Func012A)
-        GroupClear(udg_ChooseRoles_SpawnGroup)
-        udg_ChooseRoles_SpawnGroup = GetUnitsOfTypeIdAll(FourCC('e003'))
-        ForForce(udg_ChooseGroup, Trig_Chooser_Func015A)
-        DestroyTrigger(gg_trg_Researcher)
-        DestroyTrigger(gg_trg_CEO)
-        DestroyTrigger(gg_trg_Captain)
-        DestroyTrigger(gg_trg_Commissar)
-        DestroyTrigger(gg_trg_Janitor)
-        DestroyTrigger(gg_trg_WarVeteran)
-        DestroyTrigger(gg_trg_Engineer)
-        DestroyTrigger(gg_trg_SecurityGuard)
-        DestroyTrigger(gg_trg_Pilot)
-        udg_TempBool = true
-        ForForce(GetPlayersAll(), Trig_Chooser_Func026A)
-        if (Trig_Chooser_Func027C()) then
-            udg_ace_Existence = true
-            ShowUnitHide(gg_unit_h02Q_0212)
-        else
-        end
-        GroupClear(udg_ChooseRoles_SpawnGroup)
-        ConditionalTriggerExecute(gg_trg_RepickAlien)
-        ConditionalTriggerExecute(gg_trg_RepickMutant)
     end
-
-    --===========================================================================
-    gg_trg_Chooser = CreateTrigger()
-    TriggerRegisterTimerEventSingle(gg_trg_Chooser, 0.00)
-    TriggerAddAction(gg_trg_Chooser, Trig_Chooser_Actions)
+    if (Trig_Chooser_Func006C()) then
+        if (Trig_Chooser_Func006Func001C()) then
+            udg_HiddenAndroid = ForcePickRandomPlayer(udg_ChooseGroup)
+            StateTable.SetPlayerRole(udg_HiddenAndroid, Role.Android)
+            ForceRemovePlayerSimple(udg_HiddenAndroid, udg_ChooseGroup)
+        else
+            udg_Allow_Android = false
+        end
+    end
+    if (Trig_Chooser_Func007C()) then
+        udg_Parasite = ForcePickRandomPlayer(udg_ChooseGroup)
+        StateTable.SetPlayerRole(udg_Parasite, Role.Alien)
+        SetPlayerAllianceStateBJ(Player(bj_PLAYER_NEUTRAL_EXTRA), udg_Parasite, bj_ALLIANCE_ALLIED_ADVUNITS)
+        ForceRemovePlayerSimple(udg_Parasite, udg_ChooseGroup)
+    end
+    if (Trig_Chooser_Func008C()) then
+        udg_Mutant = ForcePickRandomPlayer(udg_ChooseGroup)
+        StateTable.SetPlayerRole(udg_Mutant, Role.Mutant)
+        ForceRemovePlayerSimple(udg_Mutant, udg_ChooseGroup)
+    end
+    ForForce(GetPlayersAll(), Trig_Chooser_Func009A)
+    TriggerExecute(gg_trg_ChooseRoles)
+    ForceClear(udg_ChooseGroup)
+    ForForce(GetPlayersAll(), Trig_Chooser_Func012A)
+    GroupClear(udg_ChooseRoles_SpawnGroup)
+    udg_ChooseRoles_SpawnGroup = GetUnitsOfTypeIdAll(FourCC('e003'))
+    ForForce(udg_ChooseGroup, Trig_Chooser_Func015A)
+    DestroyTrigger(gg_trg_Researcher)
+    DestroyTrigger(gg_trg_CEO)
+    DestroyTrigger(gg_trg_Captain)
+    DestroyTrigger(gg_trg_Commissar)
+    DestroyTrigger(gg_trg_Janitor)
+    DestroyTrigger(gg_trg_WarVeteran)
+    DestroyTrigger(gg_trg_Engineer)
+    DestroyTrigger(gg_trg_SecurityGuard)
+    DestroyTrigger(gg_trg_Pilot)
+    udg_TempBool = true
+    ForForce(GetPlayersAll(), Trig_Chooser_Func026A)
+    if (Trig_Chooser_Func027C()) then
+        udg_ace_Existence = true
+        ShowUnitHide(gg_unit_h02Q_0212)
+    else
+    end
+    GroupClear(udg_ChooseRoles_SpawnGroup)
+    ConditionalTriggerExecute(gg_trg_RepickAlien)
+    ConditionalTriggerExecute(gg_trg_RepickMutant)
 end)
 if Debug then Debug.endFile() end

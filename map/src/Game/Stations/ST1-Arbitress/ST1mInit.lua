@@ -1,79 +1,40 @@
 if Debug then Debug.beginFile "Game/Stations/ST1/ST1Init" end
 OnInit.map("ST1Init", function(require)
-    function Trig_ST1mInit_Func007A()
-        CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_STV1)
-        DestroyFogModifier(GetLastCreatedFogModifier())
-        CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_STV2)
-        DestroyFogModifier(GetLastCreatedFogModifier())
-        CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_STV3)
-        DestroyFogModifier(GetLastCreatedFogModifier())
-        CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_STV4)
-        DestroyFogModifier(GetLastCreatedFogModifier())
-        CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_STV5)
-        DestroyFogModifier(GetLastCreatedFogModifier())
-        CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_STV6)
-        DestroyFogModifier(GetLastCreatedFogModifier())
-        CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_STV7)
-        DestroyFogModifier(GetLastCreatedFogModifier())
-        CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_ST1V8)
-        DestroyFogModifier(GetLastCreatedFogModifier())
-        CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_ST1V9)
-        DestroyFogModifier(GetLastCreatedFogModifier())
-        CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS1)
-        DestroyFogModifier(GetLastCreatedFogModifier())
-        CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS2)
-        DestroyFogModifier(GetLastCreatedFogModifier())
-        CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS3)
-        DestroyFogModifier(GetLastCreatedFogModifier())
-        CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS4)
-        DestroyFogModifier(GetLastCreatedFogModifier())
-        CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS5)
-        DestroyFogModifier(GetLastCreatedFogModifier())
-        CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS6)
-        DestroyFogModifier(GetLastCreatedFogModifier())
-        CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS7)
-        DestroyFogModifier(GetLastCreatedFogModifier())
-        CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS8)
-        DestroyFogModifier(GetLastCreatedFogModifier())
-        CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS9)
-        DestroyFogModifier(GetLastCreatedFogModifier())
-        CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS10)
-        DestroyFogModifier(GetLastCreatedFogModifier())
-        CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS11)
-        DestroyFogModifier(GetLastCreatedFogModifier())
-        CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS12P1)
-        DestroyFogModifier(GetLastCreatedFogModifier())
-        CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS12P2)
-        DestroyFogModifier(GetLastCreatedFogModifier())
-        CreateFogModifierRectBJ(true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_Space)
-        udg_SpaceVisibility[GetConvertedPlayerId(GetEnumPlayer())] = GetLastCreatedFogModifier()
-    end
+    require "StationRegister"
+    udg_All_Dock[1] = gg_dest_DTrx_0232
+    udg_All_Dock[2] = gg_dest_DTrx_0243
+    udg_All_Dock[3] = gg_dest_DTrx_0235
+    udg_All_Dock[4] = gg_dest_DTrx_0257
 
-    function Trig_ST1mInit_Actions()
-        DestroyTrigger(GetTriggeringTrigger())
-        udg_All_Dock[1] = gg_dest_DTrx_0232
-        udg_All_Dock[2] = gg_dest_DTrx_0243
-        udg_All_Dock[3] = gg_dest_DTrx_0235
-        udg_All_Dock[4] = gg_dest_DTrx_0257
-        ForForce(GetPlayersAll(), Trig_ST1mInit_Func007A)
-        RemoveRect(gg_rct_STV1)
-        RemoveRect(gg_rct_STV2)
-        RemoveRect(gg_rct_STV3)
-        RemoveRect(gg_rct_STV4)
-        RemoveRect(gg_rct_STV5)
-        RemoveRect(gg_rct_STV6)
-        RemoveRect(gg_rct_STV7)
-        RemoveRect(gg_rct_SS12P1)
-        RemoveRect(gg_rct_SS12P2)
-        ChangeElevatorWalls(true, bj_ELEVATOR_WALL_TYPE_ALL, gg_dest_DTrx_0232)
-        ChangeElevatorWalls(true, bj_ELEVATOR_WALL_TYPE_ALL, gg_dest_DTrx_0243)
-        ChangeElevatorWalls(true, bj_ELEVATOR_WALL_TYPE_ALL, gg_dest_DTrx_0235)
-        ChangeElevatorWalls(true, bj_ELEVATOR_WALL_TYPE_ALL, gg_dest_DTrx_0257)
-        ChangeElevatorWalls(true, bj_ELEVATOR_WALL_TYPE_ALL, gg_dest_DTrx_0642)
-    end
+    -- TODO: these are for all stations and ships...
+    StationRegister(gg_rct_STV1, gg_rct_STV2, gg_rct_STV3, gg_rct_STV4, gg_rct_STV5, gg_rct_STV6, gg_rct_STV7,
+        gg_rct_ST1V8, gg_rct_ST1V9, gg_rct_SS1,
+        gg_rct_SS2,
+        gg_rct_SS3,
+        gg_rct_SS4,
+        gg_rct_SS5,
+        gg_rct_SS6,
+        gg_rct_SS7,
+        gg_rct_SS8,
+        gg_rct_SS9,
+        gg_rct_SS10,
+        gg_rct_SS11,
+        gg_rct_SS12P1,
+        gg_rct_SS12P2)
 
-    --===========================================================================
-    gg_trg_ST1mInit = CreateTrigger()
-    TriggerAddAction(gg_trg_ST1mInit, Trig_ST1mInit_Actions)
+    RemoveRect(gg_rct_STV1)
+    RemoveRect(gg_rct_STV2)
+    RemoveRect(gg_rct_STV3)
+    RemoveRect(gg_rct_STV4)
+    RemoveRect(gg_rct_STV5)
+    RemoveRect(gg_rct_STV6)
+    RemoveRect(gg_rct_STV7)
+    RemoveRect(gg_rct_SS12P1)
+    RemoveRect(gg_rct_SS12P2)
+    ChangeElevatorWalls(true, bj_ELEVATOR_WALL_TYPE_ALL, gg_dest_DTrx_0232)
+    ChangeElevatorWalls(true, bj_ELEVATOR_WALL_TYPE_ALL, gg_dest_DTrx_0243)
+    ChangeElevatorWalls(true, bj_ELEVATOR_WALL_TYPE_ALL, gg_dest_DTrx_0235)
+    ChangeElevatorWalls(true, bj_ELEVATOR_WALL_TYPE_ALL, gg_dest_DTrx_0257)
+    ChangeElevatorWalls(true, bj_ELEVATOR_WALL_TYPE_ALL, gg_dest_DTrx_0642)
 end)
 if Debug then Debug.endFile() end

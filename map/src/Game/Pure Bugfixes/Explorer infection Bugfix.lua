@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/PureBugfixes/ExplorerInfectionBugfix" end
-OnInit.map("ExplorerInfectionBugfix", function(require)
+OnInit.trig("ExplorerInfectionBugfix", function(require)
     ---@return boolean
     function Trig_Explorer_infection_Bugfix_Func001C()
         if ((GetSpellAbilityId() == FourCC('A013'))) then

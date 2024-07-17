@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/RenameEnd" end
-OnInit.map("RenameEnd", function(require)
+OnInit.trig("RenameEnd", function(require)
     function Trig_RenameEnd_Actions()
         DisplayTextToForce(GetPlayersAll(), "TRIGSTR_1557")
         DestroyTrigger(GetTriggeringTrigger())

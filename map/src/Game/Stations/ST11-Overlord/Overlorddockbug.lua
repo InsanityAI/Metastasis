@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST11/OverlordDockBug" end
-OnInit.map("OverlordDockBug", function(require)
+OnInit.trig("OverlordDockBug", function(require)
     ---@return boolean
     function Trig_Overlorddockbug_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A001'))) then

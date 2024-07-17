@@ -122,7 +122,7 @@
 --             return
 --         end
 --         if debug then
---             BJDebugMsg("MMD: Guard Raised! (" + reason + ")")
+--             BJDebugMsg("MMD: Guard Raised! (" .. reason .. ")")
 --         end
 --         num_senders = NUM_SENDERS_SAFE --increase number of players voting on each message
 --     end
@@ -146,7 +146,7 @@
 --         while i < num_chars do
 --             id = SubString(chars, i, i+1)
 --             if id == StringCase(id, true) then
---                 id = id + "U"
+--                 id = id .. "U"
 --             end
 --             StoreInteger(gc, "c2i", id, i)
 --             i = i + 1
@@ -162,7 +162,7 @@
 --         return 1
 --         endif
 --         if id == StringCase(id, true) then
---             set id = id + "U"
+--             set id = id .. "U"
 --         endif
 --         set i = GetStoredInteger(gc, "c2i", id)
 --         if (i < 0 or i >= num_chars or SubString(chars, i, i+1) != c) and HaveStoredInteger(gc, "c2i", id) then
@@ -354,7 +354,7 @@
 --                 exitwhen j >= StringLength(ESCAPED_CHARS)
 --                 --escape control characters
 --                 if c == SubString(ESCAPED_CHARS, j, j+1) then
---                     set c = "\\" + c
+--                     set c = "\\" .. c
 --                     exitwhen true
 --                 endif
 --                 set j = j + 1
@@ -384,7 +384,7 @@
 --         elseif StringLength(name) == 0 then
 --             call BJDebugMsg("MMD Set Error: Variable name is empty.")
 --         else
---             call emit("VarP " + I2S(id) + " " + pack(name) + " " + op + " " + value)
+--             call emit("VarP " .. I2S(id) .. " " .. pack(name) .. " " .. op .. " " .. value)
 --         endif
 --     endfunction
 
@@ -397,7 +397,7 @@
 --             call BJDebugMsg("MMD DefEvent Error: Event redefined.")
 --         else
 --             call StoreInteger(gc, "events", name, num_args+1)
---             call emit("DefEvent " + pack(name) + " " + I2S(num_args) + " " + arg_data + pack(format))
+--             call emit("DefEvent " .. pack(name) .. " " .. I2S(num_args) .. " " .. arg_data + pack(format))
 --         endif
 --     endfunction
 
@@ -409,7 +409,7 @@
 --         if GetStoredInteger(gc, "events", name) != num_args+1 then
 --             call BJDebugMsg("MMD LogEvent Error: Event not defined or defined with different # of args.")
 --         else
---             call emit("Event " + pack(name) + data)
+--             call emit("Event " .. pack(name) + data)
 --         endif
 --     endfunction
 
@@ -429,7 +429,7 @@
 --         elseif StringLength(flag) == 0 then
 --             call BJDebugMsg("MMD Flag Error: Unrecognized flag type.")
 --         elseif GetPlayerController(Player(id)) == MAP_CONTROL_USER then
---             call emit("FlagP " + I2S(id) + " " + flag)
+--             call emit("FlagP " .. I2S(id) .. " " .. flag)
 --         endif
 --     endfunction
 
@@ -457,7 +457,7 @@
 --             call BJDebugMsg("MMD Def Error: Value redefined.")
 --         else
 --             call StoreInteger(gc, "types", name, value_type)
---             call emit("DefVarP " + pack(name) + " " + vtype + " " + goal + " " + stype)
+--             call emit("DefVarP " .. pack(name) .. " " .. vtype .. " " .. goal .. " " .. stype)
 --         endif
 --     endfunction
 
@@ -496,19 +496,19 @@
 --                 if udg_SirBot!=true then
 --         return
 --         endif
---         call DefineEvent(name, 1, format, pack(argName0) + " ")
+--         call DefineEvent(name, 1, format, pack(argName0) .. " ")
 --     endfunction
 --     public function DefineEvent2 takes string name, string format, string argName0, string argName1 returns nothing
 --                 if udg_SirBot!=true then
 --         return
 --         endif
---         call DefineEvent(name, 2, format, pack(argName0) + " " + pack(argName1) + " ")
+--         call DefineEvent(name, 2, format, pack(argName0) .. " " .. pack(argName1) .. " ")
 --     endfunction
 --     public function DefineEvent3 takes string name, string format, string argName0, string argName1, string argName2 returns nothing
 --                 if udg_SirBot!=true then
 --         return
 --         endif
---         call DefineEvent(name, 3, format, pack(argName0) + " " + pack(argName1) + " " + pack(argName2) + " ")
+--         call DefineEvent(name, 3, format, pack(argName0) .. " " .. pack(argName1) .. " " .. pack(argName2) .. " ")
 --     endfunction
 
 --     public function LogEvent0 takes string name returns nothing
@@ -521,24 +521,24 @@
 --                 if udg_SirBot!=true then
 --         return
 --         endif
---         call LogEvent(name, 1, " " + pack(arg0))
+--         call LogEvent(name, 1, " " .. pack(arg0))
 --     endfunction
 --     public function LogEvent2 takes string name, string arg0, string arg1 returns nothing
 --                 if udg_SirBot!=true then
 --         return
 --         endif
---         call LogEvent(name, 2, " " + pack(arg0) + " " + pack(arg1))
+--         call LogEvent(name, 2, " " .. pack(arg0) .. " " .. pack(arg1))
 --     endfunction
 --     public function LogEvent3 takes string name, string arg0, string arg1, string arg2 returns nothing
 --                 if udg_SirBot!=true then
 --         return
 --         endif
---         call LogEvent(name, 3, " " + pack(arg0) + " " + pack(arg1) + " " + pack(arg2))
+--         call LogEvent(name, 3, " " .. pack(arg0) .. " " .. pack(arg1) .. " " .. pack(arg2))
 --     endfunction
 
 --     ---Emits meta-data which parsers will ignore unless they are customized to understand it
 --     public function LogCustom takes string unique_identifier, string data returns nothing
---         call emit("custom " + pack(unique_identifier) + " " + pack(data))
+--         call emit("custom " .. pack(unique_identifier) .. " " .. pack(data))
 --     endfunction
 
 --     ---------------------------------------------------------------
@@ -554,13 +554,13 @@
 --         endif
 --         set initialized = true
 
---         call emit("init version " + I2S(MINIMUM_PARSER_VERSION) + " " + I2S(CURRENT_VERSION))
+--         call emit("init version " .. I2S(MINIMUM_PARSER_VERSION) .. " " .. I2S(CURRENT_VERSION))
 
 --         set i = 0
 --         loop
 --             exitwhen i >= 12
 --             if GetPlayerController(Player(i)) == MAP_CONTROL_USER and GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING then
---                 call emit("init pid " + I2S(i) + " " + pack(udg_OriginalName[i+1]))
+--                 call emit("init pid " .. I2S(i) .. " " .. pack(udg_OriginalName[i+1]))
 --             endif
 --             set i = i + 1
 --         endloop

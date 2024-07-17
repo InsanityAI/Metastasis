@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST9/SyllusCageOpen" end
-OnInit.map("SyllusCageOpen", function(require)
+OnInit.trig("SyllusCageOpen", function(require)
     ---@return boolean
     function Trig_SyllusCageOpen_Func002Func001Func001Func001Func001Func001C()
         if (not (GetUnitTypeId(GetTrainedUnit()) == FourCC('e02R'))) then

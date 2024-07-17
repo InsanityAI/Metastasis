@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "System/Doors/DoorInit2" end
-OnInit.map("DoorInit2", function(require)
+OnInit.trig("DoorInit2", function(require)
     ---@return boolean
     function Trig_DoorInit2_Func003Func001Func006C()
         if ((GetDestructableTypeId(GetEnumDestructable()) == FourCC('B000'))) then

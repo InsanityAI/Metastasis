@@ -1,9 +1,9 @@
 if Debug then Debug.beginFile "Game/Allignment/Common/LiquidateDialog2" end
-OnInit.map("LiquidateDialog2", function(require)
+OnInit.trigg("LiquidateDialog2", function(require)
     function Trig_LiquidateDialog2_Actions()
         local targettedPlayer ---@type player
         if GetClickedButtonBJ() == udg_Liquidate_AreYouSureButton2[2] then
-            targettedPlayer = Anonymity_ShuffledPlayersArray[udg_Liquidate_ToLiquidate2 - 1]
+            targettedPlayer = Anonymity.shuffledPlayers.orderedKeys[udg_Liquidate_ToLiquidate2 - 1]
             KillUnit(udg_Playerhero[GetConvertedPlayerId(targettedPlayer)])
         else
         end

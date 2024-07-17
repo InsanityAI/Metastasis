@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Misc/AllSectorsTargetCheck" end
-OnInit.map("AllSectorsTargetCheck", function(require)
+OnInit.trig("AllSectorsTargetCheck", function(require)
     ---@return boolean
     function Trig_AllSectorsTargetCheck_Conditions()
         if (not (GetSpellAbilityId() ~= FourCC('A03I'))) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Allignment/Android/AndroidUpgrade" end
-OnInit.map("AndroidUpgrade", function(require)
+OnInit.triggg("AndroidUpgrade", function(require)
     ---@return boolean
     function Trig_AndroidUpgrade_Conditions()
         if (not (IsUnitIdType(GetUnitTypeId(GetTriggerUnit()), UNIT_TYPE_MECHANICAL) == false)) then

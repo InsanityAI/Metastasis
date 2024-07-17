@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/Planet/PlanetDeath" end
-OnInit.map("PlanetDeath", function(require)
+OnInit.trig("PlanetDeath", function(require)
     function Trig_PlanetDeath_Func015A()
         UnitAddAbilityBJ(FourCC('A02T'), GetEnumUnit())
         UnitRemoveBuffsBJ(bj_REMOVEBUFFS_ALL, GetEnumUnit())

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/TeleportAndAI/TheWarpOngoingSpawn" end
-OnInit.map("TheWarpOngoingSpawn", function(require)
+OnInit.trig("TheWarpOngoingSpawn", function(require)
     function Trig_The_Warp_ongoing_spawn_Actions()
         bj_forLoopAIndex = 1
         bj_forLoopAIndexEnd = 2

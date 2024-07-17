@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/TeleportAndAI/Alodimensional" end
-OnInit.map("Alodimensional", function(require)
+OnInit.trig("Alodimensional", function(require)
     function Trig_Alodimensional1_Actions()
         udg_HP_Comparison[(2 + udg_HP_Index)] = GetUnitStateSwap(UNIT_STATE_LIFE, udg_Alodimensional_Being)
         udg_HP_Comparison[(3 + udg_HP_Index)] = (udg_HP_Comparison[(1 + udg_HP_Index)] - udg_HP_Comparison[(2 + udg_HP_Index)])

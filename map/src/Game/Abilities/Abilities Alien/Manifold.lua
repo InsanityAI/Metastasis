@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Alien/Manifold" end
-OnInit.map("Manifold", function(require)
+OnInit.trig("Manifold", function(require)
     ---@return boolean
     function Trig_Manifold_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A03Y'))) then

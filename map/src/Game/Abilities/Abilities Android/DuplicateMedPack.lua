@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Android/DuplicateMedPack" end
-OnInit.map("DuplicateMedPack", function(require)
+OnInit.trig("DuplicateMedPack", function(require)
     ---@return boolean
     function Trig_DuplicateMedPack_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A0AA'))) then

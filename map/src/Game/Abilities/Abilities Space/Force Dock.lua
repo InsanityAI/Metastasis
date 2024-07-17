@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Space/ForceDock" end
-OnInit.map("ForceDock", function(require)
+OnInit.trig("ForceDock", function(require)
     ---@return boolean
     function Trig_Force_Dock_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A04D'))) then

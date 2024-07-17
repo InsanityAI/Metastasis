@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/Moon/MoonAttack" end
-OnInit.map("MoonAttack", function(require)
+OnInit.trig("MoonAttack", function(require)
     ---@return boolean
     function Trig_MoonAttack_Conditions()
         if (not (GetEventDamage() >= 1.00)) then

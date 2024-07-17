@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Alien/ElectromagneticDistruption" end
-OnInit.map("ElectromagneticDistruption", function(require)
+OnInit.trig("ElectromagneticDistruption", function(require)
     ---@return boolean
     function Trig_ElectromagneticDisruption_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A03Q'))) then
@@ -63,7 +63,7 @@ OnInit.map("ElectromagneticDistruption", function(require)
                     udg_TempDoorHack = false
                     SaveInteger(LS(), GetHandleId(udg_TempTrigger), StringHash("clearance"), 1337)
                     DestructableRestoreLife(
-                    LoadDestructableHandle(LS(), GetHandleId(udg_TempTrigger), StringHash("doorpath")), 999999, true)
+                        LoadDestructableHandle(LS(), GetHandleId(udg_TempTrigger), StringHash("doorpath")), 999999, true)
                     AddSpecialEffectLocBJ(udg_TempPoint3, "Abilities\\Spells\\Human\\ManaFlare\\ManaFlareBoltImpact.mdl")
                     SFXThreadClean()
                     RemoveLocation(udg_TempPoint3)
@@ -93,10 +93,10 @@ OnInit.map("ElectromagneticDistruption", function(require)
         EnumDestructablesInRectAll(GetEntireMapRect(), Trig_ElectromagneticDisruption_Func008A)
         RemoveLocation(udg_TempPoint)
         if (Trig_ElectromagneticDisruption_Func010C()) then
-            DisplayTextToPlayer(udg_Parasite, 0, 0, "|cffffcc00Locked " + I2S(udg_TempInt2) + " doors.")
+            DisplayTextToPlayer(udg_Parasite, 0, 0, "|cffffcc00Locked " .. I2S(udg_TempInt2) .. " doors.")
         else
             DisplayTextToPlayer(GetOwningPlayer(GetSpellAbilityUnit()), 0, 0,
-                "|cffffcc00Locked " + I2S(udg_TempInt2) + " doors.")
+                "|cffffcc00Locked " .. I2S(udg_TempInt2) .. " doors.")
         end
         udg_TempUnitType = FourCC('e00O')
         udg_TempPlayer = GetOwningPlayer(GetSpellAbilityUnit())

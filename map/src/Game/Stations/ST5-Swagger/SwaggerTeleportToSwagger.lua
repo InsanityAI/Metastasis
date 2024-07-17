@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/ST5/SwaggerTeleportToSwagger" end
-OnInit.map("SwaggerTeleportToSwagger", function(require)
+OnInit.trig("SwaggerTeleportToSwagger", function(require)
     ---@return boolean
     function Trig_SwaggerTeleportToSwagger_Func002C()
         if (not (GetUnitPointValue(GetTriggerUnit()) ~= 37)) then

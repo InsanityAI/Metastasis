@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/Setup" end
-OnInit.map("Setup", function(require)
+OnInit.trigg("Setup", function(require)
     ---@return boolean
     function Trig_Setup_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A08Q'))) then
@@ -14,29 +14,29 @@ OnInit.map("Setup", function(require)
     ---@return integer
     function CreateEffectGroup()
         EffectGroupCount = EffectGroupCount + 1
-        SaveInteger(LS(), StringHash("EffectGroup_" + I2S(EffectGroupCount)), StringHash("effects_count"), 0)
+        SaveInteger(LS(), StringHash("EffectGroup_" .. I2S(EffectGroupCount)), StringHash("effects_count"), 0)
         return EffectGroupCount
     end
 
     ---@param groupie integer
     ---@param a effect
     function AddEffectToEffectGroup(groupie, a)
-        local i = LoadInteger(LS(), StringHash("EffectGroup_" + I2S(groupie)), StringHash("effects_count")) +
+        local i = LoadInteger(LS(), StringHash("EffectGroup_" .. I2S(groupie)), StringHash("effects_count")) +
             1 ---@type integer
-        SaveEffectHandle(LS(), StringHash("EffectGroup_" + I2S(groupie)), StringHash("effect_" + I2S(i)), a)
-        SaveInteger(LS(), StringHash("EffectGroup_" + I2S(groupie)), StringHash("effects_count"), i)
+        SaveEffectHandle(LS(), StringHash("EffectGroup_" .. I2S(groupie)), StringHash("effect_" .. I2S(i)), a)
+        SaveInteger(LS(), StringHash("EffectGroup_" .. I2S(groupie)), StringHash("effects_count"), i)
     end
 
     ---@param groupie integer
     function DestroyEffectsInEffectGroup(groupie)
-        local i = LoadInteger(LS(), StringHash("EffectGroup_" + I2S(groupie)), StringHash("effects_count")) ---@type integer
+        local i = LoadInteger(LS(), StringHash("EffectGroup_" .. I2S(groupie)), StringHash("effects_count")) ---@type integer
         local b = 1 ---@type integer
         while b <= i do
-            DestroyEffect(LoadEffectHandle(LS(), StringHash("EffectGroup_" + I2S(groupie)),
-                StringHash("effect_" + I2S(b))))
+            DestroyEffect(LoadEffectHandle(LS(), StringHash("EffectGroup_" .. I2S(groupie)),
+                StringHash("effect_" .. I2S(b))))
             b = b + 1
         end
-        FlushChildHashtable(LS(), StringHash("EffectGroup_" + I2S(groupie)))
+        FlushChildHashtable(LS(), StringHash("EffectGroup_" .. I2S(groupie)))
     end
 
     ---@param angle1 real

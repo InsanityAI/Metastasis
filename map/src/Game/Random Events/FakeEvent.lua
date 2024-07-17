@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/RandomEvents/FakeEvent" end
-OnInit.map("FakeEvent", function(require)
+OnInit.trig("FakeEvent", function(require)
     ---@return boolean
     function Trig_FakeEvent_Func002C()
         if (not (udg_TempInt == 1)) then
@@ -132,7 +132,7 @@ OnInit.map("FakeEvent", function(require)
         udg_TempInt = GetRandomInt(1, 16)
         if (Trig_FakeEvent_Func002C()) then
             DisplayTextToForce(GetPlayersAll(),
-                (GetPlayerName(udg_TempPlayer) + " |cff00FF40has received a promotion!|r"))
+                (GetPlayerName(udg_TempPlayer) .. " |cff00FF40has received a promotion!|r"))
         else
         end
         if (Trig_FakeEvent_Func003C()) then

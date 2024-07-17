@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/PhaseVortex" end
-OnInit.map("PhaseVortex", function(require)
+OnInit.trig("PhaseVortex", function(require)
     ---@return boolean
     function Trig_Phase_Vortex_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A09L'))) then

@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/Moon/MoonDamage" end
-OnInit.map("MoonDamage", function(require)
+OnInit.trig("MoonDamage", function(require)
     function Trig_MoonDamage_Func003A()
         UnitDamageTargetBJ(gg_unit_h03T_0209, GetEnumUnit(), 5.00, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL)
     end

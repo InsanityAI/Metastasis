@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "System/StateTable" end
-OnInit.final("System/StateTable", function(require)
+OnInit.trig("System/StateTable", function(require)
     require "PlayerColours"
     require "SetUtils"
     require "TimerQueue"
@@ -33,7 +33,7 @@ OnInit.final("System/StateTable", function(require)
     local ROLE_WIDTH        = 0.08
 
     local playerData        = {} ---@type table<player, {row: number, state: string, role: string}>
-    local multiboard        = CreateMultiboard()
+    local multiboard ---@type multiboard
     local multiboardItems   = table.createMD(2) ---@type table<integer,table<integer, multiboarditem>>
 
     ---@class StateTable
@@ -146,7 +146,12 @@ OnInit.final("System/StateTable", function(require)
         local hours = math.modf(time / 3600)
         local minutes = math.modf(time / 60) - hours * 60
         local seconds = math.fmod(time, 60)
-        MultiboardSetTitleText(multiboard, GRID_TITLE .. string.format("\x252d:\x252d:\x252d", hours, minutes, seconds))
+        MultiboardSetTitleText(multiboard,
+            GRID_TITLE .. string.format("\x2502d:\x2502d:\x2502d", hours, minutes, seconds))
+    end)
+
+    OnInit.map(function(require)
+        multiboard = CreateMultiboard()
     end)
 end)
 if Debug then Debug.endFile() end

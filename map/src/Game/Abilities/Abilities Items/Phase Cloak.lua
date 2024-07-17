@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/PhaseCloak" end
-OnInit.map("PhaseCloak", function(require)
+OnInit.trig("PhaseCloak", function(require)
     ---@return boolean
     function Trig_Phase_Cloak_Conditions()
         if (not (GetItemTypeId(GetManipulatedItem()) == FourCC('I025'))) then

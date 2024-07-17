@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Suits/DeterministicInvigorationExpiration" end
-OnInit.map("DeterministicInvigorationExpiration", function(require)
+OnInit.trigg("DeterministicInvigorationExpiration", function(require)
     function Trig_Deterministic_Invigoration_Expiration_Actions()
         local i                 = 0 ---@type integer
         local invigorationTimer = GetExpiredTimer() ---@type timer

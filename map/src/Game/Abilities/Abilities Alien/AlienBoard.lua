@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Alien/AlienBoard" end
-OnInit.map("AlienBoard", function(require)
+OnInit.trig("AlienBoard", function(require)
     ---@return boolean
     function Trig_AlienBoard_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A03B'))) then
@@ -168,7 +168,7 @@ OnInit.map("AlienBoard", function(require)
         if (Trig_AlienBoard_Func004C()) then
             udg_TempPoint = GetUnitLoc(GetSpellAbilityUnit())
             udg_TempPoint2 = GetRectCenter(udg_Spaceship_EnterExit
-            [GetUnitUserData(udg_SS_Landed[GetUnitUserData(GetSpellTargetUnit())])])
+                [GetUnitUserData(udg_SS_Landed[GetUnitUserData(GetSpellTargetUnit())])])
         else
             if (Trig_AlienBoard_Func004Func001C()) then
                 if (Trig_AlienBoard_Func004Func001Func002C()) then
@@ -230,7 +230,7 @@ OnInit.map("AlienBoard", function(require)
         bj_forLoopAIndex = 1
         bj_forLoopAIndexEnd = 6
         while bj_forLoopAIndex <= bj_forLoopAIndexEnd do
-            udg_TempItem = LoadItemHandle(LS(), GetHandleId(udg_TempUnit3), StringHash("ihold" + I2S(bj_forLoopAIndex)))
+            udg_TempItem = LoadItemHandle(LS(), GetHandleId(udg_TempUnit3), StringHash("ihold" .. I2S(bj_forLoopAIndex)))
             SetItemVisibleBJ(true, udg_TempItem)
             UnitAddItemSwapped(udg_TempItem, udg_TempUnit3)
             bj_forLoopAIndex = bj_forLoopAIndex + 1

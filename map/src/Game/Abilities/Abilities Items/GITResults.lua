@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/GITResults" end
-OnInit.map("GITResults", function(require)
+OnInit.trigg("GITResults", function(require)
     ---@return boolean
     function Trig_GITResults_Conditions()
         if (not (GetItemTypeId(GetSoldItem()) == FourCC('I01A'))) then --I01A is the "Test Results" (sold) item

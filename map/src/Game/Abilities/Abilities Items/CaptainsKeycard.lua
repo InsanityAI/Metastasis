@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Items/CaptainsKeycard" end
-OnInit.map("CaptainsKeycard", function(require)
+OnInit.trig("CaptainsKeycard", function(require)
     ---@return boolean
     function Trig_CaptainsKeycard_Conditions()
         if (not (RectContainsUnit(gg_rct_ST5, GetManipulatingUnit()) == true)) then

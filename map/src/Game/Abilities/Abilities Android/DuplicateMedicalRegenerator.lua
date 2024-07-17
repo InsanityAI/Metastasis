@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Abilities/Android/DuplicateMedicalRegenerator" end
-OnInit.map("DuplicateMedicalRegenerator", function(require)
+OnInit.trig("DuplicateMedicalRegenerator", function(require)
     ---@return boolean
     function Trig_DuplicateMedicalRegenerator_Conditions()
         if (not (GetSpellAbilityId() == FourCC('A0AC'))) then

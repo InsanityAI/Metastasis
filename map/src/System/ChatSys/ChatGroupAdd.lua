@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "System/ChatSys/ChatGroupAdd" end
-OnInit.map("ChatGroupAdd", function(require)
+OnInit.trig("ChatGroupAdd", function(require)
     ---@return boolean
     function Trig_ChatGroupAdd_Conditions()
         return IsPlayerInForce(GetTriggerPlayer(), udg_DeadGroup) ~= true and
@@ -23,20 +23,20 @@ OnInit.map("ChatGroupAdd", function(require)
         if Trig_ChatGroupAdd_IsOwner() then
             if udg_TempInt == 1337 then
                 DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 30,
-                    " |cff008000All players have been added to group |r|cff0080C0" + (udg_TempString + "|r."))
+                    " |cff008000All players have been added to group |r|cff0080C0" .. (udg_TempString .. "|r."))
                 while i <= 11 do
                     ForceAddPlayerSimple(Player(i), udg_TempPlayerGroup)
                     DisplayTimedTextToPlayer(Player(i), 0, 0, 30,
-                        ("You" + (" |cff008000have been added to group |r|cff0080C0" + (udg_TempString + "|r."))))
+                        ("You" .. (" |cff008000have been added to group |r|cff0080C0" .. (udg_TempString .. "|r."))))
                     i = i + 1
                 end
             else
-                targettedPlayer = Anonymity_ShuffledPlayersArray[udg_TempInt]
+                targettedPlayer = Anonymity.shuffledPlayers.orderedKeys[udg_TempInt]
                 ForceAddPlayer(udg_TempPlayerGroup, targettedPlayer)
                 DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 30,
-                    (PlayerColor_GetPlayerTextColor(targettedPlayer) + GetPlayerName(targettedPlayer) + ("|r |cff008000has been added to group |r|cff0080C0" + (udg_TempString + "|r."))))
+                    (PlayerColours[targettedPlayer] .. GetPlayerName(targettedPlayer) .. ("|r |cff008000has been added to group |r|cff0080C0" .. (udg_TempString .. "|r."))))
                 DisplayTimedTextToPlayer(targettedPlayer, 0, 0, 30,
-                    ("You" + (" |cff008000have been added to group |r|cff0080C0" + (udg_TempString + "|r."))))
+                    ("You" .. (" |cff008000have been added to group |r|cff0080C0" .. (udg_TempString .. "|r."))))
             end
         end
     end

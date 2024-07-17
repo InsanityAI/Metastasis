@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/Moon/CancelProductionGo" end
-OnInit.map("CancelProductionGo", function(require)
+OnInit.trig("CancelProductionGo", function(require)
     ---@return boolean
     function Trig_CancelProductionGo_Conditions()
         if (not (GetUnitTypeId(GetTrainedUnit()) == FourCC('e01V'))) then

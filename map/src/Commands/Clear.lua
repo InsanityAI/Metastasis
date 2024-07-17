@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Commands/Clear" end
-OnInit.map("Clear", function(require)
+OnInit.trig("Clear", function(require)
     function Trig_Clear_Actions()
         if GetTriggerPlayer() == GetLocalPlayer() then
             ClearTextMessages()

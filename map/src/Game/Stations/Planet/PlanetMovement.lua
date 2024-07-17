@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Game/Stations/Planet/PlanetMovement" end
-OnInit.map("PlanetMovement", function(require)
+OnInit.trig("PlanetMovement", function(require)
     ---@return boolean
     function Trig_PlanetMovement_Conditions()
         if (not (UnitHasBuffBJ(gg_unit_h008_0196, FourCC('B000')) == false)) then
