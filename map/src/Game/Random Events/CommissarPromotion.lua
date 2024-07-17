@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/RandomEvents/CommissarPromotion" end
 OnInit.map("CommissarPromotion", function(require)
+    require "StateTable"
     ---@return boolean
     function Trig_CommissarPromotion_Func003Func001C()
         if (not (udg_PlayerRole[GetConvertedPlayerId(GetEnumPlayer())] == 8)) then
@@ -59,7 +60,7 @@ OnInit.map("CommissarPromotion", function(require)
             udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] = "Rebarch "
             name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + udg_TempString
             SetPlayerName(udg_TempPlayer, name)
-            StateGrid_SetPlayerName(udg_TempPlayer, name)
+            StateTable.UpdatePlayerName(udg_TempPlayer)
             UnitAddItemByIdSwapped(FourCC('I00X'), udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)])
         end
     end

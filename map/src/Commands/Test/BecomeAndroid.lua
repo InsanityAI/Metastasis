@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Commands/Test/BecomeAndroid" end
 OnInit.map("BecomeAndroid", function(require)
+    require "StateTable"
     ---@return boolean
     function Trig_BecomeAndroid_Conditions()
         if (not (udg_TESTING == true)) then
@@ -10,7 +11,7 @@ OnInit.map("BecomeAndroid", function(require)
 
     function Trig_BecomeAndroid_Actions()
         udg_HiddenAndroid = GetTriggerPlayer()
-        StateGrid_SetPlayerRole(udg_HiddenAndroid, StateGrid_ROLE_ANDROID)
+        StateTable.SetPlayerRole(udg_HiddenAndroid, Role.Android)
     end
 
     --===========================================================================

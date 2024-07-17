@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/Misc/Rename" end
 OnInit.map("Rename", function(require)
+    require "StateTable"
     ---@return boolean
     function Trig_Rename_Conditions()
         if (not (SubStringBJ(GetEventPlayerChatString(), 1, 7) == "-rename")) then
@@ -13,9 +14,9 @@ OnInit.map("Rename", function(require)
 
     function Trig_Rename_Actions()
         local name = udg_NamePrepension[GetConvertedPlayerId(GetTriggerPlayer())] +
-        SubStringBJ(GetEventPlayerChatString(), 9, 99) ---@type string
+            SubStringBJ(GetEventPlayerChatString(), 9, 99) ---@type string
         SetPlayerName(GetTriggerPlayer(), name)
-        StateGrid_SetPlayerName(GetTriggerPlayer(), name)
+        StateTable.UpdatePlayerName(GetTriggerPlayer())
     end
 
     --===========================================================================

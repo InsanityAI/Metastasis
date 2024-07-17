@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/PlayerRolePicking/RepickMutantChoice" end
 OnInit.map("RepickMutantChoice", function(require)
+    require "StateTable"
     ---@return boolean
     function Trig_RepickMutantChoice_Conditions()
         if (not (GetClickedButtonBJ() == udg_RepickMutantDialogButton[1])) then
@@ -27,10 +28,10 @@ OnInit.map("RepickMutantChoice", function(require)
     function Trig_RepickMutantChoice_Actions()
         -- Make the new mutant
         -- Pick a player who is human ((does this include android?!))
-        StateGrid_SetPlayerRole(udg_Mutant, StateGrid_ROLE_HUMAN)
+        StateTable.SetPlayerRole(udg_Mutant, Role.Human)
         udg_TempPlayer = NoninfectedForcePickOne()
         udg_Mutant = udg_TempPlayer
-        StateGrid_SetPlayerRole(udg_Mutant, StateGrid_ROLE_MUTANT)
+        StateTable.SetPlayerRole(udg_Mutant, Role.Mutant)
         CreateNUnitsAtLoc(1, FourCC('e031'), udg_Mutant, udg_HoldZone, bj_UNIT_FACING)
         if (Trig_RepickMutantChoice_Func008C()) then
             UnitAddAbilityBJ(FourCC('A05M'), udg_Playerhero[GetConvertedPlayerId(udg_Mutant)])

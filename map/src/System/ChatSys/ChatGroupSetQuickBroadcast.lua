@@ -1,5 +1,5 @@
-if Debug then Debug.beginFile "System/HeroSelectSys/Selection" end
-OnInit.map("Selection", function(require)
+if Debug then Debug.beginFile "Systems/ChatSys/ChatGroupSetQuickBroadcast" end
+OnInit.map("ChatGroupSetQuickBroadcast", function(require)
     ---@return boolean
     function Trig_ChatGroupSetQuickBroadcast_Conditions()
         if (not (SubStringBJ(GetEventPlayerChatString(), 1, 8) == "-default")) then
@@ -15,8 +15,7 @@ OnInit.map("Selection", function(require)
     end
 
     --===========================================================================
-    local i                           = 0 ---@type integer
-    gg_trg_ChatGroupSetQuickBroadcast = CreateTrigger()
+    local i = 0 ---@type integer
     while i <= 11 do
         TriggerRegisterPlayerChatEvent(gg_trg_ChatGroupSetQuickBroadcast, Player(i), "-default", false)
         i = i + 1

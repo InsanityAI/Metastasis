@@ -1,4 +1,5 @@
-do
+if Debug then Debug.beginFile "Game/Timed" end
+OnInit.map("Timed", function(require)
     LIBRARY_Timed = true
     local SCOPE_PREFIX = "Timed_" ---@type string
 
@@ -207,4 +208,5 @@ do
         l = nil
     end
     _G[SCOPE_PREFIX .. 'LightningRemove'] = LightningRemove
-end
+end)
+if Debug then Debug.endFile() end

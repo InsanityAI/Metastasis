@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/PlayerRolePicking/Captain" end
 OnInit.map("Captain", function(require)
+    require "StateTable"
     ---@return boolean
     function Trig_Captain_Func001Func001Func001C()
         if (not (udg_TempPlayer == udg_HiddenAndroid)) then
@@ -45,7 +46,7 @@ OnInit.map("Captain", function(require)
         udg_InitialSpawnPoint[GetConvertedPlayerId(udg_TempPlayer)] = Location(-14714.00, -13302.00)
         name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer)
         SetPlayerName(udg_TempPlayer, name)
-        StateGrid_SetPlayerName(udg_TempPlayer, name)
+        StateTable.UpdatePlayerName(udg_TempPlayer)
     end
 
     --===========================================================================

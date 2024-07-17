@@ -1,5 +1,6 @@
-if Debug then Debug.beginFile "System/HeroSelectSys/Selection" end
-OnInit.map("Selection", function(require)
+if Debug then Debug.beginFile "Commands/Test/BecomeMutant" end
+OnInit.map("BecomeMutant", function(require)
+    require "StateTable"
     ---@return boolean
     function Trig_BecomeMutant_Conditions()
         if (not (udg_TESTING == true)) then
@@ -10,7 +11,7 @@ OnInit.map("Selection", function(require)
 
     function Trig_BecomeMutant_Actions()
         udg_Mutant = GetTriggerPlayer()
-        StateGrid_SetPlayerRole(udg_Mutant, StateGrid_ROLE_MUTANT)
+        StateTable.SetPlayerRole(udg_Mutant, Role.Mutant)
         CreateNUnitsAtLoc(1, FourCC('e031'), GetTriggerPlayer(), udg_HoldZone, bj_UNIT_FACING) --Was GetEnumUnit()
         --if playerhero not in suit, give devour ability
     end

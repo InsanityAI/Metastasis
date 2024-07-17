@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/PlayerRolePicking/RepickAlienChoice" end
 OnInit.map("RepickAlienChoice", function(require)
+    require "StateTable"
     ---@return boolean
     function Trig_RepickAlienChoice_Conditions()
         if (not (GetClickedButtonBJ() == udg_RepickAlienDialogButton[1])) then
@@ -19,10 +20,10 @@ OnInit.map("RepickAlienChoice", function(require)
     function Trig_RepickAlienChoice_Actions()
         -- Make the new alien
         -- Pick a player who is human ((does this include android?!))
-        StateGrid_SetPlayerRole(udg_Parasite, StateGrid_ROLE_HUMAN)
+        StateTable.SetPlayerRole(udg_Parasite, Role.Human)
         udg_TempPlayer = NoninfectedForcePickOne()
         udg_Parasite = udg_TempPlayer
-        StateGrid_SetPlayerRole(udg_Parasite, StateGrid_ROLE_ALIEN)
+        StateTable.SetPlayerRole(udg_Parasite, Role.Alien)
         SetPlayerAllianceStateBJ(Player(bj_PLAYER_NEUTRAL_EXTRA), udg_Parasite, bj_ALLIANCE_ALLIED_ADVUNITS)
         if (Trig_RepickAlienChoice_Func008C()) then
             UnitAddAbilityBJ(FourCC('A02O'), udg_Playerhero[GetConvertedPlayerId(udg_Parasite)])

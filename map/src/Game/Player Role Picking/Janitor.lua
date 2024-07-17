@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/PlayerRolePicking/Janitor" end
 OnInit.map("Janitor", function(require)
+    require "StateTable"
     ---@return boolean
     function Trig_Janitor_Func001Func002Func002C()
         if (not (udg_TempPlayer == udg_HiddenAndroid)) then
@@ -44,7 +45,7 @@ OnInit.map("Janitor", function(require)
         udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] = "Janitor "
         name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer)
         SetPlayerName(udg_TempPlayer, name)
-        StateGrid_SetPlayerName(udg_TempPlayer, name)
+        StateTable.UpdatePlayerName(udg_TempPlayer)
     end
 
     --===========================================================================

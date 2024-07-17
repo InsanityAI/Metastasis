@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/PlayerRolePicking/Chooser" end
 OnInit.map("Chooser", function(require)
+    require "StateTable"
     function Trig_Chooser_Func004A()
         udg_Player_OriginalName[GetConvertedPlayerId(GetEnumPlayer())] = GetPlayerName(GetEnumPlayer())
         if GetPlayerSlotState(GetEnumPlayer()) == PLAYER_SLOT_STATE_PLAYING then
@@ -239,7 +240,7 @@ OnInit.map("Chooser", function(require)
         ForceClear(udg_ChooseGroup)
         udg_TempInt = 0
         ForForce(GetPlayersAll(), Trig_Chooser_Func004A)
-        StateGrid_Initialize(udg_TempInt)
+        StateTable.InitializeForPlayers(udg_ChooseGroup)
         if (Trig_Chooser_Func005C()) then
             DisplayTextToForce(GetPlayersAll(), "TRIGSTR_520")
             return
@@ -262,7 +263,7 @@ OnInit.map("Chooser", function(require)
         if (Trig_Chooser_Func006C()) then
             if (Trig_Chooser_Func006Func001C()) then
                 udg_HiddenAndroid = ForcePickRandomPlayer(udg_ChooseGroup)
-                StateGrid_SetPlayerRole(udg_HiddenAndroid, StateGrid_ROLE_ANDROID)
+                StateTable.SetPlayerRole(udg_HiddenAndroid, Role.Android)
                 ForceRemovePlayerSimple(udg_HiddenAndroid, udg_ChooseGroup)
             else
                 udg_Allow_Android = false
@@ -270,13 +271,13 @@ OnInit.map("Chooser", function(require)
         end
         if (Trig_Chooser_Func007C()) then
             udg_Parasite = ForcePickRandomPlayer(udg_ChooseGroup)
-            StateGrid_SetPlayerRole(udg_Parasite, StateGrid_ROLE_ALIEN)
+            StateTable.SetPlayerRole(udg_Parasite, Role.Alien)
             SetPlayerAllianceStateBJ(Player(bj_PLAYER_NEUTRAL_EXTRA), udg_Parasite, bj_ALLIANCE_ALLIED_ADVUNITS)
             ForceRemovePlayerSimple(udg_Parasite, udg_ChooseGroup)
         end
         if (Trig_Chooser_Func008C()) then
             udg_Mutant = ForcePickRandomPlayer(udg_ChooseGroup)
-            StateGrid_SetPlayerRole(udg_Mutant, StateGrid_ROLE_MUTANT)
+            StateTable.SetPlayerRole(udg_Mutant, Role.Mutant)
             ForceRemovePlayerSimple(udg_Mutant, udg_ChooseGroup)
         end
         ForForce(GetPlayersAll(), Trig_Chooser_Func009A)

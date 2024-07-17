@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/Misc/PlayerLeaves" end
 OnInit.map("PlayerLeaves", function(require)
+    require "StateTable"
     function NIFPO_Sort()
         if IsPlayerHuman(GetEnumPlayer()) then
             ForceAddPlayer(udg_TempPlayerGroup, GetEnumPlayer())
@@ -27,7 +28,7 @@ OnInit.map("PlayerLeaves", function(require)
             (udg_OriginalName[GetConvertedPlayerId(GetTriggerPlayer())] + "|cff408080 has left the game!|r"))
         KillUnit(udg_Playerhero[GetConvertedPlayerId(GetTriggerPlayer())])                       --Kill leaver's playerhero unit
         UnitAddAbility(udg_Playerhero[GetConvertedPlayerId(GetTriggerPlayer())], FourCC('A02T')) --And stay dead
-        StateGrid_SetPlayerState(GetTriggerPlayer(), StateGrid_STATE_LEFT)
+        StateTable.SetPlayerState(GetTriggerPlayer(), State.Left)
 
         --If less than 90 seconds passed AND player who left is alien, mutant, or android
         if TimerGetElapsed(udg_GameTimer) <= 90.0 and (IsPlayerMainInfected(GetTriggerPlayer()) or udg_HiddenAndroid == GetTriggerPlayer()) then
@@ -36,7 +37,7 @@ OnInit.map("PlayerLeaves", function(require)
                 p = NoninfectedForcePickOne()
                 if p ~= nil then
                     udg_Mutant = p
-                    StateGrid_SetPlayerRole(udg_Mutant, StateGrid_ROLE_MUTANT)
+                    StateTable.SetPlayerRole(udg_Mutant, Role.Mutant)
                     DisplayTextToPlayer(p, 0, 0,
                         "|cffFF0000You are now the mutant. Seek out all enemies and destroy them.")
                     CreateNUnitsAtLoc(1, FourCC('e031'), p, udg_HoldZone, bj_UNIT_FACING) --Was GetEnumUnit()
@@ -51,7 +52,7 @@ OnInit.map("PlayerLeaves", function(require)
                 p = NoninfectedForcePickOne()
                 if p ~= nil then
                     udg_Parasite = p
-                    StateGrid_SetPlayerRole(udg_Parasite, StateGrid_ROLE_ALIEN)
+                    StateTable.SetPlayerRole(udg_Parasite, Role.Alien)
                     DisplayTextToPlayer(p, 0, 0,
                         "|cffFF0000You are now the alien. Seek out all enemies and destroy them.")
                     SetPlayerAllianceStateBJ(Player(bj_PLAYER_NEUTRAL_EXTRA), p, bj_ALLIANCE_ALLIED_ADVUNITS)
@@ -65,7 +66,7 @@ OnInit.map("PlayerLeaves", function(require)
                 p = NoninfectedForcePickOne()
                 if p ~= nil then
                     udg_HiddenAndroid = p
-                    StateGrid_SetPlayerRole(udg_HiddenAndroid, StateGrid_ROLE_ANDROID)
+                    StateTable.SetPlayerRole(udg_HiddenAndroid, Role.Android)
                     DisplayTextToPlayer(p, 0, 0,
                         "|cffFF0000You are now the android. Protect the humans and eliminate the alien threat.")
                 else

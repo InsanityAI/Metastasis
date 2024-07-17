@@ -1,4 +1,5 @@
-do
+if Debug then Debug.beginFile "Game/Blaclists" end
+OnInit.map("Blacklists", function(require)
     LIBRARY_Blacklists = true
     local SCOPE_PREFIX = "Blacklists_" ---@type string  --TODO:
 
@@ -83,5 +84,5 @@ do
         UNIT_CASTER_FILTER        = And(UNIT_FILTER, Filter(UnitTarget_CasterFilter))
     end
     OnGlobalInit(init)
-end
---Conversion by vJass2Lua v0.A.2.3
+end)
+if Debug then Debug.endFile() end

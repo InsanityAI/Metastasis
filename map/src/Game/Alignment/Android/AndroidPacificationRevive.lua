@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/Allignment/Android/AndroidPaacificationRevive" end
 OnInit.map("AndroidPaacificationRevive", function(require)
+    require "StateTable"
     hasRevivedAsPacificationBot = false ---@type boolean
 
 
@@ -50,7 +51,7 @@ OnInit.map("AndroidPaacificationRevive", function(require)
 
         --Rename the player to his name before death
         SetPlayerName(udg_TempPlayer, udg_Player_NameBeforeDead[GetConvertedPlayerId(udg_TempPlayer)])
-        StateGrid_SetPlayerState(udg_TempPlayer, StateGrid_STATE_ALIVE)
+        StateTable.SetPlayerState(udg_TempPlayer, State.Alive)
 
         --Set the boolean so we know he died as pacification bot
         hasRevivedAsPacificationBot = true

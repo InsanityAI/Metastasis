@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/Allignment/Android/AndroidRevive" end
 OnInit.map("AndroidRevive", function(require)
+    require "StateTable"
     function Trig_AndroidRevive_Func001Func014A()
         SetPlayerAllianceStateBJ(GetEnumPlayer(), udg_TempPlayer, bj_ALLIANCE_ALLIED)
         SetPlayerAllianceStateBJ(udg_TempPlayer, GetEnumPlayer(), bj_ALLIANCE_ALLIED)
@@ -62,7 +63,7 @@ OnInit.map("AndroidRevive", function(require)
                 ShowInterfaceForceOn(GetForceOfPlayer(udg_HiddenAndroid), 0.01)
                 udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)] = GetLastCreatedUnit()
                 SetPlayerName(udg_TempPlayer, udg_Player_NameBeforeDead[GetConvertedPlayerId(udg_TempPlayer)])
-                StateGrid_SetPlayerState(udg_TempPlayer, StateGrid_STATE_ALIVE)
+                StateTable.SetPlayerState(udg_TempPlayer, State.Alive)
                 PanCameraToTimedLocForPlayer(udg_TempPlayer, udg_TempPoint, 0)
                 SelectUnitForPlayerSingle(GetLastCreatedUnit(), udg_TempPlayer)
                 ForceRemovePlayerSimple(udg_TempPlayer, udg_DeadGroup)

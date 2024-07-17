@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/PlayerRolePicking/Engineer" end
 OnInit.map("Engineer", function(require)
+    require "StateTable"
     ---@return boolean
     function Trig_Engineer_Func001Func002Func002C()
         if (not (udg_TempPlayer == udg_HiddenAndroid)) then
@@ -53,7 +54,7 @@ OnInit.map("Engineer", function(require)
         udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] = "Engineer "
         name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer)
         SetPlayerName(udg_TempPlayer, name)
-        StateGrid_SetPlayerName(udg_TempPlayer, name)
+        StateTable.UpdatePlayerName(udg_TempPlayer)
         if (Trig_Engineer_Func007C()) then
             udg_InitialSpawnPoint[GetConvertedPlayerId(udg_TempPlayer)] = Location(-6016.00, 11980.00)
             udg_EngineerUsed = true

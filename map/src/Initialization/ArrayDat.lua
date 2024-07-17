@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Initialization/ArrayDat" end
-OnInit.map("ArrayDat", function(require)
+OnInit.main("ArrayDat", function(require)
     ---@param h unit
     function NewUnitRegister(h)
         if GetUnitUserData(h) == 0 then
@@ -43,11 +43,13 @@ OnInit.map("ArrayDat", function(require)
     end
 
     --Fun fun fun, make sure to call this somewhere.
-    local x = GetUnitsInRectAll(GetPlayableMapRect()) ---@type group
-    local v = CreateTrigger() ---@type trigger
-    TriggerRegisterEnterRectSimple(v, GetPlayableMapRect())
-    TriggerAddAction(v, Redirect_RegisterUnit)
-    ForGroup(x, PrePlacedUnits)
-    DestroyGroup(x)
+    OnInit.main(function()
+        local x = GetUnitsInRectAll(GetPlayableMapRect()) ---@type group
+        local v = CreateTrigger() ---@type trigger
+        TriggerRegisterEnterRectSimple(v, GetPlayableMapRect())
+        TriggerAddAction(v, Redirect_RegisterUnit)
+        ForGroup(x, PrePlacedUnits)
+        DestroyGroup(x)
+    end)
 end)
 if Debug then Debug.endFile() end

@@ -2,7 +2,6 @@ if Debug then Debug.beginFile "System/StateTable" end
 OnInit.final("System/StateTable", function(require)
     require "PlayerColours"
     require "SetUtils"
-    require "MDTable"
     require "TimerQueue"
 
     --TODO: use .wts to provide these strings
@@ -43,7 +42,7 @@ OnInit.final("System/StateTable", function(require)
     ---@param player player
     ---@return string
     local function formatPlayerName(player)
-        return PlayerColours[player].colour + GetPlayerName(player)
+        return "|c" .. PlayerColours[player].colour .. GetPlayerName(player)
     end
 
     ---@param player player
@@ -90,10 +89,11 @@ OnInit.final("System/StateTable", function(require)
         end
     end
 
-    ---@param players Set
+    ---@param players force
     function StateTable.InitializeForPlayers(players)
+        local playerSet = Set.fromForce(players)
         clearMultiboard()
-        MultiboardSetRowCount(multiboard, players:size() + 2)
+        MultiboardSetRowCount(multiboard, playerSet:size() + 2)
         MultiboardSetColumnCount(multiboard, 3)
         MultiboardSetItemsStyle(multiboard, true, false) --no icons
 
@@ -115,7 +115,7 @@ OnInit.final("System/StateTable", function(require)
         multiboardItems[2][3] = mbItem
 
         local row = 3
-        for player in players:elements() do
+        for player in playerSet:elements() do
             playerData[player] = { row = row, state = State.Alive, role = Role.Human }
             mbItem = MultiboardGetItem(multiboard, row - 1, 0)
             MultiboardSetItemValue(mbItem, formatPlayerName(player))
@@ -146,7 +146,7 @@ OnInit.final("System/StateTable", function(require)
         local hours = math.modf(time / 3600)
         local minutes = math.modf(time / 60) - hours * 60
         local seconds = math.fmod(time, 60)
-        MultiboardSetTitleText(multiboard, GRID_TITLE + string.format("\x252d:\x252d:\x252d", hours, minutes, seconds))
+        MultiboardSetTitleText(multiboard, GRID_TITLE .. string.format("\x252d:\x252d:\x252d", hours, minutes, seconds))
     end)
 end)
 if Debug then Debug.endFile() end

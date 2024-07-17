@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/Misc/PlayerMurder" end
 OnInit.map("PlayerMurder", function(require)
+    require "StateTable"
     ---@return boolean
     function Trig_PlayerMurder_Func002Func001C()
         if ((udg_Playerhero[GetConvertedPlayerId(GetOwningPlayer(GetDyingUnit()))] ~= GetDyingUnit())) then
@@ -199,13 +200,13 @@ OnInit.map("PlayerMurder", function(require)
                 DisplayTextToPlayer(GetOwningPlayer(GetDyingUnit()), 0, 0,
                     "|cffFF0000You have been turned into the mutant's spawn! Work with the mutant to ensure victory.|r")
                 DisplayTextToPlayer(udg_Mutant, 0, 0, "|cffFF0000You have acquired a spawn!|r")
-                StateGrid_SetPlayerRole(victimPlayer, StateGrid_ROLE_MUTANT_SPAWN)
-                StateGrid_RevealPlayerRole(udg_Mutant, victimPlayer)
-                StateGrid_RevealPlayerRole(victimPlayer, udg_Mutant)
+                StateTable.SetPlayerRole(victimPlayer, Role.MutantSpawn)
+                StateTable.RevealPlayerRole(udg_Mutant, victimPlayer)
+                StateTable.RevealPlayerRole(victimPlayer, udg_Mutant)
                 while index < maxIndex do
                     if udg_Player_IsMutantSpawn[index] then
-                        StateGrid_RevealPlayerRole(victimPlayer, ConvertedPlayer(index))
-                        StateGrid_RevealPlayerRole(ConvertedPlayer(index), victimPlayer)
+                        StateTable.RevealPlayerRole(victimPlayer, ConvertedPlayer(index))
+                        StateTable.RevealPlayerRole(ConvertedPlayer(index), victimPlayer)
                     end
                     index = index + 1
                 end
@@ -229,13 +230,13 @@ OnInit.map("PlayerMurder", function(require)
                     DisplayTextToPlayer(udg_Parasite, 0, 0, "|cffffcc00+175 evolution points for successful kill!")
                     udg_UpgradePointsAlien = (udg_UpgradePointsAlien + 175.00)
                     udg_TempPlayer = GetOwningPlayer(GetDyingUnit())
-                    StateGrid_SetPlayerRole(victimPlayer, StateGrid_ROLE_ALIEN_SPAWN)
-                    StateGrid_RevealPlayerRole(udg_Parasite, victimPlayer)
-                    StateGrid_RevealPlayerRole(victimPlayer, udg_Parasite)
+                    StateTable.SetPlayerRole(victimPlayer, Role.AlienSpawn)
+                    StateTable.RevealPlayerRole(udg_Parasite, victimPlayer)
+                    StateTable.RevealPlayerRole(victimPlayer, udg_Parasite)
                     while index < maxIndex do
                         if udg_Player_IsParasiteSpawn[index] then
-                            StateGrid_RevealPlayerRole(victimPlayer, ConvertedPlayer(index))
-                            StateGrid_RevealPlayerRole(ConvertedPlayer(index), victimPlayer)
+                            StateTable.RevealPlayerRole(victimPlayer, ConvertedPlayer(index))
+                            StateTable.RevealPlayerRole(ConvertedPlayer(index), victimPlayer)
                         end
                         index = index + 1
                     end
@@ -262,8 +263,8 @@ OnInit.map("PlayerMurder", function(require)
             else
             end
             -- New Code above - If alien killed mutant
-            StateGrid_RevealPlayerRole(victimPlayer, nil)
-            StateGrid_SetPlayerState(victimPlayer, StateGrid_STATE_DEAD)
+            StateTable.RevealPlayerRole(victimPlayer, nil)
+            StateTable.SetPlayerState(victimPlayer, State.Dead)
         else
             if (Trig_PlayerMurder_Func006Func002C()) then
                 DisplayTextToForce(GetPlayersAll(),
@@ -272,8 +273,8 @@ OnInit.map("PlayerMurder", function(require)
                 CinematicFadeBJ(bj_CINEFADETYPE_FADEOUTIN, 4.00, "ReplaceableTextures\\CameraMasks\\White_mask.blp", 0.00,
                     0.00, 100.00, 50.00)
                 PlaySoundBJ(gg_snd_WarlockDeath1)
-                StateGrid_RevealPlayerRole(victimPlayer, nil)
-                StateGrid_SetPlayerState(victimPlayer, StateGrid_STATE_DEAD)
+                StateTable.RevealPlayerRole(victimPlayer, nil)
+                StateTable.SetPlayerState(victimPlayer, State.Dead)
             else
                 if (Trig_PlayerMurder_Func006Func002Func002C()) then
                     DisplayTextToForce(GetPlayersAll(),
@@ -282,8 +283,8 @@ OnInit.map("PlayerMurder", function(require)
                     CinematicFadeBJ(bj_CINEFADETYPE_FADEOUTIN, 4.00, "ReplaceableTextures\\CameraMasks\\White_mask.blp",
                         100.00, 100.00, 100.00, 50.00)
                     PlaySoundBJ(gg_snd_RockGolemDeath1)
-                    StateGrid_RevealPlayerRole(victimPlayer, nil)
-                    StateGrid_SetPlayerState(victimPlayer, StateGrid_STATE_DEAD)
+                    StateTable.RevealPlayerRole(victimPlayer, nil)
+                    StateTable.SetPlayerState(victimPlayer, State.Dead)
                 else
                     if (Trig_PlayerMurder_Func006Func002Func002Func001C()) then
                         DisplayTextToForce(GetPlayersAll(),
@@ -292,8 +293,8 @@ OnInit.map("PlayerMurder", function(require)
                         CinematicFadeBJ(bj_CINEFADETYPE_FADEOUTIN, 4.00,
                             "ReplaceableTextures\\CameraMasks\\DiagonalSlash_mask.blp", 0.00, 0.00, 100.00, 50.00)
                         PlaySoundBJ(gg_snd_PitFiendDeath1)
-                        StateGrid_RevealPlayerRole(victimPlayer, nil)
-                        StateGrid_SetPlayerState(victimPlayer, StateGrid_STATE_DEAD)
+                        StateTable.RevealPlayerRole(victimPlayer, nil)
+                        StateTable.SetPlayerState(victimPlayer, State.Dead)
                     else
                         if (Trig_PlayerMurder_Func006Func002Func002Func001Func001C()) then
                             DisplayTextToForce(GetPlayersAll(),
@@ -302,8 +303,8 @@ OnInit.map("PlayerMurder", function(require)
                             CinematicFadeBJ(bj_CINEFADETYPE_FADEOUTIN, 4.00,
                                 "ReplaceableTextures\\CameraMasks\\White_mask.blp", 0.00, 100.00, 100.00, 50.00)
                             PlaySoundBJ(gg_snd_BansheeDeath)
-                            StateGrid_RevealPlayerRole(victimPlayer, nil)
-                            StateGrid_SetPlayerState(victimPlayer, StateGrid_STATE_DEAD)
+                            StateTable.RevealPlayerRole(victimPlayer, nil)
+                            StateTable.SetPlayerState(victimPlayer, State.Dead)
                         else
                             DisplayTextToForce(GetPlayersAll(),
                                 (GetPlayerName(GetOwningPlayer(GetDyingUnit())) + " |cff800080has been killed!|r"))
@@ -317,8 +318,8 @@ OnInit.map("PlayerMurder", function(require)
                                 udg_UpgradePointsAlien = (udg_UpgradePointsAlien + 175.00)
                             else
                             end
-                            StateGrid_RevealPlayerRole(victimPlayer, nil)
-                            StateGrid_SetPlayerState(victimPlayer, StateGrid_STATE_DEAD)
+                            StateTable.RevealPlayerRole(victimPlayer, nil)
+                            StateTable.SetPlayerState(victimPlayer, State.Dead)
                         end
                     end
                 end

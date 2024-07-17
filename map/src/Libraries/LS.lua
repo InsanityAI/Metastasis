@@ -1,5 +1,5 @@
 if Debug then Debug.beginFile "Libraries/LS" end
-OnInit.map("LS", function(require)
+OnInit.main("LS", function(require)
     udg_hash = InitHashtable() ---@type hashtable
 
     -- ===========================
@@ -123,8 +123,8 @@ OnInit.map("LS", function(require)
         --invulnerable and both were triggered, you should use this function so that as the grace period for invulnerability ends it does not
         --short circuit the invulnerable ability.
         local o = nil ---@type timer
-        if HaveSavedHandle(LS(), GetHandleId(a), StringHash("AbilityTimed_Timer_" + I2S(theability))) then
-            o = LoadTimerHandle(LS(), GetHandleId(a), StringHash("AbilityTimed_Timer_" + I2S(theability)))
+        if HaveSavedHandle(LS(), GetHandleId(a), StringHash("AbilityTimed_Timer_" .. I2S(theability))) then
+            o = LoadTimerHandle(LS(), GetHandleId(a), StringHash("AbilityTimed_Timer_" .. I2S(theability)))
         end
         if o ~= nil then
             if TimerGetRemaining(o) < duration then
@@ -139,7 +139,7 @@ OnInit.map("LS", function(require)
                 o = CreateTimer()
                 SaveInteger(LS(), GetHandleId(o), StringHash("Ability"), theability)
                 SaveUnitHandle(LS(), GetHandleId(o), StringHash("unit"), a)
-                SaveTimerHandle(LS(), GetHandleId(a), StringHash("AbilityTimed_Timer_" + I2S(theability)), o)
+                SaveTimerHandle(LS(), GetHandleId(a), StringHash("AbilityTimed_Timer_" .. I2S(theability)), o)
                 TimerStart(o, duration, false, AddAbilityForPeriod_Remove)
                 UnitAddAbility(a, theability)
             end
@@ -324,7 +324,7 @@ OnInit.map("LS", function(require)
         local a ---@type texttag
         local c        = GetUnitLoc(whatunit) ---@type location
         while i <= howmanybars do
-            barcount = barcount + "I"
+            barcount = barcount .. "I"
             i = i + 1
         end
         CreateTextTagLocBJ(barcount, c, 0, 6, 100, 100, 100, 0)
@@ -352,12 +352,12 @@ OnInit.map("LS", function(require)
             DestroyBar(k)
         end
         while i <= progress do
-            barstring = barstring + "I"
+            barstring = barstring .. "I"
             i = i + 1
         end
-        barstring = barstring + "|r"
+        barstring = barstring .. "|r"
         while i <= barcount do
-            barstring = barstring + "I"
+            barstring = barstring .. "I"
             i = i + 1
         end
         SetTextTagTextBJ(a, barstring, 6.0)
@@ -469,14 +469,14 @@ OnInit.map("LS", function(require)
         local a ---@type texttag
         local c        = GetUnitLoc(whatunit) ---@type location
         while i <= howmanybars do
-            barcount = barcount + "I"
+            barcount = barcount .. "I"
             i = i + 1
         end
         CreateTextTagLocBJ(barcount, c, 0, 6, 100, 100, 100, 0)
         SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
         a = bj_lastCreatedTextTag
         SetTextTagFadepointBJ(a, howmanybars * interval)
-        SetTextTagLifespanBJ(a, howmanybars * interval + 1)
+        SetTextTagLifespanBJ(a, howmanybars * interval .. 1)
         SaveTextTagHandle(LS(), GetHandleId(k), StringHash("countdown"), a)
         SaveInteger(LS(), GetHandleId(k), StringHash("progress"), 0)
         SaveInteger(LS(), GetHandleId(k), StringHash("barcount"), howmanybars)
@@ -495,12 +495,12 @@ OnInit.map("LS", function(require)
             DestroyBar(k)
         end
         while i <= progress do
-            barstring = barstring + "I"
+            barstring = barstring .. "I"
             i = i + 1
         end
-        barstring = barstring + "|r"
+        barstring = barstring .. "|r"
         while i <= barcount do
-            barstring = barstring + "I"
+            barstring = barstring .. "I"
             i = i + 1
         end
         SetTextTagTextBJ(a, barstring, 6.0)
@@ -992,7 +992,7 @@ OnInit.map("LS", function(require)
     ---@param achiever player
     function AwardAchievement(achievement, achiever)
         SaveBoolean(LS(), GetHandleId(gg_trg_AchievementsInit),
-            StringHash("Player_" + I2S(GetConvertedPlayerId(achiever)) + "_won_" + I2S(achievement)), true)
+            StringHash("Player_" .. I2S(GetConvertedPlayerId(achiever)) .. "_won_" .. I2S(achievement)), true)
     end
 
     --//////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2651,7 +2651,7 @@ OnInit.map("LS", function(require)
         local refresh = CreateTimer() ---@type timer
         SaveUnitHandle(LS(), GetHandleId(refresh), StringHash("unit"), q)
         TimerStart(refresh, 0.5, true, BasicAI_Update)
-        SaveUnitHandle(LS(), GetHandleId(q), StringHash("AI_" + "TARGET"), nil)
+        SaveUnitHandle(LS(), GetHandleId(q), StringHash("AI_" .. "TARGET"), nil)
         SaveStr(LS(), GetHandleId(q), StringHash("AI_TEAM"), "AI")
         SaveStr(LS(), GetHandleId(q), StringHash("AI_ORDER"), "ROAM")
         SaveReal(LS(), GetHandleId(q), StringHash("AI_ATTACKRANGE"), range)
@@ -2741,7 +2741,7 @@ OnInit.map("LS", function(require)
         local refresh = CreateTimer() ---@type timer
         SaveUnitHandle(LS(), GetHandleId(refresh), StringHash("unit"), q)
         TimerStart(refresh, 0.5, true, BasicAI_Update_Murmusk)
-        SaveUnitHandle(LS(), GetHandleId(q), StringHash("AI_" + "TARGET"), nil)
+        SaveUnitHandle(LS(), GetHandleId(q), StringHash("AI_" .. "TARGET"), nil)
         SaveStr(LS(), GetHandleId(q), StringHash("AI_TEAM"), "MURMUSK")
         SaveStr(LS(), GetHandleId(q), StringHash("AI_ORDER"), "ROAM")
         SaveReal(LS(), GetHandleId(q), StringHash("AI_ATTACKRANGE"), range)
@@ -3091,7 +3091,7 @@ OnInit.map("LS", function(require)
         while i <= 5 do
             --If item slot has the item, remove it
             if (GetItemTypeId(UnitItemInSlot(inventoryUnit, i)) == itemId) then
-                --call DisplayTextToForce(GetPlayersAll(), "i is: " + I2S(i))
+                --call DisplayTextToForce(GetPlayersAll(), "i is: " .. I2S(i))
                 UnitRemoveItemFromSlot(inventoryUnit, i)
                 return true
             end

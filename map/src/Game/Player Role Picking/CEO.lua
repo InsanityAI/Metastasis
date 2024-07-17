@@ -1,5 +1,6 @@
 if Debug then Debug.beginFile "Game/PlayerRolePicking/CEO" end
 OnInit.map("CEO", function(require)
+    require "StateTable"
     ---@return boolean
     function Trig_CEO_Func001Func002Func001C()
         if (not (udg_TempPlayer == udg_HiddenAndroid)) then
@@ -43,7 +44,7 @@ OnInit.map("CEO", function(require)
         udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] = "CEO "
         name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer)
         SetPlayerName(udg_TempPlayer, name)
-        StateGrid_SetPlayerName(udg_TempPlayer, name)
+        StateTable.UpdatePlayerName(udg_TempPlayer)
         CreateNUnitsAtLoc(1, FourCC('H046'), udg_TempPlayer, udg_HoldZone, bj_UNIT_FACING)
         udg_TempUnit = GetLastCreatedUnit()
         udg_TempUnit2 = udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)]
