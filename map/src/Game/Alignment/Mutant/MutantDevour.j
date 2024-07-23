@@ -70,8 +70,6 @@ function Trig_MutantDevour_Actions takes nothing returns nothing
         set udg_UpgradePointsMutant = ( udg_UpgradePointsMutant + 75.00 )
     endif
     set udg_TempPoint = GetUnitLoc(GetSpellAbilityUnit())
-    call SetSoundPositionLocBJ( gg_snd_Devour, udg_TempPoint, 0 )
-    call PlaySoundBJ( gg_snd_Devour )
     call AddSpecialEffectLocBJ( udg_TempPoint, "Objects\\Spawnmodels\\Orc\\Orcblood\\BattrollBlood.mdl" )
     call SFXThreadClean()
     call RemoveLocation(udg_TempPoint)

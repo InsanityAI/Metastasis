@@ -1,1 +1,1 @@
-{"name":"Player_DefaultChatGroup","contentType":"VARIABLE","type":"string","isArray":true,"arrayLength":1,"isInitialized":false,"initialValue":""}
+{"name":"Player_DefaultChatGroup","contentType":"VARIABLE","type":"force","isArray":true,"arrayLength":1,"isInitialized":false,"initialValue":""}
