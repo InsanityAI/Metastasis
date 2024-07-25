@@ -18,7 +18,7 @@ library Anonymity initializer init
         local player randomPlayer 
         local force tempForce 
 
-        //Gray, Snow and Coal player colors were removed from consideration - they're practically invisible on the minimap  
+        //Gray, Snow and Coal player colors were removed from consideration - they're practically invisible on the minimap   
 
         set colors[0] = ConvertPlayerColor(0) 
         set colorNames[0] = "Red" 
@@ -83,14 +83,14 @@ library Anonymity initializer init
             set colorIndexMax = colorIndexMax - 1 
         endloop 
 
-        //Fix 1.29's wrong color shade for neutrals  
+        //Fix 1.29's wrong color shade for neutrals   
         call SetPlayerColor(Player(PLAYER_NEUTRAL_PASSIVE), ConvertPlayerColor(8)) 
         call SetPlayerColor(Player(PLAYER_NEUTRAL_AGGRESSIVE), ConvertPlayerColor(8)) 
         call SetPlayerColor(Player(bj_PLAYER_NEUTRAL_EXTRA), ConvertPlayerColor(8)) 
         call SetPlayerColor(Player(bj_PLAYER_NEUTRAL_VICTIM), ConvertPlayerColor(8)) 
     endfunction 
 
-    //1-indexed function, used for chat commands   
+    //1-indexed function, used for chat commands    
     public function GetPlayerFromIndex takes integer index returns player 
         if index > 0 then 
             return Anonymity_ShuffledPlayersArray[index - 1] 
@@ -99,7 +99,7 @@ library Anonymity initializer init
         endif 
     endfunction 
 
-    //1-indexed function, used for chat commands   
+    //1-indexed function, used for chat commands    
     public function GetPlayerFromStringIndex takes string index returns player 
         if index == null or index == "" then 
             return null 

@@ -1,13 +1,9 @@
-//TESH.scrollpos=64 
-//TESH.alwaysfold=0 
 function Trig_SetTrajectory_Conditions takes nothing returns boolean 
     if(not(GetSpellAbilityId() == 'A004')) then 
         return false 
     endif 
     return true 
 endfunction 
-
-//IsUnitAliveBJ(GetSpellTargetUnit()) == true 
 
 function Trig_SetTrajectory_Func001C takes nothing returns boolean 
     if(not(RectContainsUnit(gg_rct_Space, GetSpellTargetUnit()) == true)) then 

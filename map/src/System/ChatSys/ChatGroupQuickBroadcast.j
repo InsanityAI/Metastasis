@@ -17,10 +17,10 @@ function Trig_ChatGroupQuickBroadcast_Actions takes nothing returns nothing
     endif 
 
     set udg_TempPlayerGroup = udg_Player_DefaultChatGroup[playerId] 
-    if udg_TempPlayerGroup == null then
-        call DisplayTextToPlayer(trigPlayer, 0, 0, "|cFFFF0000Error: Default group is not set!")
-        return
-    endif
+    if udg_TempPlayerGroup == null then 
+        call DisplayTextToPlayer(trigPlayer, 0, 0, "|cFFFF0000Error: Default group is not set!") 
+        return 
+    endif 
     set message = "|cff808040" + "[" + udg_Player_DefaultChatGroupName[playerId] + "]|r" + PlayerColor_GetPlayerTextColor(trigPlayer) + GetPlayerName(trigPlayer) + "|r: " + message 
     if IsPlayerInForce(trigPlayer, udg_TempPlayerGroup) then 
         call ForForce(udg_TempPlayerGroup, function Trig_ChatGroupQuickBroadcast_RemoveDeadPlayers) 
@@ -32,14 +32,14 @@ function Trig_ChatGroupQuickBroadcast_Actions takes nothing returns nothing
     set trigPlayer = null 
 endfunction 
 
-//===========================================================================      
-function InitTrig_ChatGroupQuickBroadcast_Events takes nothing returns nothing
+//===========================================================================       
+function InitTrig_ChatGroupQuickBroadcast_Events takes nothing returns nothing 
     call TriggerRegisterPlayerChatEvent(gg_trg_ChatGroupQuickBroadcast, GetEnumPlayer(), ".", false) 
-endfunction
+endfunction 
 
 function InitTrig_ChatGroupQuickBroadcast takes nothing returns nothing 
     set gg_trg_ChatGroupQuickBroadcast = CreateTrigger() 
-    call ForForce(GetPlayersAll(), function InitTrig_ChatGroupQuickBroadcast_Events)
+    call ForForce(GetPlayersAll(), function InitTrig_ChatGroupQuickBroadcast_Events) 
     call TriggerAddCondition(gg_trg_ChatGroupQuickBroadcast, Condition(function Trig_ChatGroupQuickBroadcast_Conditions)) 
     call TriggerAddAction(gg_trg_ChatGroupQuickBroadcast, function Trig_ChatGroupQuickBroadcast_Actions) 
 endfunction 
