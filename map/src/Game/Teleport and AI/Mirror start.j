@@ -39,9 +39,7 @@ endfunction
 
 function Trig_Mirror_start_Func007A takes nothing returns nothing 
     if(Trig_Mirror_start_Func007Func001C()) then 
-        call DisplayTextToPlayer(GetOwningPlayer(GetEnumUnit()), 0, 0, "|CFFE55BB0You have just intervened with yourself from an alternative dimension!\r
-        \ r 
-        Victory might bring you to U.S.I.Niffy ")
+        call DisplayTextToPlayer(GetOwningPlayer(GetEnumUnit()), 0, 0, "|CFFE55BB0You have just intervened with yourself from an alternative dimension!|n|nVictory might bring you to U.S.I.Niffy")
     else 
     endif 
 endfunction 

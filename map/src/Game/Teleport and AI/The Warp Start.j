@@ -11,12 +11,7 @@ function Trig_The_Warp_Start_Func003A takes nothing returns nothing
         set p = udg_Parasite 
     endif 
     call ForceAddPlayerSimple(p, udg_Warp_PG) 
-    call DisplayTextToPlayer(p, 0, 0, "|CFFE55BB0Error: Teleportation UN-SUCCESFUL.\r
-    \ r 
-    Location : U.N.K.N.O.W.N.\ r 
-    \ r 
-    Relocation initiating in 30 seconds.")
-    set p = null 
+    call DisplayTextToPlayer(p, 0, 0, "|CFFE55BB0Error: Teleportation UN-SUCCESFUL.|n|nLocation : U.N.K.N.O.W.N.|n|nRelocation initiating in 30 seconds.")
 endfunction 
 
 function Trig_The_Warp_Start_Func007A takes nothing returns nothing 

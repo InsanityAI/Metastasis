@@ -15,7 +15,7 @@ function ChargeupDischarge takes nothing returns nothing
         call UnitRemoveAbility(a,'A093')
         call UnitDamageTarget(a,b,155.0,true,false,ATTACK_TYPE_NORMAL,DAMAGE_TYPE_NORMAL,WEAPON_TYPE_WHOKNOWS)
         set bj_lastCreatedEffect=AddSpecialEffect("Abilities\\Spells\\Orc\\Purge\\PurgeBuffTarget.mdl",GetUnitX(b),GetUnitY(b))
-        call SFXThreadClean()F
+        call SFXThreadClean()
         call FlushChildHashtable(LS(),GetHandleId(t))
         call DestroyTrigger(t)
         call PolledWait(0.4)

@@ -7,10 +7,7 @@ endfunction
 
 function Trig_Mirror_un_abuse_Func006A takes nothing returns nothing 
     if(Trig_Mirror_un_abuse_Func006Func001C()) then 
-        call DisplayTextToPlayer(GetOwningPlayer(GetEnumUnit()), 0, 0, "|CFF7EBFF1\r
-        Alternative Dimension shifted away ! \ r 
-        \ r 
-        Original Dimension recovered.")
+        call DisplayTextToPlayer(GetOwningPlayer(GetEnumUnit()), 0, 0, "|CFF7EBFF1|nAlternative Dimension shifted away !|n|nOriginal Dimension recovered.")
     else 
         call SetUnitPositionLoc(GetEnumUnit(), udg_TeleportBombMirrorExitPoint) 
     endif 

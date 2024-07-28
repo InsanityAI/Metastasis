@@ -56,11 +56,7 @@ function Trig_ChooseRoles_Func007A takes nothing returns nothing
             call DisplayTimedTextToPlayer(GetEnumPlayer(), 0, 0, 30, "-Kill everybody, or turn them into spawns. Use stealth and infection to confront your enemies at first, and later confront them directly when you evolve.") 
         else 
             if(Trig_ChooseRoles_Func007Func001Func002Func001C()) then 
-                call DisplayTimedTextToPlayer(GetEnumPlayer(), 0, 0, 30, "-Kill the mutant, the alien, and all of their allies. Please try to protect company property.\r
-                -Protect local personnel.If too many are killed by you, you will be shut down.\ r /*
-                */
-                -You may upgrade yourself into a combat form if enough time passes.\ r 
-                -If you die, you may be revived at the Arbitress.However you will be under the control of the person who revived you.")
+                call DisplayTimedTextToPlayer(GetEnumPlayer(), 0, 0, 30, "-Kill the mutant, the alien, and all of their allies. Please try to protect company property.|n-Protect local personnel.If too many are killed by you, you will be shut down.|n-You may upgrade yourself into a combat form if enough time passes.|n-If you die, you may be revived at the Arbitress.However you will be under the control of the person who revived you.")
             else 
                 call DisplayTimedTextToPlayer(GetEnumPlayer(), 0, 0, 30, "-Kill the mutant, the alien, and all of their allies. Please try to protect company property.") 
             endif 
