@@ -1,0 +1,77 @@
+Frame "SIMPLEFRAME" "Main" {
+    Width 0.8,
+    Height 0.6,
+
+    Frame "SIMPLEFRAME" "Message Panel" {
+        Width 0.8,
+        Height 0.013,
+    }
+}
+
+Frame "SIMPLEFRAME" "Message" {
+    Width 0.8,
+    Height 0.013,
+    UseActiveContext,
+
+    Frame "SIMPLEFRAME" "Message Type Container" {
+        Width 0.056,
+        Height 0.013,
+        SetPoint LEFT, "Message", LEFT, 0., 0.,
+        UseActiveContext,
+
+        String "Message Type" {
+            Width 0.056,
+            Height 0.013,
+            FontColor 0.92 0.92 0.92 1.0,
+            FontJustificationH JUSTIFYLEFT,
+            FontJustificationV JUSTIFYMIDDLE,
+            FontJustificationOffset 0.0 0.0,
+            Text "",
+        }
+    }
+
+    Frame "SIMPLEFRAME" "Message Timestamp Container" {
+        Width 0.056,
+        Height 0.013,
+        SetPoint LEFT, "Message Type Container", RIGHT, 0., 0.,
+        UseActiveContext,
+
+        String "Message Timestamp" {
+            Width 0.056,
+            Height 0.013,
+            FontColor 0.92 0.92 0.92 1.0,
+            FontJustificationH JUSTIFYLEFT,
+            FontJustificationV JUSTIFYMIDDLE,
+            FontJustificationOffset 0.0 0.0,
+            Text "",
+        }
+    }
+
+    Frame "SIMPLEFRAME" "Message Icon Container" {
+        Width 0.013,
+        Height 0.013,
+        SetPoint LEFT, "Message Timestamp Container", RIGHT, 0., 0.,
+        UseActiveContext,
+
+        Texture "Message Icon" {
+            File  "ReplaceableTextures\\CommandButtons\\BTNPeasant.blp",
+        }
+    }
+
+    Frame "SIMPLEFRAME" "Message Text Container" {
+        Width 0.675,
+        Height 0.013,
+        SetPoint LEFT, "Message Icon Container", RIGHT, 0.003, 0.,
+        UseActiveContext,
+
+        String "Message Text" {
+            Width 0.675,
+            Height 0.013,
+            FontColor 0.92 0.92 0.92 1.0,
+            FontJustificationH JUSTIFYLEFT,
+            FontJustificationV JUSTIFYMIDDLE,
+            FontJustificationOffset 0.0 0.0,
+            Text "",
+        }
+    }
+}

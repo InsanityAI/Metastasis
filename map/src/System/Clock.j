@@ -1,13 +1,13 @@
 library Clock initializer init requires StateGrid 
     globals 
         private timer clockTimer 
-        private integer seconds = 0 
-        private integer minutes = 0 
-        private integer hours = 0 
-        private boolean showHours = false 
-        private string formattedTime 
-        private string formattedSeconds 
-        private string formattedMinutes 
+        public integer seconds = 0 
+        public integer minutes = 0 
+        public integer hours = 0 
+        public boolean showHours = false //automatically activated if minutes pass the 60 mark
+        public string formattedTime = "00:00"
+        public string formattedSeconds = "00"
+        public string formattedMinutes = "00"
     endglobals 
 
     private function incrementTime takes nothing returns nothing 
