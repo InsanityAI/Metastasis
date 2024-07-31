@@ -39,6 +39,10 @@ library ChatGroups initializer init requires Table
         return chatGroup
     endfunction
 
+    public function exists takes string name returns ChatGroup
+        return groups.written(name)
+    endfunction
+
     private function init takes nothing returns nothing
         set groups = Table.create() 
     endfunction

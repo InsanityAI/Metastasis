@@ -1,4 +1,4 @@
-library RenameCommand initializer init requires Commands, ChatSystem, ChatProfiles
+library RenameCommand initializer init requires Commands, ChatSystem, ChatProfiles, StringUtil
     struct RenameCommand extends Command
         globals
             private RenameCommand thisCommand

@@ -34,7 +34,7 @@ function Trig_AndroidRevive_Actions takes nothing returns nothing
             call DisableTrigger(gg_trg_AndroidUpgradeDialogClick) 
             call DisableTrigger(GetTriggeringTrigger()) 
             call DisableTrigger(gg_trg_AndroidCardVision) 
-            call DisableTrigger(gg_trg_AndroidChat) 
+            set AndroidChat_Enabled = false
             call ChangeElevatorWalls(false, bj_ELEVATOR_WALL_TYPE_ALL, gg_dest_DTrx_0642) 
             call ChangeElevatorHeight(gg_dest_DTrx_0642, 1) 
             set a = GetUnitLoc(gg_unit_h03Z_0188) 

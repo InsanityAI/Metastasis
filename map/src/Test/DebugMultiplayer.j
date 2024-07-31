@@ -8,7 +8,8 @@ function Trig_DebugMultiplayer_Conditions takes nothing returns boolean
 endfunction 
 
 function SetActivePlayers takes nothing returns nothing 
-    if GetPlayerSlotState(GetEnumPlayer()) == PLAYER_SLOT_STATE_PLAYING and udg_Player_Left[GetConvertedPlayerId(GetEnumPlayer())] == false then 
+    local player thisPlayer = GetEnumPlayer()
+    if GetPlayerSlotState(thisPlayer) == PLAYER_SLOT_STATE_PLAYING and udg_Player_Left[GetConvertedPlayerId(thisPlayer)] == false and GetPlayerController(thisPlayer) == MAP_CONTROL_USER then 
         set playersActive = playersActive + 1 
     endif 
 endfunction 

@@ -9,6 +9,7 @@ function Trig_BecomeAlien_Actions takes nothing returns nothing
     set udg_Parasite = GetTriggerPlayer() 
     call StateGrid_SetPlayerRole(udg_Parasite, StateGrid_ROLE_ALIEN) 
     call SetPlayerAllianceStateBJ(Player(bj_PLAYER_NEUTRAL_EXTRA), GetTriggerPlayer(), bj_ALLIANCE_ALLIED_ADVUNITS) 
+    call ChatSystem_groupAliens.add(ChatProfiles_getReal(udg_Parasite))
     //if playerhero not in suit, give alien form ability 
 endfunction 
 

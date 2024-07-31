@@ -33,6 +33,7 @@ function Trig_PlayerLeaves_Actions takes nothing returns nothing
             if p != null then 
                 set udg_Mutant = p 
                 call StateGrid_SetPlayerRole(udg_Mutant, StateGrid_ROLE_MUTANT) 
+                call ChatSystem_groupMutants.add(ChatProfiles_getReal(udg_Mutant))
                 call DisplayTextToPlayer(p, 0, 0, "|cffFF0000You are now the mutant. Seek out all enemies and destroy them.") 
                 call CreateNUnitsAtLoc(1, 'e031', p, udg_HoldZone, bj_UNIT_FACING) //Was GetEnumUnit()  
                 //If it doesn't work, also add the ability on the playerhero unit  
@@ -47,6 +48,7 @@ function Trig_PlayerLeaves_Actions takes nothing returns nothing
             if p != null then 
                 set udg_Parasite = p 
                 call StateGrid_SetPlayerRole(udg_Parasite, StateGrid_ROLE_ALIEN) 
+                call ChatSystem_groupAliens.add(ChatProfiles_getReal(udg_Mutant))
                 call DisplayTextToPlayer(p, 0, 0, "|cffFF0000You are now the alien. Seek out all enemies and destroy them.") 
                 call SetPlayerAllianceStateBJ(Player(bj_PLAYER_NEUTRAL_EXTRA), p, bj_ALLIANCE_ALLIED_ADVUNITS) 
             else 

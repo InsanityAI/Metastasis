@@ -181,6 +181,7 @@ function Trig_PlayerMurder_Actions takes nothing returns nothing
             call StateGrid_SetPlayerRole(victimPlayer, StateGrid_ROLE_MUTANT_SPAWN) 
             call StateGrid_RevealPlayerRole(udg_Mutant, victimPlayer) 
             call StateGrid_RevealPlayerRole(victimPlayer, udg_Mutant) 
+            call ChatSystem_groupMutants.add(ChatProfiles_getReal(victimPlayer))
             loop 
                 exitwhen index >= maxIndex 
                 if udg_Player_IsMutantSpawn[index] then 
@@ -210,6 +211,7 @@ function Trig_PlayerMurder_Actions takes nothing returns nothing
                 call StateGrid_SetPlayerRole(victimPlayer, StateGrid_ROLE_ALIEN_SPAWN) 
                 call StateGrid_RevealPlayerRole(udg_Parasite, victimPlayer) 
                 call StateGrid_RevealPlayerRole(victimPlayer, udg_Parasite) 
+                call ChatSystem_groupAliens.add(ChatProfiles_getReal(victimPlayer))
                 loop 
                     exitwhen index >= maxIndex 
                     if udg_Player_IsParasiteSpawn[index] then 
@@ -241,6 +243,8 @@ function Trig_PlayerMurder_Actions takes nothing returns nothing
         // New Code above - If alien killed mutant 
         call StateGrid_RevealPlayerRole(victimPlayer, null) 
         call StateGrid_SetPlayerState(victimPlayer, StateGrid_STATE_DEAD) 
+        call ChatSystem_groupDead.add(ChatProfiles_getReal(victimPlayer))
+        call PlayerSelectedChat_SetPlayerChatGroup(victimPlayer, ChatSystem_groupDead)
     else 
         if(Trig_PlayerMurder_Func006Func002C()) then 
             call DisplayTextToForce(GetPlayersAll(), (GetPlayerName(GetOwningPlayer(GetDyingUnit())) + " |cff800080has been killed!|r")) 
@@ -249,6 +253,8 @@ function Trig_PlayerMurder_Actions takes nothing returns nothing
             call PlaySoundBJ(gg_snd_WarlockDeath1) 
             call StateGrid_RevealPlayerRole(victimPlayer, null) 
             call StateGrid_SetPlayerState(victimPlayer, StateGrid_STATE_DEAD) 
+            call ChatSystem_groupDead.add(ChatProfiles_getReal(victimPlayer))
+            call PlayerSelectedChat_SetPlayerChatGroup(victimPlayer, ChatSystem_groupDead)
         else 
             if(Trig_PlayerMurder_Func006Func002Func002C()) then 
                 call DisplayTextToForce(GetPlayersAll(), (GetPlayerName(GetOwningPlayer(GetDyingUnit())) + " |cff800080has been killed!|r")) 
@@ -257,6 +263,8 @@ function Trig_PlayerMurder_Actions takes nothing returns nothing
                 call PlaySoundBJ(gg_snd_RockGolemDeath1) 
                 call StateGrid_RevealPlayerRole(victimPlayer, null) 
                 call StateGrid_SetPlayerState(victimPlayer, StateGrid_STATE_DEAD) 
+                //call ChatSystem_groupDead.add(ChatProfiles_getReal(victimPlayer)) -- Android doesn't go to heaven yet
+                //call PlayerSelectedChat_SetPlayerChatGroup(victimPlayer, ChatSystem_groupDead)
             else 
                 if(Trig_PlayerMurder_Func006Func002Func002Func001C()) then 
                     call DisplayTextToForce(GetPlayersAll(), (GetPlayerName(GetOwningPlayer(GetDyingUnit())) + " |cff800080has been killed!|r")) 
@@ -265,6 +273,8 @@ function Trig_PlayerMurder_Actions takes nothing returns nothing
                     call PlaySoundBJ(gg_snd_PitFiendDeath1) 
                     call StateGrid_RevealPlayerRole(victimPlayer, null) 
                     call StateGrid_SetPlayerState(victimPlayer, StateGrid_STATE_DEAD) 
+                    call ChatSystem_groupDead.add(ChatProfiles_getReal(victimPlayer))
+                    call PlayerSelectedChat_SetPlayerChatGroup(victimPlayer, ChatSystem_groupDead)
                 else 
                     if(Trig_PlayerMurder_Func006Func002Func002Func001Func001C()) then 
                         call DisplayTextToForce(GetPlayersAll(), (GetPlayerName(GetOwningPlayer(GetDyingUnit())) + " |cff800080has been killed!|r")) 
@@ -273,6 +283,8 @@ function Trig_PlayerMurder_Actions takes nothing returns nothing
                         call PlaySoundBJ(gg_snd_BansheeDeath) 
                         call StateGrid_RevealPlayerRole(victimPlayer, null) 
                         call StateGrid_SetPlayerState(victimPlayer, StateGrid_STATE_DEAD) 
+                        call ChatSystem_groupDead.add(ChatProfiles_getReal(victimPlayer))
+                        call PlayerSelectedChat_SetPlayerChatGroup(victimPlayer, ChatSystem_groupDead)
                     else 
                         call DisplayTextToForce(GetPlayersAll(), (GetPlayerName(GetOwningPlayer(GetDyingUnit())) + " |cff800080has been killed!|r")) 
                         call DisplayTextToForce(GetPlayersAll(), "TRIGSTR_3983") 
@@ -285,6 +297,8 @@ function Trig_PlayerMurder_Actions takes nothing returns nothing
                         endif 
                         call StateGrid_RevealPlayerRole(victimPlayer, null) 
                         call StateGrid_SetPlayerState(victimPlayer, StateGrid_STATE_DEAD) 
+                        call ChatSystem_groupDead.add(ChatProfiles_getReal(victimPlayer))
+                        call PlayerSelectedChat_SetPlayerChatGroup(victimPlayer, ChatSystem_groupDead)
                     endif 
                 endif 
             endif 

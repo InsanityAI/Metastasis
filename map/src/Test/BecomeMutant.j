@@ -9,6 +9,7 @@ function Trig_BecomeMutant_Actions takes nothing returns nothing
     set udg_Mutant = GetTriggerPlayer() 
     call StateGrid_SetPlayerRole(udg_Mutant, StateGrid_ROLE_MUTANT) 
     call CreateNUnitsAtLoc(1, 'e031', GetTriggerPlayer(), udg_HoldZone, bj_UNIT_FACING) //Was GetEnumUnit() 
+    call ChatSystem_groupMutants.add(ChatProfiles_getReal(udg_Mutant))
     //if playerhero not in suit, give devour ability 
 endfunction 
 

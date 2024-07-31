@@ -76,8 +76,7 @@ function Trig_AshenDeath_Func019A takes nothing returns nothing
         set udg_TempReal = (udg_TempReal + (360.00 / I2R(udg_TempInt))) 
         set udg_Player_IsParasiteSpawn[GetConvertedPlayerId(GetEnumPlayer())] = false 
         set udg_Player_IsMutantSpawn[GetConvertedPlayerId(GetEnumPlayer())] = false 
-        call DisplayTextToPlayer(GetOwningPlayer(GetLastCreatedUnit()), 0, 0, "|cffff3909The Android brought you back to life - one last chance to carry mankind, since he crumbled under the burden. Make sure you do not die alone again, but tak/*
-        * / e all of your enemies with you.| r ")
+        call DisplayTextToPlayer(GetOwningPlayer(GetLastCreatedUnit()), 0, 0, "|cffff3909The Android brought you back to life - one last chance to carry mankind, since he crumbled under the burden. Make sure you do not die alone again, but take all of your enemies with you.| r ")
         call SetUnitLifePercentBJ(GetLastCreatedUnit(), 50.00) 
         set udg_Playerhero[GetConvertedPlayerId(GetEnumPlayer())] = GetLastCreatedUnit() 
         call SetPlayerName(GetEnumPlayer(), udg_Player_NameBeforeDead[GetConvertedPlayerId(GetEnumPlayer())]) 
@@ -90,6 +89,8 @@ function Trig_AshenDeath_Func019A takes nothing returns nothing
         call SetPlayerAllianceStateBJ(GetEnumPlayer(), Player(bj_PLAYER_NEUTRAL_EXTRA), bj_ALLIANCE_ALLIED) 
         call ForceAddPlayerSimple(udg_TempPlayer, udg_TempPlayerGroup) 
         call ForceRemovePlayerSimple(GetEnumPlayer(), udg_DeadGroup) 
+        call PlayerSelectedChat_SetPlayerChatGroup(victimPlayer, ChatSystem_groupAll)
+        call ChatSystem_groupDead.remove(ChatProfiles_getReal(victimPlayer))
     endif 
 endfunction 
 

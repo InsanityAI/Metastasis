@@ -1,4 +1,4 @@
-library UnstuckCommand initializer init requires Commands, ChatSystem, Anonymity
+library UnstuckCommand initializer init requires Commands, ChatSystem
     struct UnstuckCommand extends Command
         public static method create takes nothing returns thistype
             return thistype.allocate("unstuck", 1)
@@ -18,6 +18,7 @@ library UnstuckCommand initializer init requires Commands, ChatSystem, Anonymity
         public method execute takes player initiator, integer argc returns nothing
             call RunCinematicUnstuck(initiator, false) // calls for a set of interface toggles offward 
             call RunCinematicUnstuck(initiator, true) // calls for a set of interface toggles onward 
+            call ChatSystem_sendSystemMessageToPlayer(initiator, "Unstucking...")
         endmethod
     endstruct
 

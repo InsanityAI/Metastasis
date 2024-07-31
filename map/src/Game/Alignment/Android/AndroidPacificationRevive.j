@@ -57,7 +57,7 @@ function Trig_AndroidPacificationRevive_Actions takes nothing returns nothing
     call DisableTrigger(gg_trg_AndroidUpgradeDialogClick) 
     call DisableTrigger(GetTriggeringTrigger()) 
     call DisableTrigger(gg_trg_AndroidCardVision) 
-    call DisableTrigger(gg_trg_AndroidChat) 
+    set AndroidChat_Enabled = false
         
     call PanCameraToTimedLocForPlayer(udg_TempPlayer, udg_TempPoint, 0) 
     call SelectUnitForPlayerSingle(gg_unit_h04A_0144, udg_TempPlayer) 

@@ -1,4 +1,4 @@
-library SlugglyCommand initializer init requires Commands, ChatSystem, Anonymity
+library SlugglyCommand initializer init requires Commands, ChatSystem
     globals
         private constant SLUGGLY_UNITID = 'n003'
         private boolexpr slugglyFilter

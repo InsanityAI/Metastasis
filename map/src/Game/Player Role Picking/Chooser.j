@@ -247,11 +247,13 @@ function Trig_Chooser_Actions takes nothing returns nothing
         set udg_Parasite = ForcePickRandomPlayer(udg_ChooseGroup) 
         call StateGrid_SetPlayerRole(udg_Parasite, StateGrid_ROLE_ALIEN) 
         call SetPlayerAllianceStateBJ(Player(bj_PLAYER_NEUTRAL_EXTRA), udg_Parasite, bj_ALLIANCE_ALLIED_ADVUNITS) 
+        call ChatSystem_groupAliens.add(ChatProfiles_getReal(udg_Parasite))
         call ForceRemovePlayerSimple(udg_Parasite, udg_ChooseGroup) 
     endif 
     if(Trig_Chooser_Func008C()) then 
         set udg_Mutant = ForcePickRandomPlayer(udg_ChooseGroup) 
         call StateGrid_SetPlayerRole(udg_Mutant, StateGrid_ROLE_MUTANT) 
+        call ChatSystem_groupMutants.add(ChatProfiles_getReal(udg_Mutant))
         call ForceRemovePlayerSimple(udg_Mutant, udg_ChooseGroup) 
     endif 
     call ForForce(GetPlayersAll(), function Trig_Chooser_Func009A) 

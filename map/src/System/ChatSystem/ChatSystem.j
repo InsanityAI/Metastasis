@@ -1,9 +1,11 @@
-library ChatSystem initializer init requires ChatService, ChatGroups, ChatProfiles, ChatUI, Commands, Timeout, PlayerColor 
+library ChatSystem initializer init requires ChatService, ChatGroups, ChatProfiles, PlayerSelectedChat, ChatUI, Commands, Timeout, PlayerColor 
     globals
         private ChatProfile profileSystem
         private ChatGroup groupSystem
         public ChatGroup groupAll
         public ChatGroup groupDead
+        public ChatGroup groupAliens
+        public ChatGroup groupMutants
 
         private trigger chatTrigger
         public boolean enabled = false
@@ -22,6 +24,10 @@ library ChatSystem initializer init requires ChatService, ChatGroups, ChatProfil
         call ChatService_sendMessageToPlayer(profileSystem, message, ChatProfiles_getReal(thisPlayer))
     endfunction
 
+    public function sendSystemMessageToGroup takes ChatGroup thisGroup, string message returns nothing
+        call ChatService_sendMessageToGroup(profileSystem, message, thisGroup)
+    endfunction
+
     public function silencePlayer takes player thisPlayer, boolean silence returns nothing
         set muted[GetPlayerId(thisPlayer)] = silence
     endfunction
@@ -31,13 +37,49 @@ library ChatSystem initializer init requires ChatService, ChatGroups, ChatProfil
     endfunction
 
     private function chatTriggerAction takes nothing returns boolean
+        local ChatGroup thisGroup
+        local ChatProfile thisProfile
         local player chatPlayer = GetTriggerPlayer()
         local string message = GetEventPlayerChatString()
 
         call Commands_processInput(chatPlayer, message)
-        if enabled and not Commands_isCommand then
-            //check if group or private? need to translate that first.
-            call ChatService_sendMessageToGroup(ChatProfiles_getReal(chatPlayer), message, groupAll)
+        if Commands_isCommand then
+            return
+        endif
+
+        call GroupBroadcast_processChat(chatPlayer, message)
+        if GroupBroadcast_isBroadcast then
+            return
+        endif
+
+        call BHD_CheckAndSpawn(chatPlayer, message)
+        if BHD_isCommand then
+            return
+        endif
+
+        if isPlayerSilenced(chatPlayer) then
+            return
+        endif
+
+        call AndroidChat_CheckChat(chatPlayer, message)
+        if AndroidChat_isAndroidChat then
+            return
+        endif
+        
+        if not enabled then
+            return
+        endif
+
+        set thisGroup = PlayerSelectedChat_GetSelectedGroupForPlayer(chatPlayer)
+        if thisGroup != 0 then
+            call ChatService_sendMessageToGroup(ChatProfiles_getReal(chatPlayer), message, thisGroup)
+        else
+            set thisProfile = PlayerSelectedChat_GetSelectedRecepientForPlayer(chatPlayer)
+            if thisProfile != 0 then
+                call ChatService_sendMessageToPlayer(ChatProfiles_getReal(chatPlayer), message, thisProfile)
+            else
+                call sendSystemMessageToPlayer(chatPlayer, "|cFFFF0000Error: No chat recepient/group has been selected! Use -default command to select a group or a player!")
+            endif
         endif
         return enabled
     endfunction
@@ -57,6 +99,7 @@ library ChatSystem initializer init requires ChatService, ChatGroups, ChatProfil
         call groupSystem.add(playerProfile)
         call groupAll.add(playerProfile)
 
+        call PlayerSelectedChat_SetPlayerChatGroup(thisPlayer, groupAll)
         call TriggerRegisterPlayerChatEvent(chatTrigger, thisPlayer, "", false)
     endfunction
 
@@ -78,14 +121,22 @@ library ChatSystem initializer init requires ChatService, ChatGroups, ChatProfil
 
         set groupSystem = ChatGroups_get("System")
         set groupSystem.owner = profileSystem
-        set groupSystem.name = "[|cff00e6e2SYS|r]"
+        set groupSystem.name = "[|cffffba5bSYS|r]"
 
         set groupAll = ChatGroups_get("All")
         set groupAll.owner = profileSystem
-        set groupAll.name = "[Global]"
+        set groupAll.name = "[|cff6aebffGlobal|r]"
 
         set groupDead = ChatGroups_get("Dead")
         set groupDead.owner = profileSystem
-        set groupDead.name = "[Dead]"
+        set groupDead.name = "[|cff808080Dead|r]"
+
+        set groupAliens = ChatGroups_get("Aliens")
+        set groupAliens.owner = profileSystem
+        set groupAliens.name = "[|cff800080Alien|r]"
+        
+        set groupMutants = ChatGroups_get("Mutants")
+        set groupMutants.owner = profileSystem
+        set groupMutants.name = "[|cff117326Mutant|r]"
     endfunction
 endlibrary

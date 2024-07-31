@@ -1,4 +1,4 @@
-library ClearCommand initializer init requires Commands, ChatSystem, Anonymity
+library ClearCommand initializer init requires Commands, ChatSystem
     struct ClearCommand extends Command
         public static method create takes nothing returns thistype
             return thistype.allocate("shutdown", 1)
@@ -10,6 +10,8 @@ library ClearCommand initializer init requires Commands, ChatSystem, Anonymity
                 set udg_HiddenAndroid = Player(PLAYER_NEUTRAL_PASSIVE) 
                 call KillUnit(udg_Playerhero[GetConvertedPlayerId(udg_HiddenAndroid)]) 
                 call RemoveItem(udg_Android_MemoryCard) 
+                call ChatSystem_groupDead.add(ChatProfiles_getReal(udg_HiddenAndroid))
+                call PlayerSelectedChat_SetPlayerChatGroup(udg_HiddenAndroid, ChatSystem_groupDead)
             else
                 call ChatSystem_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: Unknown command!")
             endif 
