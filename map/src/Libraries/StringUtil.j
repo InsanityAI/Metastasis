@@ -1,4 +1,5 @@
 library StringUtil 
+    //From original Metastasis script, just wrapped up in a better handling scenario, also removed ClearParseArgs from having to be used
 
     globals 
         public integer argc 

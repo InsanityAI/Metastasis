@@ -106,4 +106,21 @@ library Anonymity initializer init
         endif 
         return GetPlayerFromIndex(S2I(index)) 
     endfunction 
+
+    //1-indexed function, used for chat commands
+    public function GetPlayerFromIndex takes integer index returns player
+        if index > 0 then
+            return Anonymity_ShuffledPlayersArray[index - 1] 
+        else
+            return null
+        endif
+    endfunction
+
+    //1-indexed function, used for chat commands
+    public function GetPlayerFromStringIndex takes string index returns player
+        if index == null or index == "" then 
+            return null
+        endif 
+        return GetPlayerFromIndex(S2I(index))
+    endfunction
 endlibrary

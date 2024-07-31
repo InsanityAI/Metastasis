@@ -1,7 +1,7 @@
 function Trig_RenameEnd_Actions takes nothing returns nothing 
     call DisplayTextToForce(GetPlayersAll(), "TRIGSTR_1557") 
     call DestroyTrigger(GetTriggeringTrigger()) 
-    call DestroyTrigger(gg_trg_Rename) 
+    call RenameCommand_Disable()
     call DestroyTrigger(gg_trg_DeathSysTwo) 
 endfunction 
 

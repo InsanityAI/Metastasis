@@ -1,17 +1,17 @@
-function Trig_Clear_Actions takes nothing returns nothing 
-    if GetTriggerPlayer() == GetLocalPlayer() then 
-        call ClearTextMessages() 
-    endif 
-endfunction 
+library ClearCommand initializer init requires Commands, ChatSystem, Anonymity
+    struct ClearCommand extends Command
+        public static method create takes nothing returns thistype
+            return thistype.allocate("clear", 1)
+        endmethod
 
-//=========================================================================== 
-function InitTrig_Clear takes nothing returns nothing 
-    local integer i = 0 
-    set gg_trg_Clear = CreateTrigger() 
-    loop 
-        exitwhen i > 11 
-        call TriggerRegisterPlayerChatEvent(gg_trg_Clear, Player(i), "-clear", true) 
-        set i = i + 1 
-    endloop 
-    call TriggerAddAction(gg_trg_Clear, function Trig_Clear_Actions) 
-endfunction
+        public method execute takes player initiator, integer argc returns nothing
+            if initiator == GetLocalPlayer() then 
+                call ClearTextMessages() 
+            endif 
+        endmethod
+    endstruct
+
+    private function init takes nothing returns nothing
+        call ClearCommand.create()
+    endfunction
+endlibrary

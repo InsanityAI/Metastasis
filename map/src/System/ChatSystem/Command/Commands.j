@@ -2,7 +2,6 @@ library Commands initializer init requires Table, StringUtil, ChatService
     globals 
         private constant string COMMAND_PREFIX = "-"
 
-
         private Table commands // table<string, Command>   
         public boolean isCommand = false
     endglobals 
@@ -18,6 +17,10 @@ library Commands initializer init requires Table, StringUtil, ChatService
             call commands.write(COMMAND_PREFIX + name, this) 
             return this 
         endmethod 
+
+        public method onDestroy takes nothing returns nothing
+            call commands.delete(COMMAND_PREFIX + this.name)
+        endmethod
 
         public stub method execute takes player initiator, integer argc returns nothing 
         endmethod 

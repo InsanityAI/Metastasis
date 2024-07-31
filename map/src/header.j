@@ -2750,37 +2750,6 @@ function ReturnMasqueradeShop takes nothing returns unit
 
 endfunction 
 
-//Credits to Tal0n for RunCinematicUnstuck functions 
-function RunCinematicUnstuck takes player p, boolean enable returns nothing 
-    if(GetLocalPlayer() == p) then // the player who typed -unstuck 
-        call ClearTextMessages() // this can probably be disabled but it clears messages sent from triggers usually 
-        call ShowInterface(enable, 1.5) // disables/enables player interface 
-        call EnableUserControl(enable) // disables/enables player cursor and control 
-        call EnableOcclusion(enable) 
-        call EnableWorldFogBoundary(enable) // likely fixes filter bugs 
-    endif 
-endfunction 
- 
-function CinematicUnstuckConditionsKappa takes nothing returns boolean 
-    local player p = GetTriggerPlayer() 
-    call RunCinematicUnstuck(p, false) // calls for a set of interface toggles offward 
-    call RunCinematicUnstuck(p, true) // calls for a set of interface toggles onward 
-    
-    return true 
-endfunction 
-
-function CinematicUnstuckInit takes nothing returns nothing 
-    local trigger t = CreateTrigger() 
-    local integer i = 0 
-    
-    loop 
-        exitwhen i == 13 // this stops at brown ( player 12 ) 
-        call TriggerRegisterPlayerChatEvent(t, Player(i), "-unstuck", true) // add the command for each player 
-        call TriggerAddCondition(t, Condition(function CinematicUnstuckConditionsKappa)) // the code for the command to work 
-        set i = i + 1 // go from red/player to next player 
-    endloop 
-endfunction 
-
 //Can't believe this didn't exist already. 
 function IsUnitPlayerHero takes unit chosenUnit returns boolean 
     local integer i = 0 
