@@ -62,6 +62,7 @@ function Trig_NightOfTheMasksESC_Actions takes nothing returns nothing
     call RemoveLocation(udg_TempPoint) 
     call SelectUnitForPlayerSingle(GetLastCreatedUnit(), udg_TempPlayer) 
     call SetPlayerName(udg_TempPlayer, udg_Player_NameBeforeDead[GetConvertedPlayerId(GetTriggerPlayer())]) 
+    set ChatProfiles_getReal(udg_TempPlayer).name = PlayerColor_GetPlayerTextColor(udg_TempPlayer) + udg_Player_NameBeforeDead[GetConvertedPlayerId(udg_TempPlayer)] + "|r"
     set udg_Player_IsMasquerading[GetConvertedPlayerId(udg_TempPlayer)] = false 
     if udg_TempPlayer == udg_Parasite then 
         set udg_Player_IsMasquerading[GetConvertedPlayerId(Player(bj_PLAYER_NEUTRAL_EXTRA))] = false 

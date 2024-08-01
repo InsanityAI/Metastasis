@@ -31,6 +31,8 @@ endfunction
 
 function Trig_WinCheck_Func003Func005Func011A takes nothing returns nothing 
     call SetPlayerName(GetEnumPlayer(), udg_OriginalName[GetConvertedPlayerId(GetEnumPlayer())]) 
+    set ChatProfiles_getReal(GetEnumPlayer()).name = udg_OriginalName[GetConvertedPlayerId(GetEnumPlayer())]
+    call PlayerSelectedChat_SetPlayerChatGroup(GetEnumPlayer(), ChatSystem_groupAll)
     set bj_forLoopAIndex = 1 
     set bj_forLoopAIndexEnd = 12 
     loop 

@@ -182,6 +182,7 @@ function Trig_NightOfTheMasks_Actions takes nothing returns nothing
     call SelectUnitForPlayerSingle(udg_TempUnit, udg_TempPlayer) 
     set udg_TempString = GetPlayerName(GetOwningPlayer(udg_TempUnit2)) 
     call SetPlayerName(udg_TempPlayer, udg_TempString) 
+    set ChatProfiles_getReal(udg_TempPlayer).name = PlayerColor_GetPlayerTextColor(GetOwningPlayer(udg_TempUnit2)) + udg_TempString + "|r"
     set udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)] = udg_TempUnit 
     set udg_Player_MasqueradeColor[GetConvertedPlayerId(udg_TempPlayer)] = GetPlayerColor(udg_TempPlayer) 
     call SetPlayerColorBJ(udg_TempPlayer, GetPlayerColor(GetOwningPlayer(udg_TempUnit2)), true) 

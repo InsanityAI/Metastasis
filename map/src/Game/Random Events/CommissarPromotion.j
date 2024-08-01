@@ -52,6 +52,7 @@ function Trig_CommissarPromotion_Actions takes nothing returns nothing
         set name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + udg_TempString 
         call SetPlayerName(udg_TempPlayer, name) 
         call StateGrid_SetPlayerName(udg_TempPlayer, name) 
+        set ChatProfiles_getReal(udg_TempPlayer).name = PlayerColor_GetPlayerTextColor(udg_TempPlayer) + name + "|r"
         call UnitAddItemByIdSwapped('I00X', udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)]) 
     endif 
 endfunction 

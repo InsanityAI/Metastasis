@@ -9,7 +9,7 @@ library ChatSystem initializer init requires ChatService, ChatGroups, ChatProfil
 
         private trigger chatTrigger
         public boolean enabled = false
-        private boolean array muted
+        private integer array muted
     endglobals
 
     public function systemMessage takes string message returns nothing
@@ -29,11 +29,19 @@ library ChatSystem initializer init requires ChatService, ChatGroups, ChatProfil
     endfunction
 
     public function silencePlayer takes player thisPlayer, boolean silence returns nothing
-        set muted[GetPlayerId(thisPlayer)] = silence
+        local integer pid = GetPlayerId(thisPlayer)
+        if silence then
+            set muted[pid] = muted[pid] + 1
+        else
+            set muted[pid] = muted[pid] - 1
+            if muted[pid] < 0 then
+                set muted[pid] = 0
+            endif
+        endif
     endfunction
 
     public function isPlayerSilenced takes player thisPlayer returns boolean
-        return muted[GetPlayerId(thisPlayer)]
+        return muted[GetPlayerId(thisPlayer)] > 0
     endfunction
 
     private function chatTriggerAction takes nothing returns boolean

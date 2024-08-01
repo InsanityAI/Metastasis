@@ -60,6 +60,7 @@ function Trig_AndroidRevive_Actions takes nothing returns nothing
             call ShowInterfaceForceOn(GetForceOfPlayer(udg_HiddenAndroid), 0.01) 
             set udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)] = GetLastCreatedUnit() 
             call SetPlayerName(udg_TempPlayer, udg_Player_NameBeforeDead[GetConvertedPlayerId(udg_TempPlayer)]) 
+            set ChatProfiles_getReal(udg_TempPlayer).name = PlayerColor_GetPlayerTextColor(udg_TempPlayer) + udg_Player_NameBeforeDead[GetConvertedPlayerId(udg_TempPlayer)] + "|r"
             call StateGrid_SetPlayerState(udg_TempPlayer, StateGrid_STATE_ALIVE) 
             call PanCameraToTimedLocForPlayer(udg_TempPlayer, udg_TempPoint, 0) 
             call SelectUnitForPlayerSingle(GetLastCreatedUnit(), udg_TempPlayer) 

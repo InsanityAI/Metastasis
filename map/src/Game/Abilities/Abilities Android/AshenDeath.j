@@ -80,6 +80,9 @@ function Trig_AshenDeath_Func019A takes nothing returns nothing
         call SetUnitLifePercentBJ(GetLastCreatedUnit(), 50.00) 
         set udg_Playerhero[GetConvertedPlayerId(GetEnumPlayer())] = GetLastCreatedUnit() 
         call SetPlayerName(GetEnumPlayer(), udg_Player_NameBeforeDead[GetConvertedPlayerId(GetEnumPlayer())]) 
+        set ChatProfiles_getReal(GetEnumPlayer()).name = PlayerColor_GetPlayerTextColor(GetEnumPlayer()) + udg_Player_NameBeforeDead[GetConvertedPlayerId(GetEnumPlayer())] + "|r"
+        call StateGrid_SetPlayerRole(GetEnumPlayer(), StateGrid_ROLE_HUMAN)
+        call StateGrid_SetPlayerState(GetEnumPlayer(), StateGrid_STATE_ALIVE)
         call ShowInterfaceForceOn(GetForceOfPlayer(GetEnumPlayer()), 0.25) 
         call PanCameraToTimedLocForPlayer(GetEnumPlayer(), udg_TempPoint, 0) 
         call SelectUnitForPlayerSingle(GetLastCreatedUnit(), GetEnumPlayer()) 

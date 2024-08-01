@@ -1,28 +1,30 @@
 function Trig_Muteilate_Conditions takes nothing returns boolean 
-    if(not(GetSpellAbilityId() == 'A02Y')) then 
-        return false 
-    endif 
-    return true 
+    return GetSpellAbilityId() == 'A02Y' 
+endfunction 
+
+function Trig_Muteilate_Restore_Actions takes nothing returns nothing 
+    local Table timeoutData = Timeout.complete()
+    call ChatSystem_silencePlayer(timeoutData.read("player"), false)
+    call DisplayTextToPlayer(d, 0, 0, "|cff00FFFFYour voice returns to you!|r") 
 endfunction 
 
 function Trig_Muteilate_Actions takes nothing returns nothing 
-    local unit k = GetSpellTargetUnit() 
-    local string i = GetPlayerName(GetOwningPlayer(k)) 
-    local player d = GetOwningPlayer(k) 
-    local string j 
-    if udg_Playerhero[GetConvertedPlayerId(GetOwningPlayer(k))] == k then 
-        call DisplayTextToPlayer(GetOwningPlayer(k), 0, 0, "|cff00FFFFYou can no longer seem to form words...|r") 
-        call SetPlayerName(GetOwningPlayer(k), "                                                                                                                                                                                                                                                " + "                                                                                                                                                                                                                                                " + "                                                                                                                                                                                                                                                ") 
-        set j = GetPlayerName(GetOwningPlayer(k)) 
-        call PolledWait(60.00) 
-        if GetPlayerName(d) == j then 
-            call SetPlayerName(d, i) 
-            call DisplayTextToPlayer(d, 0, 0, "|cff00FFFFYour voice returns to you!|r") 
-        endif 
+    local Table timeoutData
+    local unit targetUnit = GetSpellTargetUnit() 
+    local player targetPlayer = GetOwningPlayer(targetUnit)
+
+    if udg_Playerhero[GetConvertedPlayerId(targetPlayer)] == targetUnit then 
+        call ChatSystem_silencePlayer(targetPlayer, true)
+        call DisplayTextToPlayer(targetPlayer, 0, 0, "|cff00FFFFYou can no longer seem to form words...|r") 
+        set timeoutData = Timeout.start(60, false, function Trig_Muteilate_Restore_Actions)
+        call timeoutData.write("player", targetPlayer)
     endif 
+
+    set targetUnit = null
+    set targetPlayer = null
 endfunction 
 
-//=========================================================================== 
+//===========================================================================  
 function InitTrig_Muteilate takes nothing returns nothing 
     set gg_trg_Muteilate = CreateTrigger() 
     call TriggerRegisterAnyUnitEventBJ(gg_trg_Muteilate, EVENT_PLAYER_UNIT_SPELL_EFFECT) 
