@@ -65,10 +65,7 @@ function Trig_AshenDeath_Func019A takes nothing returns nothing
     else 
         // Determining spawn point via angle 
         set udg_TempPoint = PolarProjectionBJ(udg_TempPoint2, 240.00, udg_TempReal) 
-        // Close the dead chat board 
-        if GetLocalPlayer() == GetEnumPlayer() then 
-            call MultiboardDisplay(ChatBoard, false) 
-        endif 
+
         call CreateNUnitsAtLoc(1, 'n00L', GetEnumPlayer(), udg_TempPoint, udg_TempReal) 
         call GroupAddUnitSimple(GetLastCreatedUnit(), udg_AshenMarineGroup) 
         call AddSpecialEffectLocBJ(udg_TempPoint, "Abilities\\Spells\\Human\\Resurrect\\ResurrectTarget.mdl") 
@@ -92,8 +89,8 @@ function Trig_AshenDeath_Func019A takes nothing returns nothing
         call SetPlayerAllianceStateBJ(GetEnumPlayer(), Player(bj_PLAYER_NEUTRAL_EXTRA), bj_ALLIANCE_ALLIED) 
         call ForceAddPlayerSimple(udg_TempPlayer, udg_TempPlayerGroup) 
         call ForceRemovePlayerSimple(GetEnumPlayer(), udg_DeadGroup) 
-        call PlayerSelectedChat_SetPlayerChatGroup(victimPlayer, ChatSystem_groupAll)
-        call ChatSystem_groupDead.remove(ChatProfiles_getReal(victimPlayer))
+        call PlayerSelectedChat_SetPlayerChatGroup(GetEnumPlayer(), ChatSystem_groupAll)
+        call ChatSystem_groupDead.remove(ChatProfiles_getReal(GetEnumPlayer()))
     endif 
 endfunction 
 

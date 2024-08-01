@@ -1,4 +1,4 @@
-library CamCommand initializer init requires Commands, ChatSystem, StringUtil
+library CamCommand initializer init requires Commands, ChatSystem, StringUtil, CSAPI
     globals 
         private integer DEFAULT_CAMERA_DISTANCE = 1650 
     endglobals 
@@ -34,7 +34,7 @@ library CamCommand initializer init requires Commands, ChatSystem, StringUtil
                 set i = i + 1 
             endloop 
 
-            call ChatSystem_sendSystemMessageToPlayer(initiator, "Camera has been adjusted to " + I2S(cameraDistance) + ".")
+            call CSAPI_sendSystemMessageToPlayer(initiator, "Camera has been adjusted to " + I2S(cameraDistance) + ".")
         endmethod 
     endstruct 
 

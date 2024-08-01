@@ -80,7 +80,7 @@ library ChatService initializer init requires Clock, ChatGroups, ChatProfiles
         local player localPlayer = GetLocalPlayer()
         local ChatProfile profile
         local integer i = members[0] 
-        local boolean showToLocal = recepientGroup.contains(from) and from.chatPlayer == localPlayer
+        local boolean showToLocal = from.chatPlayer == localPlayer
         call notifyListenersGroup(Clock_formattedTime, from, recepientGroup, message) 
         loop 
             exitwhen i == 0 

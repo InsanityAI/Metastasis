@@ -112,9 +112,6 @@ function Trig_PlayerMurderPart2_Actions takes nothing returns nothing
         endif 
     else 
         call DisplayTextToPlayer(udg_TempPlayer, 0, 0, "You have died. You can stay and watch the game, or leave at any time.") 
-        if GetLocalPlayer() == udg_TempPlayer then 
-            call MultiboardDisplay(ChatBoard, true) 
-        endif 
         set udg_Player_Spectating[GetConvertedPlayerId(udg_TempPlayer)] = true 
         call ForForce(GetPlayersAll(), function Trig_PlayerMurderPart2_Func003Func007A) 
         call SetPlayerAllianceStateBJ(Player(bj_PLAYER_NEUTRAL_EXTRA), udg_TempPlayer, bj_ALLIANCE_ALLIED_VISION) 

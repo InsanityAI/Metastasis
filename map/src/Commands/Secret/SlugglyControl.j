@@ -1,6 +1,6 @@
-library SlugglyCommand initializer init requires Commands, ChatSystem
+library SlugglyCommand initializer init requires Commands, ChatSystem, CSAPI
     globals
-        private constant SLUGGLY_UNITID = 'n003'
+        private constant integer SLUGGLY_UNITID = 'n003'
         private boolexpr slugglyFilter
         private group slugglyGroup
         private player initiatorPlayer
@@ -13,7 +13,7 @@ library SlugglyCommand initializer init requires Commands, ChatSystem
 
     private function GrabAliveUncontrolledSluggly takes nothing returns unit
         call GroupEnumUnitsOfPlayer(slugglyGroup, Player(PLAYER_NEUTRAL_PASSIVE), slugglyFilter)
-        return GroupPickRandomUnit(g)
+        return GroupPickRandomUnit(slugglyGroup)
     endfunction
 
     private function ModifyPlayerAlliances takes nothing returns nothing
@@ -29,9 +29,9 @@ library SlugglyCommand initializer init requires Commands, ChatSystem
         endmethod
 
         private method controlSluggly takes player initiator returns nothing
-            local targetSluggly = GrabAliveUncontrolledSluggly()
+            local unit targetSluggly = GrabAliveUncontrolledSluggly()
             if targetSluggly == null then
-                call ChatSystem_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: There are no eligible slugglies to take control of!")
+                call CSAPI_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: There are no eligible slugglies to take control of!")
                 return
             endif
             set udg_Player_Slugglied[GetConvertedPlayerId(initiator)] = true 
@@ -47,11 +47,11 @@ library SlugglyCommand initializer init requires Commands, ChatSystem
 
         public method execute takes player initiator, integer argc returns nothing
             if udg_Player_Slugglied[GetConvertedPlayerId(initiator)] then 
-                call ChatSystem_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: You are already in control of a sluggly!")
+                call CSAPI_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: You are already in control of a sluggly!")
                 return
             endif
             if not IsPlayerInForce(GetTriggerPlayer(), udg_DeadGroup) then
-                call ChatSystem_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: Unknown command!")
+                call CSAPI_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: Unknown command!")
                 return
             endif
             call this.controlSluggly(initiator)            

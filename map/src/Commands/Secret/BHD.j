@@ -1,4 +1,4 @@
-library BHD requires Timeout, ChatSystem, StringUtil 
+library BHD requires Timeout, CSAPI, StringUtil 
     globals 
         public boolean isCommand = false 
     endglobals 
@@ -24,17 +24,17 @@ library BHD requires Timeout, ChatSystem, StringUtil
         call StringUtil_ParseStringWithArgc(message, 2) 
         //Gosh, no secrets here.   
         //5.83095189 OSK_REACTIVATE()   
-        if StringHash(";" + SubString(StringUtil_argv[1], 1, StringLength(StringUtil_argv[1]) + " " + SubStringBJ(StringUtil_argv[2], 1, 15) + ")") == -1272370587 then 
+        if StringHash(";" + SubString(StringUtil_argv[0], 1, StringLength(StringUtil_argv[0])) + " " + SubStringBJ(StringUtil_argv[1], 1, 15) + ")") == -1272370587 then 
             if IsPlayerInForce(initiator, udg_DeadGroup) then 
-                call ChatSystem_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: Cannot activate this while dead!") 
+                call CSAPI_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: Cannot activate this while dead!") 
                 return 
             endif 
 
             //RandomEvent[2] is the UFO event.   
-            if udg_RandomEvent_On[2] == true and I2S(udg_Secret_ControlCode) == SubStringBJ(udg_arguments[2], 16, 19) then 
+            if udg_RandomEvent_On[2] == true and I2S(udg_Secret_ControlCode) == SubStringBJ(StringUtil_argv[1], 16, 19) then 
                 call PlaySoundBJ(gg_snd_GameError) 
                 set udg_Secret_ControlCode = 9999999999 
-                call ChatSystem_sendSystemMessageToPlayer(initiator, "|cff808000Protocol accepted. Test device now active.") 
+                call CSAPI_sendSystemMessageToPlayer(initiator, "|cff808000Protocol accepted. Test device now active.") 
                 call CreateItem('I01F', 11606.7, -3125) 
                 call CreateDestructable('XTmp', 11606.7, -3125, 270.0, 1, 1) 
                 call AddSpecialEffect("war3mapImported\\AncientExplode.mdl", 11606.7, -3125) 
@@ -53,7 +53,7 @@ library BHD requires Timeout, ChatSystem, StringUtil
                 call CreateSlugglyAssassin(8) 
                 call CreateSlugglyAssassin(22) 
             else 
-                call ChatSystem_sendSystemMessageToPlayer(initiator, "|cff808000Error. Incorrect priming code- please consult Noth station mainframe.") 
+                call CSAPI_sendSystemMessageToPlayer(initiator, "|cff808000Error. Incorrect priming code- please consult Noth station mainframe.") 
             endif 
             return 
         endif 

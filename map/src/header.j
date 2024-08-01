@@ -528,52 +528,6 @@ endfunction
 function ShieldsGoUp takes nothing returns nothing 
     call TriggerExecute(gg_trg_ShieldsUp) 
 endfunction 
-//////////////////////////////////////////////////////////////////////////////////////////////////////// 
-// 
-//From trial and error we have learned the ExecuteFunc("SFXClean") many times in a row 
-//will disconnect the silly Macintosh users, a la planetary bombardment. 
-//Thinking about it maybe these still disconnect silly Macintosh users? 
-//Note that the stuff below just destroys the last created function after like 10 seconds. 
-function SFXClean takes nothing returns nothing 
-    local effect a = GetLastCreatedEffectBJ() 
-    call PolledWait(10.0) 
-    call DestroyEffect(a) 
-endfunction 
-
-function CleanSFX takes nothing returns nothing 
-    local effect a = GetLastCreatedEffectBJ() 
-    call PolledWait(10.0) 
-    call DestroyEffect(a) 
-endfunction 
-
-
-function SFXClean2 takes nothing returns nothing 
-    local effect a = GetLastCreatedEffectBJ() 
-    call PolledWait(0.5) 
-    call DestroyEffect(a) 
-endfunction 
-function SFXThreadClean_Child takes nothing returns nothing 
-    local timer t = GetExpiredTimer() 
-    call DestroyEffect(LoadEffectHandle(LS(), GetHandleId(t), StringHash("a"))) 
-    call FlushChildHashtable(LS(), GetHandleId(t)) 
-    call DestroyTimer(t) 
-endfunction 
-
-function SFXThreadClean takes nothing returns nothing 
-    //Uses a timer for thread safety. 
-    local effect a = GetLastCreatedEffectBJ() 
-    local timer t = CreateTimer() 
-    call TimerStart(t, 10.0, false, function SFXThreadClean_Child) 
-    call SaveEffectHandle(LS(), GetHandleId(t), StringHash("a"), a) 
-endfunction 
-function SFXThreadCleanTimed takes nothing returns nothing 
-    //Uses a timer for thread safety. 
-    local effect a = GetLastCreatedEffectBJ() 
-    local timer t = CreateTimer() 
-    call TimerStart(t, udg_TempReal, false, function SFXThreadClean_Child) 
-    call SaveEffectHandle(LS(), GetHandleId(t), StringHash("a"), a) 
-endfunction 
-// 
 // 
 //////////////////////////////////////////////////////////////////////////////////////////////////////// 
 // 

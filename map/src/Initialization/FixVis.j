@@ -17,8 +17,7 @@ function Trig_FixVis_Func054C takes nothing returns boolean
     return true 
 endfunction 
 
-function Trig_FixVis_Actions takes nothing returns nothing 
-    call EnableTrigger(gg_trg_Rename) 
+function Trig_FixVis_Actions takes nothing returns nothing  
     // There's a bug where the center of the map, roughly above the Niffy docking bay, is partially visible which fudges up the minimap. This restores the black mask. 
     call ForForce(GetPlayersAll(), function Trig_FixVis_Func004A) 
     // Also, initialize space things 
@@ -56,7 +55,6 @@ function Trig_FixVis_Actions takes nothing returns nothing
     set udg_SpaceObject_Rect[GetUnitUserData(gg_unit_h04E_0259)] = gg_rct_ST8 
     set udg_SpaceObject_Rect[GetUnitUserData(gg_unit_h04T_0265)] = gg_rct_ST9 
     set udg_SpaceObject_Rect[GetUnitUserData(gg_unit_h04V_0253)] = gg_rct_ST10 
-    set udg_ChatGroupStore = gg_trg_ChatGroupBroadcast 
     // Sluggly assassin init 
     set udg_SpaceObject_SlugglyAssassinX[1] = -11535.00 
     set udg_SpaceObject_SlugglyAssassinY[1] = 15200.00 

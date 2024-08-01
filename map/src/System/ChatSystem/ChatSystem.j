@@ -1,48 +1,14 @@
-library ChatSystem initializer init requires ChatService, ChatGroups, ChatProfiles, PlayerSelectedChat, ChatUI, Commands, Timeout, PlayerColor 
+library ChatSystem initializer init requires ChatService, ChatGroups, ChatProfiles, PlayerSelectedChat, ChatUI, Commands, Timeout, PlayerColor, GroupBroadcast, BHD, ChatSilence
     globals
-        private ChatProfile profileSystem
-        private ChatGroup groupSystem
+        public ChatProfile profileSystem
+        public ChatGroup groupSystem
         public ChatGroup groupAll
         public ChatGroup groupDead
         public ChatGroup groupAliens
         public ChatGroup groupMutants
 
         private trigger chatTrigger
-        public boolean enabled = false
-        private integer array muted
     endglobals
-
-    public function systemMessage takes string message returns nothing
-        call ChatService_sendMessageToGroup(profileSystem, message, groupSystem)
-    endfunction
-
-    public function sendSystemMessageToProfile takes ChatProfile thisPlayer, string message returns nothing
-        call ChatService_sendMessageToPlayer(profileSystem, message, thisPlayer)        
-    endfunction
-
-    public function sendSystemMessageToPlayer takes player thisPlayer, string message returns nothing
-        call ChatService_sendMessageToPlayer(profileSystem, message, ChatProfiles_getReal(thisPlayer))
-    endfunction
-
-    public function sendSystemMessageToGroup takes ChatGroup thisGroup, string message returns nothing
-        call ChatService_sendMessageToGroup(profileSystem, message, thisGroup)
-    endfunction
-
-    public function silencePlayer takes player thisPlayer, boolean silence returns nothing
-        local integer pid = GetPlayerId(thisPlayer)
-        if silence then
-            set muted[pid] = muted[pid] + 1
-        else
-            set muted[pid] = muted[pid] - 1
-            if muted[pid] < 0 then
-                set muted[pid] = 0
-            endif
-        endif
-    endfunction
-
-    public function isPlayerSilenced takes player thisPlayer returns boolean
-        return muted[GetPlayerId(thisPlayer)] > 0
-    endfunction
 
     private function chatTriggerAction takes nothing returns boolean
         local ChatGroup thisGroup
@@ -52,30 +18,30 @@ library ChatSystem initializer init requires ChatService, ChatGroups, ChatProfil
 
         call Commands_processInput(chatPlayer, message)
         if Commands_isCommand then
-            return
+            return true
         endif
 
         call GroupBroadcast_processChat(chatPlayer, message)
         if GroupBroadcast_isBroadcast then
-            return
+            return true
         endif
 
         call BHD_CheckAndSpawn(chatPlayer, message)
         if BHD_isCommand then
-            return
-        endif
+            return true
+        endif 
 
-        if isPlayerSilenced(chatPlayer) then
-            return
+        if ChatSilence_isPlayerSilenced(chatPlayer) then
+            return true
         endif
 
         call AndroidChat_CheckChat(chatPlayer, message)
         if AndroidChat_isAndroidChat then
-            return
+            return true
         endif
         
-        if not enabled then
-            return
+        if not ChatSilence_enabled then
+            return false
         endif
 
         set thisGroup = PlayerSelectedChat_GetSelectedGroupForPlayer(chatPlayer)
@@ -86,17 +52,17 @@ library ChatSystem initializer init requires ChatService, ChatGroups, ChatProfil
             if thisProfile != 0 then
                 call ChatService_sendMessageToPlayer(ChatProfiles_getReal(chatPlayer), message, thisProfile)
             else
-                call sendSystemMessageToPlayer(chatPlayer, "|cFFFF0000Error: No chat recepient/group has been selected! Use -default command to select a group or a player!")
+                call ChatService_sendMessageToPlayer(ChatSystem_profileSystem, "|cFFFF0000Error: No chat recepient/group has been selected! Use -default command to select a group or a player!", ChatProfiles_getReal(chatPlayer))
             endif
         endif
-        return enabled
+        return true
     endfunction
 
     //To prevent from GHost starting messages from doxxing people and ruining "immersion"
     private function enableChat takes nothing returns nothing
         call Timeout.complete()
-        set enabled = true
-        call systemMessage("U.S.I. Comms online!")
+        set ChatSilence_enabled = true
+        call ChatService_sendMessageToGroup(ChatSystem_profileSystem, "U.S.I. Comms online!", ChatSystem_groupSystem)
     endfunction
 
     private function initPlayer takes nothing returns nothing

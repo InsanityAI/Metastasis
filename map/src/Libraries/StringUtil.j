@@ -1,6 +1,5 @@
 library StringUtil 
     //From original Metastasis script, just wrapped up in a better handling scenario, also removed ClearParseArgs from having to be used
-
     globals 
         public integer argc 
         public string array argv 
@@ -10,7 +9,7 @@ library StringUtil
     //Fetch individual strings via argv[index], and argc to determine how many arguments there were passed    
     //index for argv is 0-indexed  
     public function ParseStringArgs takes string consoleArgs returns nothing 
-        local string r = GetEventPlayerChatString() 
+        local string r = consoleArgs
         local integer lasti = 0 
         local integer i = 0 
         local integer argumenton = 0 
@@ -19,18 +18,18 @@ library StringUtil
         //Divides an entered string into spaces. "-liquidate lightblue" becomes argv[0]=-liquidate and argv[1]=lightblue    
         loop 
             exitwhen i > k 
-            if SubString(r, i - 1, i) == " " then 
+            if SubString(r, i, i + 1) == " " then 
                 set n = lasti - 1 
                 if n < 0 then 
                     set n = 0 
                 endif 
-                set argv[argumenton] = SubString(r, lasti - 1, i - 1) 
+                set argv[argumenton] = SubString(r, lasti, i) 
                 set argumenton = argumenton + 1 
                 set lasti = i + 1 
             endif 
             set i = i + 1 
         endloop 
-        set argv[argumenton] = SubString(r, lasti - 1, 999) 
+        set argv[argumenton] = SubString(r, lasti, 999) 
         set argc = argumenton + 1 
     endfunction 
 
@@ -39,7 +38,7 @@ library StringUtil
     //index for argv is 0-indexed  
     //e.g: ParseStringWithArgc("-liquidate light blue", 2) becomes argv[0]="-liquidate" and argv[1]="light blue" 
     public function ParseStringWithArgc takes string consoleArgs, integer argc returns nothing 
-        local string r = GetEventPlayerChatString() 
+        local string r = consoleArgs
         local integer lasti = 0 
         local integer i = 0 
         local integer argumenton = 0 
@@ -47,20 +46,19 @@ library StringUtil
         local integer n 
         loop 
             exitwhen i > k 
-            exitwhen argumenton > argc - 1 
-            if SubString(r, i - 1, i) == " " then 
+            exitwhen argumenton >= argc - 1 
+            if SubString(r, i, i + 1) == " " then 
                 set n = lasti - 1 
                 if n < 0 then 
                     set n = 0 
                 endif 
-                set argv[argumenton] = SubString(r, lasti - 1, i - 1) 
+                set argv[argumenton] = SubString(r, lasti, i) 
                 set argumenton = argumenton + 1 
                 set lasti = i + 1 
             endif 
             set i = i + 1 
         endloop 
-        set argv[argumenton] = SubString(r, lasti - 1, 999) 
+        set argv[argumenton] = SubString(r, lasti, 999) 
         set argc = argc 
     endfunction 
-
 endlibrary 

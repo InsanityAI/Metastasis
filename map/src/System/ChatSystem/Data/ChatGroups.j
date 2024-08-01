@@ -39,7 +39,7 @@ library ChatGroups initializer init requires Table
         return chatGroup
     endfunction
 
-    public function exists takes string name returns ChatGroup
+    public function exists takes string name returns boolean
         return groups.written(name)
     endfunction
 

@@ -1,4 +1,4 @@
-library Commands initializer init requires Table, StringUtil, ChatService
+library Commands initializer init requires Table, StringUtil, ChatService, CSAPI
     globals 
         private constant string COMMAND_PREFIX = "-"
 
@@ -52,18 +52,17 @@ endfunction
         if SubString(commandName, 0, 1) != COMMAND_PREFIX then
             set isCommand = false
             return
-        else
-            set isCommand = true
         endif
 
+        set isCommand = true
         if not commands.written(commandName) then
-            call ChatSystem_sendSystemMessageToPlayer(thisPlayer, "|cFFFF0000Error: Unknown command!|r")
+            call CSAPI_sendSystemMessageToPlayer(thisPlayer, "|cFFFF0000Error: Unknown command!|r")
             return
         endif
         set command = commands.read(commandName)
 
-        if commands.minimumArgc < StringUtil_argc then
-            call ChatSystem_sendSystemMessageToPlayer(thisPlayer, "|cFFFF0000Error: Not enough arguments for|r " + command.name + " |cFFFF0000command!|r")
+        if command.minimumArgC < StringUtil_argc then
+            call CSAPI_sendSystemMessageToPlayer(thisPlayer, "|cFFFF0000Error: Not enough arguments for|r " + command.name + " |cFFFF0000command!|r")
         else
             call command.execute(thisPlayer, StringUtil_argc)
         endif

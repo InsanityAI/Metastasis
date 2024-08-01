@@ -234,7 +234,6 @@ function Trig_WinCheck_Actions takes nothing returns nothing
         endloop 
         if(Trig_WinCheck_Func003Func005C()) then 
             set udg_GameEnd = true 
-            call DestroyTrigger(gg_trg_PlayerDeathText) 
             call DestroyTrigger(gg_trg_WinCheck) 
             call DestroyTrigger(gg_trg_PlayerMurder) 
             call DestroyTrigger(GetTriggeringTrigger()) 
@@ -277,7 +276,6 @@ function Trig_WinCheck_Actions takes nothing returns nothing
         endloop 
         if(Trig_WinCheck_Func004Func004C()) then 
             set udg_GameEnd = true 
-            call DestroyTrigger(gg_trg_PlayerDeathText) 
             call DestroyTrigger(gg_trg_WinCheck) 
             call DestroyTrigger(GetTriggeringTrigger()) 
             call DestroyTrigger(gg_trg_PlayerMurder) 
@@ -320,7 +318,6 @@ function Trig_WinCheck_Actions takes nothing returns nothing
         endloop 
         if(Trig_WinCheck_Func005Func004C()) then 
             set udg_GameEnd = true 
-            call DestroyTrigger(gg_trg_PlayerDeathText) 
             call DestroyTrigger(gg_trg_WinCheck) 
             call DestroyTrigger(gg_trg_PlayerMurder) 
             call DestroyTrigger(GetTriggeringTrigger()) 

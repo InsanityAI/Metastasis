@@ -4,8 +4,9 @@ endfunction
 
 function Trig_Muteilate_Restore_Actions takes nothing returns nothing 
     local Table timeoutData = Timeout.complete()
-    call ChatSystem_silencePlayer(timeoutData.read("player"), false)
-    call DisplayTextToPlayer(d, 0, 0, "|cff00FFFFYour voice returns to you!|r") 
+    local player thisPlayer = timeoutData.player.read("player")
+    call ChatSilence_silencePlayer(thisPlayer, false)
+    call DisplayTextToPlayer(thisPlayer, 0, 0, "|cff00FFFFYour voice returns to you!|r") 
 endfunction 
 
 function Trig_Muteilate_Actions takes nothing returns nothing 
@@ -14,10 +15,10 @@ function Trig_Muteilate_Actions takes nothing returns nothing
     local player targetPlayer = GetOwningPlayer(targetUnit)
 
     if udg_Playerhero[GetConvertedPlayerId(targetPlayer)] == targetUnit then 
-        call ChatSystem_silencePlayer(targetPlayer, true)
+        call ChatSilence_silencePlayer(targetPlayer, true)
         call DisplayTextToPlayer(targetPlayer, 0, 0, "|cff00FFFFYou can no longer seem to form words...|r") 
         set timeoutData = Timeout.start(60, false, function Trig_Muteilate_Restore_Actions)
-        call timeoutData.write("player", targetPlayer)
+        call timeoutData.player.write("player", targetPlayer)
     endif 
 
     set targetUnit = null

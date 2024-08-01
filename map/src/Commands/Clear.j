@@ -1,4 +1,4 @@
-library ClearCommand initializer init requires Commands, ChatSystem
+library ClearCommand initializer init requires Commands, CSAPI
     struct ClearCommand extends Command
         public static method create takes nothing returns thistype
             return thistype.allocate("clear", 1)
@@ -8,7 +8,7 @@ library ClearCommand initializer init requires Commands, ChatSystem
             if initiator == GetLocalPlayer() then 
                 call ClearTextMessages() 
             endif 
-            call ChatSystem_sendSystemMessageToPlayer(initiator, "Game messages cleared!")
+            call CSAPI_sendSystemMessageToPlayer(initiator, "Game messages cleared!")
         endmethod
     endstruct
 

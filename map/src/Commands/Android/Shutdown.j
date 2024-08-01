@@ -1,5 +1,5 @@
-library ClearCommand initializer init requires Commands, ChatSystem
-    struct ClearCommand extends Command
+library ShutdownCommand initializer init requires Commands, ChatSystem, CSAPI
+    struct ShutdownCommand extends Command
         public static method create takes nothing returns thistype
             return thistype.allocate("shutdown", 1)
         endmethod
@@ -13,12 +13,12 @@ library ClearCommand initializer init requires Commands, ChatSystem
                 call ChatSystem_groupDead.add(ChatProfiles_getReal(udg_HiddenAndroid))
                 call PlayerSelectedChat_SetPlayerChatGroup(udg_HiddenAndroid, ChatSystem_groupDead)
             else
-                call ChatSystem_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: Unknown command!")
+                call CSAPI_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: Unknown command!")
             endif 
         endmethod
     endstruct
 
     private function init takes nothing returns nothing
-        call ClearCommand.create()
+        call ShutdownCommand.create()
     endfunction
 endlibrary

@@ -1,14 +1,14 @@
-library GroupBroadcast initializer init requires StringUtil, ChatSystem, ChatGroups, ChatProfiles, ChatService
+library GroupBroadcast initializer init requires StringUtil, CSAPI, ChatGroups, ChatProfiles, ChatService, Anonymity
     globals
-        private boolean isBroadcast = false
-        private constant EVIL_BROADCAST_PREFIX = "["
-        private constant REGULAR_BROADCAST_PREFIX = "."
+        public boolean isBroadcast = false
+        private constant string EVIL_BROADCAST_PREFIX = "["
+        private constant string REGULAR_BROADCAST_PREFIX = "."
     endglobals
 
     private function processEvilBroadcast takes player initiator, string message returns nothing
         local ChatGroup chatGroup
         if IsPlayerInForce(initiator, udg_DeadGroup) then
-            call ChatSystem_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: You cannot speak to your fellow kin beyond the grave!")
+            call CSAPI_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: You cannot speak to your fellow kin beyond the grave!")
             return
         endif
 
@@ -17,7 +17,7 @@ library GroupBroadcast initializer init requires StringUtil, ChatSystem, ChatGro
         elseif not(udg_Player_IsMutantSpawn[GetConvertedPlayerId(initiator)] or initiator == udg_Mutant) then
             set chatGroup = ChatSystem_groupMutants
         else
-            call ChatSystem_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: Access denied!")
+            call CSAPI_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: Access denied!")
             return
         endif
         
@@ -28,9 +28,10 @@ library GroupBroadcast initializer init requires StringUtil, ChatSystem, ChatGro
         local string groupName
         local ChatGroup chatGroup
         local player targettedPlayer
+        local ChatProfile initiatorProfile
 
         if IsPlayerInForce(initiator, udg_DeadGroup) then
-            call ChatSystem_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: You cannot use other chat groups!")
+            call CSAPI_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: You cannot use other chat groups!")
             return
         endif
 
@@ -39,19 +40,19 @@ library GroupBroadcast initializer init requires StringUtil, ChatSystem, ChatGro
 
         if ChatGroups_exists(groupName) then
             set chatGroup = ChatGroups_get(groupName)
+            set initiatorProfile = ChatProfiles_getReal(initiator)
             if chatGroup.owner != initiatorProfile and not chatGroup.contains(initiatorProfile) then
-                call ChatSystem_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: You do not belong in this chat group!")
+                call CSAPI_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: You do not belong in this chat group!")
                 return
             endif
-            ChatService_sendMessageToGroup(ChatProfiles_getReal(initiator), StringUtil_argv[1], chatGroup)
+            call ChatService_sendMessageToGroup(ChatProfiles_getReal(initiator), StringUtil_argv[1], chatGroup)
         else
             set targettedPlayer = Anonymity_GetPlayerFromStringIndex(groupName)
             if targettedPlayer == null then
-                call ChatSystem_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: Chat group or player not found!")
+                call CSAPI_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: Chat group or player not found!")
                 return
             endif
-            set chatProfile = ChatProfiles_getReal(targettedPlayer)
-            ChatService_sendMessageToPlayer(ChatProfiles_getReal(initiator), StringUtil_argv[1], ChatProfiles_getReal(targettedPlayer))
+            call ChatService_sendMessageToPlayer(ChatProfiles_getReal(initiator), StringUtil_argv[1], ChatProfiles_getReal(targettedPlayer))
         endif
 
     endfunction

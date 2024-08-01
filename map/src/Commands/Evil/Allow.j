@@ -1,4 +1,4 @@
-library AllowCommand initializer init requires Commands, ChatSystem
+library AllowCommand initializer init requires Commands, ChatSystem, CSAPI
     struct AllowCommand extends Command
         public static method create takes nothing returns thistype
             return thistype.allocate("allow", 1)
@@ -12,10 +12,10 @@ library AllowCommand initializer init requires Commands, ChatSystem
                 set udg_AllowAlienTK = true 
                 call DisableTrigger(gg_trg_NoAlienTK) 
             else
-                call ChatSystem_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: Unknown command!")
+                call CSAPI_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: Unknown command!")
                 return
             endif
-            call ChatSystem_sendSystemMessageToPlayer(initiator, "Your spawns may now attack you.")
+            call CSAPI_sendSystemMessageToPlayer(initiator, "Your spawns may now attack you.")
         endmethod
     endstruct
 

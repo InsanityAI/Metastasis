@@ -70,9 +70,6 @@ function Trig_BackFromHellDialog_Actions takes nothing returns nothing
     set udg_TempPoint2 = GetUnitLoc(udg_AlienForm_Alien) 
     set udg_TempPoint = PolarProjectionBJ(udg_TempPoint2, 25.00, GetUnitFacing(udg_AlienForm_Alien)) 
     if(Trig_BackFromHellDialog_Func009C()) then 
-        if GetLocalPlayer() == udg_TempPlayer then 
-            call MultiboardDisplay(ChatBoard, false) 
-        endif 
         call CreateNUnitsAtLoc(1, 'n00E', udg_TempPlayer, udg_TempPoint, bj_UNIT_FACING) 
         set udg_Player_IsParasiteSpawn[GetConvertedPlayerId(udg_TempPlayer)] = true 
         set udg_Player_IsMutantSpawn[GetConvertedPlayerId(udg_TempPlayer)] = false 
