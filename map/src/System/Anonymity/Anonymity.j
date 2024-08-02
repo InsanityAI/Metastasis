@@ -37,9 +37,9 @@ library Anonymity initializer init
         set colors[7] = ConvertPlayerColor(7) 
         set colorNames[7] = "Pink" 
         set colors[8] = ConvertPlayerColor(9) 
-        set colorNames[8] = "Light blue" 
+        set colorNames[8] = "Light Blue" 
         set colors[9] = ConvertPlayerColor(10) 
-        set colorNames[9] = "Dark green" 
+        set colorNames[9] = "Dark Green" 
         set colors[10] = ConvertPlayerColor(11) 
         set colorNames[10] = "Brown" 
         set colors[11] = ConvertPlayerColor(12) 

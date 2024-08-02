@@ -15,7 +15,7 @@ library AndroidChat
         local real y 
         local group allUnitsGroup 
         local texttag tt 
-        if initiator != udg_HiddenAndroid and not Enabled then 
+        if initiator != udg_HiddenAndroid or not Enabled then 
             set isAndroidChat = false 
             return 
         endif 

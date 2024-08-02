@@ -38,6 +38,7 @@ function Trig_Janitor_Actions takes nothing returns nothing
     call UnitAddItemByIdSwapped('I00J', udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)]) 
     set udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] = "Janitor " 
     set name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer) 
+    set ChatProfiles_getReal(udg_TempPlayer).name = PlayerColor_GetPlayerTextColor(udg_TempPlayer) + name + "|r"
     call SetPlayerName(udg_TempPlayer, name) 
     call StateGrid_SetPlayerName(udg_TempPlayer, name) 
 endfunction 

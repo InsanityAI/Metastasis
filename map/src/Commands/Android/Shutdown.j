@@ -12,6 +12,7 @@ library ShutdownCommand initializer init requires Commands, ChatSystem, CSAPI
                 call RemoveItem(udg_Android_MemoryCard) 
                 call ChatSystem_groupDead.add(ChatProfiles_getReal(udg_HiddenAndroid))
                 call PlayerSelectedChat_SetPlayerChatGroup(udg_HiddenAndroid, ChatSystem_groupDead)
+                set AndroidChat_Enabled = false //make droid be able to deadchat
             else
                 call CSAPI_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: Unknown command!")
             endif 

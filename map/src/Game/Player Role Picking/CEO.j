@@ -39,6 +39,7 @@ function Trig_CEO_Actions takes nothing returns nothing
     set name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer) 
     call SetPlayerName(udg_TempPlayer, name) 
     call StateGrid_SetPlayerName(udg_TempPlayer, name) 
+    set ChatProfiles_getReal(udg_TempPlayer).name = PlayerColor_GetPlayerTextColor(udg_TempPlayer) + name + "|r"
     call CreateNUnitsAtLoc(1, 'H046', udg_TempPlayer, udg_HoldZone, bj_UNIT_FACING) 
     set udg_TempUnit = GetLastCreatedUnit() 
     set udg_TempUnit2 = udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)] 

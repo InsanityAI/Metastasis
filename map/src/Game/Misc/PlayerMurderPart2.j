@@ -99,8 +99,7 @@ function Trig_PlayerMurderPart2_Actions takes nothing returns nothing
         set bj_forLoopAIndex = bj_forLoopAIndex + 1 
     endloop 
     if(Trig_PlayerMurderPart2_Func003C()) then 
-        call DisplayTextToPlayer(udg_TempPlayer, 0, 0, "You have died. You will be allowed to watch only where your memory card is. As you are the android, you may yet be revived. If you do not wish to be revived or recognize this as impossibl/*
-        * / e, you may type - shutdown to forfeit all revival priviledges.")
+        call DisplayTextToPlayer(udg_TempPlayer, 0, 0, "You have died. You will be allowed to watch only where your memory card is. As you are the android, you may yet be revived. If you do not wish to be revived or recognize this as impossible, you may type - shutdown to forfeit all revival priviledges.")
         call ForGroupBJ(GetUnitsOfPlayerAll(udg_TempPlayer), function Trig_PlayerMurderPart2_Func003Func017A) 
         call EnableTrigger(gg_trg_AndroidCardVision) 
         set AndroidChat_Enabled = true

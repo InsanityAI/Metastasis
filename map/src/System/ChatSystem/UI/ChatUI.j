@@ -3,7 +3,7 @@ library ChatUI initializer init requires Table, Timeout, StringWidth
         //Frame position(scales with resolution)                           
         private framepointtype CHAT_REFPOINT = FRAMEPOINT_BOTTOMLEFT //from which point of screen the X and Y calculate                           
         private real CHAT_X = 0.0222 
-        private real CHAT_Y = 0.2200 //0.2106  
+        private real CHAT_Y = 0.2106
         private string CHAT_FONT = "Fonts\\FRIZQT__.TTF" //font used by messages(default wc3 chat font is "Fonts\\BLQ55Web.ttf")                           
         private real FONT_SIZE = 0.012 //font size of messages            
         private real MESSAGE_MARGIN = 0.005 
@@ -14,7 +14,7 @@ library ChatUI initializer init requires Table, Timeout, StringWidth
         private constant string allMessagesTypePrefix = "[" 
         private constant string allMessagesTypeSuffix = "]" 
 
-        private integer MESSAGE_DURATION = 500 //Message disappears after X ms                           
+        private integer MESSAGE_DURATION = 800 //Message disappears after X ms                           
         private integer MESSAGE_ANIMATE_UP = 20 //Message appears over X ms  
 
         //Cannot use Timeout because of handlecount manipulation     

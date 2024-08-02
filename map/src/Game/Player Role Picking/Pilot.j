@@ -59,6 +59,7 @@ function Trig_Pilot_Actions takes nothing returns nothing
     set udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] = "Ace " 
     set udg_InitialSpawnPoint[GetConvertedPlayerId(udg_TempPlayer)] = Location(-2252.00, 14431.00) 
     set name = udg_NamePrepension[GetConvertedPlayerId(udg_TempPlayer)] + GetPlayerName(udg_TempPlayer) 
+    set ChatProfiles_getReal(udg_TempPlayer).name = PlayerColor_GetPlayerTextColor(udg_TempPlayer) + name + "|r"
     call SetPlayerName(udg_TempPlayer, name) 
     call StateGrid_SetPlayerName(udg_TempPlayer, name) 
     if(Trig_Pilot_Func006C()) then 
