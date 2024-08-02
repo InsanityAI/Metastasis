@@ -14,20 +14,20 @@ library StateGrid initializer Init requires StringWidth, PlayerColor
         public integer ROLE_ANDROID = 5
 
         //TODO: use .wts to provide these strings
-        private string GRID_TITLE               = "State table        "
-        private string TITLE_NAME               = "Name:"
-        private string TITLE_STATUS             = "Status:"
-        private string TITLE_ROLE               = "Role:"
-        private string STATE_DEAD_TEXT          = "|cFFFF3333Dead|r"
-        private string STATE_ALIVE_TEXT         = "|cFF33FF33Alive|r"
-        private string STATE_LEFT_TEXT          = "|cFF999999Left|r"
-        private string ROLE_HUMAN_TEXT          = "|cFF00FF00Human|r"
-        private string ROLE_ALIEN_TEXT          = "|cFF3399FFAlien|r"
-        private string ROLE_ALIEN_SPAWN_TEXT    = "|cFF3399CCAlien Spawn|r"
-        private string ROLE_MUTANT_TEXT         = "|cFF33FF99Mutant|r"
-        private string ROLE_MUTANT_SPAWN_TEXT   = "|cFF33CC99Mutant Spawn|r"
-        private string ROLE_ANDROID_TEXT        = "|cFFFFFFFFAndroid|r"
-        private string ROLE_UNKNOWN_TEXT        = "|cFFFFFFFFUnknown|r"
+        private string GRID_TITLE = "State table        " 
+        private string TITLE_NAME = "Name:" 
+        private string TITLE_STATUS = "Status:" 
+        private string TITLE_ROLE = "Role:" 
+        private string STATE_DEAD_TEXT = "|cFFFF3333Dead|r" 
+        private string STATE_ALIVE_TEXT = "|cFF33FF33Alive|r" 
+        private string STATE_LEFT_TEXT = "|cFF999999Left|r" 
+        private string ROLE_HUMAN_TEXT = "|cff2289ffHuman|r" 
+        private string ROLE_ALIEN_TEXT = "|cff7a1bffAlien|r" 
+        private string ROLE_ALIEN_SPAWN_TEXT = "|cffae4affAlien Spawn|r" 
+        private string ROLE_MUTANT_TEXT = "|cff016712Mutant|r" 
+        private string ROLE_MUTANT_SPAWN_TEXT = "|cff6e820eMutant Spawn|r" 
+        private string ROLE_ANDROID_TEXT = "|cff34eeffAndroid|r" 
+        private string ROLE_UNKNOWN_TEXT = "|cFFFFFFFFUnknown|r" 
 
         //config
         private real nameWidth = 0.13
