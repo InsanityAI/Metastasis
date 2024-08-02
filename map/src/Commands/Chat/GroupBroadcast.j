@@ -12,9 +12,9 @@ library GroupBroadcast initializer init requires StringUtil, CSAPI, ChatGroups, 
             return
         endif
 
-        if not(udg_Player_IsParasiteSpawn[GetConvertedPlayerId(initiator)] or initiator == udg_Parasite) then 
+        if udg_Player_IsParasiteSpawn[GetConvertedPlayerId(initiator)] or initiator == udg_Parasite then 
             set chatGroup = ChatSystem_groupAliens
-        elseif not(udg_Player_IsMutantSpawn[GetConvertedPlayerId(initiator)] or initiator == udg_Mutant) then
+        elseif udg_Player_IsMutantSpawn[GetConvertedPlayerId(initiator)] or initiator == udg_Mutant then
             set chatGroup = ChatSystem_groupMutants
         else
             call CSAPI_sendSystemMessageToPlayer(initiator, "|cFFFF0000Error: Access denied!")

@@ -14,7 +14,7 @@ library ChatUI initializer init requires Table, Timeout, StringWidth
         private constant string allMessagesTypePrefix = "[" 
         private constant string allMessagesTypeSuffix = "]" 
 
-        private integer MESSAGE_DURATION = 800 //Message disappears after X ms                           
+        private integer MESSAGE_DURATION = 8000 //Message disappears after X ms                           
         private integer MESSAGE_ANIMATE_UP = 20 //Message appears over X ms  
 
         //Cannot use Timeout because of handlecount manipulation     

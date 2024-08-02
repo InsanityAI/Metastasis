@@ -94,9 +94,9 @@ library ChatSystem initializer init requires ChatService, ChatGroups, ChatProfil
         set profileSystem = ChatProfiles_getVirtual("System")
         set profileSystem.icon = "ReplaceableTextures\\CommandButtons\\BTNSentinel.blp"
 
-        set groupSystem = ChatGroups_get("System")
+        set groupSystem = ChatGroups_get("GoodLuckFiguringOutThis")
         set groupSystem.owner = profileSystem
-        set groupSystem.name = "|cffffba5bSYS|r"
+        set groupSystem.name = "|cffffba5bSystem|r"
 
         set groupAll = ChatGroups_get("Global")
         set groupAll.owner = profileSystem
