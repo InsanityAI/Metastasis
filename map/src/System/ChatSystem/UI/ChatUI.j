@@ -14,8 +14,8 @@ library ChatUI initializer init requires Table, Timeout, StringWidth
         private constant string allMessagesTypePrefix = "[" 
         private constant string allMessagesTypeSuffix = "]" 
 
-        private integer MESSAGE_DURATION = 8000 //Message disappears after X ms                           
-        private integer MESSAGE_ANIMATE_UP = 20 //Message appears over X ms  
+        private integer MESSAGE_DURATION = 800 //Message disappears after X centiseconds                           
+        private integer MESSAGE_ANIMATE_UP = 20 //Message appears over X centiseconds  
 
         //Cannot use Timeout because of handlecount manipulation     
         private timer renderingTimer 
@@ -24,6 +24,8 @@ library ChatUI initializer init requires Table, Timeout, StringWidth
         private Table framesUnused //table<MessageFrame, 1>  
         private framehandle frameMain 
         private framehandle frameMessagePanel 
+
+        private framehandle originalChat
     endglobals 
 
     private function easeInOutSine takes real t returns real 
@@ -269,11 +271,19 @@ library ChatUI initializer init requires Table, Timeout, StringWidth
         return frame 
     endfunction 
 
+    public function refreshChat takes nothing returns nothing
+        call BlzFrameSetVisible(originalChat, false) //hides default chat       
+        call BlzFrameSetAbsPoint(frameMain, FRAMEPOINT_BOTTOM, 0.4, 0.) 
+        call BlzFrameSetPoint(frameMessagePanel, CHAT_REFPOINT, frameMain, CHAT_REFPOINT, CHAT_X, CHAT_Y) 
+        call BlzFrameSetSize(frameMain, 0.6 * BlzGetLocalClientWidth() / BlzGetLocalClientHeight(), 0.6) 
+    endfunction
+
     private function initFinal takes nothing returns nothing 
         local integer i = 0 
         call Timeout.complete() 
         call BlzLoadTOCFile("UI\\ChatSystem.toc") 
-        call BlzFrameSetVisible(BlzGetOriginFrame(ORIGIN_FRAME_CHAT_MSG, 0), false) //hides default chat         
+        set originalChat = BlzGetOriginFrame(ORIGIN_FRAME_CHAT_MSG, 0)
+        call BlzFrameSetVisible(originalChat, false) //hides default chat         
         
         set frameMain = BlzCreateSimpleFrame("Main", BlzGetOriginFrame(ORIGIN_FRAME_GAME_UI, 0), 0) 
         set frameMessagePanel = safe_get_frame("Message Panel", 0) 
@@ -287,6 +297,8 @@ library ChatUI initializer init requires Table, Timeout, StringWidth
         call BlzFrameSetAbsPoint(frameMain, FRAMEPOINT_BOTTOM, 0.4, 0.) 
         call BlzFrameSetPoint(frameMessagePanel, CHAT_REFPOINT, frameMain, CHAT_REFPOINT, CHAT_X, CHAT_Y) 
         call BlzFrameSetSize(frameMain, 0.6 * BlzGetLocalClientWidth() / BlzGetLocalClientHeight(), 0.6) 
+
+        call Timeout.start(2, true, function refreshChat)
     endfunction 
 
     private function init takes nothing returns nothing 

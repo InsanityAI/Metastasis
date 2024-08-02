@@ -1,4 +1,4 @@
-library ChatSystem initializer init requires ChatService, ChatGroups, ChatProfiles, PlayerSelectedChat, ChatUI, Commands, Timeout, PlayerColor, GroupBroadcast, BHD, ChatSilence
+library ChatSystem initializer init requires ChatService, ChatGroups, ChatProfiles, PlayerSelectedChat, ChatUI, ChatLogUI, Commands, Timeout, PlayerColor, GroupBroadcast, BHD, ChatSilence
     globals
         public ChatProfile profileSystem
         public ChatGroup groupSystem
@@ -81,7 +81,7 @@ library ChatSystem initializer init requires ChatService, ChatGroups, ChatProfil
     private function initFinal takes nothing returns nothing
         call Timeout.complete()
         call ChatService_registerUIListener(ChatUI_ChatUIProxy.get())
-        //ChatLogUI
+        call ChatService_registerUIListener(ChatLogUI_ChatLogUIProxy.get())
         call ForForce(GetPlayersAll(), function initPlayer)
     endfunction
 
