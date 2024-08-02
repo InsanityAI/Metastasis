@@ -36,31 +36,31 @@ library Anonymity initializer init
         set colorNames[6] = "Green" 
         set colors[7] = ConvertPlayerColor(7) 
         set colorNames[7] = "Pink" 
-        set colors[8] = ConvertPlayerColor(8) 
+        set colors[8] = ConvertPlayerColor(9) 
         set colorNames[8] = "Light blue" 
-        set colors[9] = ConvertPlayerColor(9) 
+        set colors[9] = ConvertPlayerColor(10) 
         set colorNames[9] = "Dark green" 
-        set colors[10] = ConvertPlayerColor(10) 
+        set colors[10] = ConvertPlayerColor(11) 
         set colorNames[10] = "Brown" 
-        set colors[11] = ConvertPlayerColor(11) 
+        set colors[11] = ConvertPlayerColor(12) 
         set colorNames[11] = "Maroon" 
-        set colors[12] = ConvertPlayerColor(12) 
+        set colors[12] = ConvertPlayerColor(13) 
         set colorNames[12] = "Navy" 
-        set colors[13] = ConvertPlayerColor(13) 
+        set colors[13] = ConvertPlayerColor(14) 
         set colorNames[13] = "Turquoise" 
-        set colors[14] = ConvertPlayerColor(14) 
+        set colors[14] = ConvertPlayerColor(15) 
         set colorNames[14] = "Violet" 
-        set colors[15] = ConvertPlayerColor(15) 
+        set colors[15] = ConvertPlayerColor(16) 
         set colorNames[15] = "Wheat" 
-        set colors[16] = ConvertPlayerColor(16) 
+        set colors[16] = ConvertPlayerColor(17) 
         set colorNames[16] = "Peach" 
-        set colors[17] = ConvertPlayerColor(17) 
+        set colors[17] = ConvertPlayerColor(18) 
         set colorNames[17] = "Mint" 
-        set colors[18] = ConvertPlayerColor(18) 
+        set colors[18] = ConvertPlayerColor(19) 
         set colorNames[18] = "Lavander" 
-        set colors[19] = ConvertPlayerColor(19) 
+        set colors[19] = ConvertPlayerColor(22) 
         set colorNames[19] = "Emerald" 
-        set colors[20] = ConvertPlayerColor(20) 
+        set colors[20] = ConvertPlayerColor(23) 
         set colorNames[20] = "Peanut" 
 
         set ShuffledPlayers = CreateForce() 
@@ -85,7 +85,7 @@ library Anonymity initializer init
 
         //Fix 1.29's wrong color shade for neutrals  
         call SetPlayerColor(Player(PLAYER_NEUTRAL_PASSIVE), ConvertPlayerColor(8)) 
-        call SetPlayerColor(Player(PLAYER_NEUTRAL_HOSTILE), ConvertPlayerColor(8)) 
+        call SetPlayerColor(Player(PLAYER_NEUTRAL_AGGRESSIVE), ConvertPlayerColor(8)) 
         call SetPlayerColor(Player(bj_PLAYER_NEUTRAL_EXTRA), ConvertPlayerColor(8)) 
         call SetPlayerColor(Player(bj_PLAYER_NEUTRAL_VICTIM), ConvertPlayerColor(8)) 
     endfunction 
