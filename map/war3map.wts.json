@@ -1140,7 +1140,6 @@
     "1975": "Alien Spawn",
     "1977": "(Masquerader)",
     "1978": " ",
-    "2005": "x1.9.7 Changelog:\n\n- Kyo projectile immolation removed.\n- Minertha planet damage has been sped up in order to mitigate lag issues.\n- Drone swarm event lag fixed.\n- HP Bars occuring 40 seconds after kyo projectile being shot fixed (1.29+ versions).\n- Kyo projectile delayed for 40 seconds on 1.29+ versions fixed.\n- Force Suit attack fixed (broken due to 1.29 damage event changes).\n- Added a fallback fix for HP Bars disappearing (try re-enable them every 2 secs).\n- Unstuck command fixed.\n- Changed map description, title, preview, loading screen and team names.",
     "2006": "Alien",
     "2007": "\"ZAP,\" the alien said.|nAnd a human did explode into little pieces.|n\"Mwhahuahua,\" cried the alien. \"After I destroy you, I shall power the world with free energy!\"|nAnd so the alien went on to eat the humans, and win a Nobel Prize in Science.",
     "2008": "(T2 Energy)",
@@ -3232,5 +3231,6 @@
     "5374": "Teams don't matter",
     "5375": "Teams never mattered",
     "5376": "|cffFF0000The Pown has been destroyed!|r",
-    "5377": "Gold is mined from gold mines. But there are no gold mines here..."
+    "5377": "Gold is mined from gold mines. But there are no gold mines here...",
+    "5412": "x1.00 Changelog:\n\n- Kyo projectile immolation has been removed.\n- Minertha planet damage has been sped up in order to mitigate lag issues.\n- Drone swarm event lag fixed.\n- HP Bars occuring 40 seconds after kyo projectile being shot fixed (1.29+ versions).\n- KYO projectile delayed for 40 seconds on 1.29+ versions fixed.\n- Force Suit projectile fixed (broken due to 1.29 damage event changes).\n- Added a fallback fix for HP Bars diseappearing (try re-enable them every 2 secs).\n- Unstuck command fixed.\n- Changed map description, title, preview, loading screen and team names.\n- Modified Remote Controller, Warpal and Wrench models to appear as metal crates due to selection difficulty.\n- Mutant's Devour should now consistently play sounds.\n- Added state table + anonymity system, removed -status, -names, -listaliens/mutants commands.\n- Fixed Masquarade alien turning Maroon color after exiting Night of Masks ability (1.29+ versions).\n- Re-added in-game menu backgrounds.\n- Added a clear command.\n- Fixed the neutral player color problem caused by 1.29 patch"
 }

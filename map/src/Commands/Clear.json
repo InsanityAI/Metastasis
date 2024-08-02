@@ -1,8 +1,1 @@
-{
-    "name": "Clear",
-    "contentType": "TRIGGER_SCRIPTED",
-    "description": "",
-    "isEnabled": true,
-    "runOnMapInit": false,
-    "script": ""
-}
+{"name":"Clear","contentType":"TRIGGER_SCRIPTED","description":"","isEnabled":true,"runOnMapInit":false,"script":""}

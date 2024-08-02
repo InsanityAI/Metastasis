@@ -26,13 +26,6 @@ function Trig_AndroidCardVision_Func003C takes nothing returns boolean
     return true
 endfunction
 
-function Trig_AndroidCardVision_Func005C takes nothing returns boolean
-    if ( not ( IsUnitDeadBJ(udg_TempUnit) == true ) ) then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_AndroidCardVision_Actions takes nothing returns nothing
     call DestroyFogModifier( udg_AndroidCardVisibility )
     if ( Trig_AndroidCardVision_Func003C() ) then
@@ -48,10 +41,8 @@ function Trig_AndroidCardVision_Actions takes nothing returns nothing
         set udg_TempPoint = GetItemLoc(udg_Android_MemoryCard)
     endif
     set udg_TempUnit=udg_Sector_Space[GetSector(udg_TempPoint)]
-    if ( Trig_AndroidCardVision_Func005C() ) then
-        call DestroyTrigger(GetTriggeringTrigger())
+    if ( IsUnitDeadBJ(udg_TempUnit) == true ) then
         return
-    else
     endif
     call CreateFogModifierRadiusLocBJ( true, udg_HiddenAndroid, FOG_OF_WAR_VISIBLE, udg_TempPoint, 650.00 )
     set udg_AndroidCardVisibility = GetLastCreatedFogModifier()
