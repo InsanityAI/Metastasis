@@ -1,14 +1,11 @@
 library ChatService initializer init requires Clock, ChatGroups, ChatProfiles 
     globals 
-        private constant string privateMessageFromPrefix = "[From " 
-        private constant string privateMessageToPrefix = "[To " 
-        private constant string privateMessageSuffix = "]:" 
-
         private Table chatListeners //table<ChatServiceListener, 1>
         private Table chatUIListeners //table<ChatServiceUIListener, 1>
     endglobals 
     
     interface ChatServiceUIListener
+        method newPrivateMessage takes string timestamp, ChatProfile contact, string message, boolean from returns nothing
         method newMessage takes string timestamp, ChatProfile from, string message, string messageType returns nothing
     endinterface
 
@@ -25,6 +22,18 @@ library ChatService initializer init requires Clock, ChatGroups, ChatProfiles
             exitwhen i == 0 
             set listener = listeners[i]
             call listener.newMessage(timestamp, from, message, messageType) 
+            set i = i - 1 
+        endloop 
+    endfunction
+
+    private function showPrivateMessageForLocalPlayer takes string timestamp, ChatProfile contact, string message, boolean from returns nothing
+        local Table listeners = chatUIListeners.getKeys() 
+        local ChatServiceUIListener listener
+        local integer i = listeners[0] 
+        loop 
+            exitwhen i == 0 
+            set listener = listeners[i]
+            call listener.newPrivateMessage(timestamp, contact, message, from) 
             set i = i - 1 
         endloop 
     endfunction
@@ -53,24 +62,15 @@ library ChatService initializer init requires Clock, ChatGroups, ChatProfiles
         endloop 
     endfunction 
 
-    private function constructPrivateMessageType takes string name, boolean from returns string 
-        if from then 
-            return privateMessageFromPrefix + name + privateMessageSuffix 
-        else 
-            return privateMessageToPrefix + name + privateMessageSuffix 
-        endif 
-    endfunction 
-
     public function sendMessageToPlayer takes ChatProfile from, string message, ChatProfile recepient returns nothing 
         local player localPlayer = GetLocalPlayer()
 
         call notifyListenersPrivate(Clock_formattedTime, from, recepient, message) 
-        if localPlayer == recepient.chatPlayer then
-            call showMessageForLocalPlayer(Clock_formattedTime, from, constructPrivateMessageType(from.name, true), message) 
-        endif
         if localPlayer == from.chatPlayer then 
-            call showMessageForLocalPlayer(Clock_formattedTime, from, constructPrivateMessageType(recepient.name, false), message) 
-        endif 
+            call showPrivateMessageForLocalPlayer(Clock_formattedTime, recepient, message, false) 
+        elseif localPlayer == recepient.chatPlayer then
+            call showPrivateMessageForLocalPlayer(Clock_formattedTime, from, message, true) 
+        endif
 
         set localPlayer = null
     endfunction

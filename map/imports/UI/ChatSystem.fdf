@@ -13,27 +13,10 @@ Frame "SIMPLEFRAME" "Message" {
     Height 0.013,
     UseActiveContext,
 
-    Frame "SIMPLEFRAME" "Message Type Container" {
-        Width 0.056,
-        Height 0.013,
-        SetPoint LEFT, "Message", LEFT, 0., 0.,
-        UseActiveContext,
-
-        String "Message Type" {
-            Width 0.056,
-            Height 0.013,
-            FontColor 0.92 0.92 0.92 1.0,
-            FontJustificationH JUSTIFYLEFT,
-            FontJustificationV JUSTIFYMIDDLE,
-            FontJustificationOffset 0.0 0.0,
-            Text "",
-        }
-    }
-
     Frame "SIMPLEFRAME" "Message Timestamp Container" {
         Width 0.056,
         Height 0.013,
-        SetPoint LEFT, "Message Type Container", RIGHT, 0., 0.,
+        SetPoint LEFT, "Message", LEFT, 0., 0.,
         UseActiveContext,
 
         String "Message Timestamp" {
@@ -47,10 +30,27 @@ Frame "SIMPLEFRAME" "Message" {
         }
     }
 
+    Frame "SIMPLEFRAME" "Message Type Container" {
+        Width 0.056,
+        Height 0.013,
+        SetPoint LEFT, "Message Timestamp Container", RIGHT, 0., 0.,
+        UseActiveContext,
+
+        String "Message Type" {
+            Width 0.056,
+            Height 0.013,
+            FontColor 0.92 0.92 0.92 1.0,
+            FontJustificationH JUSTIFYLEFT,
+            FontJustificationV JUSTIFYMIDDLE,
+            FontJustificationOffset 0.0 0.0,
+            Text "",
+        }
+    }
+
     Frame "SIMPLEFRAME" "Message Icon Container" {
         Width 0.013,
         Height 0.013,
-        SetPoint LEFT, "Message Timestamp Container", RIGHT, 0., 0.,
+        SetPoint LEFT, "Message Type Container", RIGHT, 0., 0.,
         UseActiveContext,
 
         Texture "Message Icon" {

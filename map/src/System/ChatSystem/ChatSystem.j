@@ -68,7 +68,8 @@ library ChatSystem initializer init requires ChatService, ChatGroups, ChatProfil
     private function initPlayer takes nothing returns nothing
         local player thisPlayer = GetEnumPlayer()
         local ChatProfile playerProfile = ChatProfiles_getReal(thisPlayer)
-        set playerProfile.name = PlayerColor_GetPlayerTextColor(thisPlayer) + GetPlayerName(thisPlayer)
+        set playerProfile.name = PlayerColor_GetPlayerTextColor(thisPlayer) + GetPlayerName(thisPlayer) + "|r"
+        set playerProfile.icon = "ReplaceableTextures\\CommandButtons\\BTNPeasant.blp"
 
         call groupSystem.add(playerProfile)
         call groupAll.add(playerProfile)
@@ -95,22 +96,22 @@ library ChatSystem initializer init requires ChatService, ChatGroups, ChatProfil
 
         set groupSystem = ChatGroups_get("System")
         set groupSystem.owner = profileSystem
-        set groupSystem.name = "[|cffffba5bSYS|r]"
+        set groupSystem.name = "|cffffba5bSYS|r"
 
-        set groupAll = ChatGroups_get("All")
+        set groupAll = ChatGroups_get("Global")
         set groupAll.owner = profileSystem
-        set groupAll.name = "[|cff6aebffGlobal|r]"
+        set groupAll.name = "|cff6aebffGlobal|r"
 
         set groupDead = ChatGroups_get("Dead")
         set groupDead.owner = profileSystem
-        set groupDead.name = "[|cff808080Dead|r]"
+        set groupDead.name = "|cff808080Dead|r"
 
         set groupAliens = ChatGroups_get("Aliens")
         set groupAliens.owner = profileSystem
-        set groupAliens.name = "[|cff800080Alien|r]"
+        set groupAliens.name = "|cff800080Alien|r"
         
         set groupMutants = ChatGroups_get("Mutants")
         set groupMutants.owner = profileSystem
-        set groupMutants.name = "[|cff117326Mutant|r]"
+        set groupMutants.name = "|cff117326Mutant|r"
     endfunction
 endlibrary
