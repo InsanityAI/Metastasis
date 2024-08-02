@@ -81,6 +81,7 @@ function Trig_AshenDeath_Func019A takes nothing returns nothing
         call StateGrid_SetPlayerRole(GetEnumPlayer(), StateGrid_ROLE_HUMAN)
         call StateGrid_SetPlayerState(GetEnumPlayer(), StateGrid_STATE_ALIVE)
         call ShowInterfaceForceOn(GetForceOfPlayer(GetEnumPlayer()), 0.25) 
+        call Timeout.start(0.26, false, function ChatUI_refreshChat)
         call PanCameraToTimedLocForPlayer(GetEnumPlayer(), udg_TempPoint, 0) 
         call SelectUnitForPlayerSingle(GetLastCreatedUnit(), GetEnumPlayer()) 
         call RemoveLocation(udg_TempPoint) 

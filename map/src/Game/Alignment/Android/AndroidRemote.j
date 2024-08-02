@@ -190,6 +190,8 @@ function Trig_AndroidRemote_Actions takes nothing returns nothing
         set udg_TempBool = false 
         set udg_Player_IsParasiteSpawn[GetConvertedPlayerId(udg_HiddenAndroid)] = false 
         set udg_Player_IsMutantSpawn[GetConvertedPlayerId(udg_HiddenAndroid)] = true 
+        call ChatSystem_groupAliens.remove(ChatProfiles_getReal(udg_HiddenAndroid))
+        call ChatSystem_groupMutants.add(ChatProfiles_getReal(udg_HiddenAndroid))
         call ForForce(GetPlayersAll(), function Trig_AndroidRemote_Func005Func007A) 
     else 
         if(Trig_AndroidRemote_Func005Func001C()) then 
@@ -197,6 +199,8 @@ function Trig_AndroidRemote_Actions takes nothing returns nothing
             set udg_TempBool = false 
             set udg_Player_IsParasiteSpawn[GetConvertedPlayerId(udg_HiddenAndroid)] = true 
             set udg_Player_IsMutantSpawn[GetConvertedPlayerId(udg_HiddenAndroid)] = false 
+            call ChatSystem_groupAliens.add(ChatProfiles_getReal(udg_HiddenAndroid))
+            call ChatSystem_groupMutants.remove(ChatProfiles_getReal(udg_HiddenAndroid))
             call ForForce(GetPlayersAll(), function Trig_AndroidRemote_Func005Func001Func007A) 
         else 
             if(Trig_AndroidRemote_Func005Func001Func001C()) then 
@@ -204,6 +208,8 @@ function Trig_AndroidRemote_Actions takes nothing returns nothing
                 set udg_TempBool = false 
                 set udg_Player_IsParasiteSpawn[GetConvertedPlayerId(udg_HiddenAndroid)] = false 
                 set udg_Player_IsMutantSpawn[GetConvertedPlayerId(udg_HiddenAndroid)] = false 
+                call ChatSystem_groupAliens.remove(ChatProfiles_getReal(udg_HiddenAndroid))
+                call ChatSystem_groupMutants.remove(ChatProfiles_getReal(udg_HiddenAndroid))
                 call ForForce(GetPlayersAll(), function Trig_AndroidRemote_Func005Func001Func001Func007A) 
             else 
             endif 

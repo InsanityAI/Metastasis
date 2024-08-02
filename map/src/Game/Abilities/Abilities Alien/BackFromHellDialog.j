@@ -87,6 +87,7 @@ function Trig_BackFromHellDialog_Actions takes nothing returns nothing
         call SetPlayerName(udg_TempPlayer, udg_Player_NameBeforeDead[GetConvertedPlayerId(udg_TempPlayer)]) 
         set ChatProfiles_getReal(udg_TempPlayer).name = PlayerColor_GetPlayerTextColor(udg_TempPlayer) + udg_Player_NameBeforeDead[GetConvertedPlayerId(udg_TempPlayer)] + "|r"
         call ShowInterfaceForceOn(GetForceOfPlayer(udg_TempPlayer), 0.25) 
+        call Timeout.start(0.26, false, function ChatUI_refreshChat)
         call PanCameraToTimedLocForPlayer(udg_TempPlayer, udg_TempPoint, 0) 
         call SelectUnitForPlayerSingle(GetLastCreatedUnit(), udg_TempPlayer) 
         call ForceRemovePlayerSimple(udg_TempPlayer, udg_DeadGroup) 

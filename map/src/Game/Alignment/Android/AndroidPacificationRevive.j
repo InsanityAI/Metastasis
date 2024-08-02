@@ -43,6 +43,7 @@ function Trig_AndroidPacificationRevive_Actions takes nothing returns nothing
     //Change ownership of the pacification bot, to the android 
     call SetUnitOwner(gg_unit_h04A_0144, udg_TempPlayer, true) 
     call ShowInterfaceForceOn(GetForceOfPlayer(udg_HiddenAndroid), 0.01) 
+    call Timeout.start(0.02, false, function ChatUI_refreshChat)
     
     //Set pacification bot as the playerhero of the android 
     set udg_Playerhero[GetConvertedPlayerId(udg_TempPlayer)] = gg_unit_h04A_0144 

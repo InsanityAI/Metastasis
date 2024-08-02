@@ -1,4 +1,4 @@
-library VotekickCommand initializer init requires Commands, CSAPI, Anonymity, StringUtil
+library VotekickCommand initializer init requires Commands, CSAPI, Anonymity, StringUtil, Timeout
     globals
         private integer voteCount = 0 
     endglobals
@@ -52,6 +52,7 @@ library VotekickCommand initializer init requires Commands, CSAPI, Anonymity, St
                 endif 
                 if GetLocalPlayer() == targettedPlayer then
                     call ShowInterface(false, 2.00)
+                    call Timeout.start(2.01, false, function ChatUI_refreshChat)
                 endif
             else 
                 call DisplayTextToForce(GetPlayersAll(), (I2S(((voteCount / 2) -udg_Player_DeadKickVotes[pId])) + (" votes left to kick " + (udg_Player_OriginalName[pId] + "!")))) 
