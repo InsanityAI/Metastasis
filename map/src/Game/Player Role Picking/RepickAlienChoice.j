@@ -17,8 +17,7 @@ function Trig_RepickAlienChoice_Actions takes nothing returns nothing
     // Pick a player who is human ((does this include android?!))
     call StateGrid_SetPlayerRole(udg_Parasite, StateGrid_ROLE_HUMAN)
     set udg_TempPlayer = NoninfectedForcePickOne()
-    set udg_Parasite = udg_TempPlayer
-    call StateGrid_SetPlayerRole(udg_Parasite, StateGrid_ROLE_ALIEN)
+    call StateGrid_SetPlayerRole(udg_TempPlayer, StateGrid_ROLE_ALIEN)
     call SetPlayerAllianceStateBJ( Player(bj_PLAYER_NEUTRAL_EXTRA), udg_Parasite, bj_ALLIANCE_ALLIED_ADVUNITS )
     if ( Trig_RepickAlienChoice_Func008C() ) then
         call UnitAddAbilityBJ( 'A02O', udg_Playerhero[GetConvertedPlayerId(udg_Parasite)] )

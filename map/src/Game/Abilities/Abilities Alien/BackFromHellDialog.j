@@ -19,13 +19,6 @@ function Trig_BackFromHellDialog_Func006Func001C takes nothing returns boolean
     return true
 endfunction
 
-function Trig_BackFromHellDialog_Func009Func007C takes nothing returns boolean
-    if ( not ( udg_Mutant == udg_TempPlayer ) ) then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_BackFromHellDialog_Func009Func016A takes nothing returns nothing
     call SetPlayerAllianceStateBJ( GetEnumPlayer(), udg_TempPlayer, bj_ALLIANCE_ALLIED )
     call SetPlayerAllianceStateBJ( udg_TempPlayer, GetEnumPlayer(), bj_ALLIANCE_ALLIED )
@@ -76,7 +69,7 @@ function Trig_BackFromHellDialog_Actions takes nothing returns nothing
         call CreateNUnitsAtLoc( 1, 'n00E', udg_TempPlayer, udg_TempPoint, bj_UNIT_FACING )
         set udg_Player_IsParasiteSpawn[GetConvertedPlayerId(udg_TempPlayer)] = true
         set udg_Player_IsMutantSpawn[GetConvertedPlayerId(udg_TempPlayer)] = false
-        if ( Trig_BackFromHellDialog_Func009Func007C() ) then
+        if udg_Mutant == udg_TempPlayer then
             set udg_Mutant=null
         endif
         call StateGrid_SetPlayerRole(udg_TempPlayer, StateGrid_ROLE_ALIEN_SPAWN)

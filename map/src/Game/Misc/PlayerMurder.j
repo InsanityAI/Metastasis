@@ -25,13 +25,6 @@ function Trig_PlayerMurder_Func005Func001Func001C takes nothing returns boolean
     return true
 endfunction
 
-function Trig_PlayerMurder_Func005Func001Func005C takes nothing returns boolean
-    if ( not ( udg_Parasite == GetOwningPlayer(GetDyingUnit()) ) ) then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_PlayerMurder_Func005Func001Func019Func002C takes nothing returns boolean
     if ( not ( GetOwningPlayer(GetDyingUnit()) != udg_Parasite ) ) then
         return false
@@ -165,9 +158,8 @@ function Trig_PlayerMurder_Actions takes nothing returns nothing
             set udg_TempPlayer = GetOwningPlayer(GetDyingUnit())
             set udg_Player_IsMutantSpawn[GetConvertedPlayerId(GetOwningPlayer(GetDyingUnit()))] = true
             set udg_Player_IsParasiteSpawn[GetConvertedPlayerId(GetOwningPlayer(GetDyingUnit()))] = false
-            if ( Trig_PlayerMurder_Func005Func001Func005C() ) then
+            if udg_Parasite == GetOwningPlayer(GetDyingUnit()) then
                 set udg_Parasite=null
-            else
             endif
             set udg_TempPoint = GetUnitLoc(GetDyingUnit())
             call CreateNUnitsAtLoc( 1, udg_MutantChildInfectee, GetOwningPlayer(GetDyingUnit()), udg_TempPoint, bj_UNIT_FACING )
