@@ -17,7 +17,7 @@ endfunction
 
 function Trig_PlayerDeathText_Func015A takes nothing returns nothing
     if ( Trig_PlayerDeathText_Func015Func001C() ) then
-        set udg_TempString="|cffffcc00" + udg_OriginalName[GetConvertedPlayerId(GetTriggerPlayer())] + "|r: "  + GetEventPlayerChatString()
+        set udg_TempString="|cffffcc00" + Anonymity_GetOriginalPlayerName(GetTriggerPlayer()) + "|r: "  + GetEventPlayerChatString()
         call DisplayTextToPlayer(GetEnumPlayer(), 0, 0, udg_TempString)
     else
     endif

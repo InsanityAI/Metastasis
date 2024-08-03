@@ -50,14 +50,14 @@ function Trig_Votekick_Actions takes nothing returns nothing
             endloop
             if ( Trig_Votekick_ReachedThreshold() ) then
                 if ( Trig_Votekick_IsAndroid() ) then
-                    call DisplayTextToForce( GetPlayersAll(), ( "Dialoguing offensive android..." + ( " " + ( udg_Player_OriginalName[udg_TempInt] + "!" ) ) ) )
+                    call DisplayTextToForce( GetPlayersAll(), ( "Dialoguing offensive android..." + ( " " + ( Anonymity_GetOriginalPlayerName(ConvertedPlayer(udg_TempInt)) + "!" ) ) ) )
                     call ShowInterfaceForceOff( GetForceOfPlayer(udg_HiddenAndroid), 2.00 )
                 else
-                    call DisplayTextToForce( GetPlayersAll(), ( "Dialoguing offensive player..." + ( " " + ( udg_Player_OriginalName[udg_TempInt] + "!" ) ) ) )
+                    call DisplayTextToForce( GetPlayersAll(), ( "Dialoguing offensive player..." + ( " " + ( Anonymity_GetOriginalPlayerName(ConvertedPlayer(udg_TempInt)) + "!" ) ) ) )
                     call ShowInterfaceForceOff( GetForceOfPlayer(ConvertedPlayer(udg_TempInt)), 2.00 )
                 endif
             else
-                call DisplayTextToForce( GetPlayersAll(), ( I2S(( ( udg_TempInt2 / 2 ) - udg_Player_DeadKickVotes[udg_TempInt] )) + ( " votes left to kick " + ( udg_Player_OriginalName[udg_TempInt] + "!" ) ) ) )
+                call DisplayTextToForce( GetPlayersAll(), ( I2S(( ( udg_TempInt2 / 2 ) - udg_Player_DeadKickVotes[udg_TempInt] )) + ( " votes left to kick " + ( Anonymity_GetOriginalPlayerName(ConvertedPlayer(udg_TempInt)) + "!" ) ) ) )
             endif
         else
         endif

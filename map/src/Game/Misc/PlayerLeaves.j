@@ -21,7 +21,7 @@ local player p
 local boolean b=IsUnitDeadBJ(udg_Playerhero[GetConvertedPlayerId(GetTriggerPlayer())])
 
     set udg_Player_Left[GetConvertedPlayerId(GetTriggerPlayer())]=true
-    call DisplayTextToForce( GetPlayersAll(), ( udg_OriginalName[GetConvertedPlayerId(GetTriggerPlayer())] + "|cff408080 has left the game!|r" ) )
+    call DisplayTextToForce( GetPlayersAll(), ( Anonymity_GetOriginalPlayerName(GetEnumPlayer()) + "|cff408080 has left the game!|r" ) )
     call KillUnit( udg_Playerhero[GetConvertedPlayerId(GetTriggerPlayer())] )//Kill leaver's playerhero unit
     call UnitAddAbility(udg_Playerhero[GetConvertedPlayerId(GetTriggerPlayer())], 'A02T')//And stay dead
     call StateGrid_SetPlayerState(GetTriggerPlayer(), StateGrid_STATE_LEFT)

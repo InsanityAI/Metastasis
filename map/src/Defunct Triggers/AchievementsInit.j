@@ -7,7 +7,7 @@ local integer i=1
 local integer q=LoadInteger(LS(), GetHandleId(gg_trg_AchievementsInit), StringHash("got_" + I2S(GetConvertedPlayerId(achiever))))
 if display == true and q >= 1 then
 if displaytoall == true then
-call DisplayTextToForce(GetPlayersAll(), "|cff008080" + udg_OriginalName[GetConvertedPlayerId(achiever)] + "|r has earned the following achievements:")
+call DisplayTextToForce(GetPlayersAll(), "|cff008080" + Anonymity_GetOriginalPlayerName(achiever) + "|r has earned the following achievements:")
 else
 call DisplayTextToPlayer(achiever,0,0, "|cff008080You have earned the following achievements:|r")
 endif

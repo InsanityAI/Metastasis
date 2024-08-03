@@ -5,6 +5,8 @@ library Anonymity initializer init
         private playercolor array colors 
         private string array colorNames 
         private force ShuffledPlayers 
+
+        private string array originalPlayerNames 
     endglobals 
 
     private function populateForce takes nothing returns nothing 
@@ -76,6 +78,7 @@ library Anonymity initializer init
             set arrayIndex = arrayIndex + 1 
 
             set index = GetRandomInt(0, colorIndexMax) 
+            set originalPlayerNames[GetPlayerId(randomPlayer)] = GetPlayerName(randomPlayer)
             call SetPlayerColor(randomPlayer, colors[index]) 
             call SetPlayerName(randomPlayer, colorNames[index]) 
             set colors[index] = colors[colorIndexMax] 
@@ -106,4 +109,8 @@ library Anonymity initializer init
         endif 
         return GetPlayerFromIndex(S2I(index)) 
     endfunction 
+
+    public function GetOriginalPlayerName takes player thisPlayer returns string
+        return originalPlayerNames[GetPlayerId(thisPlayer)]
+    endfunction
 endlibrary

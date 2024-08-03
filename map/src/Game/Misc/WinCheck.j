@@ -30,7 +30,7 @@ function Trig_WinCheck_Func003Func005Func010A takes nothing returns nothing
 endfunction
 
 function Trig_WinCheck_Func003Func005Func011A takes nothing returns nothing
-    call SetPlayerName( GetEnumPlayer(), udg_OriginalName[GetConvertedPlayerId(GetEnumPlayer())] )
+    call SetPlayerName( GetEnumPlayer(), Anonymity_GetOriginalPlayerName(GetEnumPlayer()) )
     set bj_forLoopAIndex = 1
     set bj_forLoopAIndexEnd = 12
     loop
@@ -97,7 +97,7 @@ function Trig_WinCheck_Func004Func003Func001C takes nothing returns boolean
 endfunction
 
 function Trig_WinCheck_Func004Func004Func010A takes nothing returns nothing
-    call SetPlayerName( GetEnumPlayer(), udg_OriginalName[GetConvertedPlayerId(GetEnumPlayer())] )
+    call SetPlayerName( GetEnumPlayer(), Anonymity_GetOriginalPlayerName(GetEnumPlayer()) )
     set bj_forLoopAIndex = 1
     set bj_forLoopAIndexEnd = 12
     loop
@@ -158,7 +158,7 @@ function Trig_WinCheck_Func005Func003Func001C takes nothing returns boolean
 endfunction
 
 function Trig_WinCheck_Func005Func004Func010A takes nothing returns nothing
-    call SetPlayerName( GetEnumPlayer(), udg_OriginalName[GetConvertedPlayerId(GetEnumPlayer())] )
+    call SetPlayerName( GetEnumPlayer(), Anonymity_GetOriginalPlayerName(GetEnumPlayer())  )
     set bj_forLoopAIndex = 1
     set bj_forLoopAIndexEnd = 12
     loop

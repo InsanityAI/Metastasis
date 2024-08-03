@@ -1,5 +1,5 @@
 function Trig_Chooser_Func004A takes nothing returns nothing
-    set udg_Player_OriginalName[GetConvertedPlayerId(GetEnumPlayer())] = GetPlayerName(GetEnumPlayer())
+    
     if GetPlayerSlotState(GetEnumPlayer()) == PLAYER_SLOT_STATE_PLAYING then
         call ForceAddPlayerSimple( GetEnumPlayer(), udg_ChooseGroup )
         set udg_TempInt = udg_TempInt + 1

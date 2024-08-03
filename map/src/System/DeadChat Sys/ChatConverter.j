@@ -1,5 +1,3 @@
-//TESH.scrollpos=3
-//TESH.alwaysfold=0
 globals
 multiboard ChatBoard
 string array ChatLog
@@ -22,7 +20,7 @@ if IsPlayerInForce(p,udg_DeadGroup) and SubString(s,0,1)!="-" then
         endloop
      
      endif
-        set ChatLog[RowOn]="|cffFF8000"+udg_OriginalName[GetConvertedPlayerId(p)]+"|r: " + s
+        set ChatLog[RowOn]="|cffFF8000"+ Anonymity_GetOriginalPlayerName(p)  +"|r: " + s
         set i=1
      loop
      exitwhen i>RowOn

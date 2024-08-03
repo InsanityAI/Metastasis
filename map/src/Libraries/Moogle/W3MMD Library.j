@@ -111,7 +111,7 @@ library MMD initializer init
             if udg_SirBot!=true then
         return ""
         endif
-    return udg_OriginalName[GetConvertedPlayerId(r)]
+    return Anonymity_GetOriginalPlayerName(r) 
     endfunction
     public function RaiseGuard takes string reason returns nothing
             if udg_SirBot!=true then
@@ -554,7 +554,7 @@ library MMD initializer init
         loop
             exitwhen i >= 12
             if GetPlayerController(Player(i)) == MAP_CONTROL_USER and GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING then
-                call emit("init pid " + I2S(i) + " " + pack(udg_OriginalName[i+1]))
+                call emit("init pid " + I2S(i) + " " + pack(Anonymity_GetOriginalPlayerName(Player(i))))
             endif
             set i = i + 1
         endloop
@@ -594,7 +594,7 @@ library MMD initializer init
                 call MMD_UpdateValueString("Race", Player(i), "Human")
             endif
             call MMD_FlagPlayer(Player(i), MMD_FLAG_LOSER)
-            call MMD_UpdateValueString("Name", Player(i), udg_Player_OriginalName[i + 1])
+            call MMD_UpdateValueString("Name", Player(i), Anonimity_GetOriginalPlayerName(Player(i)))
         endif
         set i = i + 1
     endloop
