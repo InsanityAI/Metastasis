@@ -70,7 +70,7 @@ function Trig_Cannon_Actions takes nothing returns nothing
     set udg_TempPoint = GetUnitLoc(GetSpellAbilityUnit())
     set udg_TempPoint3=PolarProjectionBJ(udg_TempPoint,0.0,AngleBetweenPoints(udg_TempPoint, udg_TempPoint2))
     set udg_TempBool = false
-    set kyoBallOfDoomUnit = CreateUnitAtLoc(Player(15), 'e00Z', udg_TempPoint3, AngleBetweenPoints(udg_TempPoint, udg_TempPoint2) )
+    set kyoBallOfDoomUnit = CreateUnitAtLoc(Player(PLAYER_NEUTRAL_PASSIVE), 'e00Z', udg_TempPoint3, AngleBetweenPoints(udg_TempPoint, udg_TempPoint2) )
     call SetUnitFlyHeight(kyoBallOfDoomUnit,60.0,100.0)
     call SaveReal(LS(), GetHandleId(kyoBallOfDoomUnit), StringHash("angle"),AngleBetweenPoints(udg_TempPoint, udg_TempPoint2))  
 

@@ -275,7 +275,12 @@ call PolledWait(0.1)
         call SetUnitOwner( udg_SS_Space[GetUnitUserData(udg_TempUnit)], Player(PLAYER_NEUTRAL_PASSIVE), false )
         call RemoveLocation( udg_TempPoint )
         set udg_TempPoint = GetRectCenter(udg_Spaceship_Rect[GetUnitUserData(udg_TempUnit)])
-        call PanCameraToTimedLocForPlayer( GetOwningPlayer(a), udg_TempPoint, 0 )
+        if q == Player(bj_PLAYER_NEUTRAL_EXTRA) then
+            call PanCameraToTimedLocForPlayer( udg_Parasite, udg_TempPoint, 0 )
+        else
+            call PanCameraToTimedLocForPlayer( q, udg_TempPoint, 0 )
+        endif
+        
         call RemoveLocation( udg_TempPoint )
         set udg_TempUnit3 = udg_TempUnit
         call PolledWait( 4.00 )
@@ -290,7 +295,7 @@ call PolledWait(0.1)
         if GetUnitTypeId(b)=='h04V' or GetUnitTypeId(b)=='h04E' then
             set onr="|cffFF0000This station does not use standard docking procedures; please apply standard boarding procedures instead.|r"
         endif
-        if q == Player(14) then
+        if q == Player(bj_PLAYER_NEUTRAL_EXTRA) then
             call DisplayTextToPlayer(udg_Parasite, 0,0,onr)
         else
             call DisplayTextToPlayer(q, 0,0,onr)

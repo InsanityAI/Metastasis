@@ -197,7 +197,7 @@ function Trig_BlackHoleExplode_Actions takes nothing returns nothing
     ///call DisplayTextToForce(GetPlayersAll(), I2S(spaceshipIndex))
     
     //Creates the black hole
-    set blackHoleUnit = CreateUnitAtLoc(Player(15), 'e01I', castPoint, GetRandomDirectionDeg())
+    set blackHoleUnit = CreateUnitAtLoc(Player(PLAYER_NEUTRAL_PASSIVE), 'e01I', castPoint, GetRandomDirectionDeg())
     
     //Cache the black hole unit to be used later
     call SaveUnitHandle(LS(),GetHandleId(t),StringHash("unit"), blackHoleUnit)

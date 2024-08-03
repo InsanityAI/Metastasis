@@ -7,7 +7,7 @@ local player c=GetOwningPlayer(a)
 local boolean o = (a==udg_Playerhero[GetConvertedPlayerId(c)])
 if GetUnitPointValue(a)!= 37 and IsUnitIllusion(a)==false and o then
 set udg_Unit_DeathTime[GetUnitUserData(a)]=TimerGetElapsed(udg_GameTimer)
-set b=CreateUnit(Player(15),GetUnitTypeId(a),GetUnitX(a),GetUnitY(a),GetUnitFacing(a))
+set b=CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),GetUnitTypeId(a),GetUnitX(a),GetUnitY(a),GetUnitFacing(a))
 call SetUnitPathing(b,false)
 call SetUnitX(b,GetUnitX(a))
 call SetUnitY(b,GetUnitY(a))
@@ -24,7 +24,7 @@ call SetUnitColor(b,GetPlayerColor(GetOwningPlayer(a)))
 
 call PolledWait(1.0)
 if udg_Player_IsParasiteSpawn[GetConvertedPlayerId(c)] and IsUnitType(b,UNIT_TYPE_MECHANICAL)==false then
-call SetUnitColor(b,ConvertPlayerColor(12))
+call SetUnitColor(b,ConvertPlayerColor(PLAYER_NEUTRAL_AGGRESSIVE))
 //call FadeUnitOverTime(b,5.0,true)
 endif
 call PolledWait(25.0)

@@ -24,18 +24,19 @@ function Trig_ST10Abilities_Func001Func001Func004C takes nothing returns boolean
 endfunction
 
 function Trig_ST10Abilities_Func001Func001Func029Func003C takes nothing returns boolean
-    if ( not ( GetEnumUnit() == udg_Playerhero[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] ) ) then
-        return false
-    endif
-    return true
+    local player thisPlayer = GetOwningPlayer(GetEnumUnit())
+    return GetEnumUnit() == udg_Playerhero[GetConvertedPlayerId(thisPlayer)] or (udg_Parasite == thisPlayer and udg_AlienForm_Alien == GetEnumUnit()) 
 endfunction
 
 function Trig_ST10Abilities_Func001Func001Func029A takes nothing returns nothing
     call SetUnitPositionLoc( GetEnumUnit(), udg_TempPoint4 )
     call UnitAddAbilityForPeriod(GetEnumUnit(),'Avul',1.7)
     if ( Trig_ST10Abilities_Func001Func001Func029Func003C() ) then
-        call PanCameraToTimedLocForPlayer( GetOwningPlayer(GetEnumUnit()), udg_TempPoint4, 0 )
-    else
+        if GetEnumUnit() == udg_AlienForm_Alien then
+            call PanCameraToTimedLocForPlayer( udg_Parasite, udg_TempPoint4, 0 )
+        else
+            call PanCameraToTimedLocForPlayer( GetOwningPlayer(GetEnumUnit()), udg_TempPoint4, 0 )
+        endif
     endif
 endfunction
 
@@ -91,7 +92,7 @@ local unit s=GetSpellAbilityUnit()
 local sound r
 local sound q
 local player o=GetOwningPlayer(s)
-if o==Player(14) then
+if o==Player(bj_PLAYER_NEUTRAL_EXTRA) then
 set o=udg_Parasite
 endif
     if ( Trig_ST10Abilities_Func001C() ) then

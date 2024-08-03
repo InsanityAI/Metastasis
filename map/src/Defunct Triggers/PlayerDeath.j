@@ -4,7 +4,7 @@ function Trig_PlayerDeath_Func001C takes nothing returns boolean
     if   udg_Playerhero[GetConvertedPlayerId(GetOwningPlayer(GetDyingUnit()))] != GetDyingUnit()   then
         return true
             endif
-    if GetOwningPlayer(GetDyingUnit()) == Player(14) then
+    if GetOwningPlayer(GetDyingUnit()) == Player(bj_PLAYER_NEUTRAL_EXTRA) then
     return true
 
     endif
@@ -197,7 +197,7 @@ local player k=GetOwningPlayer(a)
         call DisplayTextToPlayer( GetOwningPlayer(udg_TempUnit), 0, 0, "TRIGSTR_1367" )
         set udg_Player_Spectating[GetConvertedPlayerId(GetOwningPlayer(udg_TempUnit))] = true
         set udg_TempPlayer=k
-        call SetPlayerAllianceStateBJ( Player(14), k, bj_ALLIANCE_ALLIED_VISION )
+        call SetPlayerAllianceStateBJ( Player(bj_PLAYER_NEUTRAL_EXTRA), k, bj_ALLIANCE_ALLIED_VISION )
         call ForForce( GetPlayersAll(), function Trig_PlayerDeath_Func007Func007A )
 
         call ForceAddPlayerSimple( k, udg_DeadGroup )

@@ -1,13 +1,14 @@
 function Trig_ST10ViewLast_Conditions takes nothing returns boolean
-    if ( not ( GetSpellAbilityId() == 'A084' ) ) then
-        return false
-    endif
-    return true
+    return GetSpellAbilityId() == 'A084'
 endfunction
 
 function Trig_ST10ViewLast_Actions takes nothing returns nothing
+    local player thisPlayer = GetOwningPlayer(GetSpellAbilityUnit())
     set udg_TempPoint=LoadLocationHandle(LS(),GetHandleId(GetSpellAbilityUnit()),StringHash("PortPlace"))
-    call PanCameraToTimedLocForPlayer( GetOwningPlayer(GetSpellAbilityUnit()), udg_TempPoint, 0.25 )
+    if thisPlayer == Player(bj_PLAYER_NEUTRAL_EXTRA) then
+        set thisPlayer = udg_Parasite
+    endif
+    call PanCameraToTimedLocForPlayer(thisPlayer, udg_TempPoint, 0.25)
 endfunction
 
 //===========================================================================

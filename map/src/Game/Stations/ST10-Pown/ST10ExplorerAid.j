@@ -6,8 +6,12 @@ function Trig_ST10ExplorerAid_Conditions takes nothing returns boolean
 endfunction
 
 function Trig_ST10ExplorerAid_Actions takes nothing returns nothing
+    local player thisPlayer = GetOwningPlayer(GetSpellAbilityUnit())
     set udg_TempPoint = GetRectCenter(udg_SpaceObject_Rect[GetUnitUserData(GetSpellTargetUnit())])
-    call PanCameraToTimedLocForPlayer( GetOwningPlayer(GetSpellAbilityUnit()), udg_TempPoint, 0.25 )
+    if thisPlayer == Player(bj_PLAYER_NEUTRAL_EXTRA) then
+        set thisPlayer = udg_Parasite
+    endif
+    call PanCameraToTimedLocForPlayer(thisPlayer, udg_TempPoint, 0.25)
     call RemoveLocation(udg_TempPoint)
 endfunction
 

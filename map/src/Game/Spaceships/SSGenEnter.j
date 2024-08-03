@@ -39,7 +39,7 @@ function Trig_SSGenEnter_Actions takes nothing returns nothing
         call SetUnitPositionLoc( GetTriggerUnit(), udg_TempPoint )
         
         if ( GetTriggerUnit() == udg_Playerhero[GetConvertedPlayerId(GetOwningPlayer(GetTriggerUnit()))] ) then
-            if GetOwningPlayer(GetTriggerUnit()) != Player(14) then
+            if GetOwningPlayer(GetTriggerUnit()) != Player(bj_PLAYER_NEUTRAL_EXTRA) then
                 call PanCameraToTimedLocForPlayer( GetOwningPlayer(GetTriggerUnit()), udg_TempPoint, 0 )
             else
                 call PanCameraToTimedLocForPlayer( udg_Parasite, udg_TempPoint, 0 )

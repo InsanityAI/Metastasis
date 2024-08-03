@@ -66,7 +66,7 @@ function TripCollide takes nothing returns nothing
   local lightning d=LoadLightningHandle(LS(), GetHandleId(targettwo),StringHash("lightning"))
   local unit f=GetTriggerUnit()
   local player p=LoadPlayerHandle(LS(), GetHandleId(GetTriggeringTrigger()), StringHash("wo"))
-  if GetUnitPointValue(f) != 37 and GetUnitState(f,UNIT_STATE_LIFE)>0.00 and GetUnitAbilityLevel(f,'Avul')==0 and IsUnitType(f,UNIT_TYPE_MAGIC_IMMUNE)==false and udg_Player_IsParasiteSpawn[GetConvertedPlayerId(GetOwningPlayer(f))]==false and GetOwningPlayer(f) != Player(14) and GetOwningPlayer(f) != udg_Parasite and IsUnitType(f,UNIT_TYPE_FLYING)==false then
+  if GetUnitPointValue(f) != 37 and GetUnitState(f,UNIT_STATE_LIFE)>0.00 and GetUnitAbilityLevel(f,'Avul')==0 and IsUnitType(f,UNIT_TYPE_MAGIC_IMMUNE)==false and udg_Player_IsParasiteSpawn[GetConvertedPlayerId(GetOwningPlayer(f))]==false and GetOwningPlayer(f) != Player(bj_PLAYER_NEUTRAL_EXTRA) and GetOwningPlayer(f) != udg_Parasite and IsUnitType(f,UNIT_TYPE_FLYING)==false then
         call UnitDamageTarget(udg_Playerhero[GetConvertedPlayerId(p)], f, Trip_Damage(), true, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
      call PauseUnit(GetTriggerUnit(),true)
      call SetUnitAnimation(GetTriggerUnit(),"death")
@@ -103,7 +103,7 @@ call KillUnit(targettwo)
 function TripAct2 takes nothing returns nothing
 local unit q=GetSpellAbilityUnit()
   local unit targetone=LoadUnitHandle(LS(), GetHandleId(q), StringHash("target1"))
-  local unit targettwo=CreateUnit(Player(15),'e01B',GetSpellTargetX(), GetSpellTargetY(), GetRandomDirectionDeg())
+  local unit targettwo=CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01B',GetSpellTargetX(), GetSpellTargetY(), GetRandomDirectionDeg())
     local location a=GetUnitLoc(targetone)
   local location b=GetUnitLoc(targettwo)
   local lightning d=AddLightningEx(Trip_LightningCode(),false,GetUnitX(targetone),GetUnitY(targetone),GetLocationZ(a)+20.0,GetUnitX(targettwo),GetUnitY(targettwo),GetLocationZ(b)+20.0)
@@ -135,7 +135,7 @@ endfunction
 
 function TripAct takes nothing returns nothing
 local unit q=GetSpellAbilityUnit()
-  local unit targetone=CreateUnit(Player(15),'e01B',GetSpellTargetX(), GetSpellTargetY(), GetRandomDirectionDeg())
+  local unit targetone=CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01B',GetSpellTargetX(), GetSpellTargetY(), GetRandomDirectionDeg())
      call SaveUnitHandle(LS(), GetHandleId(q),StringHash("target1"),targetone)
 endfunction
 
@@ -144,7 +144,7 @@ function TripDirectAct takes nothing returns nothing
   local location a=GetUnitLoc(v)
   local location b=GetSpellTargetLoc()
   local player o=GetOwningPlayer(GetSpellAbilityUnit())
-  if o==Player(14) then
+  if o==Player(bj_PLAYER_NEUTRAL_EXTRA) then
   set o=udg_Parasite
   endif
 if v==udg_TheNullUnit or v==null then

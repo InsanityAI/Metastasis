@@ -3,7 +3,7 @@
 function SentryGun_Filter takes nothing returns nothing
 local location a=GetUnitLoc(GetEnumUnit())
 local real distance=DistanceBetweenPoints(a,udg_TempPoint)
-if IsPlayerInForce(GetOwningPlayer(GetEnumUnit()), udg_SentryGunAllies[GetConvertedPlayerId(udg_TempPlayer)]) == false and GetUnitAbilityLevel(GetEnumUnit(), 'Avul')==0 and GetUnitPointValue(GetEnumUnit()) != 37 and GetOwningPlayer(GetEnumUnit()) != Player(15) and IsUnitAliveBJ(GetEnumUnit()) and (udg_Player_IsMasquerading[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] and IsPlayerInForce(udg_Player_MasqueradeTarget[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))], udg_SentryGunAllies[GetConvertedPlayerId(udg_TempPlayer)])) == false then
+if IsPlayerInForce(GetOwningPlayer(GetEnumUnit()), udg_SentryGunAllies[GetConvertedPlayerId(udg_TempPlayer)]) == false and GetUnitAbilityLevel(GetEnumUnit(), 'Avul')==0 and GetUnitPointValue(GetEnumUnit()) != 37 and GetOwningPlayer(GetEnumUnit()) != Player(PLAYER_NEUTRAL_PASSIVE) and IsUnitAliveBJ(GetEnumUnit()) and (udg_Player_IsMasquerading[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] and IsPlayerInForce(udg_Player_MasqueradeTarget[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))], udg_SentryGunAllies[GetConvertedPlayerId(udg_TempPlayer)])) == false then
 if distance < udg_TempReal then
 set udg_TempUnit=GetEnumUnit()
 set udg_TempReal=distance
@@ -16,7 +16,7 @@ endfunction
 function SentryGun_CheckTargets takes unit sentrygun, player owner returns nothing
 local location sentryloc=GetUnitLoc(sentrygun)
 local boolean b
-if owner == Player(14) then
+if owner == Player(bj_PLAYER_NEUTRAL_EXTRA) then
 set owner = udg_Parasite
 endif
 loop
@@ -46,7 +46,7 @@ endfunction
 function Trig_SentryGunAI_Actions takes nothing returns nothing
 //local trigger c=GetTriggeringTrigger()
 //local unit b=GetHandleUnit(c, "sentry")
- //   if (GetOwningPlayer(GetTriggerUnit()) != udg_SentryGun_OrigOwner[GetUnitAN(b)]) and GetOwningPlayer(GetTriggerUnit()) != Player(15) then
+ //   if (GetOwningPlayer(GetTriggerUnit()) != udg_SentryGun_OrigOwner[GetUnitAN(b)]) and GetOwningPlayer(GetTriggerUnit()) != Player(PLAYER_NEUTRAL_PASSIVE) then
  //       call IssueTargetOrderBJ( b, "attack", GetTriggerUnit() )
   //  endif
 endfunction

@@ -35,7 +35,7 @@ if GetOwningPlayer(GetTriggerUnit()) != Player(PLAYER_NEUTRAL_PASSIVE) or GetUni
                 call SetUnitPositionLoc( GetTriggerUnit(), udg_TempPoint )
             endif
             
-            if GetOwningPlayer(GetTriggerUnit()) != Player(14) then
+            if GetOwningPlayer(GetTriggerUnit()) != Player(bj_PLAYER_NEUTRAL_EXTRA) then
                 call PanCameraToTimedLocForPlayer( GetOwningPlayer(GetTriggerUnit()), udg_TempPoint, 0 )
             else
                 call PanCameraToTimedLocForPlayer( udg_Parasite, udg_TempPoint, 0 )
@@ -54,7 +54,7 @@ if GetOwningPlayer(GetTriggerUnit()) != Player(PLAYER_NEUTRAL_PASSIVE) or GetUni
                 call DisableTrigger( udg_Spaceship_ExitTrig[GetUnitUserData(b)] )
                 set udg_TempPoint = GetRectCenter(udg_Spaceship_EnterExit[GetUnitUserData(b)])
                 call SetUnitPositionLoc( GetTriggerUnit(), udg_TempPoint )
-                if GetOwningPlayer(GetTriggerUnit()) != Player(14) then
+                if GetOwningPlayer(GetTriggerUnit()) != Player(bj_PLAYER_NEUTRAL_EXTRA) then
                     call PanCameraToTimedLocForPlayer( GetOwningPlayer(GetTriggerUnit()), udg_TempPoint, 0 )
                 else
                     call PanCameraToTimedLocForPlayer( udg_Parasite, udg_TempPoint, 0 )

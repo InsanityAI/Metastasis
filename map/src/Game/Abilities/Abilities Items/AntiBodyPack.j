@@ -21,7 +21,7 @@ function Trig_AntiBodyPack_Actions takes nothing returns nothing
         call UnitRemoveBuffBJ( 'B009', a )
     
         //and give "Contained Prion Infection" (buff/debuff)
-        set bj_lastCreatedUnit = CreateUnit(Player(12),'e032',GetUnitX(a),GetUnitY(a),270.0)
+        set bj_lastCreatedUnit = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e032',GetUnitX(a),GetUnitY(a),270.0)
         call IssueTargetOrder(bj_lastCreatedUnit,"parasite",a)
     endif
     
@@ -31,7 +31,7 @@ function Trig_AntiBodyPack_Actions takes nothing returns nothing
         call UnitRemoveBuffBJ( 'B00H', a )
     
         //and give "Contained Parasite" (buff/debuff)
-        set bj_lastCreatedUnit= CreateUnit(Player(12),'e033',GetUnitX(a),GetUnitY(a),270.0)
+        set bj_lastCreatedUnit= CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE),'e033',GetUnitX(a),GetUnitY(a),270.0)
         call IssueTargetOrder(bj_lastCreatedUnit,"parasite",a)
     endif
     

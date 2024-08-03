@@ -9,7 +9,7 @@ function Trig_Lightning_Strike_Conditions takes nothing returns boolean
 endfunction
 
 function LightningStrikeDamage takes nothing returns nothing
-if GetOwningPlayer(GetEnumUnit()) != Player(14) and GetOwningPlayer(GetEnumUnit()) != udg_Parasite and udg_Player_IsParasiteSpawn[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] == false then
+if GetOwningPlayer(GetEnumUnit()) != Player(bj_PLAYER_NEUTRAL_EXTRA) and GetOwningPlayer(GetEnumUnit()) != udg_Parasite and udg_Player_IsParasiteSpawn[GetConvertedPlayerId(GetOwningPlayer(GetEnumUnit()))] == false then
 call UnitDamageTarget(udg_TempUnit4, GetEnumUnit(), 500.0, false, false ,ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
 endif
 endfunction

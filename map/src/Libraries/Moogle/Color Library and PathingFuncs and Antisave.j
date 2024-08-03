@@ -31,7 +31,7 @@ library PathingFuncs initializer init
         set I=CreateItem('ward',ItemSafeX,ItemSafeY)
         call SetItemInvulnerable(I,true)
         call SetItemVisible(I,false)
-        set U=CreateUnit(Player(15),'hfoo',ItemSafeX,ItemSafeY,0.)
+        set U=CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'hfoo',ItemSafeX,ItemSafeY,0.)
         call SetUnitInvulnerable(U,true)
         call ShowUnit(U,false)
     endfunction

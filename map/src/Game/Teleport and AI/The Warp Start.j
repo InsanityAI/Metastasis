@@ -6,12 +6,17 @@ function Trig_The_Warp_Start_Conditions takes nothing returns boolean
 endfunction
 
 function Trig_The_Warp_Start_Func003A takes nothing returns nothing
-    call ForceAddPlayerSimple( GetOwningPlayer(GetEnumUnit()), udg_Warp_PG )
-    call DisplayTextToPlayer(GetOwningPlayer(GetEnumUnit()), 0, 0, "|CFFE55BB0Error: Teleportation UN-SUCCESFUL.\r
+    local player p = GetOwningPlayer(GetEnumUnit())
+    if p == Player(bj_PLAYER_NEUTRAL_EXTRA) then
+        set p = udg_Parasite
+    endif
+    call ForceAddPlayerSimple(p, udg_Warp_PG )
+    call DisplayTextToPlayer(p, 0, 0, "|CFFE55BB0Error: Teleportation UN-SUCCESFUL.\r
 \r
 Location: U.N.K.N.O.W.N.\r
 \r
 Relocation initiating in 30 seconds.")
+    set p = null
 endfunction
 
 function Trig_The_Warp_Start_Func007A takes nothing returns nothing

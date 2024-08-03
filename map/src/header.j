@@ -1216,9 +1216,14 @@ endfunction
 
 /////////////
 function SunLoop_Blind takes nothing returns nothing
-if GetEnumUnit()==GetPlayerheroU(GetEnumUnit()) then
-call CinematicFilterGenericForPlayer(GetOwningPlayer(GetEnumUnit()), 7.0, BLEND_MODE_BLEND,  "ReplaceableTextures\\CameraMasks\\White_mask.blp", 100,100,100,udg_TempReal/9,0,0,0,100)
-endif
+    local player p = GetOwningPlayer(GetEnumUnit())
+    if GetEnumUnit()==GetPlayerheroU(GetEnumUnit()) then
+        if p == Player(bj_PLAYER_NEUTRAL_EXTRA) then
+            set p = udg_Parasite
+        endif
+        call CinematicFilterGenericForPlayer(p, 7.0, BLEND_MODE_BLEND,  "ReplaceableTextures\\CameraMasks\\White_mask.blp", 100,100,100,udg_TempReal/9,0,0,0,100)
+    endif
+    set p = null
 endfunction
 
 function SunLoop takes unit a returns nothing
@@ -1563,7 +1568,7 @@ endfunction
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 function CreateScaledEffect takes string effectPath, real scale,real duration, real x, real y returns unit
 //That effect is a UNIT!
-local unit p=CreateUnit(Player(14),'e01Q',x,y,GetRandomDirectionDeg())
+local unit p=CreateUnit(Player(bj_PLAYER_NEUTRAL_EXTRA),'e01Q',x,y,GetRandomDirectionDeg())
 call SetUnitScale(p,scale,scale,scale)
 call AddSpecialEffectTarget(effectPath,p,"origin")
 call UnitApplyTimedLife(p,'B000',duration)
@@ -1571,7 +1576,7 @@ return p
 endfunction
 function CreateScaledEffect2 takes string effectPath, real scale,real duration, real x, real y returns unit
 //That effect is a UNIT! sans flying
-local unit p=CreateUnit(Player(14),'e03A',x,y,GetRandomDirectionDeg())
+local unit p=CreateUnit(Player(bj_PLAYER_NEUTRAL_EXTRA),'e03A',x,y,GetRandomDirectionDeg())
 call SetUnitScale(p,scale,scale,scale)
 call AddSpecialEffectTarget(effectPath,p,"origin")
 call UnitApplyTimedLife(p,'B000',duration)

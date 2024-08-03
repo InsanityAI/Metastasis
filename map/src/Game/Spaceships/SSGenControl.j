@@ -60,7 +60,7 @@ function Trig_SSGenControl_Actions takes nothing returns nothing
     endif
     
     if ( RectContainsUnit(gg_rct_Space, udg_SS_Space[GetUnitUserData(udg_TempUnit)]) == true ) then
-        if GetOwningPlayer(GetTriggerUnit()) != Player(14) then
+        if GetOwningPlayer(GetTriggerUnit()) != Player(bj_PLAYER_NEUTRAL_EXTRA) then
             call CheckConsoleControl(udg_Spaceship_Console[GetUnitAN(udg_TempUnit)],udg_SS_Space[GetUnitAN(udg_TempUnit)],udg_Spaceship_Rect[GetUnitAN(udg_TempUnit)])
             call SetUnitOwner( udg_Spaceship_Console[GetUnitUserData(udg_TempUnit)], GetOwningPlayer(GetTriggerUnit()), false )
             call DisplayTextToPlayer( GetOwningPlayer(GetTriggerUnit()), 0, 0, ( "|cff8000FFU.S.I. Explorer Class|r" + "" ) )

@@ -33,7 +33,7 @@ call UnitDamageTarget(a,GetTriggerUnit(), 60000,false,false,ATTACK_TYPE_NORMAL, 
 endif
 call KillUnit(a)
 call DestroyTrigger(t)
-call CreateUnit(Player(15),'e01E',GetUnitX(a), GetUnitY(a), GetRandomDirectionDeg())
+call CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e01E',GetUnitX(a), GetUnitY(a), GetRandomDirectionDeg())
 endif
 endfunction
 

@@ -66,7 +66,7 @@ function Trig_NightOfTheMasksESC_Actions takes nothing returns nothing
     call SetPlayerName( udg_TempPlayer, udg_Player_NameBeforeDead[GetConvertedPlayerId(GetTriggerPlayer())] )
     set udg_Player_IsMasquerading[GetConvertedPlayerId(udg_TempPlayer)] = false
     if udg_TempPlayer == udg_Parasite then
-        set udg_Player_IsMasquerading[GetConvertedPlayerId(Player(14))] = false
+        set udg_Player_IsMasquerading[GetConvertedPlayerId(Player(bj_PLAYER_NEUTRAL_EXTRA))] = false
     endif
 endfunction
 

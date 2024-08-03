@@ -72,7 +72,7 @@ local trigger q=CreateTrigger()
     set udg_TempPoint2 = GetUnitLoc(GetSpellTargetUnit())
     set udg_TempPoint3=PolarProjectionBJ(udg_TempPoint,160.0,AngleBetweenPoints(udg_TempPoint, udg_TempPoint2))
     set udg_TempBool = false
-    call CreateNUnitsAtLoc( 1, 'e01G', Player(15), udg_TempPoint3, AngleBetweenPoints(udg_TempPoint, udg_TempPoint2) )
+    call CreateNUnitsAtLoc( 1, 'e01G', Player(PLAYER_NEUTRAL_PASSIVE), udg_TempPoint3, AngleBetweenPoints(udg_TempPoint, udg_TempPoint2) )
  call SaveReal(LS(), GetHandleId(GetLastCreatedUnit()), StringHash("angle"),AngleBetweenPoints(udg_TempPoint, udg_TempPoint2))  
    call TriggerRegisterUnitEvent(q,GetLastCreatedUnit(), EVENT_UNIT_DEATH)
    call TriggerAddAction(q,function Vector_Dies)

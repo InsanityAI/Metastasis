@@ -127,7 +127,7 @@ call FlushParentHashtable(h)
 function CordAct2 takes nothing returns nothing
 local unit q=GetSpellAbilityUnit()
   local unit targetone=LoadUnitHandle(LS(), GetHandleId(q), StringHash("target1"))
-  local unit targettwo=CreateUnit(Player(15),'e024',GetSpellTargetX(), GetSpellTargetY(), GetRandomDirectionDeg())
+  local unit targettwo=CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e024',GetSpellTargetX(), GetSpellTargetY(), GetRandomDirectionDeg())
     local location a=GetUnitLoc(targetone)
   local location b=GetUnitLoc(targettwo)
   local hashtable h=InitHashtable()
@@ -174,7 +174,7 @@ endfunction
 
 function CordAct takes nothing returns nothing
 local unit q=GetSpellAbilityUnit()
-  local unit targetone=CreateUnit(Player(15),'e024',GetSpellTargetX(), GetSpellTargetY(), GetRandomDirectionDeg())
+  local unit targetone=CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE),'e024',GetSpellTargetX(), GetSpellTargetY(), GetRandomDirectionDeg())
      call SaveUnitHandle(LS(), GetHandleId(q),StringHash("target1"),targetone)
 endfunction
 
@@ -183,7 +183,7 @@ function CordDirectAct takes nothing returns nothing
   local location a=GetUnitLoc(v)
   local location b=GetSpellTargetLoc()
   local player o=GetOwningPlayer(GetSpellAbilityUnit())
-  if o==Player(14) then
+  if o==Player(bj_PLAYER_NEUTRAL_EXTRA) then
   set o=udg_Parasite
   endif
 if v==udg_TheNullUnit or v==null then

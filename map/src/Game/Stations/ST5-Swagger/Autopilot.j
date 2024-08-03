@@ -6,9 +6,13 @@ function Trig_Autopilot_Conditions takes nothing returns boolean
 endfunction
 
 function Trig_Autopilot_Actions takes nothing returns nothing
-    call DisplayTimedTextToPlayer(GetOwningPlayer(GetSpellAbilityUnit()), 0, 0, 30, "|cff00FF00Autopilot engaged.|r")
+    local player thisPlayer = GetOwningPlayer(GetSpellAbilityUnit())
+    if thisPlayer == Player(bj_PLAYER_NEUTRAL_EXTRA) then
+        set thisPlayer = udg_Parasite
+    endif
+    call DisplayTimedTextToPlayer(thisPlayer, 0, 0, 30, "|cff00FF00Autopilot engaged.|r")
     set udg_TempPoint = GetRectCenter(gg_rct_ST5Control)
-    call PanCameraToTimedLocForPlayer( GetOwningPlayer(GetSpellAbilityUnit()), udg_TempPoint, 0 )
+    call PanCameraToTimedLocForPlayer(thisPlayer, udg_TempPoint, 0 )
     call RemoveLocation(udg_TempPoint)
     call SetUnitOwner( gg_unit_h00Y_0050, Player(PLAYER_NEUTRAL_PASSIVE), true )
     call SetUnitOwner( gg_unit_h00X_0049, Player(PLAYER_NEUTRAL_PASSIVE), true )

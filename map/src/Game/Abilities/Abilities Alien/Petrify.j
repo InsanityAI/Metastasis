@@ -71,7 +71,7 @@ call TriggerAddAction(k,function DepetrifyInRange)
     call PauseUnitBJ( true, GetSpellTargetUnit() )
     call SetUnitVertexColorBJ( GetSpellTargetUnit(), 20.00, 20.00, 20.00, 0 )
     call UnitAddAbilityBJ( 'Avul', GetSpellTargetUnit() )
-    call SetUnitColor( GetSpellTargetUnit(), ConvertPlayerColor(12) )
+    call SetUnitColor( GetSpellTargetUnit(), ConvertPlayerColor(PLAYER_NEUTRAL_AGGRESSIVE) )
     if ( Trig_Petrify_Func006C() ) then
         set udg_Player_PetrifiedHero[GetConvertedPlayerId(GetOwningPlayer(GetSpellTargetUnit()))] = GetSpellTargetUnit()
         set udg_Playerhero[GetConvertedPlayerId(GetOwningPlayer(GetSpellTargetUnit()))] = null

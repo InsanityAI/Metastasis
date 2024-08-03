@@ -77,7 +77,7 @@ function Trig_AndroidUpgradeDialogClick_Actions takes nothing returns nothing
     
     //Below makes the color be neutral
     //if GetUnitTypeId(GetLastReplacedUnitBJ())=='h047' then
-        //call SetUnitColor(GetLastReplacedUnitBJ(),ConvertPlayerColor(12))
+        //call SetUnitColor(GetLastReplacedUnitBJ(),ConvertPlayerColor(PLAYER_NEUTRAL_AGGRESSIVE))
     //endif
 endfunction
 

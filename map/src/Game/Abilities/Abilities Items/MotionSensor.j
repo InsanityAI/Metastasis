@@ -46,7 +46,7 @@ call TriggerAddAction(d,function MotionSensor_Clean)
 call TriggerRegisterDeathEvent(d,a)
 call TriggerRegisterUnitInRangeSimple(k,325.0,a)
 call TriggerAddAction(k,function MotionSensor_Trigger)
-call SetUnitColor(a,ConvertPlayerColor(12))
+call SetUnitColor(a,ConvertPlayerColor(PLAYER_NEUTRAL_AGGRESSIVE))
 endfunction
 
 //===========================================================================

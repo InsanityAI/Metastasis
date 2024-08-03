@@ -18,10 +18,14 @@ function Trig_ST7Control_Conditions takes nothing returns boolean
 endfunction 
 
 function Trig_ST7Control_Actions takes nothing returns nothing
+    local player thisPlayer = GetOwningPlayer(GetTriggerUnit()) 
     call SetUnitOwner( gg_unit_h02B_0116, GetOwningPlayer(GetTriggerUnit()), false )
     call SelectUnitForPlayerSingle( gg_unit_h02B_0116, GetOwningPlayer(GetTriggerUnit()) )
     set udg_TempPoint = GetUnitLoc(gg_unit_h02B_0116)
-    call PanCameraToTimedLocForPlayer( GetOwningPlayer(GetTriggerUnit()), udg_TempPoint, 0 )
+    if thisPlayer == Player(bj_PLAYER_NEUTRAL_EXTRA) then 
+        set thisPlayer = udg_Parasite 
+    endif 
+    call PanCameraToTimedLocForPlayer(thisPlayer, udg_TempPoint, 0 )
     call RemoveLocation(udg_TempPoint)
 endfunction
 
