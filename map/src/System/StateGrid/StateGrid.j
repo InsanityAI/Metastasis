@@ -96,11 +96,11 @@ library StateGrid initializer Init requires StringWidth, PlayerColor, Timeout, T
     private function setOldRole takes player thisPlayer, integer role returns nothing
         if role == ROLE_ALIEN then
             set udg_Parasite = thisPlayer
-            call PlayerUtil_setPlayerProxy(Player(bj_NEUTRAL_EXTRA), thisPlayer)
+            call PlayerUtil_setPlayerProxy(Player(bj_PLAYER_NEUTRAL_EXTRA), thisPlayer)
         elseif role == ROLE_MUTANT then
             set udg_Mutant = thisPlayer
         elseif role == ROLE_ANDROID then
-            set udg_HiddenAndroid = thidPlayer
+            set udg_HiddenAndroid = thisPlayer
         endif
     endfunction
 
@@ -141,23 +141,23 @@ library StateGrid initializer Init requires StringWidth, PlayerColor, Timeout, T
 
     public function IsPlayerOfRole takes player p, integer role returns boolean
         local PlayerData playerData = getPlayerData(p)
-        return playerData.role == role or playerData.subRole = role
+        return playerData.role == role or playerData.subRole == role
     endfunction
 
     public function IsPlayerHuman takes player p returns boolean 
-        return IsPlayerRole(p, ROLE_HUMAN)
+        return IsPlayerOfRole(p, ROLE_HUMAN)
     endfunction 
 
     public function IsPlayerAndroid takes player p returns boolean 
-        return IsPlayerRole(p, ROLE_ANDROID)
+        return IsPlayerOfRole(p, ROLE_ANDROID)
     endfunction 
 
     public function IsPlayerAlien takes player p returns boolean 
-        return IsPlayerRole(PlayerUtil_getActualPlayer(p), ROLE_ALIEN)
+        return IsPlayerOfRole(PlayerUtil_getActualPlayer(p), ROLE_ALIEN)
     endfunction 
 
     public function IsPlayerAlienSpawn takes player p returns boolean 
-        return IsPlayerRole(p, ROLE_ALIEN_SPAWN)
+        return IsPlayerOfRole(p, ROLE_ALIEN_SPAWN)
     endfunction 
 
     public function IsPlayerAnAlien takes player p returns boolean
@@ -165,11 +165,11 @@ library StateGrid initializer Init requires StringWidth, PlayerColor, Timeout, T
     endfunction
 
     public function IsPlayerMutant takes player p returns boolean 
-        return IsPlayerRole(p, ROLE_MUTANT)
+        return IsPlayerOfRole(p, ROLE_MUTANT)
     endfunction 
 
     public function IsPlayerMutantSpawn takes player p returns boolean 
-        return IsPlayerRole(p, ROLE_MUTANT_SPAWN)
+        return IsPlayerOfRole(p, ROLE_MUTANT_SPAWN)
     endfunction 
 
     public function IsPlayerAMutant takes player p returns boolean
@@ -177,11 +177,11 @@ library StateGrid initializer Init requires StringWidth, PlayerColor, Timeout, T
     endfunction
 
     public function IsPlayerHostEvil takes player p returns boolean 
-        return IsPlayerRole(p, ROLE_MUTANT) or IsPlayerRole(p, ROLE_ALIEN)
+        return IsPlayerOfRole(p, ROLE_MUTANT) or IsPlayerOfRole(p, ROLE_ALIEN)
     endfunction 
 
     public function IsPlayerSpawnEvil takes player p returns boolean 
-        return IsPlayerRole(p, ROLE_MUTANT_SPAWN) or IsPlayerRole(p, ROLE_ALIEN_SPAWN)
+        return IsPlayerOfRole(p, ROLE_MUTANT_SPAWN) or IsPlayerOfRole(p, ROLE_ALIEN_SPAWN)
     endfunction 
 
     public function IsPlayerEvil takes player p returns boolean 

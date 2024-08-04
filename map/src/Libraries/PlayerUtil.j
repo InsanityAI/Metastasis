@@ -8,7 +8,7 @@ library PlayerUtil initializer init requires Table
     endfunction 
 
     public function getActualPlayer takes player proxyPlayer returns player 
-        if proxies.stored(proxyPlayer) then 
+        if proxies.stores(proxyPlayer) then 
             return proxies.player.get(proxyPlayer) 
         else 
             return proxyPlayer 

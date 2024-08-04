@@ -69,7 +69,7 @@ function Trig_ChooseRoles_Actions takes nothing returns nothing
         call TriggerExecute(gg_trg_ST10UnInit) 
     endif 
 
-    if CountPlayersInForceBJ(GetPlayersAll()) <= 6 or not udg_TESTING then 
+    if CountPlayersInForceBJ(GetPlayersAll()) <= 6 and not udg_TESTING then 
         // No android? No arbi, its bloat (more playspace to drag games)    
         call RemoveUnit(gg_unit_h003_0018) //THIS RIGHT HERE!!!    
         call DestroyTrigger(gg_trg_ST1Death) 
