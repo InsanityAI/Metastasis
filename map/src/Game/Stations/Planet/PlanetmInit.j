@@ -29,6 +29,7 @@ function Trig_PlanetmInit_Actions takes nothing returns nothing
         call ChangeElevatorWalls( true, bj_ELEVATOR_WALL_TYPE_ALL, udg_All_Dock[GetForLoopIndexA()] )
         set bj_forLoopAIndex = bj_forLoopAIndex + 1
     endloop
+    call SetUnitTimeScalePercent( gg_unit_h008_0196, 15.00 )
 endfunction
 
 //===========================================================================

@@ -36,6 +36,13 @@ function Trig_ChooseRoles_DisplayObjectives takes nothing returns nothing
     set p = null 
 endfunction 
 
+function Trig_ChooseRoles_AddVisionOfArbitressRaptors takes nothing returns nothing
+    call CreateFogModifierRectBJ( true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS5 )
+    call DestroyFogModifier( GetLastCreatedFogModifier() )
+    call CreateFogModifierRectBJ( true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS6 )
+    call DestroyFogModifier( GetLastCreatedFogModifier() )
+endfunction
+
 function Trig_ChooseRoles_Actions takes nothing returns nothing 
     call DestroyTrigger(GetTriggeringTrigger()) 
     call ForceClear(udg_ChooseGroup) 
@@ -71,13 +78,14 @@ function Trig_ChooseRoles_Actions takes nothing returns nothing
 
     if CountPlayersInForceBJ(GetPlayersAll()) <= 6 and not udg_TESTING then 
         // No android? No arbi, its bloat (more playspace to drag games)    
-        call RemoveUnit(gg_unit_h003_0018) //THIS RIGHT HERE!!!    
+        call RemoveUnit(gg_unit_h003_0018)
         call DestroyTrigger(gg_trg_ST1Death) 
         call DestroyTrigger(gg_trg_ST1AttackEnd) 
         call DestroyTrigger(gg_trg_ST1Attack) 
     else
         call TriggerExecute(gg_trg_ST1mInit)
         set arbitressUsed = true
+        call ForForce(GetPlayersAll(), function Trig_ChooseRoles_AddVisionOfArbitressRaptors)
     endif 
 endfunction 
 

@@ -1,8 +1,5 @@
 function Trig_Albadar_Anti_Abuse_Conditions takes nothing returns boolean
-    if ( not ( udg_ace_Existence == true ) ) then
-        return false
-    endif
-    return true
+    return not udg_ace_Existence
 endfunction
 
 function Trig_Albadar_Anti_Abuse_Actions takes nothing returns nothing

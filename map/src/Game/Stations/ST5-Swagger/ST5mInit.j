@@ -64,6 +64,7 @@ function Trig_ST5mInit_Actions takes nothing returns nothing
         set bj_forLoopAIndex = bj_forLoopAIndex + 1
     endloop
     call SetUnitTimeScalePercent( gg_unit_h03O_0208, 25.00 )
+    call SetUnitTimeScalePercent( gg_unit_h00X_0049, 15.00 )
     call SetUnitVertexColorBJ( gg_unit_h03O_0208, 0.00, 0.00, 0.00, 100.00 )
     call SetUnitVertexColorBJ( gg_unit_e012_0074, 100.00, 100.00, 100.00, 100.00 )
     call SetUnitVertexColorBJ( gg_unit_e012_0092, 100.00, 100.00, 100.00, 100.00 )

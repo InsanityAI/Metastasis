@@ -1,7 +1,26 @@
+function Trig_SSInit_InitPlayerVisibility takes nothing returns nothing
+    call CreateFogModifierRectBJ( true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS1 )
+    call DestroyFogModifier( GetLastCreatedFogModifier() )
+    call CreateFogModifierRectBJ( true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS2 )
+    call DestroyFogModifier( GetLastCreatedFogModifier() )
+    call CreateFogModifierRectBJ( true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS3 )
+    call DestroyFogModifier( GetLastCreatedFogModifier() )
+    call CreateFogModifierRectBJ( true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS4 )
+    call DestroyFogModifier( GetLastCreatedFogModifier() )
+    call CreateFogModifierRectBJ( true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS7 )
+    call DestroyFogModifier( GetLastCreatedFogModifier() )
+    call CreateFogModifierRectBJ( true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS8 )
+    call DestroyFogModifier( GetLastCreatedFogModifier() )
+    call CreateFogModifierRectBJ( true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS9 )
+    call DestroyFogModifier( GetLastCreatedFogModifier() )
+    call CreateFogModifierRectBJ( true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS10 )
+    call DestroyFogModifier( GetLastCreatedFogModifier() )
+    call CreateFogModifierRectBJ( true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_SS11 )
+    call DestroyFogModifier( GetLastCreatedFogModifier() )
+endfunction
+
 function Trig_SSInit_Actions takes nothing returns nothing
     call DestroyTrigger(GetTriggeringTrigger())
-    call SetUnitTimeScalePercent( gg_unit_h00X_0049, 15.00 )
-    call SetUnitTimeScalePercent( gg_unit_h008_0196, 15.00 )
     set udg_TempUnit = gg_unit_h001_0042
     set udg_TempUnit2 = gg_unit_h002_0046
     set udg_TempUnit3 = gg_unit_h004_0048
@@ -123,16 +142,6 @@ function Trig_SSInit_Actions takes nothing returns nothing
     set udg_SS_DockGroundedAt[GetUnitUserData(gg_unit_h02K_0204)] = 33
     set udg_TempInt = 19
     call Spaceship_Build(udg_TempUnit, udg_TempUnit2, udg_TempUnit3, udg_TempRect, udg_TempRect2, udg_TempRect3,udg_TempInt)
-    set udg_TempUnit = gg_unit_h02S_0215
-    set udg_TempUnit2 = gg_unit_h02Q_0212
-    set udg_TempUnit3 = gg_unit_h004_0213
-    set udg_TempRect = gg_rct_SS12
-    set udg_TempRect2 = gg_rct_SS12EE
-    set udg_TempRect3 = gg_rct_SS12Control
-    set udg_SS_Harbor[GetUnitUserData(gg_unit_h02S_0215)] = null
-    set udg_SS_DockGroundedAt[GetUnitUserData(gg_unit_h02S_0215)] = 0
-    set udg_TempInt = 20
-    call Spaceship_Build(udg_TempUnit, udg_TempUnit2, udg_TempUnit3, udg_TempRect, udg_TempRect2, udg_TempRect3,udg_TempInt)
     set udg_TempUnit = gg_unit_h04E_0259
     set udg_TempUnit2 = gg_unit_h04E_0259
     set udg_TempUnit3 = null
@@ -153,6 +162,7 @@ function Trig_SSInit_Actions takes nothing returns nothing
     set udg_SS_DockGroundedAt[GetUnitUserData(gg_unit_h04V_0253)] = 0
     set udg_TempInt = 25
     call Spaceship_Build(udg_TempUnit, udg_TempUnit2, udg_TempUnit3, udg_TempRect, udg_TempRect2, udg_TempRect3,udg_TempInt)
+    call ForForce(GetPlayersAll(), function Trig_SSInit_InitPlayerVisibility)
 endfunction
 
 //===========================================================================

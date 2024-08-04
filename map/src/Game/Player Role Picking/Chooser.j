@@ -81,9 +81,25 @@ endfunction
 
 function Trig_Chooser_CheckIfAceExists takes nothing returns nothing 
     if(udg_PlayerRole[GetConvertedPlayerId(GetEnumPlayer())] == 11) then 
-        set udg_TempBool = false 
+        set udg_ace_Existence = true 
     endif 
 endfunction 
+
+function Trig_Choose_AlbadarVisionRemove takes nothing returns nothing
+    local Table data = Timeout.complete()
+    call DestroyFogModifier(data.fogmodifier.read("fogMod"))
+endfunction
+
+function Trig_Choose_AlbadarVision takes nothing returns nothing
+    local fogmodifier r
+    local Table t
+    set r = CreateFogModifierRectBJ( true, GetEnumPlayer(), FOG_OF_WAR_FOGGED, gg_rct_SS12P1 )
+    set t = Timeout.start(0.5, false, function Trig_Choose_AlbadarVisionRemove)
+    call t.fogmodifier.write("fogMod", r)
+    set r = CreateFogModifierRectBJ( true, GetEnumPlayer(), FOG_OF_WAR_FOGGED, gg_rct_SS12P2 )
+    set t = Timeout.start(0.5, false, function Trig_Choose_AlbadarVisionRemove)
+    call t.fogmodifier.write("fogMod", r)
+endfunction
 
 function Trig_Chooser_Actions takes nothing returns nothing 
     call DestroyTrigger(GetTriggeringTrigger()) 
@@ -137,11 +153,22 @@ function Trig_Chooser_Actions takes nothing returns nothing
     call DestroyTrigger(gg_trg_Engineer) 
     call DestroyTrigger(gg_trg_SecurityGuard) 
     call DestroyTrigger(gg_trg_Pilot) 
-    set udg_TempBool = true 
     call ForForce(GetPlayersAll(), function Trig_Chooser_CheckIfAceExists) 
-    if udg_TempBool then //if ace exists      
-        set udg_ace_Existence = true 
-        call ShowUnitHide(gg_unit_h02Q_0212) 
+    if udg_ace_Existence or udg_TESTING then  
+        //Taken from SSInit
+        set udg_TempUnit = gg_unit_h02S_0215
+        set udg_TempUnit2 = gg_unit_h02Q_0212
+        set udg_TempUnit3 = gg_unit_h004_0213
+        set udg_TempRect = gg_rct_SS12
+        set udg_TempRect2 = gg_rct_SS12EE
+        set udg_TempRect3 = gg_rct_SS12Control
+        set udg_SS_Harbor[GetUnitUserData(gg_unit_h02S_0215)] = null
+        set udg_SS_DockGroundedAt[GetUnitUserData(gg_unit_h02S_0215)] = 0
+        set udg_TempInt = 20
+        call Spaceship_Build(udg_TempUnit, udg_TempUnit2, udg_TempUnit3, udg_TempRect, udg_TempRect2, udg_TempRect3,udg_TempInt)
+        call ForForce(GetPlayersAll(), function Trig_Choose_AlbadarVision)
+    else
+        call ShowUnit(gg_unit_h02Q_0212, false) 
     endif 
     call GroupClear(udg_ChooseRoles_SpawnGroup) 
     call ConditionalTriggerExecute(gg_trg_RepickAlien) 
