@@ -1,1 +1,1 @@
-{"name":"ST1mInit","contentType":"TRIGGER_SCRIPTED","description":"Initialize this station- set docks, create and destroy visibility modifiers, destroy visibility modifier rects, and open all walls of dock elevators.","isEnabled":true,"runOnMapInit":true,"script":""}
+{"name":"ST1mInit","contentType":"TRIGGER_SCRIPTED","description":"Initialize this station- set docks, create and destroy visibility modifiers, destroy visibility modifier rects, and open all walls of dock elevators.","isEnabled":true,"runOnMapInit":false,"script":""}
