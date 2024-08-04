@@ -5,6 +5,10 @@ function Trig_RepickMutant_Conditions takes nothing returns boolean
     return true
 endfunction
 
+function Trig_RepickMutant_PickNo takes nothing returns nothing
+    call TriggerExecute(gg_trg_RepickMutantChoice)
+endfunction
+
 function Trig_RepickMutant_Actions takes nothing returns nothing
     call DialogClearBJ( udg_RepickMutantDialog )
     call DialogSetMessageBJ( udg_RepickMutantDialog, "TRIGSTR_5319" )
@@ -13,6 +17,7 @@ function Trig_RepickMutant_Actions takes nothing returns nothing
     call DialogAddButtonBJ( udg_RepickMutantDialog, "TRIGSTR_5321" )
     set udg_RepickMutantDialogButton[1] = GetLastCreatedButtonBJ()
     call DialogDisplayBJ( true, udg_RepickMutantDialog, udg_Mutant )
+    call Timeout.start(15, false, function Trig_RepickMutant_PickNo)
 endfunction
 
 //===========================================================================

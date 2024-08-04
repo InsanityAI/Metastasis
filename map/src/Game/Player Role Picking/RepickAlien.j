@@ -5,6 +5,10 @@ function Trig_RepickAlien_Conditions takes nothing returns boolean
     return true
 endfunction
 
+function Trig_RepickAlien_PickNo takes nothing returns nothing
+    call TriggerExecute(gg_trg_RepickAlienChoice)
+endfunction
+
 function Trig_RepickAlien_Actions takes nothing returns nothing
     call DialogClearBJ( udg_RepickAlienDialog )
     call DialogSetMessageBJ( udg_RepickAlienDialog, "TRIGSTR_5314" )
@@ -13,6 +17,7 @@ function Trig_RepickAlien_Actions takes nothing returns nothing
     call DialogAddButtonBJ( udg_RepickAlienDialog, "TRIGSTR_5315" )
     set udg_RepickAlienDialogButton[1] = GetLastCreatedButtonBJ()
     call DialogDisplayBJ( true, udg_RepickAlienDialog, udg_Parasite )
+    call Timeout.start(15, false, function Trig_RepickAlien_PickNo)
 endfunction
 
 //===========================================================================
