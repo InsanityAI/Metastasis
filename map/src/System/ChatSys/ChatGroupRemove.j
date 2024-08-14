@@ -27,7 +27,7 @@ function Trig_ChatGroupRemove_Actions takes nothing returns nothing
         else
             set targettedPlayer = Anonymity_ShuffledPlayersArray[udg_TempInt]
             call ForceRemovePlayerSimple( targettedPlayer, udg_TempPlayerGroup )
-            call DisplayTimedTextToPlayer( GetTriggerPlayer(), 0, 0, 30, ( PlayerColor_GetPlayerTextColor(targettedPlayer) + GetPlayerName(targettedPlayer) + ( "|r |cff008000has been removed from group |r|cff0080C0" + ( udg_TempString + "|r." ) ) ) )
+            call DisplayTimedTextToPlayer( GetTriggerPlayer(), 0, 0, 30, ( PlayerColor_GetByPlayer(targettedPlayer).color + GetPlayerName(targettedPlayer) + ( "|r |cff008000has been removed from group |r|cff0080C0" + ( udg_TempString + "|r." ) ) ) )
             call DisplayTimedTextToPlayer( targettedPlayer, 0, 0, 30, ( "You" + ( " |cff008000have been removed from group |r|cff0080C0" + ( udg_TempString + "|r." ) ) ) )
         endif
     endif

@@ -27,7 +27,7 @@ function Trig_ChatGroupAdd_Actions takes nothing returns nothing
         else
             set targettedPlayer = Anonymity_ShuffledPlayersArray[udg_TempInt]
             call ForceAddPlayer(udg_TempPlayerGroup, targettedPlayer)
-            call DisplayTimedTextToPlayer( GetTriggerPlayer(), 0, 0, 30, ( PlayerColor_GetPlayerTextColor(targettedPlayer) + GetPlayerName(targettedPlayer) + ( "|r |cff008000has been added to group |r|cff0080C0" + ( udg_TempString + "|r." ) ) ) )
+            call DisplayTimedTextToPlayer( GetTriggerPlayer(), 0, 0, 30, ( PlayerColor_GetByPlayer(targettedPlayer).color + GetPlayerName(targettedPlayer) + ( "|r |cff008000has been added to group |r|cff0080C0" + ( udg_TempString + "|r." ) ) ) )
             call DisplayTimedTextToPlayer( targettedPlayer, 0, 0, 30, ( "You" + ( " |cff008000have been added to group |r|cff0080C0" + ( udg_TempString + "|r." ) ) ) )
         endif
     endif

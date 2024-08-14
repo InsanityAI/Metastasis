@@ -1,53 +1,71 @@
-library PlayerColor initializer init
-    globals
-        private string array textColors
-    endglobals
+library PlayerColor initializer init requires Table 
+    globals 
+        private Table PlayerColors // table<playercolor, PlayerColor>  
+    endglobals 
 
-    public function GetPlayerColorTextColor takes playercolor p returns string
-        local integer index = 0
-        local integer endindex = GetBJMaxPlayers() + 4 //neutrals
+    struct PlayerColor 
+        readonly string color 
+        readonly string name 
+        readonly integer red 
+        readonly integer green 
+        readonly integer blue 
 
-        loop
-            exitwhen index >= endindex
-            exitwhen ConvertPlayerColor(index) == p
-            set index = index + 1
-        endloop
+        static method create takes string color, string name, integer red, integer green, integer blue returns thistype 
+            local thistype this = thistype.allocate() 
+            set this.color = color 
+            set this.name = name 
+            set this.red = red 
+            set this.green = green 
+            set this.blue = blue 
+            return this 
+        endmethod 
+    endstruct 
 
-        return textColors[index]
-    endfunction
+    public function Get takes playercolor p returns PlayerColor 
+        if PlayerColors.stores(p) then 
+            return PlayerColors.get(p) 
+        endif 
+        return 0 
+    endfunction 
 
-    public function GetPlayerTextColor takes player p returns string
-        return GetPlayerColorTextColor(GetPlayerColor(p))
-    endfunction
+    public function GetByPlayer takes player thisPlayer returns PlayerColor 
+        return Get(GetPlayerColor(thisPlayer)) 
+    endfunction 
 
-    private function init takes nothing returns nothing
-        set textColors[0] = "|cffff0303"
-        set textColors[1] = "|cff0042ff"
-        set textColors[2] = "|cff1ce6b9"
-        set textColors[3] = "|cff540081"
-        set textColors[4] = "|cfffffc00"
-        set textColors[5] = "|cfffe8a0e"
-        set textColors[6] = "|cff20c000"
-        set textColors[7] = "|cffe55bb0"
-        set textColors[8] = "|cff959697"
-        set textColors[9] = "|cff7ebff1"
-        set textColors[10] = "|cff106246"
-        set textColors[11] = "|cff4e2a04"
-        set textColors[12] = "|cff9b0000"
-        set textColors[13] = "|cff0000c3"
-        set textColors[14] = "|cff00eaff"
-        set textColors[15] = "|cffbe00fe"
-        set textColors[16] = "|cffebcd87"
-        set textColors[17] = "|cfff8a48b"
-        set textColors[18] = "|cffbfff80"
-        set textColors[19] = "|cffdcb9eb"
-        set textColors[20] = "|cff4f5055"
-        set textColors[21] = "|cffebf0ff"
-        set textColors[22] = "|cff00781e"
-        set textColors[23] = "|cffa46f33"
-        set textColors[24] = "|cff2e2d2e"
-        set textColors[25] = "|cff2e2d2e"
-        set textColors[26] = "|cff2e2d2e"
-        set textColors[27] = "|cff2e2d2e"
-    endfunction
+    public function GetByPlayerId takes integer playerId returns PlayerColor 
+        return GetByPlayer(Player(playerId)) 
+    endfunction 
+
+    private function init takes nothing returns nothing 
+        local PlayerColor black = PlayerColor.create("ff2e2d2e", "Black", 46, 45, 46) 
+        set PlayerColors = Table.create()
+        call PlayerColors.store(PLAYER_COLOR_RED, PlayerColor.create("ffff0303", "Red", 255, 3, 3)) 
+        call PlayerColors.store(PLAYER_COLOR_BLUE, PlayerColor.create("ff0042ff", "Blue", 0, 66, 255)) 
+        call PlayerColors.store(PLAYER_COLOR_TURQUOISE, PlayerColor.create("ff1ce6b9", "Teal", 28, 230, 185)) 
+        call PlayerColors.store(PLAYER_COLOR_PURPLE, PlayerColor.create("ff540081", "Purple", 84, 0, 129)) 
+        call PlayerColors.store(PLAYER_COLOR_YELLOW, PlayerColor.create("fffffc00", "Yellow", 255, 254, 0)) 
+        call PlayerColors.store(PLAYER_COLOR_ORANGE, PlayerColor.create("fffe8a0e", "Orange", 254, 138, 14)) 
+        call PlayerColors.store(PLAYER_COLOR_GREEN, PlayerColor.create("ff20c000", "Green", 32, 192, 0)) 
+        call PlayerColors.store(PLAYER_COLOR_PINK, PlayerColor.create("ffe55bb0", "Pink", 229, 91, 176)) 
+        call PlayerColors.store(PLAYER_COLOR_LIGHT_GRAY, PlayerColor.create("ff959697", "Gray", 149, 150, 151)) 
+        call PlayerColors.store(PLAYER_COLOR_LIGHT_BLUE, PlayerColor.create("ff7ebff1", "Light Blue", 126, 191, 241)) 
+        call PlayerColors.store(PLAYER_COLOR_AQUA, PlayerColor.create("ff106246", "Dark Green", 16, 98, 70)) 
+        call PlayerColors.store(PLAYER_COLOR_BROWN, PlayerColor.create("ff4e2a04", "Brown", 78, 42, 4)) 
+        call PlayerColors.store(PLAYER_COLOR_MAROON, PlayerColor.create("ff9b0000", "Maroon", 155, 0, 0)) 
+        call PlayerColors.store(PLAYER_COLOR_NAVY, PlayerColor.create("ff0000c3", "Navy", 0, 0, 195)) 
+        call PlayerColors.store(PLAYER_COLOR_TURQUOISE, PlayerColor.create("ff00eaff", "Turquoise", 155, 234, 255)) 
+        call PlayerColors.store(PLAYER_COLOR_VIOLET, PlayerColor.create("ffbe00fe", "Violet", 190, 0, 254)) 
+        call PlayerColors.store(PLAYER_COLOR_WHEAT, PlayerColor.create("ffebcd87", "Wheat", 235, 205, 135)) 
+        call PlayerColors.store(PLAYER_COLOR_PEACH, PlayerColor.create("fff8a48b", "Peach", 248, 164, 139)) 
+        call PlayerColors.store(PLAYER_COLOR_MINT, PlayerColor.create("ffbfff80", "Mint", 191, 255, 128)) 
+        call PlayerColors.store(PLAYER_COLOR_LAVENDER, PlayerColor.create("ffdcb9eb", "Lavender", 220, 185, 235)) 
+        call PlayerColors.store(PLAYER_COLOR_COAL, PlayerColor.create("ff282828", "Coal", 40, 40, 40)) 
+        call PlayerColors.store(PLAYER_COLOR_SNOW, PlayerColor.create("ffebf0ff", "Snow", 235, 240, 255)) 
+        call PlayerColors.store(PLAYER_COLOR_EMERALD, PlayerColor.create("ff00781e", "Emerald", 0, 120, 30)) 
+        call PlayerColors.store(PLAYER_COLOR_PEANUT, PlayerColor.create("ffa46f33", "Peanut", 164, 111, 51)) 
+        call PlayerColors.store(ConvertPlayerColor(24), black) 
+        call PlayerColors.store(ConvertPlayerColor(25), black) 
+        call PlayerColors.store(ConvertPlayerColor(26), black) 
+        call PlayerColors.store(ConvertPlayerColor(27), black) 
+    endfunction 
 endlibrary

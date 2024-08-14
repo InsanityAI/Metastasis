@@ -21,7 +21,7 @@ function Trig_ChatGroupQuickBroadcast_Actions takes nothing returns nothing
         call DisplayTextToPlayer(trigPlayer, 0, 0, "|cFFFF0000Error: Default group is not set!")
         return
     endif
-    set message = "|cff808040" + "[" + udg_Player_DefaultChatGroupName[playerId] + "]|r" + PlayerColor_GetPlayerTextColor(trigPlayer) + GetPlayerName(trigPlayer) + "|r: " + message 
+    set message = "|cff808040" + "[" + udg_Player_DefaultChatGroupName[playerId] + "]|r" + PlayerColor_GetByPlayer(trigPlayer).color + GetPlayerName(trigPlayer) + "|r: " + message 
     if IsPlayerInForce(trigPlayer, udg_TempPlayerGroup) then 
         call ForForce(udg_TempPlayerGroup, function Trig_ChatGroupQuickBroadcast_RemoveDeadPlayers) 
         call DisplayTextToForce(udg_TempPlayerGroup, message) 

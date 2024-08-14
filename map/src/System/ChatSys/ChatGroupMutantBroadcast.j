@@ -24,7 +24,7 @@ local integer i=0
     loop
     exitwhen i>11
     if (udg_Player_IsMutantSpawn[i+1] or Player(i)==udg_Mutant) then
-    call DisplayTextToPlayer(Player(i),0,0, "|cff800080" +  "[" +  "Mutant" +  "]|r" + PlayerColor_GetPlayerTextColor(GetTriggerPlayer())+ GetPlayerName(GetTriggerPlayer())  +  "|r: " + udg_arguments[2] )
+    call DisplayTextToPlayer(Player(i),0,0, "|cff800080" +  "[" +  "Mutant" +  "]|r" + PlayerColor_GetByPlayer(GetTriggerPlayer()).color + GetPlayerName(GetTriggerPlayer())  +  "|r: " + udg_arguments[2] )
     endif
     set i=i+1
     endloop

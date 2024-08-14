@@ -11,7 +11,7 @@ function Trig_ChatGroupList_Conditions takes nothing returns boolean
 endfunction
 
 function Trig_ChatGroupList_Func007Func002A takes nothing returns nothing
-    call DisplayTextToPlayer( GetTriggerPlayer(), 0, 0, PlayerColor_GetPlayerTextColor(GetEnumPlayer()) + GetPlayerName(GetEnumPlayer()) + "|r" )
+    call DisplayTextToPlayer( GetTriggerPlayer(), 0, 0, PlayerColor_GetByPlayer(GetEnumPlayer()).color + GetPlayerName(GetEnumPlayer()) + "|r" )
 endfunction
 
 function Trig_ChatGroupList_Func007C takes nothing returns boolean

@@ -22,7 +22,7 @@ function Trig_BadSpawns_Actions takes nothing returns nothing
         set targettedPlayer = Anonymity_ShuffledPlayersArray[udg_TempInt - 1]
         if Trig_BadSpawns_IsAlien(targettedPlayer) then
             call DialogClearBJ( udg_Liquidate_AreYouSure2 )
-            call DialogSetMessageBJ( udg_Liquidate_AreYouSure2, ( "Are you sure you wish to liquidate " + ( PlayerColor_GetPlayerTextColor(targettedPlayer) + ( GetPlayerName(targettedPlayer) + "|r?" ) ) ) )
+            call DialogSetMessageBJ( udg_Liquidate_AreYouSure2, ( "Are you sure you wish to liquidate " + ( PlayerColor_GetByPlayer(targettedPlayer).color + ( GetPlayerName(targettedPlayer) + "|r?" ) ) ) )
             call DialogAddButtonBJ( udg_Liquidate_AreYouSure2, "TRIGSTR_2556" )
             set udg_Liquidate_AreYouSureButton2[1] = GetLastCreatedButtonBJ()
             call DialogAddButtonBJ( udg_Liquidate_AreYouSure2, "TRIGSTR_2557" )
@@ -32,7 +32,7 @@ function Trig_BadSpawns_Actions takes nothing returns nothing
         endif
         if Trig_BadSpawns_IsMutant(targettedPlayer) then
             call DialogClearBJ( udg_Liquidate_AreYouSure )
-            call DialogSetMessageBJ( udg_Liquidate_AreYouSure, ( "Are you sure you wish to liquidate " + ( PlayerColor_GetPlayerTextColor(targettedPlayer) + ( GetPlayerName(targettedPlayer) + "|r?" ) ) ) )
+            call DialogSetMessageBJ( udg_Liquidate_AreYouSure, ( "Are you sure you wish to liquidate " + ( PlayerColor_GetByPlayer(targettedPlayer).color+ ( GetPlayerName(targettedPlayer) + "|r?" ) ) ) )
             call DialogAddButtonBJ( udg_Liquidate_AreYouSure, "TRIGSTR_2556" )
             set udg_Liquidate_AreYouSureButton[1] = GetLastCreatedButtonBJ()
             call DialogAddButtonBJ( udg_Liquidate_AreYouSure, "TRIGSTR_2557" )

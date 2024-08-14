@@ -1466,43 +1466,7 @@ call SlugglyAssassin(udg_TempUnit)
 
 endfunction
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-function RoboButler_Move takes nothing returns nothing
-local timer k=GetExpiredTimer()
-local unit a=LoadUnitHandle(LS(),GetHandleId(k),StringHash("u"))
-local player c=LoadPlayerHandle(LS(),GetHandleId(k),StringHash("u2"))
-local unit b=GetPlayerhero(c)
-local real angle=bj_RADTODEG * Atan2(GetUnitY(a) - GetUnitY(b), GetUnitX(a) - GetUnitX(b))
-local real x=GetUnitX(b)+75.0*CosBJ(angle)
-local real y=GetUnitY(b)+75.0*SinBJ(angle)
-//Will not follow spacial alien into space. Instead will magically stay at the same spot, and warp to spacial alien when
-//it boards.
-if IsUnitDeadBJ(b) or b == null then
-call RemoveUnit(a)
-call FlushChildHashtable(LS(),GetHandleId(k))
-call PauseTimer(k)
-call DestroyTimer(k)
-return
-endif
-if RectContainsCoords(gg_rct_Space,x,y)!=true then
-call SetUnitX(a,x)
-call SetUnitY(a,y)
-endif
-if GetOwningPlayer(b)==Player(bj_PLAYER_NEUTRAL_EXTRA) or GetUnitTypeId(b)=='h01D' or udg_Player_IsMasquerading[GetConvertedPlayerId(c)] or GetUnitAbilityLevel(b,'A08D')>=1 then
-//The alien is in alien form or the mutant is a stalker. Cloaking will be applied.
-call UnitAddAbility(a,'Agho')
-else
-call UnitRemoveAbility(a,'Agho')
-endif
-endfunction
 
-function RoboButler takes nothing returns nothing
-local unit a=udg_TempUnit
-local player b=GetOwningPlayer(udg_TempUnit2)
-local timer k=CreateTimer()
-call SaveUnitHandle(LS(),GetHandleId(k),StringHash("u"),a)
-call SavePlayerHandle(LS(),GetHandleId(k),StringHash("u2"),b)
-call TimerStart(k,0.04,true,function RoboButler_Move)
-endfunction
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 function Masquerade_MutantEnd takes player a returns nothing
 //Automatically ends the masquerader's impersonation of the mutant or android after 30 seconds.

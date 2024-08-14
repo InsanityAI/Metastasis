@@ -1,8 +1,5 @@
 function Trig_DoorHack_Conditions takes nothing returns boolean
-    if ( not ( GetSpellAbilityId() == 'A053' ) ) then
-        return false
-    endif
-    return true
+    return GetSpellAbilityId() == UnitAbilityIds_DOOR_HACK
 endfunction
 
 function Trig_DoorHack_Func004Func001Func002C takes nothing returns boolean

@@ -45,8 +45,8 @@ function Trig_ChatGroupBroadcast_Actions takes nothing returns nothing
     endloop
     if ( IsPlayerInForce(GetTriggerPlayer(), udg_TempPlayerGroup) == true ) then
         call ForForce( udg_TempPlayerGroup, function Trig_ChatGroupBroadcast_Func007Func001A )
-        call DisplayTextToForce( udg_TempPlayerGroup, ( "|cff808040" + ( ( "[" + ( udg_arguments[1] + ( "]|r" + PlayerColor_GetPlayerTextColor(GetTriggerPlayer()) + GetPlayerName(GetTriggerPlayer()) ) ) ) + ( "|r: " + udg_arguments[2] ) ) ) )
-        call DisplayTextToForce( udg_DeadGroup, ( "|cff808040" + ( ( "[" + ( udg_arguments[1] + ( "]|r" + PlayerColor_GetPlayerTextColor(GetTriggerPlayer())  + GetPlayerName(GetTriggerPlayer()) ) ) ) + ( "|r: " + udg_arguments[2] ) ) ) )
+        call DisplayTextToForce( udg_TempPlayerGroup, ( "|cff808040" + ( ( "[" + ( udg_arguments[1] + ( "]|r" + PlayerColor_GetByPlayer(GetTriggerPlayer()).color + GetPlayerName(GetTriggerPlayer()) ) ) ) + ( "|r: " + udg_arguments[2] ) ) ) )
+        call DisplayTextToForce( udg_DeadGroup, ( "|cff808040" + ( ( "[" + ( udg_arguments[1] + ( "]|r" + PlayerColor_GetByPlayer(GetTriggerPlayer()).color  + GetPlayerName(GetTriggerPlayer()) ) ) ) + ( "|r: " + udg_arguments[2] ) ) ) )
     endif
     
     //Gosh, no secrets here.
