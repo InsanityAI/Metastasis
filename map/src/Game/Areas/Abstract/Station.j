@@ -1,7 +1,7 @@
-library Station initializer init requires Table, Dockable, Poddable, Boardable, CompositeGameSpace, Timeout, MetaPlayer 
+library Station initializer init requires Table, Dockable, Poddable, Boardable, CompositeGameSpace, Timeout, MetaPlayer, RectOfDoom, Space
     globals 
-        private Table triggerData //table<unit, Station>    
-        private Table timerData //table<timer, Station>    
+        private Table triggerData //table<unit, Station>     
+        private Table timerData //table<timer, Station>     
 
         private trigger damageTrigger 
         private conditionfunc damageAction 
@@ -9,7 +9,7 @@ library Station initializer init requires Table, Dockable, Poddable, Boardable, 
         private trigger deathTrigger 
         private conditionfunc deathAction 
 
-        private string currentMessage
+        private string currentMessage 
     endglobals 
 
     private function endStationDamage takes nothing returns nothing 
@@ -24,27 +24,27 @@ library Station initializer init requires Table, Dockable, Poddable, Boardable, 
         if metaPlayer == 0 then 
             return 
         endif 
-        call DisplayTimedTextToPlayer(metaPlayer.actualPlayer, 0, 0, 5.00, currentMessage)
+        call DisplayTimedTextToPlayer(metaPlayer.actualPlayer, 0, 0, 5.00, currentMessage) 
     endfunction 
 
     private function stationDamageNotification takes nothing returns nothing 
         local Station stationData = timerData.get(GetExpiringTimer()) 
-        set currentMessage = "|cFFFF0000" + stationData.name ++ " under attack!|r"
+        set currentMessage = "|cFFFF0000" + stationData.name++" under attack!|r" 
         call stationData.forEachUnit(function notifyPlayerOfStationDamage) 
     endfunction 
 
     private function stationDamaged takes nothing returns boolean 
-        local unit damagedUnit = GetTriggerData() 
+        local unit damagedUnit = GetTriggerUnit() 
         local Station station 
 
         if not triggerData.stores(damagedUnit) then 
-            return //not a station    
+            return //not a station     
         endif 
-        set station = triggerData.get(GetTriggerUnit()) 
+        set station = triggerData.get(damagedUnit) 
 
-        if station.damageSilent then
-            return
-        endif
+        if station.damageSilent then 
+            return 
+        endif 
 
         if not station.takingDamage then 
             set stationData.takingDamage = true 
@@ -56,36 +56,73 @@ library Station initializer init requires Table, Dockable, Poddable, Boardable, 
     endfunction 
 
     private function stationDeath takes nothing returns boolean 
-        local unit dyingUnit = GetTriggerData() 
+        local unit dyingUnit = GetTriggerUnit() 
         local Station station 
 
         if not triggerData.stores(dyingUnit) then 
-            return //not a station    
+            return //not a station     
         endif 
-        set station = triggerData.get(GetTriggerUnit()) 
+        set station = triggerData.get(dyingUnit) 
+        call station.destroy()
+        set dyingUnit = null
     endfunction 
 
+    public function GetFromPoint takes real x, real y returns Station
+        local Table keys = triggerData.getKeys()
+        local integer i = keys[0]
+        local Station station = 0
+        local boolean found
+
+        loop
+            exitwhen i == 0
+            set station = triggerData.get(keys[i])
+            set found = station.containsPoint(x, y)
+            exitwhen found
+            set i = i - 1
+        endloop
+
+        if found then
+            return station
+        else
+            return 0
+        endif
+    endfunction
+
     struct Station extends CompositeGameSpace, IPoddable 
-        readonly string name
+        readonly string name 
         readonly unit stationUnit 
         readonly rect overRect 
         public boolean takingDamage = false 
         readonly timer damageTimer 
         readonly timer damageNotificationTimer 
-        public boolean damageSilent = false
+        public boolean damageSilent = false 
 
         static method create takes unit stationUnit, rect overRect, string name returns thistype 
             local thistype this = thistype.allocate() 
             set this.stationUnit = stationUnit 
-            set this.name = name
+            set this.name = name 
             set this.overRect = overRect 
             set this.damageTimer = CreateTimer() 
             set this.damageNotificationTimer = CreateTimer() 
             call triggerData.store(stationUnit, this) 
             call timerData.store(this.damageTimer, this) 
             call timerData.store(this.damageNotificationTimer, this) 
+            call Space_EnterSpace(this)
             return this 
         endmethod 
+
+        method destroy takes nothing returns nothing
+            call CinematicFadeBJ(bj_CINEFADETYPE_FADEOUTIN, 7.00, "ReplaceableTextures\\CameraMasks\\DreamFilter_Mask.blp", 100.00, 0, 0, 0) 
+            call SFXLib_StationExplode(this.stationUnit , 4, 360.0) 
+            call StartSound(gg_snd_NecropolisUpgrade1) 
+            call DisplayTextToForce(GetPlayersAll(), "|cffFF0000The " + this.name + " has been destroyed!|r") 
+            call RectOfDoom(this.overRect)
+        endmethod
+
+        method kill takes unit killer returns nothing
+            call ProxyKill_PermanentDeathAtRect(killer, this.overRect)
+            call this.destroy()
+        endmethod
 
         implement Poddable 
     endstruct 
@@ -111,6 +148,7 @@ library Station initializer init requires Table, Dockable, Poddable, Boardable, 
         set damageTrigger = CreateTrigger() 
         set damageAction = Condition(function stationDamaged) 
         call TriggerRegisterAnyUnitEventBJ(damageTrigger, EVENT_PLAYER_UNIT_DAMAGED) 
+
         set deathTrigger = CreateTrigger() 
         set deathAction = Condition(function stationDeath) 
         call TriggerRegisterAnyUnitEventBJ(damageTrigger, EVENT_PLAYER_UNIT_DEATH) 

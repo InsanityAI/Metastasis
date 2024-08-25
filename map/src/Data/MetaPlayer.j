@@ -143,6 +143,13 @@ library MetaPlayer initializer init requires Table, PlayerColor, StateGrid
         endif
     endfunction
 
+    //Does not use player owner to determine metaplayer, but uses GetFromHero
+    //Idea is to return a unit that main hero is controlling (such as ships)
+    //Works thanks to Unit proxying
+    public function GetFromUnit takes unit thisUnit returns MetaPlayer
+        return GetFromHero(thisUnit)
+    endfunction
+
     public function GetFromOwner takes unit u returns MetaPlayer
         return Get(GetOwningPlayer(u))
     endfunction

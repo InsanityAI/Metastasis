@@ -1,4 +1,4 @@
-library Boardable initializer init requires Table, Timeout 
+library Boardable initializer init requires Table, Timeout, ProgressBar
     globals 
         private constant integer SHIP_BOARD_ABILITY = 'A02J' 
         private constant real BOARDING_DURATION = 20.00 
@@ -25,7 +25,7 @@ library Boardable initializer init requires Table, Timeout
         readonly integer progressBar 
         readonly Table endTimerData 
 
-        static method create IBoardable sourceBoard, IBoardable targetBoard, unit sourceUnit, unit targetUnit returns thistype 
+        static method create takes IBoardable sourceBoard, IBoardable targetBoard, unit sourceUnit, unit targetUnit returns thistype 
             local thistype this = thistype.allocate() 
             local real x1 = GetUnitX(sourceUnit) 
             local real y2 = GetUnitY(sourceUnit) 
@@ -207,7 +207,7 @@ library Boardable initializer init requires Table, Timeout
         
         call boardDestination.enableBoarding(false)
         call SetUnitPosition(GetTriggerUnit(), boardDestination.getBoardingEntranceX(), boardDestination.getBoardingEntranceY())
-        call boardDestination.disableBoarding(true)
+        call boardDestination.enableBoarding(true)
     endfunction
 
     private function init takes nothing returns nothing 

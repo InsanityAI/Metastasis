@@ -5,6 +5,12 @@ library SimpleGameSpace initializer init requires Table, GameSpace
         private rect currentRect
         private conditionfunc enterSpaceAction
         private conditionfunc exitSpaceAction
+
+        //Temp stuff for rect intersections
+        private real array startX
+        private real array startY
+        private real array endX
+        private real array endY
     endglobals
 
     private function flashVisibilityEnum takes nothing returns nothing
@@ -40,8 +46,9 @@ library SimpleGameSpace initializer init requires Table, GameSpace
     endfunction
 
     struct SimpleGameSpace extends GameSpace
-        private Table rects //table<rect, boolean>
+        private Table rects //table<rect, real>
         private region space
+        private real surfaceArea
         readonly group unitsInSpace
         private trigger unitEnterSpace
         private trigger unitExitSpace
@@ -49,6 +56,7 @@ library SimpleGameSpace initializer init requires Table, GameSpace
         static method create takes nothing returns thistype
             local thistype this = thistype.allocate()
             set this.rects = Table.create()
+            set this.surfaceArea = 0.00
             set this.space = CreateRegion()
 
             set this.unitEnterSpace = CreateTrigger()
@@ -70,7 +78,7 @@ library SimpleGameSpace initializer init requires Table, GameSpace
         endmethod
 
         method addRect takes rect r returns nothing
-            call this.rects.boolean.store(r, true)
+            call this.rects.real.store(r, 0.00)
             call RegionAddRect(this.space, r)
         endmethod
 
@@ -85,11 +93,28 @@ library SimpleGameSpace initializer init requires Table, GameSpace
         endmethod
 
         method initialize takes nothing returns nothing
-            call flashInvisibility(this.rects.getKeys(), FOG_OF_WAR_VISIBLE)
+            local Table rects = this.rects.getKeys()
+            local integer i = rects[0]
+            local integer j = i - 1
+            local integer k = 0
+            call flashInvisibility(rects, FOG_OF_WAR_VISIBLE)
+
+            loop
+                exitwhen i == 0
+
+                //look for rect intersections
+                set this.surfaceArea = this.surfaceArea + //rect surface area
+
+                set i = i - 1
+            endloop
         endmethod
 
         method contains takes unit thisUnit returns boolean
             return IsUnitInGroup(thisUnit, this.unitsInSpace)
+        endmethod
+
+        method containsPoint takes real x, real y returns boolean
+            return IsPointInRegion(this.space, x, y)
         endmethod
 
         method forEachUnit takes code callback returns nothing

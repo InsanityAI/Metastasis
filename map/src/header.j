@@ -921,24 +921,6 @@ call TimerStart(t,0,false,function BlockDamage_RemoveAbility)
 endif
 endfunction
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-function RectOfDoom_Kill takes nothing returns nothing
-call KillUnit(GetEnumUnit())
-endfunction
-
-function RectOfDoom takes rect r returns nothing
-//This keeps murdering everything in a dead ship or station for about five minutes.
-local integer i=0
-local group g
-loop
-exitwhen i > 300
-set i=i+1
-call PolledWait(1.0)
-set g=GetUnitsInRectAll(r)
-call ForGroup(g,function RectOfDoom_Kill)
-call DestroyGroup(g)
-endloop
-endfunction
-////////////////////////////////////////////////////////////////////////////////////////////////////////
 //All of these are mostly obvious, and use straightforward linear gradients.
 function FadeUnitOverTime_Child takes nothing returns nothing
 local timer t=GetExpiredTimer()
@@ -1942,23 +1924,23 @@ call TimerStart(k,0.05,true,function SVOP_Callback)
 endfunction
 
 
-    function MKU_CallBack takes nothing returns nothing
+function MKU_CallBack takes nothing returns nothing
     local timer t=GetExpiredTimer()
     call KillUnit(LoadUnitHandle(udg_hash, GetHandleId(t), StringHash("r")))
     call FlushChildHashtable(udg_hash, GetHandleId(t))
     call DestroyTimer(t)
-    endfunction
-    function MoogleKillUnit takes unit Victim, unit Killer returns nothing
+endfunction
+function MoogleKillUnit takes unit Victim, unit Killer returns nothing
     //Fel should definitely make his own function
     local timer t=CreateTimer()
-        call UnitRemoveBuffs(Victim, true, true)
-        call ShowUnit(Victim, true)
-        call SetUnitInvulnerable(Victim, false)
-        call SetUnitState(Victim, UNIT_STATE_LIFE, 1)
-        call UnitDamageTarget(Killer, Victim, 421337, true, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
-call SaveUnitHandle(udg_hash, GetHandleId(t), StringHash("r"),Victim)
-call TimerStart(t,0.01,false,function MKU_CallBack)
-   endfunction
+    call UnitRemoveBuffs(Victim, true, true)
+    call ShowUnit(Victim, true)
+    call SetUnitInvulnerable(Victim, false)
+    call SetUnitState(Victim, UNIT_STATE_LIFE, 1)
+    call UnitDamageTarget(Killer, Victim, 421337, true, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+    call SaveUnitHandle(udg_hash, GetHandleId(t), StringHash("r"),Victim)
+    call TimerStart(t,0.01,false,function MKU_CallBack)
+endfunction
    
    function DropItem_FollowThrough takes nothing returns nothing
    local trigger t=GetTriggeringTrigger()

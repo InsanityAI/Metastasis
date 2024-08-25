@@ -26,18 +26,33 @@ library CompositeGameSpace requires Table, GameSpace
             local Table gameSpaces = this.spaces.getKeys()
             local GameSpace thisSpace
             local integer i = gameSpaces[0]
-            local boolean result = false
+            local boolean result
             loop
                 exitwhen i == 0
-                exitwhen result
                 set thisSpace = gameSpaces[i]
                 set result = thisSpace.contains(thisUnit)
+                exitwhen result
                 set i = i - 1
             endloop
             return result
         endmethod
 
-        method forEachUnit code callback returns nothing
+        method containsPoint takes real x, real y returns nothing
+            local Table gameSpaces = this.spaces.getKeys()
+            local GameSpace thisSpace
+            local integer i = gameSpaces[0]
+            local boolean result
+            loop
+                exitwhen i == 0
+                set thisSpace = gameSpaces[i]
+                set result = thisSpace.containsPoint(x, y)
+                exitwhen result
+                set i = i - 1
+            endloop
+            return result
+        endmethod
+
+        method forEachUnit takes code callback returns nothing
             local Table gameSpaces = this.spaces.getKeys()
             local GameSpace thisSpace
             local integer i = gameSpaces[0]

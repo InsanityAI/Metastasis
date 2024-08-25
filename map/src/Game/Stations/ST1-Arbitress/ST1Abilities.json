@@ -1,1 +1,0 @@
-{"name":"ST1Abilities","contentType":"TRIGGER_SCRIPTED","description":"If the console starts a surveillance sweep, pick every unit in the station and ping it.\r\nNote that if the pinger is neutral_extra (alien) it will ping it for the player-alien instead.","isEnabled":true,"runOnMapInit":false,"script":""}

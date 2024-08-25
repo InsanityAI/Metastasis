@@ -1,8 +1,5 @@
 function Trig_RadarSweepSector_Conditions takes nothing returns boolean
-    if ( not ( GetItemTypeId(GetSoldItem()) == 'I00T' ) ) then
-        return false
-    endif
-    return true
+    return GetItemTypeId(GetSoldItem()) == 'I00T'
 endfunction
 
 function Trig_RadarSweepSector_Func005Func001Func002Func001001001 takes nothing returns boolean

@@ -1,4 +1,4 @@
-library Niffy requires Station, SimpleGameSpace
+library Swagger requires Station, SimpleGameSpace
     globals 
         public Station station 
     endglobals 
