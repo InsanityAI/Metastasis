@@ -83,11 +83,11 @@ library Anonymity initializer init
             set colorIndexMax = colorIndexMax - 1 
         endloop 
 
-        //Fix 1.29's wrong color shade for neutrals  
-        call SetPlayerColor(Player(PLAYER_NEUTRAL_PASSIVE), ConvertPlayerColor(8)) 
-        call SetPlayerColor(Player(PLAYER_NEUTRAL_AGGRESSIVE), ConvertPlayerColor(8)) 
-        call SetPlayerColor(Player(bj_PLAYER_NEUTRAL_EXTRA), ConvertPlayerColor(8)) 
-        call SetPlayerColor(Player(bj_PLAYER_NEUTRAL_VICTIM), ConvertPlayerColor(8)) 
+        //Fix 1.29's wrong color shade for neutrals
+        // call SetPlayerColor(Player(PLAYER_NEUTRAL_PASSIVE), ConvertPlayerColor(8)) 
+        // call SetPlayerColor(Player(PLAYER_NEUTRAL_AGGRESSIVE), ConvertPlayerColor(8)) 
+        // call SetPlayerColor(Player(bj_PLAYER_NEUTRAL_EXTRA), ConvertPlayerColor(8)) 
+        // call SetPlayerColor(Player(bj_PLAYER_NEUTRAL_VICTIM), ConvertPlayerColor(8)) 
     endfunction 
 
     //1-indexed function, used for chat commands   
